@@ -3,7 +3,7 @@
 // connection/moddels/database functions
 import dbConnect from '@/db/conn';
 import Vehicle from '@/db/models/Vehicle';
-import Transaction from '@/db/models/Transaction';
+import VehicleTransaction from '@/db/models/VehicleTransaction';
 import { revalidatePath } from 'next/cache';
 
 export async function addNewVehicle(formData) {
@@ -68,7 +68,7 @@ export async function rentVehicle(formData) {
 				{ _id: payload.vehicle },
 				{ user: payload.user, inUse: true }
 			);
-			await Transaction.create(payload);
+			await VehicleTransaction.create(payload);
 			revalidatePath('/', 'page');
 		}
 	} catch (error) {
@@ -82,7 +82,7 @@ export const returnVehicle = async ({ transaction, vehicle }) => {
 	try {
 		await dbConnect();
 		await Vehicle.updateOne({ _id: vehicle }, { user: 'none', inUse: false });
-		await Transaction.updateOne(
+		await VehicleTransaction.updateOne(
 			{ _id: transaction },
 			{ status: 'complete', returnTime: new Date() }
 		);
@@ -120,7 +120,7 @@ export const makeReservation = async (formData) => {
 		// return { error: 'Please choose a user.' };
 	}
 	try {
-		await Transaction.create(payload);
+		await VehicleTransaction.create(payload);
 		revalidatePath('/', 'page');
 	} catch (error) {
 		console.log('makeReservation error:', error);
@@ -133,13 +133,13 @@ export const confirmReservation = async (data) => {
 	const { transaction, vehicle } = data;
 	try {
 		await dbConnect();
-		const alreadyInUse = await Transaction.findOne({
+		const alreadyInUse = await VehicleTransaction.findOne({
 			vehicle,
 			status: 'pending',
 		});
 		// console.log(alreadyInUse, 'USEEEE');
 		if (!alreadyInUse) {
-			await Transaction.updateOne(
+			await VehicleTransaction.updateOne(
 				{ _id: transaction },
 				{ rentTime: new Date(), status: 'pending' }
 			);
@@ -165,7 +165,7 @@ export const confirmReservation = async (data) => {
 export const cancelReservation = async (data) => {
 	try {
 		await dbConnect();
-		await Transaction.updateOne({ _id: data }, { status: 'canceled' });
+		await VehicleTransaction.updateOne({ _id: data }, { status: 'canceled' });
 		revalidatePath('/', 'page');
 		return {
 			error: {
@@ -182,7 +182,10 @@ export const checkIfUserRented = async (userId) => {
 	// console.log(userId);
 	try {
 		await dbConnect();
-		const user = await Transaction.find({ user: userId, status: 'pending' });
+		const user = await VehicleTransaction.find({
+			user: userId,
+			status: 'pending',
+		});
 		// console.log(user, 'THIS USER');
 		// return JSON.stringify(user);
 		revalidatePath('/', 'page');
@@ -210,7 +213,7 @@ export const getTransactionsByDate = async (from, to) => {
 
 	try {
 		await dbConnect();
-		const transactions = await Transaction.find(payload)
+		const transactions = await VehicleTransaction.find(payload)
 			.populate('vehicle')
 			.exec();
 		return JSON.stringify(transactions);
