@@ -1,12 +1,14 @@
-import React from 'react';
-import SelectInput from '../inputs/SelectInput';
-import InputType from '../inputs/InputType';
-import LanguageInputContainer from '../inputs/LanguageInputContainer';
-
 // state/actions
 import { getLanguages } from '@/app/dashboard/apiCalls';
 import { createSetting } from '@/serverActions/settings';
+
+// components
+import SelectInput from '../inputs/SelectInput';
+import InputType from '../inputs/InputType';
+import LanguageInputContainer from '../inputs/LanguageInputContainer';
+import FormCollections from './FormCollections';
 import SubmitButton from '../buttons/SubmitButtons';
+import AddCollections from './AddCollections';
 
 const sectors = [
 	{ name: 'Laboratory' },
@@ -50,6 +52,14 @@ const SettingsForm = async () => {
 						name={'main-plural'}
 					/>
 				</div>
+			</fieldset>
+			<fieldset>
+				<h5>Add Collections</h5>
+				<AddCollections languages={languages} />
+			</fieldset>
+			<fieldset>
+				<h5>Collections</h5>
+				<FormCollections languages={languages} />
 			</fieldset>
 			<SubmitButton label={'Create'} />
 		</form>

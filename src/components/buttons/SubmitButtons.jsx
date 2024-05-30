@@ -125,7 +125,7 @@ const SubmitButton = ({ label, element }) => {
 			});
 		}
 	};
-	console.log(state, 'THE STATE');
+	// console.log(state, 'THE STATE');
 	return (
 		<button
 			className='bg-red-500 disabled:bg-red-200 hover:bg-red-700 text-white font-semibold pt-[1px] pb-[3px] px-5 rounded'

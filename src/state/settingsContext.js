@@ -4,7 +4,9 @@ import { createContext, useContext, useState } from 'react';
 export const SettingsContext = createContext();
 
 export const SettingsContextProvider = ({ children }) => {
-	const [state, setState] = useState({});
+	const [state, setState] = useState({
+		collections: [],
+	});
 
 	return (
 		<SettingsContext.Provider value={{ state, setState }}>

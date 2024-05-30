@@ -5,31 +5,54 @@ import { useState } from 'react';
 import InputType from './InputType';
 
 const LanguageInputContainer = ({
-	label,
-	name,
+	label = '',
+	name = '',
 	selectName = '',
 	languages,
+	inputs = null,
 }) => {
 	const [language, setLanguage] = useState(languages[0]._id);
+
 	const onSelectChange = (e) => {
 		setLanguage(e.target.value);
 	};
-
-	console.log(language);
 	return (
 		<fieldset>
 			<label>
 				{label}
-				{languages.map((lang) => {
-					return (
-						<InputType
-							key={lang._id}
-							type='text'
-							name={`${name}-languages-${lang.language}`}
-							classes={language === lang._id ? 'visible' : 'hidden'}
-						/>
-					);
-				})}
+
+				{!inputs
+					? languages.map((lang) => {
+							return (
+								<InputType
+									key={lang._id}
+									type='text'
+									name={`${name}-languages-${lang.language}`}
+									classes={language === lang._id ? 'visible' : 'hidden'}
+								/>
+							);
+					  })
+					: inputs.map((input, index) => {
+							const inputName = Object.keys(input)[0];
+							const selectedLang = languages.filter(
+								(lang) => lang._id === language
+							)[0];
+							const value = Object.values(input);
+
+							return (
+								<InputType
+									key={index}
+									type='text'
+									name={inputName}
+									classes={
+										inputName.includes(selectedLang?.language)
+											? 'visible'
+											: 'hidden'
+									}
+									defaultValue={value}
+								/>
+							);
+					  })}
 			</label>
 			<select
 				name={selectName}

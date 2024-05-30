@@ -35,7 +35,6 @@ export async function addNewVehicle(formData) {
 			winter: formData.get('tireChangeWinter'),
 		},
 	};
-	// console.log(payload, 'the payload');
 	try {
 		await dbConnect();
 		await Vehicle.create(payload);
@@ -46,7 +45,6 @@ export async function addNewVehicle(formData) {
 }
 
 export async function rentVehicle(formData) {
-	// console.log(formData);
 	const payload = {
 		user: formData.get('userId'),
 		vehicle: formData.get('vehicleId'),
@@ -56,13 +54,10 @@ export async function rentVehicle(formData) {
 		status: 'pending',
 	};
 
-	// console.log(payload);
-
 	try {
 		await dbConnect();
 		if (payload.user === 'none') {
 			return;
-			// return { error: 'Please choose a user.' };
 		} else {
 			await Vehicle.updateOne(
 				{ _id: payload.vehicle },
@@ -78,7 +73,6 @@ export async function rentVehicle(formData) {
 }
 
 export const returnVehicle = async ({ transaction, vehicle }) => {
-	// console.log(transactionId, vehicleId, 'the transactionId, vehicleId');
 	try {
 		await dbConnect();
 		await Vehicle.updateOne({ _id: vehicle }, { user: 'none', inUse: false });
@@ -113,11 +107,8 @@ export const makeReservation = async (formData) => {
 		date: setTimeDate,
 		status: 'reserved',
 	};
-	// console.log(payload, 'the pay');
 	if (payload.user === 'none') {
-		// console.log('IT IS');
 		return;
-		// return { error: 'Please choose a user.' };
 	}
 	try {
 		await VehicleTransaction.create(payload);
@@ -129,7 +120,6 @@ export const makeReservation = async (formData) => {
 };
 
 export const confirmReservation = async (data) => {
-	// console.log(data, 'confirmReservation data');
 	const { transaction, vehicle } = data;
 	try {
 		await dbConnect();
@@ -137,7 +127,6 @@ export const confirmReservation = async (data) => {
 			vehicle,
 			status: 'pending',
 		});
-		// console.log(alreadyInUse, 'USEEEE');
 		if (!alreadyInUse) {
 			await VehicleTransaction.updateOne(
 				{ _id: transaction },
