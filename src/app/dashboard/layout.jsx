@@ -2,7 +2,7 @@ import DashboardNavigation from '@/components/navigation/DashboardNavigation';
 import { SettingsContextProvider } from '@/state/settingsContext';
 
 export const metadata = {
-	title: 'Okta - dashboard',
+	title: 'Okta - Dashboard',
 	description: 'Dashboard',
 };
 

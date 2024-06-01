@@ -2,32 +2,70 @@ import mongoose, { Schema } from 'mongoose';
 
 const collectionSchema = new Schema(
 	{
-		name: {
-			type: Schema.Types.Mixed,
+		mainParameter: {
+			name: {
+				singular: Schema.Types.Mixed,
+				plural: Schema.Types.Mixed,
+			},
+			value: Schema.Types.Mixed,
 		},
-		collection: {
-			// type: [collectionType],
-			type: [Schema.Types.Mixed],
-			default: undefined,
-		},
+		collections: [
+			{
+				name: {
+					type: Schema.Types.Mixed,
+				},
+				collection: {
+					// type: [collectionType],
+					type: [Schema.Types.Mixed],
+					default: undefined,
+				},
+			},
+		],
 	},
-	{ _id: false }
+	{ strict: true }
 );
 
-const settingsSchema = new Schema({
-	settingName: String,
-	sector: String,
-	parameter: {
-		name: {
-			singular: Schema.Types.Mixed,
-			plural: Schema.Types.Mixed,
+const optionsSchema = new Schema(
+	{
+		parameter: {
+			name: {
+				singular: Schema.Types.Mixed,
+				plural: Schema.Types.Mixed,
+			},
 		},
+		collections: [{ name: Schema.Types.Mixed }],
+		// collections: {
+		// 	type: {
+		// 		name: Schema.Types.Mixed,
+		// 	},
+		// },
 	},
-	collections: {
-		type: [collectionSchema],
-		default: undefined,
+	{ _id: false, strict: true }
+);
+
+const settingsSchema = new Schema(
+	{
+		settingName: String,
+		sector: String,
+		optionsSchema: {
+			type: optionsSchema,
+		},
+		settings: {
+			type: [collectionSchema],
+		},
+		// parameter: {
+		// 	name: {
+		// 		singular: Schema.Types.Mixed,
+		// 		plural: Schema.Types.Mixed,
+		// 	},
+		// },
+		// collections: {
+		// 	type: [collectionSchema],
+		// 	default: undefined,
+		// },
 	},
-});
+	{ strict: true }
+);
 
 const Setting =
 	mongoose.models.Setting || mongoose.model('Setting', settingsSchema);

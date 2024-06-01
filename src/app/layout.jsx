@@ -3,7 +3,7 @@ import './globals.css';
 import { VehicleContextProvider } from '@/state/vehicleContext';
 
 export const metadata = {
-	title: 'Okta - intra net',
+	title: 'Okta',
 	description: 'Application for internal organization',
 };
 

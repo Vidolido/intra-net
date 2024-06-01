@@ -8,39 +8,41 @@ import LanguageInputContainer from '../inputs/LanguageInputContainer';
 import ContextButton from '../buttons/ContextButton';
 
 const AddCollections = ({ languages, defaultLanguage }) => {
-  const { state, setState } = useSettingsContext();
+	const { state, setState } = useSettingsContext();
 
-  const handleClick = (e) => {
-    const length = state.collections.length;
+	const handleClick = (e) => {
+		const length = state.collections.length;
 
-    const collectionElements = Array.from(e.target.form.elements).filter(
-      (element) => element.name.includes('collection')
-    );
+		const collectionElements = Array.from(e.target.form.elements).filter(
+			(element) => element.name.includes('collection')
+		);
 
-    const collectionNames = collectionElements?.map((element) => {
-      let nameArray = element.name.split('-').splice(1);
-      return {
-        [length + '-' + nameArray.join('-')]: element.value,
-      };
-    });
+		const collectionNames = collectionElements?.map((element) => {
+			let nameArray = element.name.split('-').splice(1);
+			return {
+				[length + '-' + nameArray.join('-')]: element.value,
+			};
+		});
 
-    setState((prevState) => ({
-      ...prevState,
-      collections: [...prevState.collections, collectionNames],
-    }));
-  };
+		// let settings = (elements) => {};
+		// console.log(collectionNames, 'the names');
+		setState((prevState) => ({
+			...prevState,
+			collections: [...prevState.collections, collectionNames],
+		}));
+	};
 
-  return (
-    <div>
-      <LanguageInputContainer
-        label='Collection'
-        languages={languages}
-        name='collection'
-        defaultLanguage={defaultLanguage}
-      />
-      <ContextButton label='Add' onClick={handleClick} />
-    </div>
-  );
+	return (
+		<div>
+			<LanguageInputContainer
+				label='Collection'
+				languages={languages}
+				name='collection'
+				defaultLanguage={defaultLanguage}
+			/>
+			<ContextButton label='Add' onClick={handleClick} />
+		</div>
+	);
 };
 
 export default AddCollections;

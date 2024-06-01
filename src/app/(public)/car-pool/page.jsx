@@ -9,6 +9,11 @@ import MakeReservation from '@/components/vehicles/MakeReservation';
 import RentedVehicle from '@/components/vehicles/RentedVehicle';
 import ReservedVehicle from '@/components/vehicles/ReservedVehicle';
 
+export const metadata = {
+	title: 'Okta - Car Pool',
+	description: 'Dashboard',
+};
+
 const users = [
 	{
 		id: 1,
