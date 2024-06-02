@@ -27,12 +27,15 @@ const SaveOptionSchema = () => {
 			state.optionSchema &&
 			state.optionSchema.collections.length !== createSchema.collections.length
 		) {
+			// Да проверам дали ги префрлува старите записи од state.optionSchema.collections
 			let collections = state.optionSchema.collections;
 
-			let lastInsertedCollection =
-				createSchema.collections[createSchema.collections.length - 1];
+			let newCollections = createSchema.collections.splice(
+				collections.length,
+				createSchema.collections.length
+			);
 
-			collections.push(lastInsertedCollection);
+			collections.push(...newCollections);
 
 			payload = {
 				...payload,

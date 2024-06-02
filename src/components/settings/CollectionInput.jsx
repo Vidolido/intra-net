@@ -2,9 +2,9 @@ import InputType from '../inputs/InputType';
 import LanguageInputContainer from '../inputs/LanguageInputContainer';
 
 const CollectionInput = ({ languages, inputType }) => {
-	console.log(languages[0]._id, inputType, 'OVIJA');
+	// console.log(languages[0]._id, inputType, 'OVIJA');
 	return (
-		<div>
+		<fieldset name='collection-input-fields'>
 			{inputType === 'simple' ? (
 				<InputType type='text' name='collection-input' />
 			) : (
@@ -14,6 +14,7 @@ const CollectionInput = ({ languages, inputType }) => {
 				<LanguageInputContainer
 					languages={languages}
 					defaultLanguage={languages[0]}
+					fieldSetName='collection-language-inputs'
 				/>
 			) : (
 				''
@@ -26,9 +27,7 @@ const CollectionInput = ({ languages, inputType }) => {
 			) : (
 				''
 			)}
-
-			{/* <LanguageInputContainer label='EDEN LABEL' languages={languages} /> */}
-		</div>
+		</fieldset>
 	);
 };
 

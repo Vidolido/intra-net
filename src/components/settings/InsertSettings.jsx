@@ -19,14 +19,11 @@ const InsertSettings = ({ languages }) => {
 	const { optionSchema, defaultLanguage, inputType, selectedCollection } =
 		state;
 
-	// const [collectionInput, setCollectionInput] = useState('');
-
 	let parameter =
 		optionSchema?.parameter?.name?.singular[defaultLanguage.language];
 	let collections = optionSchema?.collections || [];
 
 	const handleRadioChange = (e) => {
-		// console.log(e);
 		setState((prevState) => ({
 			...prevState,
 			inputType: e.target.value,
@@ -64,33 +61,67 @@ const InsertSettings = ({ languages }) => {
 			};
 			return acc;
 		}, {});
-		// console.log(main, 'THE main');
 
-		let simpleInput =
-			e.target.form.elements.namedItem('collection-input') || null;
-
-		let inputs =
-			e.target.form?.elements.namedItem('languge-input') &&
-			e.target.form?.elements
-				.namedItem('languge-input')
-				.querySelectorAll('input');
-
-		let translationInputs = !inputs
-			? null
-			: Array.from(inputs).reduce((acc, currentValue) => {
-					let nameArray = currentValue.name.split('-');
-					let lang = nameArray[nameArray.length - 1];
-					acc = {
-						...acc,
-						[lang]: currentValue.value,
+		let selectedInputType = (inputType) => {
+			switch (inputType) {
+				case 'simple': {
+					let simpleInput =
+						e.target.form.elements.namedItem('collection-input');
+					return {
+						inputType,
+						value: simpleInput.value,
 					};
-					return acc;
-			  }, {});
+				}
+				case 'translations': {
+					let inputs = e.target.form?.elements
+						.namedItem('collection-language-inputs')
+						.querySelectorAll('input');
 
-		const payload = {
-			inputType,
-			value: simpleInput?.value || translationInputs,
+					let translationInputs = Array.from(inputs).reduce(
+						(acc, currentValue) => {
+							let nameArray = currentValue.name.split('-');
+							let lang = nameArray[nameArray.length - 1];
+							acc = {
+								...acc,
+								[lang]: currentValue.value,
+							};
+							return acc;
+						},
+						{}
+					);
+
+					return {
+						inputType: 'translations',
+						value: translationInputs,
+					};
+				}
+				case 'key/value': {
+					let keyValueInput = e.target.form.elements
+						.namedItem('collection-input-fields')
+						.querySelectorAll('input');
+
+					let key = Array.from(keyValueInput).filter(
+						(input) => input.name === 'key'
+					)[0];
+					let value = Array.from(keyValueInput).filter(
+						(input) => input.name === 'value'
+					)[0];
+
+					return {
+						inputType: 'key/value',
+						value: {
+							key: key.value,
+							value: value.value,
+						},
+					};
+				}
+				default: {
+					return 'default';
+				}
+			}
 		};
+
+		const payload = selectedInputType(inputType);
 
 		let selected = state.optionSchema.collections;
 		selected[selectedCollection].collection.push(payload);
@@ -105,7 +136,20 @@ const InsertSettings = ({ languages }) => {
 		}));
 	};
 
-	console.log(state, 'THE STATE');
+	const handleAddSetting = (e) => {
+		e.preventDefault();
+		let setting = state.optionSchema;
+
+		console.log(setting);
+		let settings = state.settings;
+		settings.push(setting);
+		setState((prevState) => ({
+			...prevState,
+			settings: [...settings],
+		}));
+	};
+
+	// console.log(state, 'THE STATE');
 	return (
 		<form>
 			<fieldset name='main-parameter'>
@@ -149,6 +193,7 @@ const InsertSettings = ({ languages }) => {
 					<h5>Items</h5>
 					{optionSchema ? <DisplayCollections languages={languages} /> : ''}
 				</div>
+				<ContextButton label='Add Setting' onClick={handleAddSetting} />
 			</div>
 		</form>
 	);

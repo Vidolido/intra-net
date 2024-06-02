@@ -2,7 +2,7 @@ import mongoose, { Schema } from 'mongoose';
 
 const collectionSchema = new Schema(
 	{
-		mainParameter: {
+		parameter: {
 			name: {
 				singular: Schema.Types.Mixed,
 				plural: Schema.Types.Mixed,
@@ -15,14 +15,21 @@ const collectionSchema = new Schema(
 					type: Schema.Types.Mixed,
 				},
 				collection: {
-					// type: [collectionType],
 					type: [Schema.Types.Mixed],
 					default: undefined,
 				},
 			},
 		],
+		note: {
+			type: String,
+			default: undefined,
+		},
+		tags: {
+			type: Schema.Types.Mixed,
+			default: undefined,
+		},
 	},
-	{ strict: true }
+	{ _id: false, strict: true }
 );
 
 const optionsSchema = new Schema(
@@ -40,7 +47,7 @@ const optionsSchema = new Schema(
 		// 	},
 		// },
 	},
-	{ _id: false, strict: true }
+	{ _id: true, strict: true }
 );
 
 const settingsSchema = new Schema(
@@ -53,16 +60,6 @@ const settingsSchema = new Schema(
 		settings: {
 			type: [collectionSchema],
 		},
-		// parameter: {
-		// 	name: {
-		// 		singular: Schema.Types.Mixed,
-		// 		plural: Schema.Types.Mixed,
-		// 	},
-		// },
-		// collections: {
-		// 	type: [collectionSchema],
-		// 	default: undefined,
-		// },
 	},
 	{ strict: true }
 );

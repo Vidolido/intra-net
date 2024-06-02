@@ -1,4 +1,5 @@
 // state/actions
+import AddSettingsCollection from '@/components/settings/AddSettingsCollection';
 import { getLanguages } from '../../apiCalls';
 
 // components
@@ -13,6 +14,8 @@ const page = async () => {
 			<SettingsForm />
 			<hr />
 			<InsertSettings languages={languages} />
+			<hr />
+			<AddSettingsCollection languages={languages} />
 		</div>
 	);
 };

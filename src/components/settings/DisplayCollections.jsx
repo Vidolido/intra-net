@@ -16,7 +16,13 @@ const DisplayCollections = ({ languages }) => {
 			DisplayCollections
 			{collections &&
 				collections[selectedCollection].collection.map((item, index) => {
-					return <p key={index}>{item.value['en'] || item.value}</p>;
+					return (
+						<p key={index}>
+							{(typeof item.value === 'string' && item.value) ||
+								item.value['en'] ||
+								`${item?.value?.key} - ${item?.value?.value}`}
+						</p>
+					);
 				})}
 		</div>
 	);
