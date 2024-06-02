@@ -4,13 +4,14 @@ const SelectInput = ({
 	none = false,
 	label,
 	value,
+	classes,
 	onChange,
 }) => {
 	// console.log(options, 'THE  OPTIONS');
 	return (
 		<select
 			name={name}
-			className='w-[250px] self-end border-2 border-grey-50 border-opacity-60 rounded px-2 py-[1px] hover:border-red-200 focus:outline-none cursor-pointer'
+			className={`min-w-[200px] box-content border-2 border-grey-50 border-opacity-60 rounded px-2 py-[1px] hover:border-red-200 focus:outline-none cursor-pointer ${classes}`}
 			onChange={onChange}>
 			{none || !options ? <option value='none'>--</option> : ''}
 			{options?.map((option, index) => {

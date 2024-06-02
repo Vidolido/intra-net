@@ -4,7 +4,7 @@ const InputType = ({ type, name, defaultValue = '', classes }) => {
 			type={type}
 			name={name}
 			defaultValue={defaultValue}
-			className={`border-2 border-grey-50 border-opacity-60 rounded px-2 py-[1px] hover:border-red-200 focus:outline-none ${classes}`}
+			className={`min-w-[200px] box-content border-2 border-grey-50 border-opacity-60 rounded px-2 py-[1px] hover:border-red-200 focus:outline-none ${classes}`}
 		/>
 	);
 };

@@ -33,7 +33,7 @@ const AddCollections = ({ languages, defaultLanguage }) => {
 	};
 
 	return (
-		<div>
+		<div className='flex items-end gap-2'>
 			<LanguageInputContainer
 				label='Collection'
 				languages={languages}

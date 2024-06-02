@@ -7,21 +7,21 @@ import { useSettingsContext } from '@/state/settingsContext';
 import LanguageInputContainer from '../inputs/LanguageInputContainer';
 
 const FormCollections = ({ languages, defaultLanguage }) => {
-  const { state } = useSettingsContext();
-  const { collections } = state;
+	const { state } = useSettingsContext();
+	const { collections } = state;
 
-  return (
-    <div>
-      {collections.map((collection, index) => (
-        <LanguageInputContainer
-          key={index}
-          languages={languages}
-          inputs={collection}
-          defaultLanguage={defaultLanguage}
-        />
-      ))}
-    </div>
-  );
+	return (
+		<div className='flex flex-col items-start gap-1'>
+			{collections.map((collection, index) => (
+				<LanguageInputContainer
+					key={index}
+					languages={languages}
+					inputs={collection}
+					defaultLanguage={defaultLanguage}
+				/>
+			))}
+		</div>
+	);
 };
 
 export default FormCollections;

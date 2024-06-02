@@ -6,7 +6,9 @@ import InputType from './InputType';
 
 const LanguageInputContainer = ({
 	fieldSetName = 'languge-input',
+	fieldSetClass = '',
 	label = '',
+	labelClass = '',
 	name = '',
 	selectName = '',
 	languages,
@@ -20,10 +22,11 @@ const LanguageInputContainer = ({
 	};
 	// console.log(languages, 'THE FUCKING LANGUAGE');
 	return (
-		<fieldset name={fieldSetName}>
-			<label>
-				{label}
-
+		<fieldset name={fieldSetName} className={fieldSetClass}>
+			<label className={labelClass}>
+				<span>{label}</span>
+			</label>
+			<div className='flex gap-[1px] justify-center items-start'>
 				{!inputs
 					? languages?.map((lang) => {
 							return (
@@ -56,20 +59,21 @@ const LanguageInputContainer = ({
 								/>
 							);
 					  })}
-			</label>
-			<select
-				name={selectName}
-				className='w-[250px] self-end border-2 border-grey-50 border-opacity-60 rounded px-2 py-[1px] hover:border-red-200 focus:outline-none cursor-pointer'
-				onChange={onSelectChange}
-				value={language}>
-				{languages.map((option) => {
-					return (
-						<option key={option._id} value={option._id}>
-							{option.language}
-						</option>
-					);
-				})}
-			</select>
+				{/* </label> */}
+				<select
+					name={selectName}
+					className='box-content border-[3px] border-grey-50 border-opacity-60 rounded px-2 py-[1px] hover:border-red-200 focus:outline-none cursor-pointer'
+					onChange={onSelectChange}
+					value={language}>
+					{languages.map((option) => {
+						return (
+							<option key={option._id} value={option._id}>
+								{option.language}
+							</option>
+						);
+					})}
+				</select>
+			</div>
 		</fieldset>
 	);
 };

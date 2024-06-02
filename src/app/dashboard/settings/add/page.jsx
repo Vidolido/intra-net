@@ -10,12 +10,12 @@ const page = async () => {
 	const { languages } = await getLanguages();
 	return (
 		<div>
-			<h3>Add Settings</h3>
-			<SettingsForm />
-			<hr />
-			<InsertSettings languages={languages} />
-			<hr />
-			<AddSettingsCollection languages={languages} />
+			<h2>Add Settings</h2>
+			<div className='flex flex-col gap-2'>
+				<SettingsForm />
+				{/* <InsertSettings languages={languages} />
+				<AddSettingsCollection languages={languages} /> */}
+			</div>
 		</div>
 	);
 };

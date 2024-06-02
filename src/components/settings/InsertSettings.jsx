@@ -3,10 +3,8 @@ import { useState } from 'react';
 
 // state/actions
 import { useSettingsContext } from '@/state/settingsContext';
-import { addSettings } from '@/utils/addSettings';
 
 // components
-import InputType from '../inputs/InputType';
 import LanguageInputContainer from '../inputs/LanguageInputContainer';
 import SelectInput from '../inputs/SelectInput';
 import RadioButtons from './RadioButtons';
@@ -151,44 +149,55 @@ const InsertSettings = ({ languages }) => {
 
 	// console.log(state, 'THE STATE');
 	return (
-		<form>
+		<form className='border border-slate-200 rounded p-1'>
 			<fieldset name='main-parameter'>
-				<label>{!parameter ? 'Parameter name' : parameter}</label>
+				{/* <label>{!parameter ? 'Parameter name' : parameter}</label> */}
 
 				{!parameter ? (
 					''
 				) : (
 					<LanguageInputContainer
+						label={!parameter ? 'Parameter name' : parameter}
+						fieldSetClass='flex flex-col items-start'
 						name='main-parameter'
 						languages={languages}
 						defaultLanguage={defaultLanguage}
 					/>
 				)}
 			</fieldset>
-			<div>
-				<fieldset>
-					<label>Select a collection to populate</label>
+			<div className='flex flex-col gap-1'>
+				<div className='flex gap-2'>
+					<fieldset className='flex flex-col min-w-[200px]'>
+						<label>Collection</label>
 
-					<SelectInput
-						name='collection-select'
-						options={collections}
-						label={defaultLanguage.language}
-						value={parameter && parameter[defaultLanguage.language]}
-						onChange={handleOnSelect}
-					/>
-				</fieldset>
-				<fieldset>
-					<label>Input Type</label>
-					<RadioButtons
-						labels={['Simple', 'Translations', 'key/value']}
-						name='inputType'
-						onChange={handleRadioChange}
-					/>
-				</fieldset>
-				<fieldset>
+						<SelectInput
+							name='collection-select'
+							options={collections}
+							label={defaultLanguage.language}
+							value={parameter && parameter[defaultLanguage.language]}
+							onChange={handleOnSelect}
+						/>
+					</fieldset>
+					<fieldset className='flex flex-col'>
+						<label>Input Type</label>
+						<RadioButtons
+							divClasses='flex gap-1 w-full'
+							labelClasses={`flex flex-col items-center border border-slate-200 rounded hover:bg-red-500 hover:text-white cursor-pointer px-3 py-[2px]`}
+							inputClasses='hidden'
+							labels={['Simple', 'Translations', 'key/value']}
+							name='inputType'
+							inputType={inputType}
+							onChange={handleRadioChange}
+						/>
+					</fieldset>
+				</div>
+				<fieldset className='flex gap-2'>
 					<CollectionInput languages={languages} inputType={inputType} />
+					<ContextButton
+						label='Add to collection'
+						onClick={handleButtonClick}
+					/>
 				</fieldset>
-				<ContextButton label='Add to collection' onClick={handleButtonClick} />
 				<div>
 					<h5>Items</h5>
 					{optionSchema ? <DisplayCollections languages={languages} /> : ''}
