@@ -6,9 +6,7 @@ import Setting from '@/db/models/Setting';
 import { revalidatePath } from 'next/cache';
 import { cookies } from 'next/headers';
 
-export async function addCollections(collection, document) {
-	// console.log(collection, 'THE COLLECTION');
-	// console.log(document, '~IT DID RUN');
+export async function deleteCollections(index, document) {
 	const { _id } = document;
 	try {
 		cookies();
@@ -16,9 +14,9 @@ export async function addCollections(collection, document) {
 		const foundDocument = await Setting.findOne({ _id });
 		let collections = foundDocument.collections || [];
 
-		// console.log(collections);
+		console.log(collections);
 
-		collections.push(collection);
+		collections = collections.filter((_, i) => i !== index);
 		const updatedDocument = await Setting.updateOne(
 			{ _id },
 			{ $set: { collections } }
@@ -28,7 +26,7 @@ export async function addCollections(collection, document) {
 		// console.log(foundDocument, 'the document');
 		revalidatePath('/dashboard/settings/add', 'page');
 		// Да вратам еррор доколку се случи.
-		return;
+		// return;
 		return JSON.stringify(updatedDocument);
 	} catch (error) {
 		console.log('Failed to create draft setting error:', error);
