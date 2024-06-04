@@ -1,8 +1,12 @@
 'use client';
-import { useState } from 'react';
 
 // state/actions
-import { useSettingsContext } from '@/state/settingsContext';
+import {
+  useSettingsContext,
+  useSettingsDispatchContext,
+} from '@/state/settingsContext';
+import { ADD, ADD_TO_COLLECTION } from '@/state/actionTypes';
+import { selectedInputType } from '@/utils/selectedInputType';
 
 // components
 import LanguageInputContainer from '../inputs/LanguageInputContainer';
@@ -13,19 +17,28 @@ import ContextButton from '../buttons/ContextButton';
 import DisplayCollections from './DisplayCollections';
 
 const InsertSettings = ({ languages }) => {
-  const { state, setState } = useSettingsContext();
-  const { optionSchema, defaultLanguage, inputType, selectedCollection } =
-    state;
+  const dispatch = useSettingsDispatchContext();
+  const {
+    optionSchema,
+    defaultLanguage,
+    inputType,
+    selectedCollection,
+    settings,
+  } = useSettingsContext();
 
   let parameter =
     optionSchema?.parameter?.name?.singular[defaultLanguage.language];
   let collections = optionSchema?.collections || [];
 
   const handleRadioChange = (e) => {
-    setState((prevState) => ({
-      ...prevState,
-      inputType: e.target.value,
-    }));
+    dispatch({
+      type: ADD,
+      payload: {
+        type: 'add',
+        state: 'inputType',
+        value: e.target.value,
+      },
+    });
   };
 
   const handleOnSelect = (e) => {
@@ -35,10 +48,14 @@ const InsertSettings = ({ languages }) => {
     );
     let index = indexArray.findIndex((ind) => ind === 0);
 
-    setState((prevState) => ({
-      ...prevState,
-      selectedCollection: index,
-    }));
+    dispatch({
+      type: ADD,
+      payload: {
+        type: 'add',
+        state: 'selectedCollection',
+        value: index,
+      },
+    });
   };
 
   const handleButtonClick = (e) => {
@@ -59,100 +76,43 @@ const InsertSettings = ({ languages }) => {
       };
       return acc;
     }, {});
+    let selectedInput = selectedInputType(e, inputType);
 
-    let selectedInputType = (inputType) => {
-      switch (inputType) {
-        case 'simple': {
-          let simpleInput =
-            e.target.form.elements.namedItem('collection-input');
-          return {
-            inputType,
-            value: simpleInput.value,
-          };
-        }
-        case 'translations': {
-          let inputs = e.target.form?.elements
-            .namedItem('collection-language-inputs')
-            .querySelectorAll('input');
-
-          let translationInputs = Array.from(inputs).reduce(
-            (acc, currentValue) => {
-              let nameArray = currentValue.name.split('-');
-              let lang = nameArray[nameArray.length - 1];
-              acc = {
-                ...acc,
-                [lang]: currentValue.value,
-              };
-              return acc;
-            },
-            {}
-          );
-
-          return {
-            inputType: 'translations',
-            value: translationInputs,
-          };
-        }
-        case 'key/value': {
-          let keyValueInput = e.target.form.elements
-            .namedItem('collection-input-fields')
-            .querySelectorAll('input');
-
-          let key = Array.from(keyValueInput).filter(
-            (input) => input.name === 'key'
-          )[0];
-          let value = Array.from(keyValueInput).filter(
-            (input) => input.name === 'value'
-          )[0];
-
-          return {
-            inputType: 'key/value',
-            value: {
-              key: key.value,
-              value: value.value,
-            },
-          };
-        }
-        default: {
-          return 'default';
-        }
-      }
-    };
-
-    const payload = selectedInputType(inputType);
-
-    let selected = state.optionSchema.collections;
-    selected[selectedCollection].collection.push(payload);
-
-    setState((prevState) => ({
-      ...prevState,
-      optionSchema: {
-        ...prevState.optionSchema,
-        ...main,
-        collections: [...selected],
+    dispatch({
+      type: ADD_TO_COLLECTION,
+      payload: {
+        // type: 'push',
+        state: 'optionSchema',
+        value: selectedInput,
+        more: {
+          property: 'collections',
+          secondProp: 'collection',
+          selection: selectedCollection,
+        },
       },
-    }));
+    });
   };
 
   const handleAddSetting = (e) => {
     e.preventDefault();
-    let setting = state.optionSchema;
+    let setting = optionSchema;
+    let settingsCollection = settings;
 
-    console.log(setting);
-    let settings = state.settings;
-    settings.push(setting);
-    setState((prevState) => ({
-      ...prevState,
-      settings: [...settings],
-    }));
+    settingsCollection.push(setting);
+
+    dispatch({
+      type: ADD_TO_COLLECTION,
+      payload: {
+        type: 'push',
+        state: 'settings',
+        value: setting,
+      },
+    });
   };
 
-  console.log(state, 'THE STATE');
   return (
     <form className='border border-slate-200 rounded p-1'>
       <fieldset name='main-parameter'>
-        {/* <label>{!parameter ? 'Parameter name' : parameter}</label> */}
-
         {!parameter ? (
           ''
         ) : (

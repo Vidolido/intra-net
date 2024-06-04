@@ -11,20 +11,20 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 const page = async () => {
-	const { languages } = await getLanguages();
-	// const draft = JSON.parse(await makeDraftSetting());
-	const { draft } = await getDraftSetting();
-	// console.log(draft, 'THE DRAFT');
-	return (
-		<div>
-			<h2>Add Settings</h2>
-			<div className='flex flex-col gap-2'>
-				<SettingsForm setting={draft} />
-				{/* <InsertSettings languages={languages} />
-				<AddSettingsCollection languages={languages} /> */}
-			</div>
-		</div>
-	);
+  const { languages } = await getLanguages();
+  // const draft = JSON.parse(await makeDraftSetting());
+  const { draft } = await getDraftSetting();
+  // console.log(draft, 'THE DRAFT');
+  return (
+    <div>
+      <h2>Add Settings</h2>
+      <div className='flex flex-col gap-2'>
+        <SettingsForm setting={draft} />
+        <InsertSettings languages={languages} />
+        <AddSettingsCollection languages={languages} />
+      </div>
+    </div>
+  );
 };
 
 export default page;
