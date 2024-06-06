@@ -72,7 +72,7 @@ const InsertSettings = ({ languages }) => {
 			};
 			return acc;
 		}, {});
-		console.log(main, 'the main PARAM');
+		// console.log(main, 'the main PARAM');
 
 		let selectedInput = selectedInputType(e, inputType);
 
@@ -123,7 +123,7 @@ const InsertSettings = ({ languages }) => {
 		});
 	};
 
-	console.log(state);
+	// console.log(state);
 
 	return (
 		<form className='border border-slate-200 rounded p-1'>

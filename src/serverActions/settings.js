@@ -25,135 +25,94 @@ import { revalidatePath } from 'next/cache';
 //   // }
 // }
 
-export async function createSetting(formData) {
-  console.log(formData, 'THE FORM DATA');
+export async function createSetting(_id, formData) {
+	console.log(formData, 'THE FORM DATA');
+	console.log(_id, 'the id');
 
-  let main = Object.entries(Object.fromEntries(formData)).filter((element) =>
-    element[0].includes('main')
-  );
+	let main = Object.entries(Object.fromEntries(formData)).filter((element) =>
+		element[0].includes('main')
+	);
 
-  let collection = Object.entries(Object.fromEntries(formData)).filter(
-    (element) => element[0].includes('collection')
-  );
+	let collectionLanguageElements = Object.entries(
+		Object.fromEntries(formData)
+	).filter((element) => element[0].includes('languages'));
 
-  let rest = Object.entries(Object.fromEntries(formData)).filter(
-    (element) =>
-      !element[0].includes('ACTION') &&
-      !element[0].includes('main') &&
-      !element[0].includes('collection') &&
-      element[0].split('-').length === 1
-  );
+	let otherElements = Object.entries(Object.fromEntries(formData)).filter(
+		(element) =>
+			!element[0].includes('ACTION') &&
+			!element[0].includes('main') &&
+			!element[0].includes('collection') &&
+			element[0].split('-').length === 1
+	);
 
-  let parameter = Array.from(main).reduce((acc, currentValue) => {
-    let nameArray = currentValue[0].split('-');
-    acc = {
-      parameter: {
-        name: {
-          ...acc?.parameter?.name,
-          [nameArray[1]]: {
-            ...acc?.parameter?.name[nameArray[1]],
+	let sectorAndName = otherElements.reduce((acc, currentValue) => {
+		let test = { [currentValue[0]]: currentValue[1] };
+		acc = {
+			...acc,
+			...test,
+		};
+		return acc;
+	}, {});
 
-            [nameArray[nameArray.length - 1]]: currentValue.value,
-          },
-        },
-        value: {},
-      },
-    };
-    return acc;
-  }, {});
+	let parameter = Array.from(main).reduce((acc, currentValue) => {
+		let nameArray = currentValue[0].split('-');
+		acc = {
+			parameter: {
+				name: {
+					...acc?.parameter?.name,
+					[nameArray[1]]: {
+						...acc?.parameter?.name[nameArray[1]],
 
-  let collections = Array.from(collection).reduce(
-    (acc, currentValue) => {
-      let nameArray = currentValue[0].split('-');
+						[nameArray[nameArray.length - 1]]: currentValue[1],
+					},
+				},
+				inputValue: {},
+			},
+		};
+		return acc;
+	}, {});
 
-      console.log(nameArray, 'THE');
-      let collection = {
-        name: {
-          ...acc?.collections[nameArray[0]]?.name,
-          [nameArray[nameArray.length - 1]]: currentValue[1],
-        },
-        collection: [],
-      };
+	let collections = Array.from(collectionLanguageElements).reduce(
+		(acc, currentValue) => {
+			let nameArray = currentValue[0].split('-');
+			if (!Number.isNaN(Number(nameArray[0]))) {
+				acc[nameArray[0]] = {
+					name: {
+						...acc?.[nameArray[0]]?.name,
+						[nameArray[nameArray.length - 1]]: currentValue[1],
+					},
+					items: [],
+				};
 
-      // acc.collections[nameArray[0]] = collection;
-      acc.collections.push(collection);
+				return acc;
+			} else return acc;
+		},
+		[]
+	);
 
-      console.log(collection, 'THE COLL FROM IN');
+	let payload = {
+		...sectorAndName,
+		optionsSchema: {
+			...parameter,
+			collections,
+		},
+	};
+	// console.log(payload.optionsSchema.parameter.name);
+	try {
+		await dbConnect();
 
-      return acc;
-    },
-    {
-      collections: [],
-    }
-  );
-
-  const payload = Object.entries(Object.fromEntries(formData)).reduce(
-    (acc, currentValue) => {
-      if (currentValue[0].includes('ACTION') || !currentValue) return;
-      // let test = ;
-      if (currentValue[0].includes('main')) {
-        if (currentValue[0].includes('main-plural')) {
-          let element = currentValue[0].split('-');
-          let lang = element[element.length - 1];
-          acc = {
-            ...acc,
-            parameter: {
-              ...acc?.parameter,
-              name: {
-                ...acc?.parameter?.name,
-                plural: { [lang]: currentValue[1] },
-              },
-            },
-          };
-        }
-        if (currentValue[0].includes('main-singular')) {
-          let element = currentValue[0].split('-');
-          let lang = element[element.length - 1];
-          acc = {
-            ...acc,
-            parameter: {
-              ...acc?.parameter,
-              name: {
-                ...acc?.parameter?.name,
-                singular: { [lang]: currentValue[1] },
-              },
-            },
-          };
-        }
-      }
-
-      if (!Number.isNaN(Number(currentValue[0].split('-')[0]))) {
-        let nameArray = currentValue[0].split('-');
-        let hasProp = Object.hasOwn(acc, 'collections');
-        if (!hasProp) {
-          Object.defineProperty(acc, 'collections', {
-            value: [],
-            enumerable: true,
-            writable: true,
-          });
-        }
-      }
-
-      return acc;
-    },
-    {}
-  );
-  // console.log(payload, 'THE PAYLOAD');
-  console.log(parameter);
-  console.log(collections);
-  // console.log(rest);
-  // console.log(main);
-  // console.log(collections);
-  // const payload = {
-  //   sector: formData.get('sector'),
-  //   settingName: formData.get('settingName'),
-  //   optionSchema: {
-  //     parameter: {
-  //       name: {
-  //       },
-  //     },
-  //   },
-  // };
-  // const payload = formData.payload;
-  // console.log(payload, 'THE FORM DATA IN CREATE SETTING');
+		await Setting.updateOne(
+			{ _id },
+			{
+				$set: {
+					...payload,
+				},
+			}
+		);
+		revalidatePath('/dashboard/settings/add', 'page');
+		// console.log(findDraft, 'THE  DRAFT');
+	} catch (error) {
+		console.log('createSetting error:', error);
+		throw Error('Could not create setting in database: ' + error);
+	}
 }

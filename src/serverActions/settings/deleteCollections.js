@@ -6,7 +6,7 @@ import Setting from '@/db/models/Setting';
 import { revalidatePath } from 'next/cache';
 import { cookies } from 'next/headers';
 
-export async function deleteCollections(index, document) {
+export async function deleteCollections(collectionToDelete, document) {
 	const { _id } = document;
 	try {
 		cookies();
@@ -16,7 +16,11 @@ export async function deleteCollections(index, document) {
 
 		console.log(collections);
 
-		collections = collections.filter((_, i) => i !== index);
+		collections = collections.filter(
+			(collection) =>
+				JSON.stringify(collection) !== JSON.stringify(collectionToDelete)
+		);
+
 		const updatedDocument = await Setting.updateOne(
 			{ _id },
 			{ $set: { collections } }

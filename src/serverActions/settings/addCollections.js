@@ -25,7 +25,7 @@ export async function addCollections(collection, document) {
 		)
 			.lean()
 			.exec();
-		// console.log(foundDocument, 'the document');
+		// console.log(updatedDocument, 'the document');
 		revalidatePath('/dashboard/settings/add', 'page');
 		// Да вратам еррор доколку се случи.
 		return;
