@@ -16,15 +16,16 @@ import CollectionInput from './CollectionInput';
 import ContextButton from '../buttons/ContextButton';
 import DisplayCollections from './DisplayCollections';
 
-const InsertSettings = ({ languages }) => {
+const InsertSettings = ({ languages, setting }) => {
 	const state = useSettingsContext();
 	const dispatch = useSettingsDispatchContext();
-	const { optionSchema, defaultLanguage, inputType, selectedCollection } =
+	const { defaultLanguage, inputType, selectedCollection } =
 		useSettingsContext();
-
+	const { optionsSchema } = setting;
+	// console.log(setting, 'setting');
 	let parameter =
-		optionSchema?.parameter?.name?.singular[defaultLanguage.language];
-	let collections = optionSchema?.collections || [];
+		optionsSchema?.parameter?.name?.singular[defaultLanguage.language];
+	let collections = optionsSchema?.collections || [];
 
 	const handleRadioChange = (e) => {
 		dispatch({
@@ -108,7 +109,7 @@ const InsertSettings = ({ languages }) => {
 
 	const handleAddSetting = (e) => {
 		e.preventDefault();
-		let setting = optionSchema;
+		let setting = optionsSchema;
 		// let settingsCollection = settings;
 
 		// settingsCollection.push(setting);
@@ -124,7 +125,7 @@ const InsertSettings = ({ languages }) => {
 	};
 
 	// console.log(state);
-
+	// console.log(setting, 'the setting inserSettings');
 	return (
 		<form className='border border-slate-200 rounded p-1'>
 			<fieldset name='main-parameter'>
@@ -177,7 +178,7 @@ const InsertSettings = ({ languages }) => {
 				</fieldset>
 				<div className='border border-slate-300 rounded p-1'>
 					<h5>Items</h5>
-					{optionSchema ? (
+					{optionsSchema ? (
 						<DisplayCollections
 							languages={languages}
 							defaultLanguage={defaultLanguage}

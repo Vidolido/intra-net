@@ -27,7 +27,28 @@ const SettingsForm = async ({ setting }) => {
 	const defaultLanguage = await languages.filter(
 		(lang) => lang.language === 'en'
 	)[0];
+	// let test =
+	// 	setting &&
+	// 	Object?.entries(setting?.optionsSchema?.parameter?.name?.singular).map(
+	// 		(item) => ({ [item[0]]: item[1] })
+	// 	);
 	// console.log(defaultLanguage, 'THE DEF LANG');
+	console.log(setting, 'THE SETTINGGGGGGGGGGGGGGGGGGGGGGGGGG');
+	console.log(setting.collections, 'the setting.collections');
+	let parameter = (await setting.optionsSchema.parameter.name) || null;
+	const singular =
+		parameter &&
+		Object.entries(parameter?.singular)?.map((name) => ({
+			[name[0]]: name[1],
+		}));
+	const plural =
+		parameter &&
+		Object.entries(parameter?.plural)?.map((name) => ({
+			[name[0]]: name[1],
+		}));
+
+	console.log(parameter, 'the parameter');
+	console.log(singular, 'the singular');
 	return (
 		<ParentForm setting={setting}>
 			{/* <h3>Settings Form</h3> */}
@@ -39,11 +60,16 @@ const SettingsForm = async ({ setting }) => {
 						options={sectors}
 						label='name'
 						value='name'
+						defaultValue={setting.sector}
 					/>
 				</label>
 				<label className='flex flex-col bg-white w-full p-1'>
 					<span>Setting Name</span>
-					<InputType type='text' name='settingName' />
+					<InputType
+						type='text'
+						name='settingName'
+						defaultValue={setting.settingName}
+					/>
 				</label>
 			</fieldset>
 			<div className='flex flex-col gap-1 bg-slate-100 border-[1px] border-slate-100 p-[1px] rounded'>
@@ -59,6 +85,7 @@ const SettingsForm = async ({ setting }) => {
 									languages={languages}
 									name={'main-singular'}
 									defaultLanguage={defaultLanguage}
+									inputs={!singular ? null : singular}
 								/>
 								<LanguageInputContainer
 									fieldSetClass='flex flex-col'
@@ -66,6 +93,7 @@ const SettingsForm = async ({ setting }) => {
 									languages={languages}
 									name={'main-plural'}
 									defaultLanguage={defaultLanguage}
+									inputs={!plural ? null : plural}
 								/>
 							</div>
 						</div>

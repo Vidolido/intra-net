@@ -22,7 +22,11 @@ const page = async () => {
 			<div className='flex'>
 				<div className='flex flex-col gap-2'>
 					<SettingsForm setting={draft} />
-					<InsertSettings languages={languages} />
+					{!draft.optionsSchema ? (
+						''
+					) : (
+						<InsertSettings languages={languages} setting={draft} />
+					)}
 					{/* <AddSettingsCollection languages={languages} /> */}
 				</div>
 				<div>
