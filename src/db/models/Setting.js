@@ -49,11 +49,11 @@ const settingsSchema = new Schema(
   {
     settingName: String,
     sector: String,
-    collections: {
-      type: Schema.Types.Mixed,
-    },
     optionsSchema: {
       type: optionsSchema,
+    },
+    collections: {
+      type: Schema.Types.Mixed,
     },
     settings: {
       type: [collectionSchema],

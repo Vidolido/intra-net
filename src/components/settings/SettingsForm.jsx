@@ -90,7 +90,8 @@ const SettingsForm = async ({ setting }) => {
               />
             </fieldset>
           </div>
-          <SaveOptionSchema />
+          {/* <SaveOptionSchema /> */}
+          <SubmitButton label='Use Schema' />
         </OptionsSchema>
       </div>
     </ParentForm>
