@@ -17,13 +17,14 @@ import ContextButton from '@/components/buttons/ContextButton';
 import RadioButtons from '../RadioButtons';
 import CollectionInput from './CollectionInput';
 import DisplayCollections from './DisplayCollections';
+import { addItemsArray } from '@/utils/addItemsArray';
 
 const InsertSettings = ({ languages, setting }) => {
 	const state = useSettingsContext();
 	const dispatch = useSettingsDispatchContext();
-	const { defaultLanguage, inputType, selectedCollection } =
+	const { defaultLanguage, inputType, selectedCollection, optionsSchema } =
 		useSettingsContext();
-	const { optionsSchema } = setting;
+	// const { optionsSchema } = setting;
 	// console.log(setting, 'setting');
 	// let parameter =
 	// 	optionsSchema?.parameter?.name?.singular[defaultLanguage.language];
@@ -32,19 +33,23 @@ const InsertSettings = ({ languages, setting }) => {
 
 	let collections = optionsSchema?.collections || [];
 
+	// let collections = addItemsArray(optionsSchema).collections || [];
+
 	useEffect(() => {
-		if (isObjectEmpty(state.optionsSchema)) {
+		if (isObjectEmpty(optionsSchema)) {
+			// let test = addItemsArray(optionsSchema);
+
 			dispatch({
 				type: ADD,
 				payload: {
 					type: 'add',
 					state: 'optionsSchema',
-					value: optionsSchema,
+					value: addItemsArray(setting.optionsSchema),
 				},
 			});
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [optionsSchema, state.optionsSchema]);
+	}, []);
 
 	const handleRadioChange = (e) => {
 		dispatch({
@@ -102,7 +107,7 @@ const InsertSettings = ({ languages, setting }) => {
 			type: 'add',
 			value: {
 				...optionsSchema,
-				// ...main,
+				...main,
 			},
 		};
 
@@ -118,8 +123,8 @@ const InsertSettings = ({ languages, setting }) => {
 				state: 'optionsSchema',
 				value: selectedInput,
 				more: {
-					property: 'items',
-					secondProp: 'collection',
+					property: 'collections',
+					secondProp: 'items',
 					selection: selectedCollection,
 				},
 			},
@@ -201,7 +206,6 @@ const InsertSettings = ({ languages, setting }) => {
 						<DisplayCollections
 							languages={languages}
 							defaultLanguage={defaultLanguage}
-							setting={setting}
 						/>
 					) : (
 						''

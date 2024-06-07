@@ -6,15 +6,14 @@ import { useSettingsContext } from '@/state/settingsContext';
 // utils
 import { generateUUID } from '@/utils/generateUUID';
 
-const DisplayCollections = ({ languages, defaultLanguage, setting }) => {
+const DisplayCollections = ({ languages, defaultLanguage }) => {
 	// const { state } =
-	const { selectedCollection, optionsSchema: stateOptionSchema } =
-		useSettingsContext();
-	const { optionsSchema } = setting;
+	const { selectedCollection, optionsSchema } = useSettingsContext();
+	// const { optionsSchema } = setting;
 
 	const { collections } = optionsSchema;
 
-	console.log(collections[selectedCollection], 'the collections');
+	// console.log(collections[selectedCollection], 'the collections');
 
 	// console.log(
 	// 	collections && collections[selectedCollection].collection,
@@ -22,14 +21,12 @@ const DisplayCollections = ({ languages, defaultLanguage, setting }) => {
 	// 	'THE collections'
 	// );
 	// const uuid = generateUUID();
-	console.log(stateOptionSchema, 'the schemaaaaa');
 
 	return (
 		<fieldset name='collection-items'>
 			<ul className='pl-5 flex flex-col gap-1'>
-				{/* {collections &&
-					collections[selectedCollection].collection.map((item) => {
-						
+				{collections &&
+					collections[selectedCollection].items.map((item) => {
 						const uuid = generateUUID();
 						return (
 							<li className='list-disc' key={uuid}>
@@ -40,7 +37,7 @@ const DisplayCollections = ({ languages, defaultLanguage, setting }) => {
 								</span>
 							</li>
 						);
-					})} */}
+					})}
 			</ul>
 		</fieldset>
 	);

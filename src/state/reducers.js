@@ -36,9 +36,18 @@ export const addSettingReducer = (draft, action) => {
 			}
 			if (more) {
 				console.log(action);
-				draft[property][more.property][more.selection][more.secondProp].push(
-					value
-				);
+				if (
+					draft[property][more.property][more.selection][more.secondProp] !==
+					undefined
+				) {
+					draft[property][more.property][more.selection][more.secondProp].push(
+						value
+					);
+					return;
+				}
+				draft[property][more.property][more.selection][more.secondProp] = [
+					value,
+				];
 			}
 			break;
 		}

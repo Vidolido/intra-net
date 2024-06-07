@@ -29,40 +29,41 @@ const DisplaySettings = ({ languages }) => {
 					</tr>
 				</thead>
 				<tbody>
-					{settings?.map((setting, index) => {
-						let collections = setting.collections;
+					{settings &&
+						settings?.map((setting, index) => {
+							let collections = setting.collections;
 
-						return (
-							<>
-								{/* <tr>
+							return (
+								<>
+									{/* <tr>
                 МЕСТО ЗА ЕДИТ ПАНЕЛ
 									<td colSpan={4}>testiranje</td>
 								</tr> */}
-								<tr key={createRandomNumber(1, 999)}>
-									<td className='border text-left p-3'>
-										{setting?.parameter?.value['en']}
-									</td>
-									{collections.map((item, ind) => {
-										return (
-											<td key={ind} className='border text-left p-3'>
-												{item.collection.map((collection, i) => {
-													return (
-														<p key={i}>
-															{' '}
-															{(typeof collection.value === 'string' &&
-																collection.value) ||
-																collection.value[defaultLanguage.language] ||
-																`${collection?.value?.key} - ${collection?.value?.value}`}
-														</p>
-													);
-												})}
-											</td>
-										);
-									})}
-								</tr>
-							</>
-						);
-					})}
+									<tr key={createRandomNumber(1, 999)}>
+										<td className='border text-left p-3'>
+											{setting?.parameter?.value['en']}
+										</td>
+										{collections.map((collection, ind) => {
+											return (
+												<td key={ind} className='border text-left p-3'>
+													{collection?.items.map((item, i) => {
+														return (
+															<p key={i}>
+																{' '}
+																{(typeof item.value === 'string' &&
+																	item.value) ||
+																	item.value[defaultLanguage.language] ||
+																	`${item?.value?.key} - ${item?.value?.value}`}
+															</p>
+														);
+													})}
+												</td>
+											);
+										})}
+									</tr>
+								</>
+							);
+						})}
 				</tbody>
 				<tfoot></tfoot>
 			</table>
