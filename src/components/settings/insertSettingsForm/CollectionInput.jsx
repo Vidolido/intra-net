@@ -1,8 +1,7 @@
-import InputType from '../inputs/InputType';
-import LanguageInputContainer from '../inputs/LanguageInputContainer';
+import InputType from '@/components/inputs/InputType';
+import LanguageInputContainer from '@/components/inputs/LanguageInputContainer';
 
 const CollectionInput = ({ languages, inputType }) => {
-	// console.log(languages[0]._id, inputType, 'OVIJA');
 	return (
 		<fieldset name='collection-input-fields' className='flex items-start gap-2'>
 			{inputType === 'simple' ? (

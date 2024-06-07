@@ -3,16 +3,14 @@ import { getLanguages } from '@/app/dashboard/apiCalls';
 // import { createSetting } from '@/serverActions/settings';
 
 // components
-import SelectInput from '../inputs/SelectInput';
-import InputType from '../inputs/InputType';
-import LanguageInputContainer from '../inputs/LanguageInputContainer';
-import FormCollections from './FormCollections';
-import SubmitButton from '../buttons/SubmitButtons';
-import AddCollections from './AddCollections';
+import SubmitButton from '@/components/buttons/SubmitButtons';
+import SelectInput from '@/components/inputs/SelectInput';
+import InputType from '@/components/inputs/InputType';
+import LanguageInputContainer from '@/components/inputs/LanguageInputContainer';
 import ParentForm from './ParentForm';
 import OptionsSchema from './OptionsSchema';
-// import ClientComp from './ClientComp';
-// import SaveOptionSchema from './SaveOptionSchema';
+import AddCollections from './AddCollections';
+import FormCollections from './FormCollections';
 
 const sectors = [
 	{ name: 'Laboratory' },

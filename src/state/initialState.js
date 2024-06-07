@@ -8,7 +8,7 @@ export const addSettingState = {
 		language: 'en',
 		locale: 'en-US',
 	},
-	optionSchema: {},
+	optionsSchema: {},
 	inputType: 'simple',
 	settings: [],
 	selectedCollection: 0,

@@ -11,9 +11,9 @@ import { addCollections } from '@/serverActions/settings/addCollections';
 // import { ADD } from '@/state/actionTypes';
 
 // components
-import LanguageInputContainer from '../inputs/LanguageInputContainer';
-import ContextButton from '../buttons/ContextButton';
-import SettingError from '../errorComponents/SettingsError';
+import LanguageInputContainer from '@/components/inputs/LanguageInputContainer';
+import ContextButton from '@/components/buttons/ContextButton';
+import SettingError from '@/components/errorComponents/SettingsError';
 
 const AddCollections = ({ languages, defaultLanguage, setting }) => {
 	const { error, setError } = useErrorContext();
@@ -95,6 +95,3 @@ const AddCollections = ({ languages, defaultLanguage, setting }) => {
 };
 
 export default AddCollections;
-// export default memo(AddCollections, (prev, next) => {
-//   prev.setting
-// });

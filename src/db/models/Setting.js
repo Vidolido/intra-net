@@ -27,7 +27,6 @@ const collectionSchema = new Schema(
 				},
 				items: {
 					type: [Schema.Types.Mixed],
-					default: undefined,
 				},
 			},
 		],
@@ -40,7 +39,7 @@ const collectionSchema = new Schema(
 			default: undefined,
 		},
 	},
-	{ _id: true, strict: true }
+	{ _id: true }
 );
 
 const optionsSchema = new Schema(

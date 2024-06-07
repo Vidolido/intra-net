@@ -6,14 +6,14 @@ import {
 	useSettingsContext,
 	useSettingsDispatchContext,
 } from '@/state/settingsContext';
+import { deleteCollections } from '@/serverActions/settings/deleteCollections';
+import { generateUUID } from '@/utils/generateUUID';
 
 // components
-import LanguageInputContainer from '../inputs/LanguageInputContainer';
-import ContextButton from '../buttons/ContextButton';
-
+// import LanguageInputContainer from '../inputs/LanguageInputContainer';
+// import ContextButton from '../buttons/ContextButton';
 import CollectionItem from './CollectionItem';
-import { generateUUID } from '@/utils/generateUUID';
-import { deleteCollections } from '@/serverActions/settings/deleteCollections';
+
 // import CollectionItems from './CollectionItems';
 
 const FormCollections = ({ languages, defaultLanguage, setting }) => {

@@ -4,7 +4,7 @@ import { useSettingsContext } from '@/state/settingsContext';
 import { createSetting } from '@/serverActions/settings';
 
 // components
-import SubmitButton from '../buttons/SubmitButtons';
+// import SubmitButton from '../buttons/SubmitButtons';
 
 const ParentForm = ({ children, setting }) => {
 	const { state } = useSettingsContext();
