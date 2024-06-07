@@ -6,7 +6,7 @@ import Setting from '@/db/models/Setting';
 import { revalidatePath } from 'next/cache';
 
 export async function createSetting(_id, formData) {
-  console.log(formData, 'THE FORM DATA');
+  // console.log(formData, 'THE FORM DATA');
   // console.log(_id, 'the id');
 
   let main = Object.entries(Object.fromEntries(formData)).filter((element) =>
