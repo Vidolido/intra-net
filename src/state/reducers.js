@@ -16,7 +16,9 @@ export const addSettingReducer = (draft, action) => {
 		case ADD: {
 			console.log(action, 'THE ACTION IN REDUCER');
 			if (type === 'add') {
-				draft[property] = value;
+				// draft[property] = value;
+				console.log(property, 'the property');
+				draft[property] = !draft[property];
 			}
 			if (type === 'push') {
 				// draft[property].push(value);

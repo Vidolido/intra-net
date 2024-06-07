@@ -8,11 +8,19 @@ import {
 	getTransactionsByDate,
 } from '@/serverActions/vehicles';
 import { useVehicleContext } from '@/state/vehicleContext';
+import {
+	useSettingsContext,
+	useSettingsDispatchContext,
+} from '@/state/settingsContext';
+import { ADD } from '@/state/actionTypes';
 
 const SubmitButton = ({ label, element }) => {
 	const { pending } = useFormStatus();
 
 	const { state, setState } = useVehicleContext();
+	const dispatch = useSettingsDispatchContext();
+	const settingsState = useSettingsContext();
+	const { showOptionsSchema } = useSettingsContext();
 
 	useEffect(() => {
 		setState({
@@ -29,6 +37,19 @@ const SubmitButton = ({ label, element }) => {
 			? e.target.form.elements?.namedItem(element)
 			: null;
 
+		if (label === 'Use Schema') {
+			dispatch({
+				type: ADD,
+				payload: {
+					type: 'add',
+					state: 'showOptionsSchema',
+					value: false,
+				},
+			});
+			e.target.form.requestSubmit();
+			return;
+		}
+
 		if (checkValue === null) {
 			setState((prevState) => {
 				return { ...prevState, error: {} };
@@ -36,10 +57,10 @@ const SubmitButton = ({ label, element }) => {
 			e.target.form.requestSubmit();
 			return;
 		}
-
+		console.log(label, 'THE FUCKING LABEEEELLLL');
 		if (checkValue.name === 'userId') {
 			e.preventDefault();
-			console.log(label, checkValue.name, checkValue.value);
+			// console.log(label, checkValue.name, checkValue.value);
 			// let error = label !== 'Use' ?
 			if (checkValue.value === 'none') {
 				setState((prevState) => {
@@ -69,7 +90,7 @@ const SubmitButton = ({ label, element }) => {
 
 			if (hasUserRented) {
 				// e.preventDefault();
-				console.log('THIS IS THE IT');
+				// console.log('THIS IS THE IT');
 				setState((prevState) => ({
 					...prevState,
 					error: {
@@ -107,7 +128,7 @@ const SubmitButton = ({ label, element }) => {
 				return;
 			}
 			const to = e.target.form.elements?.namedItem('to').value;
-			console.log(new Date(from) > new Date(to));
+			// console.log(new Date(from) > new Date(to));
 
 			// console.log(from, to, 'OVA SEA');
 			const transactions = JSON.parse(await getTransactionsByDate(from, to));
@@ -125,7 +146,7 @@ const SubmitButton = ({ label, element }) => {
 			});
 		}
 	};
-	// console.log(state, 'THE STATE');
+	console.log(settingsState, 'THE settingsState');
 	return (
 		<button
 			className='bg-red-500 disabled:bg-red-200 hover:bg-red-700 text-white font-semibold pt-[1px] pb-[3px] px-5 rounded'
