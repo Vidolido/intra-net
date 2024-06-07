@@ -1,7 +1,7 @@
 import HeaderNavigation from '@/components/navigation/HeaderNavigation';
 import './globals.css';
 import { VehicleContextProvider } from '@/state/vehicleContext';
-import { ErrorContextProvider } from '@/state/ErrorContext';
+import { ErrorContextProvider } from '@/state/errorContext';
 
 export const metadata = {
   title: 'Okta',

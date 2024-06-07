@@ -14,6 +14,14 @@ const ActionButton = ({ label, action, parameters, setError }) => {
           ...prevState,
           error: { ...prevState.error, ...error },
         }));
+        setError((prevState) => {
+          if (error) {
+            return {
+              ...prevState,
+              error,
+            };
+          } else return {};
+        });
         // console.log(error, 'THE ERROR');
       }}>
       {label}
