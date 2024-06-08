@@ -11,8 +11,8 @@ const DisplaySettings = ({ languages, setting }) => {
 	const { settings } = setting;
 
 	let headings = (settings && getDisplayHeadings(settings[0])) || null;
-	console.log(headings, 'the  headings');
-	console.log(settings, 'THE SETTINGS');
+	// console.log(headings, 'the  headings');
+	// console.log(settings, 'THE SETTINGS');
 	// console.log(dbSettings, 'THE dbSettings');
 	return (
 		<div>

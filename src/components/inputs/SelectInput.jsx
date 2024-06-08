@@ -8,7 +8,6 @@ const SelectInput = ({
 	onChange,
 	defaultValue = '',
 }) => {
-	// console.log(options, 'THE  OPTIONS');
 	return (
 		<select
 			name={name}

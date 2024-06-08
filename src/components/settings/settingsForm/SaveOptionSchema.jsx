@@ -8,10 +8,10 @@ import {
 } from '@/state/settingsContext';
 
 // components
-import ContextButton from '../buttons/ContextButton';
+import ContextButton from '../../buttons/ContextButton';
 import { ADD, ADD_TO_COLLECTION } from '@/state/actionTypes';
 
-const SaveOptionSchema = () => {
+const SaveOptionSchema = ({ setting }) => {
 	// const { state, setState } = useSettingsContext();
 	const state = useSettingsContext();
 	const dispatch = useSettingsDispatchContext();
@@ -38,7 +38,8 @@ const SaveOptionSchema = () => {
 			payload: { state: 'settingName', value: settingName.value, type: 'add' },
 		});
 
-		// console.log(hasProp, 'HAS PROP');
+		// console.log(hasProp, 'HAS PROP');\
+		// console.log(options, 'options');
 
 		if (
 			state.optionSchema &&
@@ -53,14 +54,14 @@ const SaveOptionSchema = () => {
 				createSchema.collections.length
 			);
 
-			console.log(collections, 'THE COLLECTIONS');
+			// console.log(collections, 'THE COLLECTIONS');
 
 			collections.push(...newCollections);
 
 			dispatch({
 				type: ADD_TO_COLLECTION,
 				payload: {
-					state: 'optionSchema',
+					state: 'optionsSchema',
 					type: 'add',
 
 					value: {
@@ -79,7 +80,7 @@ const SaveOptionSchema = () => {
 			dispatch({
 				type: ADD,
 				payload: {
-					state: 'optionSchema',
+					state: 'optionsSchema',
 					type: 'add',
 					value: {
 						...createSchema,
@@ -98,7 +99,9 @@ const SaveOptionSchema = () => {
 		//   ...prev,
 		//   ...payload,
 		// }));
+		e.target.form.requestSubmit();
 	};
+	// console.log(setting, 'THE SETTING IN SAVE OPTION SHCEMA');
 	// console.log(state, 'THE STATE IN SAVE OPTION SCHEMA');
 	return <ContextButton label='Use Schema' onClick={handleOnClick} />;
 };

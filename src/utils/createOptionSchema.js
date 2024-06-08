@@ -11,7 +11,7 @@ export const createOptionsSchema = (mainParam, options) => {
 						[nameArray[nameArray.length - 1]]: currentValue.value,
 					},
 				},
-				value: {},
+				inputValue: {},
 			},
 		};
 		return acc;
@@ -25,7 +25,7 @@ export const createOptionsSchema = (mainParam, options) => {
 					...acc?.collections[nameArray[0]]?.name,
 					[nameArray[nameArray.length - 1]]: currentValue.value,
 				},
-				collection: [],
+				items: [],
 			};
 			acc.collections[nameArray[0]] = collection;
 

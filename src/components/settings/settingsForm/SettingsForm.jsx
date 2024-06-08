@@ -11,6 +11,7 @@ import ParentForm from './ParentForm';
 import OptionsSchema from './OptionsSchema';
 import AddCollections from './AddCollections';
 import FormCollections from './FormCollections';
+import SaveOptionSchema from './SaveOptionSchema';
 
 const sectors = [
 	{ name: 'Laboratory' },
@@ -111,8 +112,8 @@ const SettingsForm = async ({ setting }) => {
 							/>
 						</fieldset>
 					</div>
-					{/* <SaveOptionSchema /> */}
-					<SubmitButton label='Use Schema' />
+					<SaveOptionSchema setting={setting} />
+					{/* <SubmitButton label='Use Schema' /> */}
 				</OptionsSchema>
 			</div>
 		</ParentForm>

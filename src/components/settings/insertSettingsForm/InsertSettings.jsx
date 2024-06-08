@@ -6,9 +6,11 @@ import {
 	useSettingsContext,
 	useSettingsDispatchContext,
 } from '@/state/settingsContext';
+import { addSetting } from '@/serverActions/settings/addSetting';
 import { ADD, ADD_TO_COLLECTION } from '@/state/actionTypes';
 import { selectedInputType } from '@/utils/selectedInputType';
 import { isObjectEmpty } from '@/utils/functions';
+import { addItemsArray } from '@/utils/addItemsArray';
 
 // components
 import LanguageInputContainer from '@/components/inputs/LanguageInputContainer';
@@ -17,25 +19,16 @@ import ContextButton from '@/components/buttons/ContextButton';
 import RadioButtons from '../RadioButtons';
 import CollectionInput from './CollectionInput';
 import DisplayCollections from './DisplayCollections';
-import { addItemsArray } from '@/utils/addItemsArray';
-import { addSetting } from '@/serverActions/settings/addSetting';
 
 const InsertSettings = ({ languages, setting }) => {
 	const state = useSettingsContext();
 	const dispatch = useSettingsDispatchContext();
 	const { defaultLanguage, inputType, selectedCollection, optionsSchema } =
 		useSettingsContext();
-	// const { optionsSchema } = setting;
+	// const { optionsSchema: dbOptionsSchema } = setting;
 	// console.log(setting, 'setting');
 	// let parameter =
 	// 	optionsSchema?.parameter?.name?.singular[defaultLanguage.language];
-	let parameter =
-		optionsSchema?.parameter?.name?.singular[defaultLanguage.language];
-
-	let collections = optionsSchema?.collections || [];
-
-	// let collections = addItemsArray(optionsSchema).collections || [];
-
 	useEffect(() => {
 		if (isObjectEmpty(optionsSchema)) {
 			// let test = addItemsArray(optionsSchema);
@@ -51,6 +44,17 @@ const InsertSettings = ({ languages, setting }) => {
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
+	// console.log(isObjectEmpty(stateOptionSchema), 'STATE OPTION SCHEMA');
+	// console.log(dbOptionsSchema, 'STATE OPTION SCHEMA');
+
+	// let optionsSchema = isObjectEmpty(stateOptionSchema)
+	// 	? addItemsArray(setting.optionsSchema)
+	// 	: addItemsArray(setting.optionsSchema);
+
+	let parameter =
+		optionsSchema?.parameter?.name?.singular[defaultLanguage.language];
+
+	let collections = optionsSchema?.collections || [];
 
 	const handleRadioChange = (e) => {
 		dispatch({
@@ -85,10 +89,14 @@ const InsertSettings = ({ languages, setting }) => {
 			.namedItem('main-parameter')
 			.querySelectorAll('input');
 
+		let optionsInput = e.target.form.elements
+			.namedItem('collection-input-fields')
+			.querySelectorAll('input');
+
 		let main = Array.from(mainParam).reduce((acc, currentValue) => {
 			let nameArray = currentValue.name.split('-');
-			console.log(nameArray, 'THE NAME ARRAY');
-			console.log(currentValue, 'THE currentValue');
+			// console.log(nameArray, 'THE NAME ARRAY');
+			// console.log(currentValue, 'THE currentValue');
 			acc = {
 				parameter: {
 					name: optionsSchema.parameter.name,
@@ -101,7 +109,7 @@ const InsertSettings = ({ languages, setting }) => {
 			};
 			return acc;
 		}, {});
-		console.log(main, 'the main PARAM');
+		// console.log(main, 'the main PARAM');
 
 		let selectedInput = selectedInputType(e, inputType);
 
@@ -134,33 +142,26 @@ const InsertSettings = ({ languages, setting }) => {
 				},
 			},
 		});
+		console.log(optionsInput, 'options input');
+		Array.from(optionsInput).map((item) => (item = item.value = ''));
 	};
 
 	const handleAddSetting = async (e) => {
 		e.preventDefault();
 		let settingToAdd = optionsSchema;
-		// let settingsCollection = settings;
-
-		// settingsCollection.push(setting);
-		// let dbPay = {
-		// 	...optionsSchema,
-		// 	...main,
-		// };
-		// console.log(settingToAdd, 'THE SETTING TO ADDDDDDD');
-		// dispatch({
-		// 	type: ADD_TO_COLLECTION,
-		// 	payload: {
-		// 		type: 'push',
-		// 		state: 'settings',
-		// 		value: setting,
-		// 	},
-		// });
+		// console.log(settingToAdd, 'setting to add');
 		await addSetting(settingToAdd, setting);
+		dispatch({
+			type: ADD,
+			payload: {
+				type: 'add',
+				state: 'optionsSchema',
+				value: addItemsArray(setting.optionsSchema),
+			},
+		});
 		e.target.form.reset();
 	};
 
-	// console.log(state);
-	// console.log(setting, 'the setting inserSettings');
 	return (
 		<form className='border border-slate-200 rounded p-1'>
 			<fieldset name='main-parameter'>
@@ -185,7 +186,7 @@ const InsertSettings = ({ languages, setting }) => {
 							name='collection-select'
 							options={collections}
 							label={defaultLanguage.language}
-							value={parameter && parameter[defaultLanguage.language]}
+							value={parameter && parameter}
 							onChange={handleOnSelect}
 						/>
 					</fieldset>

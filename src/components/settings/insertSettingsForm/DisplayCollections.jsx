@@ -7,20 +7,8 @@ import { useSettingsContext } from '@/state/settingsContext';
 import { generateUUID } from '@/utils/generateUUID';
 
 const DisplayCollections = ({ languages, defaultLanguage }) => {
-	// const { state } =
 	const { selectedCollection, optionsSchema } = useSettingsContext();
-	// const { optionsSchema } = setting;
-
 	const { collections } = optionsSchema;
-
-	// console.log(collections[selectedCollection], 'the collections');
-
-	// console.log(
-	// 	collections && collections[selectedCollection].collection,
-	// 	selectedCollection,
-	// 	'THE collections'
-	// );
-	// const uuid = generateUUID();
 
 	return (
 		<fieldset name='collection-items'>
