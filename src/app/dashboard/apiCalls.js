@@ -37,3 +37,16 @@ export async function getDraftSetting() {
 
 	return res.json();
 }
+
+export async function getLaboratorySettings() {
+	const res = await fetch(
+		'http://localhost:3000/api/laboratory/template-setting'
+	);
+
+	if (!res.ok) {
+		console.log(res);
+		throw new Error('Failed to get vehicles from db. Reason: ' + res);
+	}
+
+	return res.json();
+}
