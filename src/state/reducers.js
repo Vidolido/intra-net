@@ -14,10 +14,10 @@ export const addSettingReducer = (draft, action) => {
 	let more = action.payload.more || null;
 	switch (action.type) {
 		case ADD: {
-			console.log(action, 'THE ACTION IN REDUCER');
+			// console.log(action, 'THE ACTION IN REDUCER');
 			if (type === 'add') {
 				draft[property] = value;
-				console.log(property, 'the property');
+				// console.log(property, 'the property');
 				// draft[property] = !draft[property];
 			}
 			if (type === 'push') {
@@ -31,7 +31,7 @@ export const addSettingReducer = (draft, action) => {
 				draft[property] = value;
 			}
 			if (type === 'push') {
-				console.log(action, 'IN THE REDUCER');
+				// console.log(action, 'IN THE REDUCER');
 				draft[property].push(value);
 			}
 			if (more) {

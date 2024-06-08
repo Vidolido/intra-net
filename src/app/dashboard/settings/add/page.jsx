@@ -31,7 +31,7 @@ const page = async () => {
 				</div>
 				<div>
 					<h3>Settings</h3>
-					<DisplaySettings languages={languages} />
+					<DisplaySettings languages={languages} setting={draft} />
 				</div>
 			</div>
 		</div>

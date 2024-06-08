@@ -1,27 +1,33 @@
 'use client';
 import { useSettingsContext } from '@/state/settingsContext';
 import { createRandomNumber } from '@/utils/functions';
+import { generateUUID } from '@/utils/generateUUID';
 import { getDisplayHeadings } from '@/utils/getDisplayHeadings';
+import { Fragment } from 'react';
 
-const DisplaySettings = ({ languages }) => {
-	const { settings, defaultLanguage } = useSettingsContext();
+const DisplaySettings = ({ languages, setting }) => {
+	// const { defaultLanguage } = useSettingsContext();
+	const { defaultLanguage } = useSettingsContext();
+	const { settings } = setting;
 
-	let headings = getDisplayHeadings(settings[0]) || null;
-	//   console.log(headings, 'the  headings');
-	// console.log(settings, 'THE SETTINGS');
+	let headings = (settings && getDisplayHeadings(settings[0])) || null;
+	console.log(headings, 'the  headings');
+	console.log(settings, 'THE SETTINGS');
+	// console.log(dbSettings, 'THE dbSettings');
 	return (
 		<div>
 			<table className='border-collapse'>
 				<thead>
 					<tr>
-						{headings.main && (
+						{headings && headings.main && (
 							<th className='border w-fit text-left px-3'>
 								{headings?.main[defaultLanguage.language]}
 							</th>
 						)}
 
-						{headings.collections &&
-							headings?.collections.map((collection, index) => (
+						{headings &&
+							headings?.collections &&
+							headings?.collections?.map((collection, index) => (
 								<th key={index} className='border w-fit text-left px-3'>
 									{collection[defaultLanguage.language]}
 								</th>
@@ -32,36 +38,35 @@ const DisplaySettings = ({ languages }) => {
 					{settings &&
 						settings?.map((setting, index) => {
 							let collections = setting.collections;
-
 							return (
-								<>
-									{/* <tr>
-                МЕСТО ЗА ЕДИТ ПАНЕЛ
-									<td colSpan={4}>testiranje</td>
-								</tr> */}
-									<tr key={createRandomNumber(1, 999)}>
+								<Fragment key={generateUUID()}>
+									<tr key={generateUUID()}>
 										<td className='border text-left p-3'>
-											{setting?.parameter?.value['en']}
+											{setting?.parameter?.inputValue['en']}
 										</td>
 										{collections.map((collection, ind) => {
 											return (
-												<td key={ind} className='border text-left p-3'>
-													{collection?.items.map((item, i) => {
-														return (
-															<p key={i}>
-																{' '}
-																{(typeof item.value === 'string' &&
-																	item.value) ||
-																	item.value[defaultLanguage.language] ||
-																	`${item?.value?.key} - ${item?.value?.value}`}
-															</p>
-														);
-													})}
+												<td
+													key={generateUUID()}
+													className='border text-left p-3'>
+													{collection &&
+														collection.items &&
+														collection?.items.map((item, i) => {
+															return (
+																<p key={generateUUID()}>
+																	{' '}
+																	{(typeof item.value === 'string' &&
+																		item.value) ||
+																		item.value[defaultLanguage.language] ||
+																		`${item?.value?.key} - ${item?.value?.value}`}
+																</p>
+															);
+														})}
 												</td>
 											);
 										})}
 									</tr>
-								</>
+								</Fragment>
 							);
 						})}
 				</tbody>

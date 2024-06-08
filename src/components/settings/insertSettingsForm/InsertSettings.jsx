@@ -18,6 +18,7 @@ import RadioButtons from '../RadioButtons';
 import CollectionInput from './CollectionInput';
 import DisplayCollections from './DisplayCollections';
 import { addItemsArray } from '@/utils/addItemsArray';
+import { addSetting } from '@/serverActions/settings/addSetting';
 
 const InsertSettings = ({ languages, setting }) => {
 	const state = useSettingsContext();
@@ -38,7 +39,7 @@ const InsertSettings = ({ languages, setting }) => {
 	useEffect(() => {
 		if (isObjectEmpty(optionsSchema)) {
 			// let test = addItemsArray(optionsSchema);
-
+			// console.log(setting.optionsSchema, 'OPTIONS CHEMA IN USEFECTR');
 			dispatch({
 				type: ADD,
 				payload: {
@@ -79,25 +80,28 @@ const InsertSettings = ({ languages, setting }) => {
 		});
 	};
 
-	const handleButtonClick = (e) => {
+	const handleButtonClick = async (e) => {
 		let mainParam = e.target.form.elements
 			.namedItem('main-parameter')
 			.querySelectorAll('input');
 
 		let main = Array.from(mainParam).reduce((acc, currentValue) => {
 			let nameArray = currentValue.name.split('-');
+			console.log(nameArray, 'THE NAME ARRAY');
+			console.log(currentValue, 'THE currentValue');
 			acc = {
 				parameter: {
 					name: optionsSchema.parameter.name,
-					value: {
-						...acc[nameArray[1]]?.value,
+					inputValue: {
+						...acc[nameArray[1]]?.inputValue,
+						...acc?.parameter?.inputValue,
 						[nameArray[nameArray.length - 1]]: currentValue.value,
 					},
 				},
 			};
 			return acc;
 		}, {});
-		// console.log(main, 'the main PARAM');
+		console.log(main, 'the main PARAM');
 
 		let selectedInput = selectedInputType(e, inputType);
 
@@ -111,6 +115,7 @@ const InsertSettings = ({ languages, setting }) => {
 			},
 		};
 
+		// }
 		dispatch({
 			type: ADD,
 			payload: pay,
@@ -131,21 +136,27 @@ const InsertSettings = ({ languages, setting }) => {
 		});
 	};
 
-	const handleAddSetting = (e) => {
+	const handleAddSetting = async (e) => {
 		e.preventDefault();
-		let setting = optionsSchema;
+		let settingToAdd = optionsSchema;
 		// let settingsCollection = settings;
 
 		// settingsCollection.push(setting);
-
-		dispatch({
-			type: ADD_TO_COLLECTION,
-			payload: {
-				type: 'push',
-				state: 'settings',
-				value: setting,
-			},
-		});
+		// let dbPay = {
+		// 	...optionsSchema,
+		// 	...main,
+		// };
+		console.log(settingToAdd, 'THE SETTING TO ADDDDDDD');
+		// dispatch({
+		// 	type: ADD_TO_COLLECTION,
+		// 	payload: {
+		// 		type: 'push',
+		// 		state: 'settings',
+		// 		value: setting,
+		// 	},
+		// });
+		await addSetting(settingToAdd, setting);
+		e.target.form.reset();
 	};
 
 	console.log(state);

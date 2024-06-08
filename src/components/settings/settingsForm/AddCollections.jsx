@@ -79,7 +79,7 @@ const AddCollections = ({ languages, defaultLanguage, setting }) => {
 	// 	[dispatch, state.collections]
 	// );
 	// console.log(state, 'THE STATEeee');
-	console.log(error, 'the error');
+	// console.log(error, 'the error');
 	return (
 		<div className='flex items-end gap-2'>
 			<LanguageInputContainer

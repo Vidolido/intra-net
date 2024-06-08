@@ -19,8 +19,8 @@ const SubmitButton = ({ label, element }) => {
 
 	const { state, setState } = useVehicleContext();
 	const dispatch = useSettingsDispatchContext();
-	const settingsState = useSettingsContext();
-	const { showOptionsSchema } = useSettingsContext();
+	// const settingsState = useSettingsContext();
+	// const { showOptionsSchema } = useSettingsContext();1
 
 	useEffect(() => {
 		setState({
@@ -146,7 +146,7 @@ const SubmitButton = ({ label, element }) => {
 			});
 		}
 	};
-	console.log(settingsState, 'THE settingsState');
+	// console.log(settingsState, 'THE settingsState');
 	return (
 		<button
 			className='bg-red-500 disabled:bg-red-200 hover:bg-red-700 text-white font-semibold pt-[1px] pb-[3px] px-5 rounded'
