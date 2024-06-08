@@ -1,14 +1,11 @@
 'use server';
+import { revalidatePath } from 'next/cache';
 
 // connection/moddels/database functions
 import dbConnect from '@/db/conn';
 import Setting from '@/db/models/Setting';
-import { revalidatePath } from 'next/cache';
 
 export async function createSetting(_id, formData) {
-	// console.log(formData, 'THE FORM DATA');
-	// console.log(_id, 'the id');
-
 	let main = Object.entries(Object.fromEntries(formData)).filter((element) =>
 		element[0].includes('main')
 	);
@@ -26,10 +23,10 @@ export async function createSetting(_id, formData) {
 	);
 
 	let sectorAndName = otherElements.reduce((acc, currentValue) => {
-		let test = { [currentValue[0]]: currentValue[1] };
+		let fields = { [currentValue[0]]: currentValue[1] };
 		acc = {
 			...acc,
-			...test,
+			...fields,
 		};
 		return acc;
 	}, {});
@@ -56,10 +53,34 @@ export async function createSetting(_id, formData) {
 		(acc, currentValue) => {
 			let nameArray = currentValue[0].split('-');
 			if (!Number.isNaN(Number(nameArray[0]))) {
+				let language = nameArray.splice(1);
+				if (!acc[nameArray[0]]) {
+					acc[nameArray[0]] = [
+						{
+							[nameArray[0] + '-' + language.join('-')]: currentValue[1],
+						},
+					];
+				} else {
+					acc[nameArray[0]].push({
+						[nameArray[0] + '-' + language.join('-')]: currentValue[1],
+					});
+				}
+
+				return acc;
+			}
+			return acc;
+		},
+		[]
+	);
+
+	let optionsSchemaCollections = Array.from(collectionLanguageElements).reduce(
+		(acc, currentValue) => {
+			let nameArray = currentValue[0].split('-');
+			if (!Number.isNaN(Number(nameArray[0]))) {
 				acc[nameArray[0]] = {
 					name: {
-						...acc?.[nameArray[0]]?.name,
-						[nameArray[nameArray.length - 1]]: currentValue[1],
+						...acc[nameArray[0]]?.name,
+						[currentValue[0]]: currentValue[1],
 					},
 					items: [],
 				};
@@ -70,17 +91,11 @@ export async function createSetting(_id, formData) {
 		[]
 	);
 
-	let payload = {
-		...sectorAndName,
-		optionsSchema: {
-			...parameter,
-			collections,
-		},
+	let optionsSchema = {
+		...parameter,
+		collections: [...optionsSchemaCollections],
 	};
-	// console.log(payload.optionsSchema.parameter.name);
-	// console.log(collectionLanguageElements, 'THE DAMN ELEMENTS');
-	// console.log(collections, 'THE COLLECTIONS');
-	// console.log(payload, 'the payload');
+
 	try {
 		await dbConnect();
 
@@ -88,12 +103,14 @@ export async function createSetting(_id, formData) {
 			{ _id },
 			{
 				$set: {
-					...payload,
+					...sectorAndName,
+					collections: [...collections],
+					optionsSchema: { ...optionsSchema },
 				},
-			}
+			},
+			{ upsert: true }
 		);
 		revalidatePath('/dashboard/settings/add', 'page');
-		// console.log(findDraft, 'THE  DRAFT');
 	} catch (error) {
 		console.log('createSetting error:', error);
 		throw Error('Could not create setting in database: ' + error);

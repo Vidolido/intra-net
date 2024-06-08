@@ -20,9 +20,6 @@ const LanguageInputContainer = ({
 	const onSelectChange = (e) => {
 		setLanguage(e.target.value);
 	};
-	// console.log(languages, 'THE FUCKING LANGUAGE');
-	//   console.log(inputs, 'inputs');
-	// console.log(name, 'the name');
 	return (
 		<fieldset name={fieldSetName} className={fieldSetClass}>
 			<label className={labelClass}>
@@ -46,9 +43,6 @@ const LanguageInputContainer = ({
 								(lang) => lang._id === language
 							)[0];
 							const value = Object.values(input);
-							{
-								/* console.log(inputName, 'input name'); */
-							}
 							return (
 								<InputType
 									key={index}

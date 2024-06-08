@@ -26,7 +26,7 @@ const DisplayCollections = ({ languages, defaultLanguage }) => {
 		<fieldset name='collection-items'>
 			<ul className='pl-5 flex flex-col gap-1'>
 				{collections &&
-					collections[selectedCollection].items.map((item) => {
+					collections[selectedCollection]?.items?.map((item) => {
 						const uuid = generateUUID();
 						return (
 							<li className='list-disc' key={uuid}>

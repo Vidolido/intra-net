@@ -146,7 +146,7 @@ const InsertSettings = ({ languages, setting }) => {
 		// 	...optionsSchema,
 		// 	...main,
 		// };
-		console.log(settingToAdd, 'THE SETTING TO ADDDDDDD');
+		// console.log(settingToAdd, 'THE SETTING TO ADDDDDDD');
 		// dispatch({
 		// 	type: ADD_TO_COLLECTION,
 		// 	payload: {
@@ -159,7 +159,7 @@ const InsertSettings = ({ languages, setting }) => {
 		e.target.form.reset();
 	};
 
-	console.log(state);
+	// console.log(state);
 	// console.log(setting, 'the setting inserSettings');
 	return (
 		<form className='border border-slate-200 rounded p-1'>

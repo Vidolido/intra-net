@@ -1,6 +1,5 @@
 // state/actions
 import { getDraftSetting, getLanguages } from '../../apiCalls';
-// import { makeDraftSetting } from '@/serverActions/settings';
 
 // components
 import SettingsForm from '@/components/settings/settingsForm/SettingsForm';

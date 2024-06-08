@@ -16,7 +16,9 @@ import ContextButton from '@/components/buttons/ContextButton';
 import SettingError from '@/components/errorComponents/SettingsError';
 
 const AddCollections = ({ languages, defaultLanguage, setting }) => {
-	const { error, setError } = useErrorContext();
+	const { error: contextError, setError } = useErrorContext();
+
+	const errorName = 'addCollections';
 
 	const handleClick = useCallback(
 		async (e) => {
@@ -25,15 +27,16 @@ const AddCollections = ({ languages, defaultLanguage, setting }) => {
 			const collectionElements = Array.from(e.target.form.elements).filter(
 				(element) => element.name.includes('collection')
 			);
-
 			const collectionNames = collectionElements?.map((element) => {
 				let nameArray = element.name.split('-').splice(1);
+				console.log(nameArray);
 				return {
 					[length + '-' + nameArray.join('-')]: element.value,
 				};
 			});
-			let { error } = await addCollections(collectionNames, setting);
 
+			console.log(collectionNames, 'the  collectionNames');
+			let { error } = await addCollections(collectionNames, setting);
 			setError((prevState) => {
 				if (error) {
 					return {
@@ -43,6 +46,8 @@ const AddCollections = ({ languages, defaultLanguage, setting }) => {
 				} else return {};
 			});
 
+			if (!error[errorName])
+				collectionElements.forEach((item) => (item.value = ''));
 			// dispatch({
 			// 	type: ADD,
 			// 	payload: { state: 'collections', value: collectionNames, type: 'push' },
@@ -50,36 +55,7 @@ const AddCollections = ({ languages, defaultLanguage, setting }) => {
 		},
 		[setting, setError]
 	);
-	// const handleClick = useCallback(
-	// 	async (e) => {
-	// 		const length = state.collections.length; // take the length before population
-	// 		// const length = !setting.collections ? 0 : setting.collections.length;
 
-	// 		// console.log(setting, 'THE SETTING AFTER CLICK');
-
-	// 		const collectionElements = Array.from(e.target.form.elements).filter(
-	// 			(element) => element.name.includes('collection')
-	// 		);
-
-	// 		const collectionNames = collectionElements?.map((element) => {
-	// 			let nameArray = element.name.split('-').splice(1);
-	// 			return {
-	// 				[length + '-' + nameArray.join('-')]: element.value,
-	// 			};
-	// 		});
-	// 		// console.log(collectionNames, 'THE NAMES');
-	// 		// let test = JSON.parse(await addCollections(collectionNames, setting));
-	// 		// await addCollections(collectionNames, setting);
-
-	// 		dispatch({
-	// 			type: ADD,
-	// 			payload: { state: 'collections', value: collectionNames, type: 'push' },
-	// 		});
-	// 	},
-	// 	[dispatch, state.collections]
-	// );
-	// console.log(state, 'THE STATEeee');
-	// console.log(error, 'the error');
 	return (
 		<div className='flex items-end gap-2'>
 			<LanguageInputContainer
@@ -89,7 +65,7 @@ const AddCollections = ({ languages, defaultLanguage, setting }) => {
 				defaultLanguage={defaultLanguage}
 			/>
 			<ContextButton label='Add' onClick={handleClick} />
-			<SettingError errorFrom='addCollections' />
+			<SettingError errorFrom={errorName} />
 		</div>
 	);
 };

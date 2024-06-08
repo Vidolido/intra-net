@@ -7,16 +7,12 @@ import { revalidatePath } from 'next/cache';
 import { cookies } from 'next/headers';
 
 export async function addCollections(collection, document) {
-	// console.log(collection, 'THE COLLECTION');
-	// console.log(document, '~IT DID RUN');
 	const { _id } = document;
 	try {
 		cookies();
 		await dbConnect();
 		const foundDocument = await Setting.findOne({ _id });
 		let collections = foundDocument.collections || [];
-		// console.log(foundDocument, 'THE FOUND ONE EPA DOCUMENT');
-		// console.log(collections);
 
 		collections.push(collection);
 		const updatedDocument = await Setting.updateOne(
@@ -25,7 +21,7 @@ export async function addCollections(collection, document) {
 		)
 			.lean()
 			.exec();
-		console.log(updatedDocument, 'the document');
+
 		revalidatePath('/dashboard/settings/add', 'page');
 		if (updatedDocument.modifiedCount === 1) {
 			return {
