@@ -8,7 +8,7 @@ const DisplayDraftSettings = ({ drafts }) => {
 						return (
 							<div key={draft?._id}>
 								<h5>{draft?._id}</h5>
-								<p>{draft?.name}</p>
+								<p>{draft?.settingName}</p>
 							</div>
 						);
 				  })}

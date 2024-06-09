@@ -7,6 +7,7 @@ const SelectInput = ({
 	classes,
 	onChange,
 	defaultValue = '',
+	defaultLanguage,
 }) => {
 	return (
 		<select
@@ -18,7 +19,8 @@ const SelectInput = ({
 			{options?.map((option, index) => {
 				return (
 					<option key={option.id || option._id || index} value={option[value]}>
-						{option[label] || option.name[label]}
+						{/* {option[label] || option[value] || option?.name[label]} */}
+						{option[label] || option[value] || option?.name[defaultLanguage]}
 					</option>
 				);
 			})}
