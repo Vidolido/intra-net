@@ -142,7 +142,7 @@ const InsertSettings = ({ languages, setting }) => {
 				},
 			},
 		});
-		console.log(optionsInput, 'options input');
+		// console.log(optionsInput, 'options input');
 		Array.from(optionsInput).map((item) => (item = item.value = ''));
 	};
 
@@ -161,7 +161,6 @@ const InsertSettings = ({ languages, setting }) => {
 		});
 		e.target.form.reset();
 	};
-
 	return (
 		<form className='border border-slate-200 rounded p-1'>
 			<fieldset name='main-parameter'>
@@ -182,10 +181,17 @@ const InsertSettings = ({ languages, setting }) => {
 					<fieldset className='flex flex-col min-w-[200px]'>
 						<label>Collection</label>
 
-						<SelectInput
+						{/* <SelectInput
 							name='collection-select'
 							options={collections}
 							label={defaultLanguage.language}
+							value={parameter && parameter}
+							onChange={handleOnSelect}
+						/> */}
+						<SelectInput
+							name='collection-select'
+							options={collections}
+							defaultLanguage='en'
 							value={parameter && parameter}
 							onChange={handleOnSelect}
 						/>
