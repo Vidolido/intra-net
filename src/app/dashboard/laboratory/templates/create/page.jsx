@@ -6,7 +6,7 @@ import TemplateForm from '@/components/templates/TemplateForm';
 
 const page = async () => {
 	const { setting } = await getLaboratorySettings();
-	const { settings } = await setting;
+	const { settings } = (await setting) || [];
 
 	console.log(setting, 'settings in templates');
 	return (

@@ -1,5 +1,5 @@
 const SelectInput = ({
-	name,
+	name = {},
 	options,
 	none = false,
 	label,
@@ -9,6 +9,7 @@ const SelectInput = ({
 	defaultValue = '',
 	defaultLanguage,
 }) => {
+	// console.log(options, 'THE  OPTIONS');
 	return (
 		<select
 			name={name}
@@ -20,7 +21,8 @@ const SelectInput = ({
 				return (
 					<option key={option.id || option._id || index} value={option[value]}>
 						{/* {option[label] || option[value] || option?.name[label]} */}
-						{option[label] || option[value] || option?.name[defaultLanguage]}
+						{/* {option[label] || option?.name[defaultLanguage] || option[value]} */}
+						{option[label] || option[value]}
 					</option>
 				);
 			})}

@@ -6,7 +6,7 @@ const SampleType = () => {
 	return (
 		<fieldset>
 			<h6>Sample Type</h6>
-			<SelectInput options={analysesTypes} defaultLanguage='en' />
+			<SelectInput options={analysesTypes} defaultLanguage='en' none={true} />
 		</fieldset>
 	);
 };

@@ -10,7 +10,8 @@ const DisplaySettings = ({ languages, setting }) => {
 	const { defaultLanguage } = useSettingsContext();
 	const { settings } = setting;
 
-	let headings = (settings && getDisplayHeadings(settings[0])) || null;
+	let headings =
+		(settings && getDisplayHeadings(settings[0], 'singular')) || null;
 	// console.log(headings, 'the  headings');
 	// console.log(settings, 'THE SETTINGS');
 	// console.log(dbSettings, 'THE dbSettings');
