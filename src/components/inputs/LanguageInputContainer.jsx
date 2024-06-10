@@ -20,6 +20,9 @@ const LanguageInputContainer = ({
 	const onSelectChange = (e) => {
 		setLanguage(e.target.value);
 	};
+
+	console.log(inputs, 'the inputs in languageInput');
+
 	return (
 		<fieldset name={fieldSetName} className={fieldSetClass}>
 			<label className={labelClass}>

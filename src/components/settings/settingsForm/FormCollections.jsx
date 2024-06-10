@@ -24,6 +24,7 @@ const FormCollections = ({ languages, defaultLanguage, setting }) => {
 		<div className='flex flex-col items-start gap-1'>
 			{collections?.map((collection) => {
 				let uuid = generateUUID();
+				console.log(collection, 'the collection');
 				return (
 					<CollectionItem
 						key={uuid}
