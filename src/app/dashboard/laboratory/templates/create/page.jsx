@@ -9,7 +9,7 @@ const page = async () => {
   const { setting } = await getLaboratorySettings();
   const { settings } = (await setting) || [];
 
-  console.log(setting, 'settings in templates');
+  // console.log(setting, 'settings in templates');
   return (
     <div>
       <h2>Create Tempalte</h2>
