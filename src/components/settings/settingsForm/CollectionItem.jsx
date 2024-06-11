@@ -1,7 +1,5 @@
 import ContextButton from '@/components/buttons/ContextButton';
 import LanguageInputContainer from '@/components/inputs/LanguageInputContainer';
-import { generateUUID } from '@/utils/generateUUID';
-import { Fragment } from 'react';
 
 const CollectionItem = ({ languages, inputs, defaultLanguage, onClick }) => {
 	return (

@@ -5,17 +5,17 @@ import { getLaboratorySettings, getLanguages } from '@/app/dashboard/apiCalls';
 import TemplateForm from '@/components/templates/TemplateForm';
 
 const page = async () => {
-  const { languages } = await getLanguages();
-  const { setting } = await getLaboratorySettings();
-  const { settings } = (await setting) || [];
+	const { languages } = await getLanguages();
+	const { setting } = await getLaboratorySettings();
+	const { settings } = (await setting) || [];
 
-  // console.log(setting, 'settings in templates');
-  return (
-    <div>
-      <h2>Create Tempalte</h2>
-      <TemplateForm languages={languages} settings={settings} />
-    </div>
-  );
+	// console.log(setting, 'settings in templates');
+	return (
+		<div className='w-full'>
+			<h2>Create Tempalte</h2>
+			<TemplateForm languages={languages} settings={settings} />
+		</div>
+	);
 };
 
 export default page;

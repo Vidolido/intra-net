@@ -21,7 +21,7 @@ const LanguageInputContainer = ({
 		setLanguage(e.target.value);
 	};
 
-	console.log(inputs, 'the inputs in languageInput');
+	// console.log(inputs, 'the inputs in languageInput');
 
 	return (
 		<fieldset name={fieldSetName} className={fieldSetClass}>
