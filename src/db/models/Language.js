@@ -2,6 +2,10 @@ import mongoose, { Schema } from 'mongoose';
 
 const languageSchema = new Schema({
 	language: String,
+	isDeleted: {
+		type: Boolean,
+		default: false,
+	},
 });
 
 const Language =

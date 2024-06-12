@@ -29,6 +29,10 @@ const vehicleSchema = new Schema(
 			summer: Date,
 			winter: Date,
 		},
+		isDeleted: {
+			type: Boolean,
+			default: false,
+		},
 	},
 	{
 		timestamps: true,

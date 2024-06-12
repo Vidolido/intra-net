@@ -15,6 +15,10 @@ const transactionSchema = new Schema({
 	rentTime: Date,
 	returnTime: Date,
 	status: String,
+	isDeleted: {
+		type: Boolean,
+		default: false,
+	},
 });
 
 const Transaction =

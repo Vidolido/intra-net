@@ -67,6 +67,10 @@ const settingsSchema = new Schema(
 			default: undefined,
 		},
 		documentStatus: String,
+		isDeleted: {
+			type: Boolean,
+			default: false,
+		},
 	},
 	{ strict: true }
 );

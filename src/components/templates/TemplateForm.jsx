@@ -5,6 +5,7 @@ import Product from './basic/Product';
 import SampleType from './basic/SampleType';
 import TemplateFormInput from './inputForm/TemplateFormInput';
 import TableHeaders from './inputForm/TableHeaders';
+import SaveBasic from './basic/saveBasic';
 
 const TemplateForm = ({ languages, settings }) => {
 	const defaultLanguage = {
@@ -21,6 +22,7 @@ const TemplateForm = ({ languages, settings }) => {
 				<SampleType />
 				<Origin />
 				<DocumentType />
+				<SaveBasic />
 			</div>
 			<div className='border border-slate-300 rounded w-fit p-2'>
 				<h5>Template Settings</h5>
