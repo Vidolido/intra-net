@@ -34,7 +34,6 @@ const AddCollections = ({ languages, defaultLanguage, setting }) => {
 				};
 			});
 
-			// console.log(collectionNames, 'the  collectionNames');
 			let { error } = await addCollections(collectionNames, setting);
 			setError((prevState) => {
 				if (error) {
