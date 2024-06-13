@@ -25,14 +25,9 @@ const InsertSettings = ({ languages, setting }) => {
 	const dispatch = useSettingsDispatchContext();
 	const { defaultLanguage, inputType, selectedCollection, optionsSchema } =
 		useSettingsContext();
-	// const { optionsSchema: dbOptionsSchema } = setting;
-	// console.log(setting, 'setting');
-	// let parameter =
-	// 	optionsSchema?.parameter?.name?.singular[defaultLanguage.language];
+
 	useEffect(() => {
 		if (isObjectEmpty(optionsSchema)) {
-			// let test = addItemsArray(optionsSchema);
-			// console.log(setting.optionsSchema, 'OPTIONS CHEMA IN USEFECTR');
 			dispatch({
 				type: ADD,
 				payload: {
@@ -44,12 +39,6 @@ const InsertSettings = ({ languages, setting }) => {
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-	// console.log(isObjectEmpty(stateOptionSchema), 'STATE OPTION SCHEMA');
-	// console.log(dbOptionsSchema, 'STATE OPTION SCHEMA');
-
-	// let optionsSchema = isObjectEmpty(stateOptionSchema)
-	// 	? addItemsArray(setting.optionsSchema)
-	// 	: addItemsArray(setting.optionsSchema);
 
 	let parameter =
 		optionsSchema?.parameter?.name?.singular[defaultLanguage.language];
@@ -95,8 +84,6 @@ const InsertSettings = ({ languages, setting }) => {
 
 		let main = Array.from(mainParam).reduce((acc, currentValue) => {
 			let nameArray = currentValue.name.split('-');
-			// console.log(nameArray, 'THE NAME ARRAY');
-			// console.log(currentValue, 'THE currentValue');
 			acc = {
 				parameter: {
 					name: optionsSchema.parameter.name,
@@ -109,7 +96,6 @@ const InsertSettings = ({ languages, setting }) => {
 			};
 			return acc;
 		}, {});
-		// console.log(main, 'the main PARAM');
 
 		let selectedInput = selectedInputType(e, inputType);
 
@@ -161,6 +147,7 @@ const InsertSettings = ({ languages, setting }) => {
 		});
 		e.target.form.reset();
 	};
+	console.log(state, 'state');
 	return (
 		<form className='border border-slate-200 rounded p-1'>
 			<fieldset name='main-parameter'>
@@ -215,6 +202,7 @@ const InsertSettings = ({ languages, setting }) => {
 					<CollectionInput languages={languages} inputType={inputType} />
 					<ContextButton
 						label='Add to collection'
+						type='edit'
 						onClick={handleButtonClick}
 					/>
 				</fieldset>
@@ -229,7 +217,11 @@ const InsertSettings = ({ languages, setting }) => {
 						''
 					)}
 				</div>
-				<ContextButton label='Add Setting' onClick={handleAddSetting} />
+				<ContextButton
+					label='Add Setting'
+					type='edit'
+					onClick={handleAddSetting}
+				/>
 			</div>
 		</form>
 	);

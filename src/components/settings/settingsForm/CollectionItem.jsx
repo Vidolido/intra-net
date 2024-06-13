@@ -9,7 +9,7 @@ const CollectionItem = ({ languages, inputs, defaultLanguage, onClick }) => {
 				inputs={inputs}
 				defaultLanguage={defaultLanguage}
 			/>
-			<ContextButton label='Remove' onClick={onClick} />
+			<ContextButton label='Remove' type='edit' onClick={onClick} />
 		</div>
 	);
 };

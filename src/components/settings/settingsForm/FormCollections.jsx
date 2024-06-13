@@ -13,21 +13,17 @@ import { generateUUID } from '@/utils/generateUUID';
 import CollectionItem from './CollectionItem';
 
 const FormCollections = ({ languages, defaultLanguage, setting }) => {
-	// const dispatch = useSettingsDispatchContext();
 	const { collections = [] } = setting;
 
 	const handleRemove = async (index) => {
-		// console.log(index, 'the INDEX');
 		await deleteCollections(index, setting);
 	};
 	return (
 		<div className='flex flex-col items-start gap-1'>
 			{collections?.map((collection) => {
-				let uuid = generateUUID();
-				console.log(collection, 'the collection');
 				return (
 					<CollectionItem
-						key={uuid}
+						key={generateUUID()}
 						languages={languages}
 						inputs={collection}
 						defaultLanguage={defaultLanguage}

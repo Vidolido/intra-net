@@ -29,7 +29,6 @@ const AddCollections = ({ languages, defaultLanguage, setting }) => {
 			);
 			const collectionNames = collectionElements?.map((element) => {
 				let nameArray = element.name.split('-').splice(1);
-				console.log(nameArray);
 				return {
 					[length + '-' + nameArray.join('-')]: element.value,
 				};
@@ -55,7 +54,6 @@ const AddCollections = ({ languages, defaultLanguage, setting }) => {
 		},
 		[setting, setError]
 	);
-
 	return (
 		<div className='flex items-end gap-2'>
 			<LanguageInputContainer
@@ -64,7 +62,7 @@ const AddCollections = ({ languages, defaultLanguage, setting }) => {
 				name='collection'
 				defaultLanguage={defaultLanguage}
 			/>
-			<ContextButton label='Add' onClick={handleClick} />
+			<ContextButton label='Add' type='edit' onClick={handleClick} />
 			<SettingError errorFrom={errorName} />
 		</div>
 	);

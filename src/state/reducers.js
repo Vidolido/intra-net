@@ -1,4 +1,3 @@
-import { isObjectEmpty } from '@/utils/functions';
 import {
 	ADD,
 	ADD_TO_COLLECTION,
@@ -14,14 +13,11 @@ export const addSettingReducer = (draft, action) => {
 	let more = action.payload.more || null;
 	switch (action.type) {
 		case ADD: {
-			// console.log(action, 'THE ACTION IN REDUCER');
+			console.log(action, 'THE ACTION IN REDUCER');
 			if (type === 'add') {
 				draft[property] = value;
-				// console.log(property, 'the property');
-				// draft[property] = !draft[property];
 			}
 			if (type === 'push') {
-				// draft[property].push(value);
 				draft[property].push(value);
 			}
 			break;
@@ -31,11 +27,9 @@ export const addSettingReducer = (draft, action) => {
 				draft[property] = value;
 			}
 			if (type === 'push') {
-				// console.log(action, 'IN THE REDUCER');
 				draft[property].push(value);
 			}
 			if (more) {
-				console.log(action);
 				if (
 					draft[property][more.property][more.selection][more.secondProp] !==
 					undefined
@@ -58,18 +52,22 @@ export const addSettingReducer = (draft, action) => {
 			break;
 		}
 		case REMOVE_FROM_COLLECTION: {
-			console.log(action.payload.value, 'action in REMOVE_FROM_COLLECTION');
-			// let filtered = draft[property].filter(
-			// 	(item) => JSON.stringify(item) !== JSON.stringify(action.payload.value)
-			// );
-			// draft[property] = filtered;
-			draft[property].splice(
-				draft[property].findIndex(
-					(item) =>
-						JSON.stringify(item) === JSON.stringify(action.payload.value)
-				),
-				1
-			);
+			if (more) {
+				let collection =
+					draft[property][more.property][draft.selectedCollection].items;
+				let mutCollection = collection.filter((item) => item.id !== value);
+				draft[property][more.property][draft.selectedCollection].items =
+					mutCollection;
+			}
+			if (!more) {
+				draft[property].splice(
+					draft[property].findIndex(
+						(item) =>
+							JSON.stringify(item) === JSON.stringify(action.payload.value)
+					),
+					1
+				);
+			}
 			// draft[property].splice(action.payload.value.index, 1);
 			// draft.collection[draft.collectionType].splice(
 			// 	draft.collection[draft.collectionType].findIndex(
