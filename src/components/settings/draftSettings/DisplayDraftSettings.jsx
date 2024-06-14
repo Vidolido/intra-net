@@ -1,19 +1,18 @@
+import Link from 'next/link';
+import DraftSetting from './DraftSetting';
+
 const DisplayDraftSettings = ({ drafts }) => {
-	console.log(drafts, 'DRAFTS');
-	return (
-		<div>
-			{!drafts
-				? 'There are no draft versions.'
-				: drafts?.map((draft) => {
-						return (
-							<div key={draft?._id}>
-								<h5>{draft?._id}</h5>
-								<p>{draft?.settingName}</p>
-							</div>
-						);
-				  })}
-		</div>
-	);
+  console.log(drafts, 'DRAFTS');
+  return (
+    <div className='flex flex-col gap-1'>
+      <h2>Draft Settings</h2>
+      {!drafts
+        ? 'There are no draft versions.'
+        : drafts?.map((draft) => {
+            return <DraftSetting key={draft._id} draft={draft} />;
+          })}
+    </div>
+  );
 };
 
 export default DisplayDraftSettings;
