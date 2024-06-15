@@ -2,12 +2,12 @@
 // export const isObjectEmpty = (obj) => Array.from(obj).length === 0;
 
 export const isObjectEmpty = (value) => {
-  if (typeof value === 'object') {
-    // Check for empty objects
-    return Object.keys(value).length === 0;
-  }
+	if (typeof value === 'object') {
+		// Check for empty objects
+		return Object.keys(value).length === 0;
+	}
 };
 
 export const createRandomNumber = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+	return Math.floor(Math.random() * (max - min + 1)) + min;
 };

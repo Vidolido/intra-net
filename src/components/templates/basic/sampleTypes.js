@@ -1,76 +1,86 @@
 import { generateUUID } from '@/utils/generateUUID';
 
 export const sampleTypes = [
-  {
-    id: generateUUID(),
-    name: {
-      en: 'Cistern',
-      mk: 'А/Ц',
-    },
-  },
-  {
-    id: generateUUID(),
-    name: {
-      en: 'Vagon',
-      mk: 'В/Ц',
-    },
-  },
-  {
-    id: generateUUID(),
-    name: {
-      en: 'Tanker',
-      mk: 'Танкер',
-    },
-  },
-  {
-    id: generateUUID(),
-    name: {
-      en: 'Tank',
-      mk: 'Резервоар',
-    },
-  },
-  {
-    id: generateUUID(),
-    name: {
-      en: 'Pipes',
-      mk: 'Цевовод',
-    },
-  },
-  {
-    id: generateUUID(),
-    name: {
-      en: 'Canister',
-      mk: 'Канистер',
-    },
-  },
-  {
-    id: generateUUID(),
-    name: {
-      en: 'Drainage tank',
-      mk: 'Дренажен резервоар',
-    },
-  },
-  {
-    id: generateUUID(),
-    name: {
-      en: 'Barrel',
-      mk: 'Буре',
-    },
-  },
-  {
-    id: generateUUID(),
-    name: {
-      en: 'Bottle',
-      mk: 'Шише',
-    },
-  },
-  {
-    id: generateUUID(),
-    name: {
-      en: 'Gas Station',
-      mk: 'Бензинска Пумпа',
-    },
-  },
+	{
+		id: generateUUID(),
+		name: {
+			en: 'Cistern',
+			mk: 'А/Ц',
+		},
+		type: 'sample',
+	},
+	{
+		id: generateUUID(),
+		name: {
+			en: 'Vagon',
+			mk: 'В/Ц',
+		},
+		type: 'sample',
+	},
+	{
+		id: generateUUID(),
+		name: {
+			en: 'Tanker',
+			mk: 'Танкер',
+		},
+		type: 'sample',
+	},
+	{
+		id: generateUUID(),
+		name: {
+			en: 'Tank',
+			mk: 'Резервоар',
+		},
+		type: 'sample',
+	},
+	{
+		id: generateUUID(),
+		name: {
+			en: 'Pipes',
+			mk: 'Цевовод',
+		},
+		type: 'sample',
+	},
+	{
+		id: generateUUID(),
+		name: {
+			en: 'Canister',
+			mk: 'Канистер',
+		},
+		type: 'sample',
+	},
+	{
+		id: generateUUID(),
+		name: {
+			en: 'Drainage tank',
+			mk: 'Дренажен резервоар',
+		},
+		type: 'sample',
+	},
+	{
+		id: generateUUID(),
+		name: {
+			en: 'Barrel',
+			mk: 'Буре',
+		},
+		type: 'sample',
+	},
+	{
+		id: generateUUID(),
+		name: {
+			en: 'Bottle',
+			mk: 'Шише',
+		},
+		type: 'sample',
+	},
+	{
+		id: generateUUID(),
+		name: {
+			en: 'Gas Station',
+			mk: 'Бензинска Пумпа',
+		},
+		type: 'sample',
+	},
 ];
 
 // {

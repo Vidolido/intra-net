@@ -22,7 +22,8 @@ export const nameArray = (obj) => {
 		};
 	}, {});
 
-	return [{ name: nameObject }];
+	return { name: nameObject };
+	// return [{ name: nameObject }];
 };
 // export const nameArray = (obj) => {
 //   return Object.entries(obj).map(([key, value]) => ({ [key]: value }));
