@@ -199,7 +199,11 @@ const InsertSettings = ({ languages, setting }) => {
 				<div className='bg-slate-200 w-[95%] h-[1px] mx-auto my-[2px]'></div>
 
 				<fieldset className='flex gap-2'>
-					<CollectionInput languages={languages} inputType={inputType} />
+					<CollectionInput
+						languages={languages}
+						inputType={inputType}
+						name='collection-input-fields'
+					/>
 					<ContextButton
 						label='Add to collection'
 						type='edit'

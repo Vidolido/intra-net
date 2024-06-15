@@ -14,6 +14,7 @@ const LanguageInputContainer = ({
 	languages,
 	inputs = null,
 	defaultLanguage,
+	onChange = null,
 }) => {
 	const [language, setLanguage] = useState(defaultLanguage?._id);
 
@@ -46,7 +47,7 @@ const LanguageInputContainer = ({
 								(lang) => lang._id === language
 							)[0];
 							const value = Object.values(input);
-							return (
+							return !onChange ? (
 								<InputType
 									key={index}
 									type='text'
@@ -58,9 +59,21 @@ const LanguageInputContainer = ({
 									}
 									defaultValue={value}
 								/>
+							) : (
+								<InputType
+									key={index}
+									type='text'
+									name={inputName}
+									classes={
+										inputName.includes(selectedLang?.language)
+											? 'visible'
+											: 'hidden'
+									}
+									onChange={onChange}
+									value={value}
+								/>
 							);
 					  })}
-				{/* </label> */}
 				<select
 					name={selectName}
 					className='box-content border-[3px] border-grey-50 border-opacity-60 rounded px-2 py-[1px] hover:border-red-200 focus:outline-none cursor-pointer'

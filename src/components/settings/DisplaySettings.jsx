@@ -1,14 +1,16 @@
 'use client';
 import { useSettingsContext } from '@/state/settingsContext';
-import { createRandomNumber } from '@/utils/functions';
 import { generateUUID } from '@/utils/generateUUID';
 import { getDisplayHeadings } from '@/utils/getDisplayHeadings';
 import { Fragment } from 'react';
+import ContextButton from '../buttons/ContextButton';
+import ActionButtons from '../buttons/ActionButtons';
+import { deleteSetting } from '@/serverActions/settings/deleteSetting';
 
-const DisplaySettings = ({ languages, setting }) => {
+const DisplaySettings = ({ languages, setting: dbSetting }) => {
 	// const { defaultLanguage } = useSettingsContext();
 	const { defaultLanguage } = useSettingsContext();
-	const { settings } = setting;
+	const { settings } = dbSetting;
 
 	let headings =
 		(settings && getDisplayHeadings(settings[0], 'singular')) || null;
@@ -40,15 +42,15 @@ const DisplaySettings = ({ languages, setting }) => {
 						settings?.map((setting, index) => {
 							let collections = setting.collections;
 							return (
-								<Fragment key={generateUUID()}>
-									<tr key={generateUUID()}>
+								<Fragment key={setting._id}>
+									<tr>
 										<td className='border text-left p-3'>
 											{setting?.parameter?.inputValue['en']}
 										</td>
 										{collections.map((collection, ind) => {
 											return (
 												<td
-													key={generateUUID()}
+													key={collection._id}
 													className='border text-left p-3'>
 													{collection &&
 														collection.items &&
@@ -66,6 +68,17 @@ const DisplaySettings = ({ languages, setting }) => {
 												</td>
 											);
 										})}
+										<td>
+											{/* <ContextButton label='delete' type='default' /> */}
+											<ActionButtons
+												label='delete'
+												action={deleteSetting}
+												parameters={{
+													setting: setting._id,
+													document: dbSetting._id,
+												}}
+											/>
+										</td>
 									</tr>
 								</Fragment>
 							);

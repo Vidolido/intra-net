@@ -1,6 +1,7 @@
 import {
 	ADD,
 	ADD_TO_COLLECTION,
+	EDIT_COLLECTION_ITEM,
 	REMOVE,
 	REMOVE_FROM_COLLECTION,
 	UPDATE,
@@ -13,7 +14,7 @@ export const addSettingReducer = (draft, action) => {
 	let more = action.payload.more || null;
 	switch (action.type) {
 		case ADD: {
-			console.log(action, 'THE ACTION IN REDUCER');
+			// console.log(action, 'THE ACTION IN REDUCER');
 			if (type === 'add') {
 				draft[property] = value;
 			}
@@ -68,13 +69,33 @@ export const addSettingReducer = (draft, action) => {
 					1
 				);
 			}
-			// draft[property].splice(action.payload.value.index, 1);
-			// draft.collection[draft.collectionType].splice(
-			// 	draft.collection[draft.collectionType].findIndex(
-			// 		(item) => item.id === action.payload
-			// 	),
-			// 	1
+
+			break;
+		}
+		case EDIT_COLLECTION_ITEM: {
+			// console.log(action, 'reduc');
+			let id = action.payload.id;
+			const index = draft.optionsSchema.collections[
+				draft.selectedCollection
+			].items.findIndex((item) => item.id === id);
+
+			if (index !== -1)
+				draft.optionsSchema.collections[draft.selectedCollection].items[
+					index
+				].value = action.payload.itemValue;
+
+			// if (index !== -1) draft[index].done = true
+			// let item = draft.optionsSchema.collections.findIndex((item) =>
+			// 	item.items.every((i) => i.id === id)
 			// );
+
+			// let collection =
+			// 	draft.optionsSchema.collections[draft.selectedCollection];
+			// console.log(collection, 'the collection');
+			// // draft.optionsSchema.collections[item] = action.payload.value;
+			// // collection.items[id].value = action.payload.value;
+			// let mutItem = collection.items.filter((item) => item.id === id);
+			// mutItem[0].value = action.payload.value;
 			break;
 		}
 		case UPDATE: {
