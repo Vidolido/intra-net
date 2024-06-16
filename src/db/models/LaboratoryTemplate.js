@@ -14,7 +14,10 @@ const templateSchema = new Schema(
 			type: String,
 			default: '0',
 		},
-		marginError: String,
+		marginError: {
+			type: String,
+			default: null,
+		},
 		isDeleted: {
 			type: Boolean,
 			default: false,

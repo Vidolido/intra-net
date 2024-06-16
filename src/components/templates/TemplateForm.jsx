@@ -22,15 +22,22 @@ const TemplateForm = ({ languages, settings, draft, templateSettings }) => {
 	let countries = templateSettings.filter(
 		(setting) => setting.settingName === 'Countries'
 	);
-	// console.log(products);
-
-	// console.log(products, 'the products');
+	// console.log(products[0], 'in templateForm');
+	let test = products[0]?.settings.filter(
+		(setting) => setting._id === draft.product
+	);
+	console.log(test[0]?._id, 'the test');
+	console.log(draft.product, 'the draft');
 
 	return (
 		<form className='w-fit bg-slate-100 flex flex-col gap-1 p-1'>
 			<h4>Template Form</h4>
 			<div className='flex gap-2 border border-slate-300 rounded w-fit p-2'>
-				<Product products={products[0]} languages={languages} />
+				<Product
+					products={products[0]}
+					languages={languages}
+					value={test[0]?._id}
+				/>
 				<SampleType types={types[0]} />
 				<Origin countries={countries[0]} />
 				<DocumentType types={types[0]} />

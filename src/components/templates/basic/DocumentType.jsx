@@ -3,12 +3,12 @@ import { documentTypes } from './documentTypes';
 import { findSettingType } from '@/utils/findSettingType';
 import { nameArray } from '@/utils/nameArray';
 
-const DocumentType = ({ types }) => {
+const DocumentType = ({ types, onChange }) => {
 	// const types = documentTypes;
 
 	let documentTypes = findSettingType(types.settings, ['document']);
 	let names = documentTypes?.map((setting) => ({
-		id: setting.id,
+		id: setting._id,
 		...nameArray(setting.parameter.inputValue),
 	}));
 
@@ -17,7 +17,12 @@ const DocumentType = ({ types }) => {
 		<fieldset name='document-type'>
 			<h6>DocumentType</h6>
 			{/* <SelectInput options={types} property='name' defaultLanguage='en' /> */}
-			<SelectInput options={names} value='id' defaultLanguage='en' />
+			<SelectInput
+				options={names}
+				value='id'
+				defaultLanguage='en'
+				onChange={onChange}
+			/>
 		</fieldset>
 	);
 };

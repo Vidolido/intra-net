@@ -9,10 +9,10 @@ import Setting from '@/db/models/Setting';
 export async function getTemplateSettings() {
 	try {
 		await dbConnect();
-		let templateSettings = await Setting.find({ sector: 'I.T.' });
+		let templateSettings = await Setting.find({ sector: 'I.T.' }).lean();
 
 		return {
-			templateSettings,
+			templateSettings: JSON.parse(JSON.stringify(templateSettings)),
 		};
 	} catch (error) {
 		console.log('Failed to create draft Template error:', error);

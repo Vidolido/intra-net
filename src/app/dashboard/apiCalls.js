@@ -93,4 +93,15 @@ export async function getLaboratoryDraftById(_id) {
 
 	return res.json();
 }
+
+export async function getAllTemplates() {
+	const res = await fetch(`http://localhost:3000/api/laboratory/all-templates`);
+
+	if (!res.ok) {
+		console.log(res);
+		throw new Error('Failed to get draft templates from db. Reason: ' + res);
+	}
+
+	return res.json();
+}
 // labodatory templates

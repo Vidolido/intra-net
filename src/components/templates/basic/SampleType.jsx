@@ -2,10 +2,10 @@ import SelectInput from '@/components/inputs/SelectInput';
 import { findSettingType } from '@/utils/findSettingType';
 import { nameArray } from '@/utils/nameArray';
 
-const SampleType = ({ types }) => {
+const SampleType = ({ types, onChange }) => {
 	let sampleTypes = findSettingType(types.settings, ['sample']);
 	let names = sampleTypes?.map((setting) => ({
-		id: setting.id,
+		id: setting._id,
 		...nameArray(setting.parameter.inputValue),
 	}));
 
@@ -20,6 +20,7 @@ const SampleType = ({ types }) => {
 				value='id'
 				defaultLanguage='en'
 				none={true}
+				onChange={onChange}
 			/>
 		</fieldset>
 	);

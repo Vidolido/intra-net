@@ -3,10 +3,10 @@ import { countriesOfOrigin } from './countriesOfOrigin';
 import SelectInput from '@/components/inputs/SelectInput';
 import { nameArray } from '@/utils/nameArray';
 
-const Origin = ({ countries }) => {
+const Origin = ({ countries, onChange }) => {
 	// const origin = countriesOfOrigin;
 	let names = countries?.settings.map((setting) => ({
-		id: setting.id,
+		id: setting._id,
 		...nameArray(setting.parameter.inputValue),
 	}));
 	// console.log(
@@ -18,7 +18,12 @@ const Origin = ({ countries }) => {
 		<fieldset name='countries-of-origin'>
 			<h6>Origin</h6>
 			{/* <SelectInput options={origin} parameter='name' defaultLanguage='en' /> */}
-			<SelectInput options={names} value='id' defaultLanguage='en' />
+			<SelectInput
+				options={names}
+				value='id'
+				defaultLanguage='en'
+				onChange={onChange}
+			/>
 		</fieldset>
 	);
 };

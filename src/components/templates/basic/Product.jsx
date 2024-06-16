@@ -1,12 +1,12 @@
 import { nameArray } from '@/utils/nameArray';
 import SelectInput from '@/components/inputs/SelectInput';
 
-const Product = ({ languages, products }) => {
+const Product = ({ languages, products, onChange, value }) => {
 	let names = products?.settings.map((setting) => ({
-		id: setting.id,
+		id: setting._id,
 		...nameArray(setting.parameter.inputValue),
 	}));
-	// console.log(names[0]);
+	// console.log(names);
 	return (
 		<fieldset name='product-list'>
 			<h6>Product</h6>
@@ -15,6 +15,8 @@ const Product = ({ languages, products }) => {
 				defaultLanguage={languages[0].language}
 				options={names}
 				label='en'
+				onChange={onChange}
+				defaultValue={value}
 			/>
 		</fieldset>
 	);
