@@ -1,7 +1,7 @@
 'use server';
 import { revalidatePath } from 'next/cache';
 
-// connection/moddels/database functions
+// moddels/db functions
 import dbConnect from '@/db/conn';
 import LaboratoryTemplate from '@/db/models/LaboratoryTemplate';
 
@@ -30,12 +30,6 @@ export async function addTemplateSetting({
 			.exec();
 
 		revalidatePath('/dashboard/laboratory/templates/create', 'page');
-
-		// await LaboratoryTemplate.create({ documentStatus: 'draft' });
-		// let templateSettings = await Setting.find({ sector: 'I.T.' });
-		// let updatedSetting = await LaboratoryTemplate.updateOne
-
-		// console.log(templateSettings, 'the templateSettings');
 		return {
 			message: 'addTemplateSetting ran',
 			updatedTemplate,

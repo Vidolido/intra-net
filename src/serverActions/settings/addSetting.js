@@ -1,10 +1,10 @@
 'use server';
-
-// connection/moddels/database functions
-import dbConnect from '@/db/conn';
-import Setting from '@/db/models/Setting';
 import { revalidatePath } from 'next/cache';
 import { cookies } from 'next/headers';
+
+// moddels/db functions
+import dbConnect from '@/db/conn';
+import Setting from '@/db/models/Setting';
 
 export async function addSetting(settingToAdd, document) {
 	const { _id } = document;

@@ -1,12 +1,13 @@
 'use client';
 
+// state/actions
 import { deleteTemplateRow } from '@/serverActions/laboratoryTemplates/deleteTemplateRow';
+
 // comnponents
 import ContextButton from '../buttons/ContextButton';
 
 const TemplateRow = ({ item, document }) => {
 	const handleDelete = async (rowId, document) => {
-		// console.log(rowId, document);
 		await deleteTemplateRow(rowId, document);
 	};
 	return (

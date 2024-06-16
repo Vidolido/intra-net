@@ -1,13 +1,20 @@
-import CreateDraftTemplateButton from '@/components/templates/CreateDraftTemplateButton';
-import Link from 'next/link';
+// state/actions
+import { getLaboratoryDraftTemplates } from '../../apiCalls';
 
-const page = () => {
-  return (
-    <div>
-      <h1>Templates</h1>
-      <CreateDraftTemplateButton />
-    </div>
-  );
+// components
+import CreateDraftTemplateButton from '@/components/templates/CreateDraftTemplateButton';
+import DisplayDraftTemplates from '@/components/templates/draftTemplates/DisplayDraftTemplates';
+
+const page = async () => {
+	const { draftTemplates } = await getLaboratoryDraftTemplates();
+
+	return (
+		<div>
+			<h1>Templates</h1>
+			<DisplayDraftTemplates drafts={draftTemplates} />
+			<CreateDraftTemplateButton />
+		</div>
+	);
 };
 
 export default page;
