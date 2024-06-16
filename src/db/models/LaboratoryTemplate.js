@@ -9,19 +9,11 @@ const templateSchema = new Schema(
 			type: Schema.Types.Mixed,
 			default: undefined,
 		},
-		// methods: {
-		// 	type: [Schema.Types.Mixed],
-		// 	default: undefined,
-		// },
-		// units: {
-		// 	type: [Schema.Types.Mixed],
-		// 	default: undefined,
-		// },
-		// limits: {
-		// 	type: [Schema.Types.Mixed],
-		// 	default: undefined,
-		// },
-		result: String,
+
+		result: {
+			type: String,
+			default: '0',
+		},
 		marginError: String,
 		isDeleted: {
 			type: Boolean,

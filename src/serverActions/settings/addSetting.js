@@ -7,7 +7,6 @@ import { revalidatePath } from 'next/cache';
 import { cookies } from 'next/headers';
 
 export async function addSetting(settingToAdd, document) {
-	console.log(settingToAdd);
 	const { _id } = document;
 	try {
 		cookies();
@@ -22,7 +21,6 @@ export async function addSetting(settingToAdd, document) {
 		)
 			.lean()
 			.exec();
-		// console.log(foundDocument, 'the document');
 		revalidatePath('/dashboard/settings/add', 'page');
 		// Да вратам еррор доколку се случи.
 		// return;

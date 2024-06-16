@@ -6,8 +6,9 @@ import { generateUUID } from '@/utils/generateUUID';
 
 // components
 import SelectInput from '../../inputs/SelectInput';
+import { addTemplateSetting } from '@/serverActions/laboratoryTemplates/addTemplateSetting';
 
-const TemplateFormInput = ({ settings, defaultLanguage }) => {
+const TemplateFormInput = ({ document, settings, defaultLanguage }) => {
 	const [selection, setSelection] = useState(settings[0]);
 	const [selectedItems, setSelectedItems] = useState({});
 
@@ -51,7 +52,7 @@ const TemplateFormInput = ({ settings, defaultLanguage }) => {
 		}
 	};
 
-	let handleAdd = (e) => {
+	let handleAdd = async (e) => {
 		let property = {
 			_id: selection._id,
 			propertyValue: selection.parameter.inputValue,
@@ -69,8 +70,9 @@ const TemplateFormInput = ({ settings, defaultLanguage }) => {
 			return acc;
 		}, {});
 
-		console.log(property, 'property');
-		console.log(mutCollections, 'mut');
+		// console.log(property, 'property');
+		// console.log(mutCollections, 'mut');
+		await addTemplateSetting({ property, mutCollections, document });
 	};
 
 	return (

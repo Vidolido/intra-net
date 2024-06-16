@@ -43,6 +43,7 @@ const TemplateForm = ({ languages, settings, draft, templateSettings }) => {
 					<TableHeaders settings={settings} defaultLanguage={defaultLanguage} />
 
 					<TemplateFormInput
+						document={draft._id}
 						settings={settings}
 						defaultLanguage={defaultLanguage}
 					/>

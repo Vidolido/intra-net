@@ -5,6 +5,7 @@ import { getDraftTemplate } from '../../apiCalls';
 
 // components
 import TemplateForm from '@/components/templates/TemplateForm';
+import TemplateCollection from '@/components/templates/TemplateCollection';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -19,6 +20,7 @@ const page = async () => {
 
 	// console.log(setting, 'settings in templates');
 	// console.log(templateSettings, 'templateSettings');
+	// console.log(draft, 'the draft');
 	return (
 		<div className='w-full'>
 			<h2>Create Tempalte</h2>
@@ -28,6 +30,8 @@ const page = async () => {
 				draft={draft}
 				templateSettings={templateSettings}
 			/>
+			{/* <TemplateForm draft={draft} /> */}
+			<TemplateCollection draft={draft} />
 		</div>
 	);
 };
