@@ -3,30 +3,72 @@ import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemp
 import { getLaboratorySettings, getLanguages } from '@/app/dashboard/apiCalls';
 // import TemplateSelection from './TemplateSelection';
 import TemplateSelect from './TemplateSelect';
+import Fields from './Fields';
 
 const AnalysesForm = ({ templateSettings, languages, laboratoryTemplates }) => {
-	// const [{ templateSettings }, { languages }, { settings }] = await Promise.all(
-	// 	[getTemplateSettings(), getLanguages(), getLaboratorySettings()]
+	let { products, types, countries, fields } = templateSettings.reduce(
+		(acc, currentValue) => {
+			switch (currentValue.settingName) {
+				case 'Products': {
+					acc = {
+						...acc,
+						products: currentValue,
+					};
+					break;
+				}
+				case 'Types': {
+					acc = {
+						...acc,
+						types: currentValue,
+					};
+					break;
+				}
+				case 'Countries': {
+					acc = {
+						...acc,
+						countries: currentValue,
+					};
+					break;
+				}
+				case 'Fields': {
+					acc = {
+						...acc,
+						fields: currentValue,
+					};
+					break;
+				}
+				default: {
+					return acc;
+				}
+			}
+			return acc;
+		},
+		{}
+	);
+
+	// const products = templateSettings.filter(
+	// 	(setting) => setting.settingName === 'Products'
 	// );
-	// console.log(templateSettings, 'templateSettings  in  AnalysesForm')
-	const products = templateSettings.filter(
-		(setting) => setting.settingName === 'Products'
-	);
-	let types = templateSettings.filter(
-		(setting) => setting.settingName === 'Types'
-	);
-	let countries = templateSettings.filter(
-		(setting) => setting.settingName === 'Countries'
-	);
-	// console.log(products, 'products');
+	// let types = templateSettings.filter(
+	// 	(setting) => setting.settingName === 'Types'
+	// );
+	// let countries = templateSettings.filter(
+	// 	(setting) => setting.settingName === 'Countries'
+	// );
+
+	// let countries = templateSettings.filter(
+	// 	(setting) => setting.settingName === 'Countries'
+	// );
+	// console.log(fields, 'fields');
 	return (
 		<form>
 			<TemplateSelect
 				languages={languages}
-				products={products[0]}
-				types={types[0]}
-				countries={countries[0]}
+				products={products}
+				types={types}
+				countries={countries}
 			/>
+			<Fields languages={languages} fields={fields.settings} />
 		</form>
 	);
 };

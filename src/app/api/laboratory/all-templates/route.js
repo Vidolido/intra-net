@@ -8,7 +8,7 @@ import dbConnect from '@/db/conn';
 import LaboratoryTemplate from '@/db/models/LaboratoryTemplate';
 
 export async function GET() {
-	console.log('it Ran');
+	// console.log('it Ran');
 	try {
 		cookies();
 		await dbConnect();

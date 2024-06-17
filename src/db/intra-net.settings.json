@@ -1,6 +1,6 @@
 [{
   "_id": {
-    "$oid": "6668118619e1c9dbf244159e"
+    "$oid": "66673c86b7341b13a90d1d3b"
   },
   "documentStatus": "draft",
   "__v": 0,
@@ -96,9 +96,9 @@
           }
         },
         "inputValue": {
-          "en": "Density",
-          "mk": "Густина",
-          "gr": "Густина на грчки"
+          "en": "Density at 15°C",
+          "mk": "Густина на 15°C",
+          "gr": ""
         }
       },
       "collections": [
@@ -110,32 +110,38 @@
           },
           "items": [
             {
+              "id": "40e3d453-0eef-48a1-82af-c4a136b8f4fa",
               "inputType": "simple",
               "value": "ASTM D 1298"
             },
             {
+              "id": "5bc3514d-fc30-4be3-9b33-5cbb4bbfd7c7",
               "inputType": "simple",
               "value": "ASTM D 4052"
             },
             {
+              "id": "db1d1c06-bd22-4aa8-bfed-6313be6b7116",
               "inputType": "simple",
               "value": "EN ISO 3993"
             },
             {
+              "id": "a43e035a-bcfc-4b56-90d4-f6d263385f82",
               "inputType": "simple",
               "value": "EN ISO 8973"
             },
             {
+              "id": "48921728-1b93-4e71-a2cb-8e501433bbb3",
               "inputType": "simple",
               "value": "EN ISO 12185"
             },
             {
+              "id": "0b028b81-081f-49fa-a0a1-451548254d8d",
               "inputType": "simple",
               "value": "ISO 3675"
             }
           ],
           "_id": {
-            "$oid": "6668126819e1c9dbf24415bc"
+            "$oid": "666d68725914b08e11ea6411"
           }
         },
         {
@@ -146,16 +152,18 @@
           },
           "items": [
             {
+              "id": "11798d85-649d-4585-95ba-39f8762f20b3",
               "inputType": "simple",
               "value": "g/ml"
             },
             {
+              "id": "e429d05f-bb70-43a1-9991-4ee91a28bac8",
               "inputType": "simple",
               "value": "kg/l"
             }
           ],
           "_id": {
-            "$oid": "6668126819e1c9dbf24415bd"
+            "$oid": "666d68725914b08e11ea6412"
           }
         },
         {
@@ -166,6 +174,7 @@
           },
           "items": [
             {
+              "id": "7d6263f3-3d7e-4b5f-81d7-cfec1a4dd683",
               "inputType": "key/value",
               "value": {
                 "key": "0,7200",
@@ -173,6 +182,7 @@
               }
             },
             {
+              "id": "0558bcc4-14a4-4090-b881-f2f23268ebcc",
               "inputType": "key/value",
               "value": {
                 "key": "0,7750",
@@ -180,6 +190,7 @@
               }
             },
             {
+              "id": "b7e9c1ad-339a-4115-9321-0643796b27ea",
               "inputType": "key/value",
               "value": {
                 "key": "0,8200",
@@ -187,6 +198,7 @@
               }
             },
             {
+              "id": "4231d23a-cd50-4c44-b5ae-1a0099ac38e3",
               "inputType": "key/value",
               "value": {
                 "key": "",
@@ -195,12 +207,12 @@
             }
           ],
           "_id": {
-            "$oid": "6668126819e1c9dbf24415be"
+            "$oid": "666d68725914b08e11ea6413"
           }
         }
       ],
       "_id": {
-        "$oid": "6668126819e1c9dbf24415bb"
+        "$oid": "666d68725914b08e11ea6410"
       }
     },
     {
@@ -220,7 +232,7 @@
         "inputValue": {
           "en": "Flash point",
           "mk": "Точка на палење",
-          "gr": "грчко"
+          "gr": ""
         }
       },
       "collections": [
@@ -230,9 +242,30 @@
             "mk": "Методи",
             "gr": "грчко"
           },
-          "items": [],
+          "items": [
+            {
+              "id": "357a38f6-4580-42b4-8b1f-7297fe76acd4",
+              "inputType": "simple",
+              "value": "EN ISO 2719"
+            },
+            {
+              "id": "fd905b1c-8463-4ec8-a9f1-a1110b3463ce",
+              "inputType": "simple",
+              "value": "IP 170"
+            },
+            {
+              "id": "ec815bf5-4af5-4567-9b67-87fe047d2e3a",
+              "inputType": "simple",
+              "value": "ASTM D 56"
+            },
+            {
+              "id": "6e263634-24c0-4072-80d9-af36e942698f",
+              "inputType": "simple",
+              "value": "ASTM 93"
+            }
+          ],
           "_id": {
-            "$oid": "666812e019e1c9dbf24415cd"
+            "$oid": "666d68df5914b08e11ea6426"
           }
         },
         {
@@ -243,12 +276,13 @@
           },
           "items": [
             {
+              "id": "68bade42-ea1c-4812-beaf-dd7b434e003a",
               "inputType": "simple",
               "value": "°C"
             }
           ],
           "_id": {
-            "$oid": "666812e019e1c9dbf24415ce"
+            "$oid": "666d68df5914b08e11ea6427"
           }
         },
         {
@@ -259,29 +293,7 @@
           },
           "items": [
             {
-              "inputType": "simple",
-              "value": "EN ISO 2719"
-            },
-            {
-              "inputType": "simple",
-              "value": "IP 170"
-            },
-            {
-              "inputType": "simple",
-              "value": "ASTM D 56"
-            },
-            {
-              "inputType": "simple",
-              "value": "ASTN 93"
-            },
-            {
-              "inputType": "key/value",
-              "value": {
-                "key": "55",
-                "value": ""
-              }
-            },
-            {
+              "id": "3190139b-8768-403a-b9b0-5630d8dcbcf9",
               "inputType": "key/value",
               "value": {
                 "key": "38",
@@ -289,6 +301,12 @@
               }
             },
             {
+              "id": "2df8f95b-2867-4f6a-a93b-5d7eb6f74e5a",
+              "inputType": "simple",
+              "value": "min 38,0 (Abel&Tag)"
+            },
+            {
+              "id": "8f896167-928f-4305-9e8f-0e2fa5dadb3b",
               "inputType": "key/value",
               "value": {
                 "key": "60",
@@ -296,6 +314,7 @@
               }
             },
             {
+              "id": "cb0b4c7e-3706-41d6-a284-57112d2bdb12",
               "inputType": "key/value",
               "value": {
                 "key": "80",
@@ -304,12 +323,12 @@
             }
           ],
           "_id": {
-            "$oid": "666812e019e1c9dbf24415cf"
+            "$oid": "666d68df5914b08e11ea6428"
           }
         }
       ],
       "_id": {
-        "$oid": "666812e019e1c9dbf24415cc"
+        "$oid": "666d68df5914b08e11ea6425"
       }
     },
     {
@@ -327,9 +346,9 @@
           }
         },
         "inputValue": {
-          "en": "Vapout pressure",
-          "mk": "Напон на паери",
-          "gr": "грчко"
+          "en": "Vapour pressure",
+          "mk": "Напон на пареи",
+          "gr": ""
         }
       },
       "collections": [
@@ -341,12 +360,13 @@
           },
           "items": [
             {
+              "id": "9d0bb3af-ce8d-45d7-b2ff-7ae876c2bf8a",
               "inputType": "simple",
-              "value": "test"
+              "value": "EN 13016-1"
             }
           ],
           "_id": {
-            "$oid": "6668134a19e1c9dbf24415ee"
+            "$oid": "666d69255914b08e11ea6447"
           }
         },
         {
@@ -357,12 +377,13 @@
           },
           "items": [
             {
+              "id": "9ed82cc6-7eab-4069-8b6f-3be5bbc41171",
               "inputType": "simple",
               "value": "kPa"
             }
           ],
           "_id": {
-            "$oid": "6668134a19e1c9dbf24415ef"
+            "$oid": "666d69255914b08e11ea6448"
           }
         },
         {
@@ -373,10 +394,7 @@
           },
           "items": [
             {
-              "inputType": "simple",
-              "value": "EN 13016-1"
-            },
-            {
+              "id": "de4a529e-835f-46a5-94fb-04e4448b9f4a",
               "inputType": "key/value",
               "value": {
                 "key": "50",
@@ -385,67 +403,12 @@
             }
           ],
           "_id": {
-            "$oid": "6668134a19e1c9dbf24415f0"
+            "$oid": "666d69255914b08e11ea6449"
           }
         }
       ],
       "_id": {
-        "$oid": "6668134a19e1c9dbf24415ed"
-      }
-    },
-    {
-      "parameter": {
-        "name": {
-          "singular": {
-            "en": "Property",
-            "mk": "Својство",
-            "gr": "грчко"
-          },
-          "plural": {
-            "en": "Properties",
-            "mk": "Својства",
-            "gr": "грчко"
-          }
-        },
-        "inputValue": []
-      },
-      "collections": [
-        {
-          "name": {
-            "en": "Methods",
-            "mk": "Методи",
-            "gr": "грчко"
-          },
-          "items": [],
-          "_id": {
-            "$oid": "6668137819e1c9dbf2441623"
-          }
-        },
-        {
-          "name": {
-            "en": "Units",
-            "mk": "Единици",
-            "gr": "грчко"
-          },
-          "items": [],
-          "_id": {
-            "$oid": "6668137819e1c9dbf2441624"
-          }
-        },
-        {
-          "name": {
-            "en": "Limits",
-            "mk": "Ограничувања",
-            "gr": "грчко"
-          },
-          "items": [],
-          "_id": {
-            "$oid": "6668137819e1c9dbf2441625"
-          }
-        }
-      ],
-      "_id": {
-        "$oid": "6668137819e1c9dbf2441622"
+        "$oid": "666d69255914b08e11ea6446"
       }
     }
   ]

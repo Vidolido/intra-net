@@ -15,7 +15,7 @@ const page = async () => {
 
 	// console.log(templateSettings, 'templateSettings');
 	// templateSettings = JSON.parse(JSON.stringify(templateSettings));
-	console.log(laboratoryTemplates, 'laboratoryTemplates');
+	// console.log(templateSettings, 'templateSettings');
 	return (
 		<div>
 			<h2>Create New Document</h2>

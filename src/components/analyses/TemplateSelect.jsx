@@ -4,11 +4,13 @@ import Product from '../templates/basic/Product';
 import SampleType from '../templates/basic/SampleType';
 import Origin from '../templates/basic/Origin';
 import DocumentType from '../templates/basic/DocumentType';
+import TemplateVersion from './TemplateVersion';
 
 const TemplateSelect = ({ languages, products, types, countries }) => {
 	// console.log(products, 'in products');
+	// console.log(types, 'the types');
 
-	const handleProductChange = (e) => {
+	const handleOnChange = (e) => {
 		console.log(e.target.value);
 	};
 
@@ -18,11 +20,12 @@ const TemplateSelect = ({ languages, products, types, countries }) => {
 			<Product
 				products={products}
 				languages={languages}
-				onChange={handleProductChange}
+				onChange={handleOnChange}
 			/>
-			<SampleType types={types} onChange={handleProductChange} />
-			<Origin countries={countries} onChange={handleProductChange} />
-			<DocumentType types={types} onChange={handleProductChange} />
+			<SampleType types={types} onChange={handleOnChange} />
+			<Origin countries={countries} onChange={handleOnChange} />
+			<DocumentType types={types} onChange={handleOnChange} />
+			<TemplateVersion onChange={handleOnChange} />
 		</fieldset>
 	);
 };
