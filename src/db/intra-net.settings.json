@@ -1,6 +1,6 @@
 [{
   "_id": {
-    "$oid": "66673c86b7341b13a90d1d3b"
+    "$oid": "6668118619e1c9dbf244159e"
   },
   "documentStatus": "draft",
   "__v": 0,
@@ -96,9 +96,9 @@
           }
         },
         "inputValue": {
-          "en": "Density at 15°C",
-          "mk": "Густина на 15°C",
-          "gr": ""
+          "en": "Density",
+          "mk": "Густина",
+          "gr": "Густина на грчки"
         }
       },
       "collections": [
@@ -110,38 +110,32 @@
           },
           "items": [
             {
-              "id": "40e3d453-0eef-48a1-82af-c4a136b8f4fa",
               "inputType": "simple",
               "value": "ASTM D 1298"
             },
             {
-              "id": "5bc3514d-fc30-4be3-9b33-5cbb4bbfd7c7",
               "inputType": "simple",
               "value": "ASTM D 4052"
             },
             {
-              "id": "db1d1c06-bd22-4aa8-bfed-6313be6b7116",
               "inputType": "simple",
               "value": "EN ISO 3993"
             },
             {
-              "id": "a43e035a-bcfc-4b56-90d4-f6d263385f82",
               "inputType": "simple",
               "value": "EN ISO 8973"
             },
             {
-              "id": "48921728-1b93-4e71-a2cb-8e501433bbb3",
               "inputType": "simple",
               "value": "EN ISO 12185"
             },
             {
-              "id": "0b028b81-081f-49fa-a0a1-451548254d8d",
               "inputType": "simple",
               "value": "ISO 3675"
             }
           ],
           "_id": {
-            "$oid": "666d68725914b08e11ea6411"
+            "$oid": "6668126819e1c9dbf24415bc"
           }
         },
         {
@@ -152,18 +146,16 @@
           },
           "items": [
             {
-              "id": "11798d85-649d-4585-95ba-39f8762f20b3",
               "inputType": "simple",
               "value": "g/ml"
             },
             {
-              "id": "e429d05f-bb70-43a1-9991-4ee91a28bac8",
               "inputType": "simple",
               "value": "kg/l"
             }
           ],
           "_id": {
-            "$oid": "666d68725914b08e11ea6412"
+            "$oid": "6668126819e1c9dbf24415bd"
           }
         },
         {
@@ -174,7 +166,6 @@
           },
           "items": [
             {
-              "id": "7d6263f3-3d7e-4b5f-81d7-cfec1a4dd683",
               "inputType": "key/value",
               "value": {
                 "key": "0,7200",
@@ -182,7 +173,6 @@
               }
             },
             {
-              "id": "0558bcc4-14a4-4090-b881-f2f23268ebcc",
               "inputType": "key/value",
               "value": {
                 "key": "0,7750",
@@ -190,7 +180,6 @@
               }
             },
             {
-              "id": "b7e9c1ad-339a-4115-9321-0643796b27ea",
               "inputType": "key/value",
               "value": {
                 "key": "0,8200",
@@ -198,7 +187,6 @@
               }
             },
             {
-              "id": "4231d23a-cd50-4c44-b5ae-1a0099ac38e3",
               "inputType": "key/value",
               "value": {
                 "key": "",
@@ -207,12 +195,12 @@
             }
           ],
           "_id": {
-            "$oid": "666d68725914b08e11ea6413"
+            "$oid": "6668126819e1c9dbf24415be"
           }
         }
       ],
       "_id": {
-        "$oid": "666d68725914b08e11ea6410"
+        "$oid": "6668126819e1c9dbf24415bb"
       }
     },
     {
@@ -232,7 +220,7 @@
         "inputValue": {
           "en": "Flash point",
           "mk": "Точка на палење",
-          "gr": ""
+          "gr": "грчко"
         }
       },
       "collections": [
@@ -242,30 +230,9 @@
             "mk": "Методи",
             "gr": "грчко"
           },
-          "items": [
-            {
-              "id": "357a38f6-4580-42b4-8b1f-7297fe76acd4",
-              "inputType": "simple",
-              "value": "EN ISO 2719"
-            },
-            {
-              "id": "fd905b1c-8463-4ec8-a9f1-a1110b3463ce",
-              "inputType": "simple",
-              "value": "IP 170"
-            },
-            {
-              "id": "ec815bf5-4af5-4567-9b67-87fe047d2e3a",
-              "inputType": "simple",
-              "value": "ASTM D 56"
-            },
-            {
-              "id": "6e263634-24c0-4072-80d9-af36e942698f",
-              "inputType": "simple",
-              "value": "ASTM 93"
-            }
-          ],
+          "items": [],
           "_id": {
-            "$oid": "666d68df5914b08e11ea6426"
+            "$oid": "666812e019e1c9dbf24415cd"
           }
         },
         {
@@ -276,13 +243,12 @@
           },
           "items": [
             {
-              "id": "68bade42-ea1c-4812-beaf-dd7b434e003a",
               "inputType": "simple",
               "value": "°C"
             }
           ],
           "_id": {
-            "$oid": "666d68df5914b08e11ea6427"
+            "$oid": "666812e019e1c9dbf24415ce"
           }
         },
         {
@@ -293,7 +259,29 @@
           },
           "items": [
             {
-              "id": "3190139b-8768-403a-b9b0-5630d8dcbcf9",
+              "inputType": "simple",
+              "value": "EN ISO 2719"
+            },
+            {
+              "inputType": "simple",
+              "value": "IP 170"
+            },
+            {
+              "inputType": "simple",
+              "value": "ASTM D 56"
+            },
+            {
+              "inputType": "simple",
+              "value": "ASTN 93"
+            },
+            {
+              "inputType": "key/value",
+              "value": {
+                "key": "55",
+                "value": ""
+              }
+            },
+            {
               "inputType": "key/value",
               "value": {
                 "key": "38",
@@ -301,12 +289,6 @@
               }
             },
             {
-              "id": "2df8f95b-2867-4f6a-a93b-5d7eb6f74e5a",
-              "inputType": "simple",
-              "value": "min 38,0 (Abel&Tag)"
-            },
-            {
-              "id": "8f896167-928f-4305-9e8f-0e2fa5dadb3b",
               "inputType": "key/value",
               "value": {
                 "key": "60",
@@ -314,7 +296,6 @@
               }
             },
             {
-              "id": "cb0b4c7e-3706-41d6-a284-57112d2bdb12",
               "inputType": "key/value",
               "value": {
                 "key": "80",
@@ -323,12 +304,12 @@
             }
           ],
           "_id": {
-            "$oid": "666d68df5914b08e11ea6428"
+            "$oid": "666812e019e1c9dbf24415cf"
           }
         }
       ],
       "_id": {
-        "$oid": "666d68df5914b08e11ea6425"
+        "$oid": "666812e019e1c9dbf24415cc"
       }
     },
     {
@@ -346,9 +327,9 @@
           }
         },
         "inputValue": {
-          "en": "Vapour pressure",
-          "mk": "Напон на пареи",
-          "gr": ""
+          "en": "Vapout pressure",
+          "mk": "Напон на паери",
+          "gr": "грчко"
         }
       },
       "collections": [
@@ -360,13 +341,12 @@
           },
           "items": [
             {
-              "id": "9d0bb3af-ce8d-45d7-b2ff-7ae876c2bf8a",
               "inputType": "simple",
-              "value": "EN 13016-1"
+              "value": "test"
             }
           ],
           "_id": {
-            "$oid": "666d69255914b08e11ea6447"
+            "$oid": "6668134a19e1c9dbf24415ee"
           }
         },
         {
@@ -377,13 +357,12 @@
           },
           "items": [
             {
-              "id": "9ed82cc6-7eab-4069-8b6f-3be5bbc41171",
               "inputType": "simple",
               "value": "kPa"
             }
           ],
           "_id": {
-            "$oid": "666d69255914b08e11ea6448"
+            "$oid": "6668134a19e1c9dbf24415ef"
           }
         },
         {
@@ -394,7 +373,10 @@
           },
           "items": [
             {
-              "id": "de4a529e-835f-46a5-94fb-04e4448b9f4a",
+              "inputType": "simple",
+              "value": "EN 13016-1"
+            },
+            {
               "inputType": "key/value",
               "value": {
                 "key": "50",
@@ -403,12 +385,67 @@
             }
           ],
           "_id": {
-            "$oid": "666d69255914b08e11ea6449"
+            "$oid": "6668134a19e1c9dbf24415f0"
           }
         }
       ],
       "_id": {
-        "$oid": "666d69255914b08e11ea6446"
+        "$oid": "6668134a19e1c9dbf24415ed"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Property",
+            "mk": "Својство",
+            "gr": "грчко"
+          },
+          "plural": {
+            "en": "Properties",
+            "mk": "Својства",
+            "gr": "грчко"
+          }
+        },
+        "inputValue": []
+      },
+      "collections": [
+        {
+          "name": {
+            "en": "Methods",
+            "mk": "Методи",
+            "gr": "грчко"
+          },
+          "items": [],
+          "_id": {
+            "$oid": "6668137819e1c9dbf2441623"
+          }
+        },
+        {
+          "name": {
+            "en": "Units",
+            "mk": "Единици",
+            "gr": "грчко"
+          },
+          "items": [],
+          "_id": {
+            "$oid": "6668137819e1c9dbf2441624"
+          }
+        },
+        {
+          "name": {
+            "en": "Limits",
+            "mk": "Ограничувања",
+            "gr": "грчко"
+          },
+          "items": [],
+          "_id": {
+            "$oid": "6668137819e1c9dbf2441625"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6668137819e1c9dbf2441622"
       }
     }
   ]
@@ -809,7 +846,7 @@
       }
     ]
   },
-  "sector": "Laboratory",
+  "sector": "I.T.",
   "settingName": "Types",
   "settings": [
     {
@@ -1479,7 +1516,7 @@
       }
     ]
   },
-  "sector": "Laboratory",
+  "sector": "I.T.",
   "settingName": "Products",
   "settings": [
     {
@@ -2119,6 +2156,854 @@
       ],
       "_id": {
         "$oid": "666d7fe75914b08e11ea6eac"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "666ff81a9ba07d1ed9f78a7f"
+  },
+  "documentStatus": "draft",
+  "isDeleted": false,
+  "__v": 0,
+  "collections": [
+    [
+      {
+        "0-languages-en": "checked"
+      },
+      {
+        "0-languages-mk": ""
+      },
+      {
+        "0-languages-gr": ""
+      }
+    ],
+    [
+      {
+        "1-languages-en": "type"
+      },
+      {
+        "1-languages-mk": ""
+      },
+      {
+        "1-languages-gr": ""
+      }
+    ]
+  ],
+  "optionsSchema": {
+    "parameter": {
+      "name": {
+        "singular": {
+          "en": "Name",
+          "mk": "Име",
+          "gr": ""
+        },
+        "plural": {
+          "en": "",
+          "mk": "",
+          "gr": ""
+        }
+      }
+    },
+    "collections": [
+      {
+        "name": {
+          "0-languages-en": "checked",
+          "0-languages-mk": "",
+          "0-languages-gr": ""
+        }
+      },
+      {
+        "name": {
+          "1-languages-en": "type",
+          "1-languages-mk": "",
+          "1-languages-gr": ""
+        }
+      }
+    ]
+  },
+  "sector": "I.T.",
+  "settingName": "Fields",
+  "settings": [
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": ""
+          },
+          "plural": {
+            "en": "",
+            "mk": "",
+            "gr": ""
+          }
+        },
+        "inputValue": {
+          "en": "Client",
+          "mk": "Клиент",
+          "gr": ""
+        }
+      },
+      "collections": [
+        {
+          "name": {
+            "en": "checked",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "26152841-a12e-4495-af3d-8ec39721df03",
+              "inputType": "simple",
+              "value": "checked"
+            }
+          ],
+          "_id": {
+            "$oid": "666ff8be9ba07d1ed9f78aea"
+          }
+        },
+        {
+          "name": {
+            "en": "type",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "7a642464-44bd-4483-9cfc-17fa6cb004fb",
+              "inputType": "simple",
+              "value": "text"
+            }
+          ],
+          "_id": {
+            "$oid": "666ff8be9ba07d1ed9f78aeb"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "666ff8be9ba07d1ed9f78ae9"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": ""
+          },
+          "plural": {
+            "en": "",
+            "mk": "",
+            "gr": ""
+          }
+        },
+        "inputValue": {
+          "en": "Destination",
+          "mk": "Дестинација",
+          "gr": ""
+        }
+      },
+      "collections": [
+        {
+          "name": {
+            "en": "checked",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "afb8d0b0-f528-4043-92f0-198211daca14",
+              "inputType": "simple",
+              "value": "false"
+            }
+          ],
+          "_id": {
+            "$oid": "666ffac99ba07d1ed9f78af8"
+          }
+        },
+        {
+          "name": {
+            "en": "type",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "faa2c8b7-202e-4cdc-8aa8-9d4624a314ee",
+              "inputType": "simple",
+              "value": "text"
+            }
+          ],
+          "_id": {
+            "$oid": "666ffac99ba07d1ed9f78af9"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "666ffac99ba07d1ed9f78af7"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": ""
+          },
+          "plural": {
+            "en": "",
+            "mk": "",
+            "gr": ""
+          }
+        },
+        "inputValue": {
+          "en": "Transport",
+          "mk": "Транспорт",
+          "gr": ""
+        }
+      },
+      "collections": [
+        {
+          "name": {
+            "en": "checked",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "1dce7574-2fd0-4bce-93ce-9c2987d2bdf4",
+              "inputType": "simple",
+              "value": "false"
+            }
+          ],
+          "_id": {
+            "$oid": "666ffb3a9ba07d1ed9f78b4c"
+          }
+        },
+        {
+          "name": {
+            "en": "type",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "02e01694-4f7f-4f92-acfa-c63cf140b99d",
+              "inputType": "simple",
+              "value": "text"
+            }
+          ],
+          "_id": {
+            "$oid": "666ffb3a9ba07d1ed9f78b4d"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "666ffb3a9ba07d1ed9f78b4b"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": ""
+          },
+          "plural": {
+            "en": "",
+            "mk": "",
+            "gr": ""
+          }
+        },
+        "inputValue": {
+          "en": "Loading Date",
+          "mk": "Дата на натовар",
+          "gr": ""
+        }
+      },
+      "collections": [
+        {
+          "name": {
+            "en": "checked",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "a940e56f-1532-4136-bd64-5e5335d85d20",
+              "inputType": "simple",
+              "value": "false"
+            }
+          ],
+          "_id": {
+            "$oid": "666ffb7c9ba07d1ed9f78b6f"
+          }
+        },
+        {
+          "name": {
+            "en": "type",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "faef12cd-67f8-47c8-a87b-e5cb1bb14f99",
+              "inputType": "simple",
+              "value": "date"
+            }
+          ],
+          "_id": {
+            "$oid": "666ffb7c9ba07d1ed9f78b70"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "666ffb7c9ba07d1ed9f78b6e"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": ""
+          },
+          "plural": {
+            "en": "",
+            "mk": "",
+            "gr": ""
+          }
+        },
+        "inputValue": {
+          "en": "Delivery Date",
+          "mk": "Дата на испорака",
+          "gr": ""
+        }
+      },
+      "collections": [
+        {
+          "name": {
+            "en": "checked",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "71e1e9ba-0478-49fb-8bf4-0677e3cce84c",
+              "inputType": "simple",
+              "value": "checked"
+            }
+          ],
+          "_id": {
+            "$oid": "666ffbab9ba07d1ed9f78b9b"
+          }
+        },
+        {
+          "name": {
+            "en": "type",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "d3ca84f0-29d1-44ad-9483-876d224c6711",
+              "inputType": "simple",
+              "value": "date"
+            }
+          ],
+          "_id": {
+            "$oid": "666ffbab9ba07d1ed9f78b9c"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "666ffbab9ba07d1ed9f78b9a"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": ""
+          },
+          "plural": {
+            "en": "",
+            "mk": "",
+            "gr": ""
+          }
+        },
+        "inputValue": {
+          "en": "Sampling Date",
+          "mk": "Дата на примеркување",
+          "gr": ""
+        }
+      },
+      "collections": [
+        {
+          "name": {
+            "en": "checked",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "cb4be63d-5cf4-40a2-a879-a5fd2dcb064b",
+              "inputType": "simple",
+              "value": "false"
+            }
+          ],
+          "_id": {
+            "$oid": "666ffbe49ba07d1ed9f78bd0"
+          }
+        },
+        {
+          "name": {
+            "en": "type",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "43b92e9d-0668-474c-881b-e2a20510db12",
+              "inputType": "simple",
+              "value": "date"
+            }
+          ],
+          "_id": {
+            "$oid": "666ffbe49ba07d1ed9f78bd1"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "666ffbe49ba07d1ed9f78bcf"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": ""
+          },
+          "plural": {
+            "en": "",
+            "mk": "",
+            "gr": ""
+          }
+        },
+        "inputValue": {
+          "en": "Date Completed",
+          "mk": "Дата на изготување",
+          "gr": ""
+        }
+      },
+      "collections": [
+        {
+          "name": {
+            "en": "checked",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "9ab55349-d0b6-48b1-913a-6a3c3abe2ae2",
+              "inputType": "simple",
+              "value": "checked"
+            }
+          ],
+          "_id": {
+            "$oid": "666ffc239ba07d1ed9f78c0e"
+          }
+        },
+        {
+          "name": {
+            "en": "type",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "c0f4002d-55b7-46d9-b635-d567aed57b1f",
+              "inputType": "simple",
+              "value": "date"
+            }
+          ],
+          "_id": {
+            "$oid": "666ffc239ba07d1ed9f78c0f"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "666ffc239ba07d1ed9f78c0d"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": ""
+          },
+          "plural": {
+            "en": "",
+            "mk": "",
+            "gr": ""
+          }
+        },
+        "inputValue": {
+          "en": "Date Issued",
+          "mk": "Дата на издавање",
+          "gr": ""
+        }
+      },
+      "collections": [
+        {
+          "name": {
+            "en": "checked",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "92c3d2fe-cd04-4cfe-848d-1972498c3135",
+              "inputType": "simple",
+              "value": "checked"
+            }
+          ],
+          "_id": {
+            "$oid": "666ffca69ba07d1ed9f78c6d"
+          }
+        },
+        {
+          "name": {
+            "en": "type",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "1fe20cd7-fb3f-4999-84c3-cb923f043ac3",
+              "inputType": "simple",
+              "value": "date"
+            }
+          ],
+          "_id": {
+            "$oid": "666ffca69ba07d1ed9f78c6e"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "666ffca69ba07d1ed9f78c6c"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": ""
+          },
+          "plural": {
+            "en": "",
+            "mk": "",
+            "gr": ""
+          }
+        },
+        "inputValue": {
+          "en": "Tank No.",
+          "mk": "Резервоар",
+          "gr": ""
+        }
+      },
+      "collections": [
+        {
+          "name": {
+            "en": "checked",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "84f76fc7-1b2b-4791-8ab3-c37fb7f57249",
+              "inputType": "simple",
+              "value": "false"
+            }
+          ],
+          "_id": {
+            "$oid": "666ffcf59ba07d1ed9f78cbd"
+          }
+        },
+        {
+          "name": {
+            "en": "type",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "185ba8cf-b943-4384-b505-b18251607cf0",
+              "inputType": "simple",
+              "value": "text"
+            }
+          ],
+          "_id": {
+            "$oid": "666ffcf59ba07d1ed9f78cbe"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "666ffcf59ba07d1ed9f78cbc"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": ""
+          },
+          "plural": {
+            "en": "",
+            "mk": "",
+            "gr": ""
+          }
+        },
+        "inputValue": {
+          "en": "License plate",
+          "mk": "Регистрација",
+          "gr": ""
+        }
+      },
+      "collections": [
+        {
+          "name": {
+            "en": "checked",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "ee2057c4-77fb-4162-9080-26d92dd32b2c",
+              "inputType": "simple",
+              "value": "false"
+            }
+          ],
+          "_id": {
+            "$oid": "667017939ba07d1ed9f78dce"
+          }
+        },
+        {
+          "name": {
+            "en": "type",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "86c46bf0-e29b-4f9a-81fb-86b12f4419d9",
+              "inputType": "simple",
+              "value": "text"
+            }
+          ],
+          "_id": {
+            "$oid": "667017939ba07d1ed9f78dcf"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "667017939ba07d1ed9f78dcd"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": ""
+          },
+          "plural": {
+            "en": "",
+            "mk": "",
+            "gr": ""
+          }
+        },
+        "inputValue": {
+          "en": "Sample Tag",
+          "mk": "Ознака",
+          "gr": ""
+        }
+      },
+      "collections": [
+        {
+          "name": {
+            "en": "checked",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "db376fc4-fb02-4260-900c-450e6f4adf43",
+              "inputType": "simple",
+              "value": "false"
+            }
+          ],
+          "_id": {
+            "$oid": "667017c39ba07d1ed9f78e30"
+          }
+        },
+        {
+          "name": {
+            "en": "type",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "52e6edc0-31af-41be-91f9-8ad5287716a8",
+              "inputType": "simple",
+              "value": "text"
+            }
+          ],
+          "_id": {
+            "$oid": "667017c39ba07d1ed9f78e31"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "667017c39ba07d1ed9f78e2f"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": ""
+          },
+          "plural": {
+            "en": "",
+            "mk": "",
+            "gr": ""
+          }
+        },
+        "inputValue": {
+          "en": "Subject",
+          "mk": "Назив",
+          "gr": ""
+        }
+      },
+      "collections": [
+        {
+          "name": {
+            "en": "checked",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "9c682c18-a690-43af-9fe6-160be77549a4",
+              "inputType": "simple",
+              "value": "false"
+            }
+          ],
+          "_id": {
+            "$oid": "667017e99ba07d1ed9f78e9b"
+          }
+        },
+        {
+          "name": {
+            "en": "type",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "626ea278-5d7c-4d86-9f07-7c434517d10d",
+              "inputType": "simple",
+              "value": "text"
+            }
+          ],
+          "_id": {
+            "$oid": "667017e99ba07d1ed9f78e9c"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "667017e99ba07d1ed9f78e9a"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": ""
+          },
+          "plural": {
+            "en": "",
+            "mk": "",
+            "gr": ""
+          }
+        },
+        "inputValue": {
+          "en": "Quantity",
+          "mk": "",
+          "gr": ""
+        }
+      },
+      "collections": [
+        {
+          "name": {
+            "en": "checked",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "850e12b9-d193-447b-afef-c06fb3b202c5",
+              "inputType": "simple",
+              "value": "false"
+            }
+          ],
+          "_id": {
+            "$oid": "667018189ba07d1ed9f78f0f"
+          }
+        },
+        {
+          "name": {
+            "en": "type",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "a70d98f1-4dff-4e70-9058-ff2c41627a58",
+              "inputType": "simple",
+              "value": "text"
+            }
+          ],
+          "_id": {
+            "$oid": "667018189ba07d1ed9f78f10"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "667018189ba07d1ed9f78f0e"
       }
     }
   ]
