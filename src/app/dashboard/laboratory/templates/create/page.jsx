@@ -18,7 +18,7 @@ const page = async () => {
   const { setting } = await getLaboratorySettings();
   const { settings } = (await setting) || [];
 
-  console.log(templateSettings);
+  // console.log(templateSettings);
 
   return (
     <div className='w-full'>
