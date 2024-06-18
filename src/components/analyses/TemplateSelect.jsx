@@ -7,9 +7,6 @@ import DocumentType from '../templates/basic/DocumentType';
 import TemplateVersion from './TemplateVersion';
 
 const TemplateSelect = ({ languages, products, types, countries }) => {
-	// console.log(products, 'in products');
-	// console.log(types, 'the types');
-
 	const handleOnChange = (e) => {
 		console.log(e.target.value);
 	};
