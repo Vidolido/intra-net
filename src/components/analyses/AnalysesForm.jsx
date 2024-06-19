@@ -11,31 +11,30 @@ import BasicInputFields from './BasicInputFields';
 import AnalysisTemplate from './AnalysisTemplate';
 
 const AnalysesForm = ({ templateSettings, languages, allTemplates }) => {
-  let { products, types, countries, fields } =
-    mutateTemplateSettings(templateSettings);
-  return (
-    <form>
-      <LaboratoryContextProvider>
-        <div>
-          <TemplateSelect
-            languages={languages}
-            products={products}
-            types={types}
-            countries={countries}
-          />
+	let { products, types, countries, fields } =
+		mutateTemplateSettings(templateSettings);
+	return (
+		<form>
+			<LaboratoryContextProvider>
+				<div>
+					<TemplateSelect
+						languages={languages}
+						products={products}
+						types={types}
+						countries={countries}
+						templates={allTemplates}
+					/>
 
-          <Fields languages={languages} fields={fields.settings} />
-          <BasicInputFields />
-        </div>
+					<Fields languages={languages} fields={fields.settings} />
+					<BasicInputFields />
+				</div>
 
-        <div>
-          <LaboratoryContextProvider>
-            <AnalysisTemplate templates={allTemplates} />
-          </LaboratoryContextProvider>
-        </div>
-      </LaboratoryContextProvider>
-    </form>
-  );
+				<div>
+					<AnalysisTemplate templates={allTemplates} />
+				</div>
+			</LaboratoryContextProvider>
+		</form>
+	);
 };
 
 export default AnalysesForm;
