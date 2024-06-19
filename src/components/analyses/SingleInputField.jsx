@@ -1,12 +1,12 @@
 import InputType from '../inputs/InputType';
 
 const SingleInputField = ({ field }) => {
-	return (
-		<label>
-			{field.name['en']}
-			<InputType type={field?.type} />
-		</label>
-	);
+  return (
+    <label>
+      <span className='block'>{field.name['en']}</span>
+      <InputType type={field?.type} classes={'min-w-fit'} />
+    </label>
+  );
 };
 
 export default SingleInputField;

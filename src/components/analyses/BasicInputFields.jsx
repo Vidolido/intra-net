@@ -1,27 +1,30 @@
 'use client';
 
+// state/actions
 import { useLaboratoryContext } from '@/state/laboratoryContext';
-import { isObjectEmpty } from '@/utils/functions';
+
+// components
 import SingleInputField from './SingleInputField';
 
 const BasicInputFields = () => {
-	const { fields } = useLaboratoryContext();
+  const { fields } = useLaboratoryContext();
 
-	// console.log(fields);
-	return (
-		<div>
-			BasicInputFields
-			{fields.length > 0
-				? fields.map((field) =>
-						field.checked !== 'false' ? (
-							<SingleInputField key={field._id} field={field} />
-						) : (
-							''
-						)
-				  )
-				: ''}
-		</div>
-	);
+  return (
+    <fieldset>
+      <h3>Input Fields</h3>
+      <div>
+        {fields.length > 0
+          ? fields.map((field) =>
+              field.checked !== 'false' ? (
+                <SingleInputField key={field._id} field={field} />
+              ) : (
+                ''
+              )
+            )
+          : ''}
+      </div>
+    </fieldset>
+  );
 };
 
 export default BasicInputFields;

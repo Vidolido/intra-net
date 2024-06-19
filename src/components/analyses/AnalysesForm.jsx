@@ -1,7 +1,5 @@
-// 'use client';
-// import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemplateSettings';
-// import { getLaboratorySettings, getLanguages } from '@/app/dashboard/apiCalls';
-// import TemplateSelection from './TemplateSelection';
+// functions
+import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
 
 // state/actions
 import { LaboratoryContextProvider } from '@/state/laboratoryContext';
@@ -10,63 +8,34 @@ import { LaboratoryContextProvider } from '@/state/laboratoryContext';
 import TemplateSelect from './TemplateSelect';
 import Fields from './Fields';
 import BasicInputFields from './BasicInputFields';
+import AnalysisTemplate from './AnalysisTemplate';
 
-const AnalysesForm = ({ templateSettings, languages, laboratoryTemplates }) => {
-	let { products, types, countries, fields } = templateSettings.reduce(
-		(acc, currentValue) => {
-			switch (currentValue.settingName) {
-				case 'Products': {
-					acc = {
-						...acc,
-						products: currentValue,
-					};
-					break;
-				}
-				case 'Types': {
-					acc = {
-						...acc,
-						types: currentValue,
-					};
-					break;
-				}
-				case 'Countries': {
-					acc = {
-						...acc,
-						countries: currentValue,
-					};
-					break;
-				}
-				case 'Fields': {
-					acc = {
-						...acc,
-						fields: currentValue,
-					};
-					break;
-				}
-				default: {
-					return acc;
-				}
-			}
-			return acc;
-		},
-		{}
-	);
+const AnalysesForm = ({ templateSettings, languages, allTemplates }) => {
+  let { products, types, countries, fields } =
+    mutateTemplateSettings(templateSettings);
+  return (
+    <form>
+      <LaboratoryContextProvider>
+        <div>
+          <TemplateSelect
+            languages={languages}
+            products={products}
+            types={types}
+            countries={countries}
+          />
 
-	return (
-		<form>
-			<TemplateSelect
-				languages={languages}
-				products={products}
-				types={types}
-				countries={countries}
-			/>
+          <Fields languages={languages} fields={fields.settings} />
+          <BasicInputFields />
+        </div>
 
-			<LaboratoryContextProvider>
-				<Fields languages={languages} fields={fields.settings} />
-				<BasicInputFields />
-			</LaboratoryContextProvider>
-		</form>
-	);
+        <div>
+          <LaboratoryContextProvider>
+            <AnalysisTemplate templates={allTemplates} />
+          </LaboratoryContextProvider>
+        </div>
+      </LaboratoryContextProvider>
+    </form>
+  );
 };
 
 export default AnalysesForm;
