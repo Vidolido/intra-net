@@ -1,10 +1,14 @@
 'use client';
-import SelectInput from '@/components/inputs/SelectInput';
-import { ADD, ADD_TO_COLLECTION } from '@/state/actionTypes';
+import { useEffect } from 'react';
+
+// state/actions
+import { ADD_TO_COLLECTION } from '@/state/actionTypes';
 import { useLaboratoryDispatchContext } from '@/state/laboratoryContext';
 import { findSettingType } from '@/utils/findSettingType';
 import { nameArray } from '@/utils/nameArray';
-import { useEffect } from 'react';
+
+// components
+import SelectInput from '@/components/inputs/SelectInput';
 
 const SampleType = ({ types, onChange, defaultValue, classes, name }) => {
 	let dispatch = useLaboratoryDispatchContext();
@@ -27,7 +31,6 @@ const SampleType = ({ types, onChange, defaultValue, classes, name }) => {
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-	// console.log(names);
 
 	return (
 		<fieldset name='sample-types'>

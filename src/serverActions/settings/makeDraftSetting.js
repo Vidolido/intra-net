@@ -6,7 +6,6 @@ import Setting from '@/db/models/Setting';
 import { revalidatePath } from 'next/cache';
 
 export async function makeDraftSetting() {
-	//   console.log('IT DID RUN');
 	try {
 		await dbConnect();
 		const draft = await Setting.create({ documentStatus: 'draft' });

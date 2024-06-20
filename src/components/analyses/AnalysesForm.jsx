@@ -1,8 +1,6 @@
-// functions
-import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
-
 // state/actions
 import { LaboratoryContextProvider } from '@/state/laboratoryContext';
+import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
 
 // components
 import TemplateSelect from './TemplateSelect';

@@ -1,3 +1,4 @@
+// components
 import DraftSetting from './DraftSetting';
 
 const DisplayDraftSettings = ({ drafts }) => {

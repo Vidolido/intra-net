@@ -3,10 +3,9 @@ import { NextResponse } from 'next/server';
 import { revalidatePath, revalidateTag } from 'next/cache';
 import { cookies } from 'next/headers';
 
-// connection/moddels/database functions
+// connection/models/db functions
 import dbConnect from '@/db/conn';
 import Setting from '@/db/models/Setting';
-// import Vehicle from '@/db/models/Vehicle';
 
 export async function GET() {
 	try {

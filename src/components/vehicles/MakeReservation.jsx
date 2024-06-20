@@ -1,6 +1,7 @@
 'use client';
-
 import { memo, useState } from 'react';
+
+// components
 import ReservationForm from './ReservationForm';
 
 const MakeReservation = ({ vehicles, users, locations }) => {

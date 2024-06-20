@@ -1,15 +1,17 @@
 'use client';
 import { useEffect } from 'react';
-import { countriesOfOrigin } from './countriesOfOrigin';
-import SelectInput from '@/components/inputs/SelectInput';
-import { nameArray } from '@/utils/nameArray';
+
+// state/actions
+import { ADD_TO_COLLECTION } from '@/state/actionTypes';
 import { useLaboratoryDispatchContext } from '@/state/laboratoryContext';
-import { ADD, ADD_TO_COLLECTION } from '@/state/actionTypes';
+import { nameArray } from '@/utils/nameArray';
+
+// components
+import SelectInput from '@/components/inputs/SelectInput';
 
 const Origin = ({ countries, onChange, defaultValue, classes, name }) => {
 	let dispatch = useLaboratoryDispatchContext();
 
-	// const origin = countriesOfOrigin;
 	let names = countries?.settings.map((setting) => ({
 		id: setting._id,
 		...nameArray(setting.parameter.inputValue),
@@ -27,15 +29,10 @@ const Origin = ({ countries, onChange, defaultValue, classes, name }) => {
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-	// console.log(
-	// 	countries?.settings.map((setting) => setting.id),
-	// 	'names'
-	// );
-	// console.log(names);
+
 	return (
 		<fieldset name='countries-of-origin'>
 			<h6>Origin</h6>
-			{/* <SelectInput options={origin} parameter='name' defaultLanguage='en' /> */}
 			<SelectInput
 				name={name}
 				options={names}

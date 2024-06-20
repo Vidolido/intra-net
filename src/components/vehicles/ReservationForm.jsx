@@ -1,4 +1,7 @@
+// state/actions
 import { makeReservation } from '@/serverActions/vehicles';
+
+// components
 import VehicleError from '../errorComponents/VehicleError';
 import SubmitButton from '../buttons/SubmitButtons';
 

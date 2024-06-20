@@ -1,10 +1,10 @@
 'use server';
+import { cookies } from 'next/headers';
+import { revalidatePath } from 'next/cache';
 
 // connection/moddels/database functions
 import dbConnect from '@/db/conn';
 import Setting from '@/db/models/Setting';
-import { revalidatePath } from 'next/cache';
-import { cookies } from 'next/headers';
 
 export async function deleteCollections(collectionToDelete, document) {
 	const { _id } = document;
@@ -13,8 +13,6 @@ export async function deleteCollections(collectionToDelete, document) {
 		await dbConnect();
 		const foundDocument = await Setting.findOne({ _id });
 		let collections = foundDocument.collections || [];
-
-		console.log(collections);
 
 		collections = collections.filter(
 			(collection) =>
@@ -27,10 +25,7 @@ export async function deleteCollections(collectionToDelete, document) {
 		)
 			.lean()
 			.exec();
-		// console.log(foundDocument, 'the document');
 		revalidatePath('/dashboard/settings/add', 'page');
-		// Да вратам еррор доколку се случи.
-		// return;
 		return JSON.stringify(updatedDocument);
 	} catch (error) {
 		console.log('Failed to create draft setting error:', error);

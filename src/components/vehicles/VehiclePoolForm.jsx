@@ -1,4 +1,7 @@
+// state/actions
 import { rentVehicle } from '@/serverActions/vehicles';
+
+// components
 import SubmitButton from '../buttons/SubmitButtons';
 import VehicleError from '../errorComponents/VehicleError';
 

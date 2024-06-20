@@ -4,9 +4,6 @@
 // components
 import VehicleError from '../errorComponents/VehicleError';
 import SubmitButton from '../buttons/SubmitButtons';
-// import SubmitButton from '../Buttons/SubmitButton';
-// import DateInput from '../Inputs/DateInput';
-// import VehicleError from '../Errors/VehicleError';
 
 const FilterByDate = () => {
 	return (

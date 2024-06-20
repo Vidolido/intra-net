@@ -1,32 +1,5 @@
 import Links from './Links';
 
-// const links = [
-//   {
-//     title: {
-//       en: 'Analyses',
-//       mk: 'Анализи',
-//       gr: 'Ανάλυση',
-//     },
-//     path: 'analyses',
-//   },
-//   {
-//     title: {
-//       en: 'Templates',
-//       mk: 'Шаблони',
-//       gr: 'Πρότυπα',
-//     },
-//     path: 'templates',
-//   },
-//   {
-//     title: {
-//       en: 'Settings',
-//       mk: 'Подесувања',
-//       gr: 'Ρυθμίσεις',
-//     },
-//     path: 'settings',
-//   },
-// ];
-
 const links = {
 	laboratory: {
 		label: 'Laboratory',

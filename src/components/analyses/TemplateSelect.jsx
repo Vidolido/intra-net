@@ -6,6 +6,7 @@ import {
 	useLaboratoryContext,
 	useLaboratoryDispatchContext,
 } from '@/state/laboratoryContext';
+import { filterTemplates } from '@/utils/filterTemplates';
 
 // components
 import Product from '../templates/basic/Product';
@@ -13,7 +14,6 @@ import SampleType from '../templates/basic/SampleType';
 import Origin from '../templates/basic/Origin';
 import DocumentType from '../templates/basic/DocumentType';
 import TemplateVersion from './TemplateVersion';
-import { filterTemplates } from '@/utils/filterTemplates';
 
 const TemplateSelect = ({
 	languages,
@@ -23,15 +23,12 @@ const TemplateSelect = ({
 	templates,
 }) => {
 	const dispatch = useLaboratoryDispatchContext();
-	const { header, selectedTemplate } = useLaboratoryContext();
+	const { header } = useLaboratoryContext();
 
 	const filteredTempaltes = filterTemplates(templates, header);
 
 	const handleOnChange = (e) => {
-		console.log(e.target.name, 'the e');
 		if (e.target.name === 'templateVersion') {
-			// console.log(Number(e.target.value), 'the thing');
-			// console.log(e.target.value, 'the thin2');
 			dispatch({
 				type: ADD,
 				payload: {
@@ -51,8 +48,6 @@ const TemplateSelect = ({
 			});
 		}
 	};
-
-	console.log(selectedTemplate, 'selection');
 
 	return (
 		<fieldset name='template-selection' className='flex flex-col gap-2'>

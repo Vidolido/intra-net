@@ -1,18 +1,17 @@
 'use client';
 
 // state/actions
-import { createOptionsSchema } from '@/utils/createOptionSchema';
+import { ADD, ADD_TO_COLLECTION } from '@/state/actionTypes';
 import {
 	useSettingsContext,
 	useSettingsDispatchContext,
 } from '@/state/settingsContext';
+import { createOptionsSchema } from '@/utils/createOptionSchema';
 
 // components
 import ContextButton from '../../buttons/ContextButton';
-import { ADD, ADD_TO_COLLECTION } from '@/state/actionTypes';
 
 const SaveOptionSchema = ({ setting }) => {
-	// const { state, setState } = useSettingsContext();
 	const state = useSettingsContext();
 	const dispatch = useSettingsDispatchContext();
 
@@ -29,7 +28,6 @@ const SaveOptionSchema = ({ setting }) => {
 
 		let createSchema = createOptionsSchema(mainParam, options);
 		// let payload = { sector: sector.value, settingName: settingName.value };
-		console.log(sector, settingName, 'ovie dve gi gledam');
 		// dispatch({
 		// 	type: ADD,
 		// 	payload: { state: 'sector', value: sector.value, type: 'add' },
@@ -72,12 +70,6 @@ const SaveOptionSchema = ({ setting }) => {
 				},
 			});
 		} else {
-			// payload = {
-			//   ...payload,
-			//   optionSchema: {
-			//     ...createSchema,
-			//   },
-			// };
 			dispatch({
 				type: ADD,
 				payload: {
@@ -102,8 +94,6 @@ const SaveOptionSchema = ({ setting }) => {
 		// }));
 		e.target.form.requestSubmit();
 	};
-	// console.log(setting, 'THE SETTING IN SAVE OPTION SHCEMA');
-	// console.log(state, 'THE STATE IN SAVE OPTION SCHEMA');
 	return (
 		<ContextButton label='Use Schema' type='edit' onClick={handleOnClick} />
 	);

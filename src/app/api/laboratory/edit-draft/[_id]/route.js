@@ -1,12 +1,11 @@
 'use server';
 import { NextResponse } from 'next/server';
-import { revalidatePath, revalidateTag } from 'next/cache';
+import { revalidatePath } from 'next/cache';
 import { cookies } from 'next/headers';
 
-// connection/moddels/database functions
+// connection/models/db functions
 import dbConnect from '@/db/conn';
 import LaboratoryTemplate from '@/db/models/LaboratoryTemplate';
-// import Vehicle from '@/db/models/Vehicle';
 
 export async function GET(request, { params }) {
 	let { _id } = params;

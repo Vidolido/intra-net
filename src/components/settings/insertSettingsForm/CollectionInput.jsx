@@ -1,3 +1,4 @@
+// components
 import InputType from '@/components/inputs/InputType';
 import LanguageInputContainer from '@/components/inputs/LanguageInputContainer';
 
@@ -10,7 +11,6 @@ const CollectionInput = ({ languages, inputType, name, values, onChange }) => {
 			return { [key]: values[key] };
 		});
 	}
-	// console.log(mutValues, 'MUT VALUES');
 	return (
 		<fieldset name={name} className='flex items-start gap-2'>
 			{inputType === 'simple' ? (

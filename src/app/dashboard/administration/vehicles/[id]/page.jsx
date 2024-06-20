@@ -13,7 +13,6 @@ async function getVehicle(id) {
 const page = async ({ params }) => {
 	const { id } = params;
 	const { vehicle } = await getVehicle(id);
-	// console.log(vehicle, 'the vehicle');
 	return (
 		<div>
 			Single Car

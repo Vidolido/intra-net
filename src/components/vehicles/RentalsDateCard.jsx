@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+// components
 import toyotaImage from '@/../public/toyota.jpg';
 import SedanSvg from '@/../public/sedan.svg';
 import UserSvg from '@/../public/user-info.svg';
@@ -17,10 +18,8 @@ const elapesdTime = (start, end) => {
 
 	return `${formatNumber(hours)}:${formatNumber(minutes)}`;
 };
-// box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
 const RentalsDateCard = ({ transaction }) => {
-	// console.log(transaction, 'trans');
 	return (
 		<div className='flex flex-col border rounded min-w-[250px] hover:shadow-lg relative'>
 			<h3 className='absolute px-2 py-1 border-r border-b border-r-slate-200 border-b-slate-200 rounded text-[17px] text-red-600 font-semibold'>

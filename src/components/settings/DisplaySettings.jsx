@@ -8,15 +8,12 @@ import ActionButtons from '../buttons/ActionButtons';
 import { deleteSetting } from '@/serverActions/settings/deleteSetting';
 
 const DisplaySettings = ({ languages, setting: dbSetting }) => {
-	// const { defaultLanguage } = useSettingsContext();
 	const { defaultLanguage } = useSettingsContext();
 	const { settings } = dbSetting;
 
 	let headings =
 		(settings && getDisplayHeadings(settings[0], 'singular')) || null;
-	// console.log(headings, 'the  headings');
-	// console.log(settings, 'THE SETTINGS');
-	// console.log(dbSettings, 'THE dbSettings');
+
 	return (
 		<div>
 			<table className='border-collapse'>

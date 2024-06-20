@@ -2,11 +2,11 @@
 import { useState } from 'react';
 
 // state/asctions
+import { addTemplateSetting } from '@/serverActions/laboratoryTemplates/addTemplateSetting';
 import { generateUUID } from '@/utils/generateUUID';
 
 // components
 import SelectInput from '../../inputs/SelectInput';
-import { addTemplateSetting } from '@/serverActions/laboratoryTemplates/addTemplateSetting';
 
 const TemplateFormInput = ({ document, settings, defaultLanguage }) => {
 	const [selection, setSelection] = useState(settings[0]);
@@ -70,8 +70,6 @@ const TemplateFormInput = ({ document, settings, defaultLanguage }) => {
 			return acc;
 		}, {});
 
-		// console.log(property, 'property');
-		// console.log(mutCollections, 'mut');
 		await addTemplateSetting({ property, mutCollections, document });
 	};
 

@@ -1,11 +1,6 @@
 'use client';
 
 // state/actions
-// import { REMOVE_FROM_COLLECTION } from '@/state/actionTypes';
-// import {
-// 	useSettingsContext,
-// 	useSettingsDispatchContext,
-// } from '@/state/settingsContext';
 import { deleteCollections } from '@/serverActions/settings/deleteCollections';
 import { generateUUID } from '@/utils/generateUUID';
 

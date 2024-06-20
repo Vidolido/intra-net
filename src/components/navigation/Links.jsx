@@ -1,7 +1,10 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+
+// components
 import SubRoutes from './SubRoutes';
+
 const Links = ({ link, location }) => {
 	const pathname = usePathname();
 

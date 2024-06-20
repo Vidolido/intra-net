@@ -20,11 +20,8 @@ const SingleItem = ({ item, languages }) => {
 		value: null,
 	});
 	const [itemValue, setItemValue] = useState(item.value);
-	// let value = item.value;
 
 	const handleChange = (e, inputType) => {
-		// let isLanguageInput =
-		// 	itemValue && itemValue[languages[0].language] !== undefined;
 		if (inputType === 'simple') {
 			setItemValue(e.target.value);
 		}
@@ -75,7 +72,6 @@ const SingleItem = ({ item, languages }) => {
 			id: null,
 		});
 	};
-	console.log(itemValue, 'the itemValue');
 	return (
 		<li
 			className='list-disc border border-slate-50 hover:border-red-200 focus:outline-none'

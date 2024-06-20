@@ -7,7 +7,6 @@ import { revalidatePath } from 'next/cache';
 
 // I NEED TO HANDLE ERRORS HERE
 export async function saveBasicData({ headerData, document }) {
-	// console.log(headerData, 'header data');
 	try {
 		await dbConnect();
 		await LaboratoryTemplate.updateOne({ _id: document }, { ...headerData });

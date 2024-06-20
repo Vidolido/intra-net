@@ -1,7 +1,10 @@
 'use client';
+
+// state/actions
 import { returnVehicle } from '@/serverActions/vehicles';
+
+// components
 import ActionButton from '../buttons/ActionButton';
-// import ActionButton from '../Buttons/ActionButton';
 
 const tableHeaders = ['Vehicle', 'User', 'Location', 'Time', 'Date', ''];
 

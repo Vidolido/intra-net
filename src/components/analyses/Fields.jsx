@@ -1,15 +1,13 @@
 'use client';
 import { useEffect, useState } from 'react';
 
-// functions
-import { mutateFields } from '@/utils/mutateFields';
-
 // state/actions
 import { ADD } from '@/state/actionTypes';
 import {
 	useLaboratoryContext,
 	useLaboratoryDispatchContext,
 } from '@/state/laboratoryContext';
+import { mutateFields } from '@/utils/mutateFields';
 
 // components
 import SingleField from './SingleField';
@@ -19,7 +17,6 @@ const Fields = ({ languages, fields: dbFields }) => {
 	const [visible, setVisible] = useState(false);
 	const dispatch = useLaboratoryDispatchContext();
 	const { fields } = useLaboratoryContext();
-	// const state = useLaboratoryContext();
 
 	const mutFields = mutateFields(dbFields);
 
@@ -38,7 +35,6 @@ const Fields = ({ languages, fields: dbFields }) => {
 		setVisible(!visible);
 	};
 
-	// console.log(state);
 	return (
 		<fieldset>
 			<button type='button' onClick={handleHide} className='relative w-full'>

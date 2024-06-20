@@ -1,12 +1,14 @@
 'use client';
+
+// state/actions
 import { useVehicleContext } from '@/state/vehicleContext';
+
+// components
 import RentalsDateCard from './RentalsDateCard';
 
 const RentalsByDate = () => {
 	const { state } = useVehicleContext();
 	const transactionsByDate = state?.profile.transactions;
-
-	// console.log(transactionsByDate, 'OVIJA');
 
 	// Тука да ги сортирам по дата и да направам компонента која ќе ги групира трансакциите по дата и ќе даде таков приказ.
 	// format: 2024-05-28: [transactionsByDate]

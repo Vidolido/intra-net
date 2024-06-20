@@ -45,8 +45,6 @@ const SettingsForm = async ({ setting }) => {
 		  }))
 		: [];
 
-	// console.log(singular, 'singular');
-	// console.log(plural, 'plural');
 	return (
 		<ParentForm setting={setting}>
 			<fieldset className='flex gap-[1px] bg-slate-100 border-[1px] border-slate-100 p-[1px] rounded'>

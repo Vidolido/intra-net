@@ -9,7 +9,6 @@ import ContextButton from '@/components/buttons/ContextButton';
 
 const SaveBasic = ({ draft }) => {
 	const { error: stateError, setError } = useErrorContext();
-	// console.log(error, 'the error in the button');
 	const handleClick = async (e) => {
 		let product = e.target.form.elements
 			.namedItem('product-list')

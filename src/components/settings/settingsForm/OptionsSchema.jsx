@@ -12,14 +12,7 @@ const OptionsSchema = ({ children, setting }) => {
 	// const [show, setShow] = useState(true);
 	const dispatch = useSettingsDispatchContext();
 	const { showOptionsSchema } = useSettingsContext();
-	// const []
 
-	// const handleOnClick = useCallback(
-	// 	(e) => {
-
-	// 	},
-	// 	[dispatch, showOptionsSchema]
-	// );
 	return (
 		<div
 			className={`flex flex-col gap-1 bg-slate-100 border-[1px] border-slate-100 p-[1px] rounded`}>
