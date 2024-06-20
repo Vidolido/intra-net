@@ -5,6 +5,9 @@ import { getLaboratoryDraftTemplates } from '../../apiCalls';
 import CreateDraftTemplateButton from '@/components/templates/CreateDraftTemplateButton';
 import DisplayDraftTemplates from '@/components/templates/draftTemplates/DisplayDraftTemplates';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 const page = async () => {
 	const { draftTemplates } = await getLaboratoryDraftTemplates();
 

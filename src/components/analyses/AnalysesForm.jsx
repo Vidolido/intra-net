@@ -14,7 +14,7 @@ const AnalysesForm = ({ templateSettings, languages, allTemplates }) => {
 	let { products, types, countries, fields } =
 		mutateTemplateSettings(templateSettings);
 	return (
-		<form>
+		<form className='flex'>
 			<LaboratoryContextProvider>
 				<div>
 					<TemplateSelect

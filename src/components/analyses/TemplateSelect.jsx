@@ -1,7 +1,7 @@
 'use client';
 
 // state/actions
-import { ADD_TO_COLLECTION } from '@/state/actionTypes';
+import { ADD, ADD_TO_COLLECTION } from '@/state/actionTypes';
 import {
 	useLaboratoryContext,
 	useLaboratoryDispatchContext,
@@ -23,23 +23,36 @@ const TemplateSelect = ({
 	templates,
 }) => {
 	const dispatch = useLaboratoryDispatchContext();
-	const { header } = useLaboratoryContext();
+	const { header, selectedTemplate } = useLaboratoryContext();
 
 	const filteredTempaltes = filterTemplates(templates, header);
 
 	const handleOnChange = (e) => {
-		dispatch({
-			type: ADD_TO_COLLECTION,
-			payload: {
-				state: 'header',
-				value: {
-					[e.target.name]: e.target.value,
+		console.log(e.target.name, 'the e');
+		if (e.target.name === 'templateVersion') {
+			// console.log(Number(e.target.value), 'the thing');
+			// console.log(e.target.value, 'the thin2');
+			dispatch({
+				type: ADD,
+				payload: {
+					state: 'selectedTemplate',
+					value: e.target.value,
 				},
-			},
-		});
+			});
+		} else {
+			dispatch({
+				type: ADD_TO_COLLECTION,
+				payload: {
+					state: 'header',
+					value: {
+						[e.target.name]: e.target.value,
+					},
+				},
+			});
+		}
 	};
 
-	// console.log(filteredTempaltes);
+	console.log(selectedTemplate, 'selection');
 
 	return (
 		<fieldset name='template-selection' className='flex flex-col gap-2'>
@@ -51,6 +64,7 @@ const TemplateSelect = ({
 					languages={languages}
 					onChange={handleOnChange}
 					classes={'w-32'}
+					dispatch={dispatch}
 				/>
 				<Origin
 					name='origin'
