@@ -12,6 +12,7 @@ import ContextButton from '@/components/buttons/ContextButton';
 
 const TemplateFormInput = ({ document, settings, defaultLanguage }) => {
 	const [selection, setSelection] = useState(settings[0]);
+
 	const [selectedItems, setSelectedItems] = useState({});
 
 	const [additional, setAdditional] = useState({
@@ -84,6 +85,9 @@ const TemplateFormInput = ({ document, settings, defaultLanguage }) => {
 					(item) => currentValue.items[item]
 				);
 				acc[currentValue._id] = [...itemsToFind];
+			} else {
+				// Во оваа празна низа да додадам некакво поле колку да пополнува место.
+				acc[currentValue._id] = [];
 			}
 			return acc;
 		}, {});
