@@ -27,18 +27,6 @@ const SaveOptionSchema = ({ setting }) => {
 			.querySelectorAll('input');
 
 		let createSchema = createOptionsSchema(mainParam, options);
-		// let payload = { sector: sector.value, settingName: settingName.value };
-		// dispatch({
-		// 	type: ADD,
-		// 	payload: { state: 'sector', value: sector.value, type: 'add' },
-		// });
-		// dispatch({
-		// 	type: ADD,
-		// 	payload: { state: 'settingName', value: settingName.value, type: 'add' },
-		// });
-
-		// console.log(hasProp, 'HAS PROP');\
-		// console.log(options, 'options');
 
 		if (
 			state.optionSchema &&
@@ -81,6 +69,14 @@ const SaveOptionSchema = ({ setting }) => {
 				},
 			});
 		}
+		dispatch({
+			type: ADD,
+			payload: {
+				type: 'add',
+				state: 'showOptionsSchema',
+				value: false,
+			},
+		});
 		// dispatch({
 		//   type: ADD_TO_COLLECTION,
 		//   payload: {

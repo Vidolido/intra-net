@@ -1,8 +1,8 @@
 export const addSettingState = {
-	sector: '',
-	settingName: '',
+	// sector: '',
+	// settingName: '',
 	showOptionsSchema: true,
-	collections: [],
+	// collections: [],
 	defaultLanguage: {
 		_id: '6656eed3b12adae590481cfe',
 		language: 'en',
@@ -10,7 +10,7 @@ export const addSettingState = {
 	},
 	optionsSchema: {},
 	inputType: 'simple',
-	settings: [],
+	// settings: [],
 	selectedCollection: 0,
 };
 

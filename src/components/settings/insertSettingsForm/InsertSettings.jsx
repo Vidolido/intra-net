@@ -133,6 +133,7 @@ const InsertSettings = ({ languages, setting }) => {
 		e.preventDefault();
 		let settingToAdd = optionsSchema;
 		await addSetting(settingToAdd, setting);
+		console.log(addItemsArray(setting.optionsSchema), 'OVAAA');
 		dispatch({
 			type: ADD,
 			payload: {
@@ -141,8 +142,17 @@ const InsertSettings = ({ languages, setting }) => {
 				value: addItemsArray(setting.optionsSchema),
 			},
 		});
+		dispatch({
+			type: ADD,
+			payload: {
+				type: 'add',
+				state: 'selectedCollection',
+				value: 0,
+			},
+		});
 		e.target.form.reset();
 	};
+	console.log(state, 'the state');
 	return (
 		<form className='border border-slate-200 rounded p-1'>
 			<fieldset name='main-parameter'>
