@@ -9,11 +9,14 @@ import LaboratoryTemplate from '@/db/models/LaboratoryTemplate';
 export async function addTemplateSetting({
 	property,
 	mutCollections,
+	additional,
 	document,
 }) {
 	let payload = {
 		parameter: property,
 		items: mutCollections,
+		result: additional.result,
+		marginError: additional.marginError,
 	};
 
 	try {

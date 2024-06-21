@@ -7,10 +7,17 @@ import { generateUUID } from '@/utils/generateUUID';
 
 // components
 import SelectInput from '../../inputs/SelectInput';
+import InputType from '@/components/inputs/InputType';
+import ContextButton from '@/components/buttons/ContextButton';
 
 const TemplateFormInput = ({ document, settings, defaultLanguage }) => {
 	const [selection, setSelection] = useState(settings[0]);
 	const [selectedItems, setSelectedItems] = useState({});
+
+	const [additional, setAdditional] = useState({
+		result: selection.result || '',
+		marginError: selection.marginError || '',
+	});
 
 	let properties = settings.map((setting) => ({
 		_id: setting._id,
@@ -21,6 +28,10 @@ const TemplateFormInput = ({ document, settings, defaultLanguage }) => {
 		let selected = settings.filter((setting) => setting._id === e.target.value);
 		setSelection(...selected);
 		setSelectedItems({});
+		setAdditional({
+			result: '',
+			marginError: '',
+		});
 	};
 
 	const handleCheck = (e) => {
@@ -52,6 +63,13 @@ const TemplateFormInput = ({ document, settings, defaultLanguage }) => {
 		}
 	};
 
+	const handleAdditionalInput = (e) => {
+		setAdditional({
+			...additional,
+			[e.target.name]: e.target.value,
+		});
+	};
+
 	let handleAdd = async (e) => {
 		let property = {
 			_id: selection._id,
@@ -70,7 +88,13 @@ const TemplateFormInput = ({ document, settings, defaultLanguage }) => {
 			return acc;
 		}, {});
 
-		await addTemplateSetting({ property, mutCollections, document });
+		// Тука чекам грешка
+		await addTemplateSetting({
+			property,
+			mutCollections,
+			additional,
+			document,
+		});
 	};
 
 	return (
@@ -112,12 +136,24 @@ const TemplateFormInput = ({ document, settings, defaultLanguage }) => {
 					</div>
 				);
 			})}
-			<div>result</div>
-			<div>me</div>
 			<div>
-				<button type='button' onClick={handleAdd}>
-					Add
-				</button>
+				<InputType
+					classes={'w-10/12'}
+					name='result'
+					value={additional.result}
+					onChange={handleAdditionalInput}
+				/>
+			</div>
+			<div>
+				<InputType
+					classes={'w-10/12'}
+					name='marginError'
+					value={additional.marginError}
+					onChange={handleAdditionalInput}
+				/>
+			</div>
+			<div>
+				<ContextButton label='Add' type='edit' onClick={handleAdd} />
 			</div>
 		</div>
 	);
