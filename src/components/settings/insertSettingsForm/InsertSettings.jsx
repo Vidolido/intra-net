@@ -152,7 +152,7 @@ const InsertSettings = ({ languages, setting }) => {
 		});
 		e.target.form.reset();
 	};
-	console.log(state, 'the state');
+	// console.log(state, 'the state');
 	return (
 		<form className='border border-slate-200 rounded p-1'>
 			<fieldset name='main-parameter'>

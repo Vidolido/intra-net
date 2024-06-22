@@ -6,6 +6,9 @@ import DisplaySettings from '@/components/settings/DisplaySettings';
 import InsertSettings from '@/components/settings/insertSettingsForm/InsertSettings';
 import SettingsForm from '@/components/settings/settingsForm/SettingsForm';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 const page = async ({ params }) => {
 	const { languages } = await getLanguages();
 	const { _id } = params;

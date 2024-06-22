@@ -1,5 +1,5 @@
 'use client';
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useMemo, useState } from 'react';
 
 // state/actions
 import { useSettingsContext } from '@/state/settingsContext';
@@ -12,40 +12,107 @@ import ContextButton from '../buttons/ContextButton';
 import ActionButtons from '../buttons/ActionButtons';
 import DragSvg from '@/../public/drag.svg';
 import OptionsSvg from '@/../public/options.svg';
+import EditSetingForm from './editSetting/EditSetingForm';
 
 const DisplaySettings = ({ languages, setting: dbSetting }) => {
 	const { defaultLanguage } = useSettingsContext();
 	const { settings } = dbSetting;
-	const mutSettings = settings.reduce((acc, currentValue) => {
-		acc = {
-			...acc,
-			[currentValue._id]: '',
-		};
-		return acc;
-	}, {});
-	const [showOptions, setShowOptions] = useState(false);
-	const [expand, setExpand] = useState(mutSettings);
+	let mutSettings = useMemo(
+		() =>
+			settings.reduce((acc, currentValue) => {
+				acc = {
+					...acc,
+					[currentValue._id]: {
+						showOptions: false,
+						expand: false,
+						edit: false,
+					},
+				};
+				return acc;
+			}, {}),
+		[settings]
+	);
+	// const [showOptions, setShowOptions] = useState(false);
+	// const [expand, setExpand] = useState(mutSettings);
+	// console.log(mutSettings, 'before');
+	const [options, setOptions] = useState(mutSettings);
+
+	// console.log(Object.keys(options).length !== Object.keys(mutSettings), 'test');
+	useEffect(() => {
+		if (Object.keys(options).length !== Object.keys(mutSettings))
+			setOptions(mutSettings);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [mutSettings]);
+
 	let headings =
 		(settings && getDisplayHeadings(settings[0], 'singular')) || null;
 
-	const handleOptions = () => {
-		setShowOptions(!showOptions);
+	const handleShowOptions = (e) => {
+		// console.log(options, 'options in handleShowOptions');
+		setOptions((prev) => {
+			if (e in prev) {
+				return {
+					...prev,
+					[e]: {
+						...prev[e],
+						showOptions: !prev[e].showOptions,
+					},
+				};
+			}
+			return prev;
+		});
+	};
+
+	const handleEdit = (e) => {
+		// setOptions((prev) => {
+		// 	if (e in prev) {
+		// 		return {
+		// 			...prev,
+		// 			[e]: {
+		// 				...prev[e],
+		// 				edit: !prev[e].expand,
+		// 			},
+		// 		};
+		// 	}
+		// });
+		setOptions((prev) => {
+			return {
+				...prev,
+				[e]: {
+					...prev[e],
+					edit: !prev[e].edit,
+				},
+			};
+		});
+		// return prev;
 	};
 
 	const handleExpand = (e) => {
-		console.log(e, 'e is expanding');
-		setExpand((prev) => {
-			if (e in prev) {
-				return { ...prev, [e]: !prev[e] };
-			} else {
-				return {
-					...prev,
-					[e]: true,
-				};
-			}
+		setOptions((prev) => {
+			return {
+				...prev,
+				[e]: {
+					...prev[e],
+					expand: !prev[e].expand,
+				},
+			};
 		});
 	};
-	console.log(expand);
+
+	const handleDelete = async (_id) => {
+		setOptions((prev) => {
+			const newOptions = { ...prev };
+			delete newOptions[_id];
+			return newOptions;
+		});
+		await deleteSetting({
+			setting: _id,
+			document: dbSetting._id,
+		});
+	};
+	// console.log(options, 'options');
+	// console.log(mutSettings, 'after');
+
 	return (
 		<div>
 			<table>
@@ -73,16 +140,20 @@ const DisplaySettings = ({ languages, setting: dbSetting }) => {
 							let collections = setting.collections;
 							return (
 								<Fragment key={setting._id}>
-									{/* <tr>
-										<td></td>
-										<td>edit row</td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-									</tr> */}
+									{options[setting._id] !== undefined &&
+									options[setting._id].edit ? (
+										<tr>
+											<td></td>
+											<td colSpan={collections.length + 2}>
+												<EditSetingForm
+													languages={languages}
+													setting={setting}
+												/>
+											</td>
+										</tr>
+									) : (
+										''
+									)}
 
 									<tr className='border-b hover:border-red-300 hover:nth-ch'>
 										<td className='w-fit align-top cursor-pointer'>
@@ -92,14 +163,10 @@ const DisplaySettings = ({ languages, setting: dbSetting }) => {
 											{setting?.parameter?.inputValue['en']}
 										</td>
 										{collections.map((collection, ind) => {
-											{
-												/* console.log(
-												setting._id in expand,
-												expand[setting._id],
-												'AJ OVAJ'
-											); */
-											}
-											if (setting._id in expand && !expand[setting._id]) {
+											if (
+												options[setting._id] !== undefined &&
+												!options[setting._id].expand
+											) {
 												return (
 													<td
 														key={collection._id}
@@ -120,8 +187,7 @@ const DisplaySettings = ({ languages, setting: dbSetting }) => {
 															})}
 													</td>
 												);
-											}
-											if (setting._id in expand && expand[setting._id]) {
+											} else {
 												return (
 													<td
 														key={collection._id}
@@ -143,27 +209,42 @@ const DisplaySettings = ({ languages, setting: dbSetting }) => {
 												);
 											}
 										})}
-										{/* <td>
-											<ActionButtons
-												label='delete'
-												action={deleteSetting}
-												parameters={{
-													setting: setting._id,
-													document: dbSetting._id,
-												}}
+
+										<td className='cursor-pointer align-top relative'>
+											<OptionsSvg
+												onClick={() => handleShowOptions(setting?._id)}
+												className='text-slate-400 hover:text-red-600 text-center w-[25px] h-[25px]'
 											/>
-										</td> */}
-										<td
-											className='cursor-pointer align-top relative'
-											onClick={handleOptions}
-											// onClick={() => handleExpand(setting._id)}
-										>
-											<OptionsSvg className='text-slate-400 hover:text-red-600 text-center w-[25px] h-[25px]' />
 											<div
-												className={`absolute top-0 right-[-65px] ${
-													showOptions ? 'visible' : 'hidden'
+												className={`flex flex-col absolute top-0 right-[-65px] ${
+													options[setting._id] &&
+													options[setting._id].showOptions
+														? 'visible'
+														: 'hidden'
 												}`}>
-												testiranje
+												<ContextButton
+													label='expand'
+													type='default'
+													onClick={() => handleExpand(setting?._id)}
+												/>
+												<ContextButton
+													label='edit'
+													type='default'
+													onClick={() => handleEdit(setting?._id)}
+												/>
+												<ContextButton
+													label='delete'
+													type='default'
+													onClick={() => handleDelete(setting?._id)}
+												/>
+												{/* <ActionButtons
+													label='delete'
+													action={deleteSetting}
+													parameters={{
+														setting: setting?._id,
+														document: dbSetting._id,
+													}}
+												/> */}
 											</div>
 										</td>
 									</tr>

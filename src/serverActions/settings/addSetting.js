@@ -1,6 +1,6 @@
 'use server';
 import { revalidatePath } from 'next/cache';
-import { cookies } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 
 // moddels/db functions
 import dbConnect from '@/db/conn';
@@ -9,6 +9,7 @@ import Setting from '@/db/models/Setting';
 export async function addSetting(settingToAdd, document) {
 	const { _id } = document;
 	try {
+		headers();
 		cookies();
 		await dbConnect();
 		const foundDocument = await Setting.findOne({ _id });
@@ -22,6 +23,7 @@ export async function addSetting(settingToAdd, document) {
 			.lean()
 			.exec();
 		revalidatePath('/dashboard/settings/add', 'page');
+		revalidatePath('/dashboard/settings/draft/[_id]', 'page');
 		// Да вратам еррор доколку се случи.
 		// return;
 		return JSON.stringify(updatedDocument);
