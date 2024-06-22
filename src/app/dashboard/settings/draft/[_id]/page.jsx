@@ -2,7 +2,7 @@
 import { getDraftById, getLanguages } from '@/app/dashboard/apiCalls';
 
 // components
-import DisplaySettings from '@/components/settings/DisplaySettings';
+import DisplaySettings from '@/components/settings/displaySettings/DisplaySettings';
 import InsertSettings from '@/components/settings/insertSettingsForm/InsertSettings';
 import SettingsForm from '@/components/settings/settingsForm/SettingsForm';
 

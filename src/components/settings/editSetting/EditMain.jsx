@@ -1,17 +1,25 @@
 'use client';
-import LanguageInputContainer from '@/components/inputs/LanguageInputContainer';
-import { nameArray } from '@/utils/nameArray';
-import { useEffect, useMemo, useState } from 'react';
+
+// state/actions
+import { ADD } from '@/state/actionTypes';
+import {
+	useEditSettingsContext,
+	useEditSettingsDispatchContext,
+} from '@/state/settings/editSetting/editSettingsState';
+
+// components
+import NameEdit from './NameEdit';
+import ParamValue from './ParamValue';
 
 const EditMain = ({ languages, parameter }) => {
+	const { checkedName } = useEditSettingsContext();
+	const dispatch = useEditSettingsDispatchContext();
 	const defaultLanguage = {
 		_id: '6656eed3b12adae590481cfe',
 		language: 'en',
 		locale: 'en-US',
 	};
 
-	const [checkedName, setCheckedName] = useState('singular');
-	let [inputs, setInputs] = useState([]);
 	let checkBoxFields = Object.keys(parameter?.name).reduce(
 		(acc, currentValue) => {
 			acc.push(currentValue);
@@ -19,47 +27,19 @@ const EditMain = ({ languages, parameter }) => {
 		},
 		[]
 	);
-	useEffect(() => {
-		let names = parameter.name[checkedName];
-	}, [checkedName]);
 
-	// useEffect(() => {
-	// 	setInputs(
-	// 		Object.entries(parameter.name[checkedName]).reduce(
-	// 			(acc, currentValue) => {
-	// 				acc.push({ [currentValue[0]]: currentValue[1] });
-	// 				// acc[currentValue[0]] = currentValue[1];
-	// 				return acc;
-	// 			},
-	// 			[]
-	// 		)
-	// 	);
-	// }, [checkedName]);
-	// console.log(checkedName, 'checkedName');
-	let test = useMemo(
-		() =>
-			Object.entries(parameter.name[checkedName]).reduce(
-				(acc, currentValue) => {
-					acc.push({ [currentValue[0]]: currentValue[1] });
-					// acc[currentValue[0]] = currentValue[1];
-					return acc;
-				},
-				[]
-			),
-		[checkedName, parameter]
-	);
-
-	const handleRadioButton = (e, field) => {
-		// console.log(e, field, 'ovie dve');
-		setCheckedName(e.target.value);
+	const handleRadioButton = (e) => {
+		dispatch({
+			type: ADD,
+			payload: {
+				state: 'checkedName',
+				value: e.target.value,
+			},
+		});
 	};
-	// let names = products?.settings.map((setting) => ({
-	// 	id: setting._id,
-	// 	...nameArray(setting.parameter.inputValue),
-	// }));
-	console.log(test, 'THE TEST');
+
 	return (
-		<fieldset>
+		<fieldset name='main-parameter'>
 			<div>
 				{checkBoxFields.map((field) => (
 					<label key={field}>
@@ -68,22 +48,31 @@ const EditMain = ({ languages, parameter }) => {
 							name='name'
 							checked={checkedName === field ? 'checked' : ''}
 							value={field}
-							onChange={(e) => handleRadioButton(e, field)}
+							onChange={handleRadioButton}
 						/>{' '}
 						<span>{field}</span>
 					</label>
 				))}
-				<LanguageInputContainer
-					label='name'
-					inputs={test}
-					languages={languages}
-					defaultLanguage={defaultLanguage}
-				/>
+				{checkedName === 'singular' ? (
+					<NameEdit
+						languages={languages}
+						defaultLanguage={defaultLanguage}
+						value={parameter.name.singular}
+					/>
+				) : (
+					''
+				)}
+				{checkedName === 'plural' ? (
+					<NameEdit
+						languages={languages}
+						defaultLanguage={defaultLanguage}
+						value={parameter.name.plural}
+					/>
+				) : (
+					''
+				)}
 			</div>
-			<label htmlFor=''>
-				<span>{parameter.inputValue['en']}</span>
-				<input type='text' />
-			</label>
+			<ParamValue value={parameter.inputValue} languages={languages} />
 		</fieldset>
 	);
 };

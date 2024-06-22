@@ -4,7 +4,8 @@ import { getDraftSetting, getLanguages } from '../../apiCalls';
 // components
 import SettingsForm from '@/components/settings/settingsForm/SettingsForm';
 import InsertSettings from '@/components/settings/insertSettingsForm/InsertSettings';
-import DisplaySettings from '@/components/settings/DisplaySettings';
+import DisplaySettings from '@/components/settings/displaySettings/DisplaySettings';
+// import DisplaySettings from '@/components/settings/DisplaySettings';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
