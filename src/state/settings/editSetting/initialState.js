@@ -1,5 +1,6 @@
 export const editSettingState = {
 	options: {},
+	settings: [],
 	openSetting: '',
 	checkedName: 'singular',
 	inputs: [],

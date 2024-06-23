@@ -86,29 +86,29 @@ const RowOptions = ({ setting, document }) => {
 	return (
 		<td className='cursor-pointer align-top relative'>
 			<OptionsSvg
-				onClick={() => handleShowOptions(setting?._id)}
+				onClick={() => handleShowOptions(setting)}
 				className='text-slate-400 hover:text-red-600 text-center w-[25px] h-[25px]'
 			/>
 			<div
 				className={`flex flex-col absolute top-0 right-[-65px] ${
-					options[setting._id] && options[setting._id].showOptions
+					options[setting] && options[setting].showOptions
 						? 'visible'
 						: 'hidden'
 				}`}>
 				<ContextButton
 					label='expand'
 					type='default'
-					onClick={() => handleExpand(setting?._id)}
+					onClick={() => handleExpand(setting)}
 				/>
 				<ContextButton
 					label='edit'
 					type='default'
-					onClick={() => handleEdit(setting?._id)}
+					onClick={() => handleEdit(setting)}
 				/>
 				<ContextButton
 					label='delete'
 					type='default'
-					onClick={() => handleDelete(setting?._id)}
+					onClick={() => handleDelete(setting)}
 				/>
 			</div>
 		</td>

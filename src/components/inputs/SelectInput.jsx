@@ -23,7 +23,10 @@ const SelectInput = ({
 					<option
 						key={option.id || option._id || index}
 						value={
-							option.id || option[value] || option[property][defaultLanguage]
+							option.id ||
+							option._id ||
+							option[value] ||
+							option[property][defaultLanguage]
 						}>
 						{option[label] ||
 							option[property][defaultLanguage] ||

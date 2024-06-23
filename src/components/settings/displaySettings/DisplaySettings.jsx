@@ -36,12 +36,12 @@ const DisplaySettings = ({ languages, setting: dbSetting }) => {
 				</thead>
 				<tbody>
 					<EditSettingsContextProvider>
-						<Wrapper options={mutSettings}>
+						<Wrapper options={mutSettings} settings={settings}>
 							{settings &&
 								settings.map((setting) => (
 									<TableRow
 										key={setting._id}
-										setting={setting}
+										setting={setting._id}
 										document={dbSetting}
 										languages={languages}
 										defaultLanguage={languages[0]}

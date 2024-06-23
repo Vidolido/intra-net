@@ -9,13 +9,31 @@ import RowOptions from './RowOptions';
 import { Fragment } from 'react';
 import EditSetingForm from '../editSetting/EditSetingForm';
 
-const TableRow = ({ languages, defaultLanguage, setting, document }) => {
-	const { options } = useEditSettingsContext();
-	let collections = setting.collections;
+const TableRow = ({
+	languages,
+	defaultLanguage,
+	setting: settingId,
+	document,
+}) => {
+	// const state = useEditSettingsContext();
+	const { settings, options } = useEditSettingsContext();
+	// const setting = settings.find((setting) => setting._id === settingId);
+	// let collections =
+	// 	settings && settings[setting] !== undefined
+	// 		? settings[setting]?.collections
+	// 		: [];
+	let setting =
+		settings !== undefined
+			? settings.find((setting) => setting._id === settingId)
+			: null;
+	let collections = setting ? setting.collections : [];
+	console.log(settings, 'the settings?');
+	console.log(setting, 'the setting?');
+	console.log(collections, 'the collections?');
 	// console.log(state, 'the state?');
 	return (
 		<Fragment>
-			{options[setting._id] !== undefined && options[setting._id].edit ? (
+			{options[settingId] !== undefined && options[settingId].edit ? (
 				<tr>
 					<td colSpan={collections.length + 3}>
 						<EditSetingForm languages={languages} setting={setting} />
@@ -37,8 +55,8 @@ const TableRow = ({ languages, defaultLanguage, setting, document }) => {
 							{collection.items &&
 								collection?.items.map((item, i) => {
 									if (
-										options[setting._id] !== undefined &&
-										!options[setting._id].expand &&
+										options[settingId] !== undefined &&
+										!options[settingId].expand &&
 										i > 0
 									)
 										return;
@@ -55,7 +73,7 @@ const TableRow = ({ languages, defaultLanguage, setting, document }) => {
 					);
 				})}
 
-				<RowOptions setting={setting} document={document} />
+				<RowOptions setting={settingId} document={document} />
 			</tr>
 		</Fragment>
 	);
