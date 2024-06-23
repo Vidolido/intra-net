@@ -1,5 +1,18 @@
 import mongoose, { Schema } from 'mongoose';
 
+const groupedSchema = new Schema(
+	{
+		isGrouped: {
+			type: Boolean,
+			default: false,
+		},
+		group: {
+			type: Schema.Types.Mixed,
+		},
+	},
+	{ _id: false }
+);
+
 const templateSchema = new Schema(
 	{
 		parameter: {
@@ -22,30 +35,12 @@ const templateSchema = new Schema(
 			type: Boolean,
 			default: false,
 		},
+		grouped: { type: groupedSchema, default: undefined },
 	},
 	{ strict: true, _id: true }
 );
 
-const basicTemplateSchema = new Schema(
-	{
-		name: String,
-	},
-	{ _id: true }
-);
-
 const laboratoryTemplatesSchema = new Schema({
-	// product: {
-	//   type: basicTemplateSchema,
-	// },
-	// documentType: {
-	//   type: basicTemplateSchema,
-	// },
-	// countryOfOrigin: {
-	//   type: basicTemplateSchema,
-	// },
-	// sampleType: {
-	//   type: basicTemplateSchema,
-	// },
 	product: String,
 	sampleType: String,
 	origin: String,

@@ -33,7 +33,9 @@ const TableRow = ({
 	// console.log(state, 'the state?');
 	return (
 		<Fragment>
-			{options[settingId] !== undefined && options[settingId].edit ? (
+			{options &&
+			options[settingId] !== undefined &&
+			options[settingId].edit ? (
 				<tr>
 					<td colSpan={collections.length + 3}>
 						<EditSetingForm languages={languages} setting={setting} />

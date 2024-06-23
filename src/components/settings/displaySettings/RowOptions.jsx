@@ -91,7 +91,7 @@ const RowOptions = ({ setting, document }) => {
 			/>
 			<div
 				className={`flex flex-col absolute top-0 right-[-65px] ${
-					options[setting] && options[setting].showOptions
+					options[setting] !== undefined && options[setting].showOptions
 						? 'visible'
 						: 'hidden'
 				}`}>

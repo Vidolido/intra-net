@@ -7,19 +7,21 @@ import HeadingsTableRow from './HeadingsTableRow';
 import TableRow from './TableRow';
 import Wrapper from './Wrapper';
 
-const DisplaySettings = ({ languages, setting: dbSetting }) => {
+const DisplaySettings = async ({ languages, setting: dbSetting }) => {
 	const { settings } = dbSetting;
-	let mutSettings = settings.reduce((acc, currentValue) => {
-		acc = {
-			...acc,
-			[currentValue._id]: {
-				showOptions: false,
-				expand: false,
-				edit: false,
-			},
-		};
-		return acc;
-	}, {});
+	let mutSettings =
+		settings &&
+		settings.reduce((acc, currentValue) => {
+			acc = {
+				...acc,
+				[currentValue._id]: {
+					showOptions: false,
+					expand: false,
+					edit: false,
+				},
+			};
+			return acc;
+		}, {});
 
 	// Ова треба да го направам да зема од settings со највеќе полиња
 	let headings =
