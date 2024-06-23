@@ -111,6 +111,7 @@ const TemplateFormInput = ({ document, settings, defaultLanguage }) => {
 					classes='w-full'
 					onChange={handleChange}
 				/>
+				<p>one test</p>
 			</div>
 			{selection?.collections?.map((collection) => {
 				let items = collection.items;
