@@ -17,7 +17,7 @@ const Fields = ({ languages, fields: dbFields }) => {
 	const [visible, setVisible] = useState(false);
 	const dispatch = useLaboratoryDispatchContext();
 	const { fields } = useLaboratoryContext();
-
+	console.log(dbFields);
 	const mutFields = mutateFields(dbFields);
 
 	useEffect(() => {

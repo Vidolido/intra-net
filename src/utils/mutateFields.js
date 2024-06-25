@@ -6,13 +6,14 @@ export const mutateFields = (fields) => {
 		let type = currenValue.collections.find(
 			(collection) => collection.name['en'] === 'type'
 		);
+		console.log(checked, 'OVOJ');
 		return (acc = [
 			...acc,
 			{
 				_id: currenValue._id,
 				name: { ...currenValue.parameter.inputValue },
-				checked: checked.items[0].value,
-				type: type.items[0].value,
+				checked: !checked.items[0] ? '' : checked.items[0].value,
+				type: !type.items[0] ? '' : type.items[0].value,
 			},
 		]);
 	}, []);

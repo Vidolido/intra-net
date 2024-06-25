@@ -9,6 +9,7 @@ import { generateUUID } from '@/utils/generateUUID';
 import SelectInput from '../../inputs/SelectInput';
 import InputType from '@/components/inputs/InputType';
 import ContextButton from '@/components/buttons/ContextButton';
+import GroupParam from './GroupParam';
 
 const TemplateFormInput = ({ document, settings, defaultLanguage }) => {
 	const [selection, setSelection] = useState(settings[0]);
@@ -111,7 +112,7 @@ const TemplateFormInput = ({ document, settings, defaultLanguage }) => {
 					classes='w-full'
 					onChange={handleChange}
 				/>
-				<p>one test</p>
+				<GroupParam selected={selection} />
 			</div>
 			{selection?.collections?.map((collection) => {
 				let items = collection.items;
