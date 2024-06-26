@@ -31,11 +31,11 @@ const templateSchema = new Schema(
 			type: String,
 			default: null,
 		},
+		grouped: { type: groupedSchema, default: undefined },
 		isDeleted: {
 			type: Boolean,
 			default: false,
 		},
-		grouped: { type: groupedSchema, default: undefined },
 	},
 	{ strict: true, _id: true }
 );

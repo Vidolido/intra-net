@@ -10,12 +10,16 @@ export async function addTemplateSetting({
 	property,
 	mutCollections,
 	additional,
+	group,
 	document,
 }) {
+	console.log(group, 'GROUP');
 	let payload = {
 		parameter: property,
 		items: mutCollections,
 		result: additional.result,
+		grouped: !group ? {} : { isGrouped: true, group },
+
 		marginError: additional.marginError,
 	};
 

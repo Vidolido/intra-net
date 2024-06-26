@@ -10,6 +10,7 @@ import SelectInput from '../../inputs/SelectInput';
 import InputType from '@/components/inputs/InputType';
 import ContextButton from '@/components/buttons/ContextButton';
 import GroupParam from './GroupParam';
+import { isObjectEmpty } from '@/utils/functions';
 
 const TemplateFormInput = ({ document, settings, defaultLanguage }) => {
 	const [selection, setSelection] = useState(settings[0]);
@@ -20,6 +21,8 @@ const TemplateFormInput = ({ document, settings, defaultLanguage }) => {
 		result: selection.result || '',
 		marginError: selection.marginError || '',
 	});
+
+	const [group, setGroup] = useState({});
 
 	let properties = settings.map((setting) => ({
 		_id: setting._id,
@@ -98,9 +101,12 @@ const TemplateFormInput = ({ document, settings, defaultLanguage }) => {
 			property,
 			mutCollections,
 			additional,
+			group: !isObjectEmpty(group) && group,
 			document,
 		});
 	};
+
+	console.log(group, 'the group');
 
 	return (
 		<div className='grid grid-cols-7 gap-4'>
@@ -112,7 +118,7 @@ const TemplateFormInput = ({ document, settings, defaultLanguage }) => {
 					classes='w-full'
 					onChange={handleChange}
 				/>
-				<GroupParam selected={selection} />
+				<GroupParam selected={selection} setGroup={setGroup} />
 			</div>
 			{selection?.collections?.map((collection) => {
 				let items = collection.items;

@@ -11,7 +11,7 @@ const TemplateRow = ({ item, document }) => {
 	const handleDelete = async (rowId, document) => {
 		await deleteTemplateRow(rowId, document);
 	};
-	console.log(item, 'the item');
+	// console.log(item, 'the item');
 	return (
 		<div key={item._id} className='grid grid-cols-7 gap-4 mb-1'>
 			<p>{item?.parameter?.propertyValue['en']}</p>
