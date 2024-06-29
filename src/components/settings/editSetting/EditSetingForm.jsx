@@ -1,3 +1,5 @@
+'use client';
+
 import EditCollections from './EditCollections';
 import EditMain from './EditMain';
 
