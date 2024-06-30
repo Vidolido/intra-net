@@ -40,38 +40,36 @@ const EditMain = ({ languages, parameter }) => {
 
 	return (
 		<fieldset name='main-parameter'>
-			<div>
-				{checkBoxFields.map((field) => (
-					<label key={field}>
-						<input
-							type='radio'
-							name='name'
-							checked={checkedName === field ? 'checked' : ''}
-							value={field}
-							onChange={handleRadioButton}
-						/>{' '}
-						<span>{field}</span>
-					</label>
-				))}
-				{checkedName === 'singular' ? (
-					<NameEdit
-						languages={languages}
-						defaultLanguage={defaultLanguage}
-						value={parameter.name.singular}
-					/>
-				) : (
-					''
-				)}
-				{checkedName === 'plural' ? (
-					<NameEdit
-						languages={languages}
-						defaultLanguage={defaultLanguage}
-						value={parameter.name.plural}
-					/>
-				) : (
-					''
-				)}
-			</div>
+			{checkBoxFields.map((field) => (
+				<label key={field}>
+					<input
+						type='radio'
+						name='name'
+						checked={checkedName === field ? 'checked' : ''}
+						value={field}
+						onChange={handleRadioButton}
+					/>{' '}
+					<span>{field}</span>
+				</label>
+			))}
+			{checkedName === 'singular' ? (
+				<NameEdit
+					languages={languages}
+					defaultLanguage={defaultLanguage}
+					value={parameter.name.singular}
+				/>
+			) : (
+				''
+			)}
+			{checkedName === 'plural' ? (
+				<NameEdit
+					languages={languages}
+					defaultLanguage={defaultLanguage}
+					value={parameter.name.plural}
+				/>
+			) : (
+				''
+			)}
 			<ParamValue value={parameter.inputValue} languages={languages} />
 		</fieldset>
 	);
