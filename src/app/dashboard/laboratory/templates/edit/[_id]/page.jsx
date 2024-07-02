@@ -14,6 +14,7 @@ import TemplateCollection from '@/components/templates/TemplateCollection';
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
+// ДА ГИ СМЕНАМ СИТЕ НАЗИВИ ИЛИ ДА ЈА ПРЕПРАВАМ ОВАА КОМПОНЕНТА
 const page = async ({ params }) => {
   const { _id } = params;
   const { draft } = await getLaboratoryDraftById(_id);

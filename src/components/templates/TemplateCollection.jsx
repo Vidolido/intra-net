@@ -24,8 +24,8 @@ const TemplateCollection = ({ draft }) => {
           elements.push(
             <div
               key={`group-${item.grouped.group.id}`}
-              className='border border-slate-300 rounded px-2 py-1'>
-              <h5>{item.grouped.group.name['en']}</h5>
+              className='flex flex-col gap-[2px] border border-slate-300 rounded'>
+              <h5 className='p-1'>{item.grouped.group.name['en']}</h5>
               {currentGroup}
             </div>
           );
@@ -48,7 +48,7 @@ const TemplateCollection = ({ draft }) => {
     });
 
   return (
-    <div>
+    <div className='flex flex-col gap-[2px]'>
       <div>TemplateCollection</div>
       {elements}
     </div>
