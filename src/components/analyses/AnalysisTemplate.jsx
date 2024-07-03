@@ -11,7 +11,7 @@ const AnalysisTemplate = ({ templates }) => {
     (template) => template._id === selectedTemplate
   );
 
-  console.log(selection);
+  // console.log(selection);
 
   return !selection ? (
     <h4>Please select a template</h4>

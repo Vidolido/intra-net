@@ -11,8 +11,8 @@ const BasicInputFields = () => {
 
   return (
     <fieldset>
-      <h3>Input Fields</h3>
-      <div>
+      {/* <h3>Input Fields</h3> */}
+      <div className='px-1'>
         {fields.length > 0
           ? fields.map((field) =>
               field.checked !== 'false' ? (

@@ -106,7 +106,7 @@ const TemplateFormInput = ({ document, settings, groups, defaultLanguage }) => {
     });
   };
 
-  console.log(group, 'the group');
+  // console.log(group, 'the group');
 
   return (
     <div className='grid grid-cols-7 gap-4'>

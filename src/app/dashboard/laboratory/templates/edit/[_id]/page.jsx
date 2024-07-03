@@ -26,7 +26,7 @@ const page = async ({ params }) => {
 
   const { groups } = await getGroups();
 
-  //   console.log(groups, 'THE GROUPS');
+  console.log(groups, 'THE GROUPS');
 
   return (
     <div className='w-full'>

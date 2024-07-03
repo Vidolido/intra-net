@@ -70,10 +70,11 @@ const TemplateSelect = ({
       </div>
       <div className='flex gap-2'>
         <SampleType
-          name='sampleType'
           types={types}
           onChange={handleOnChange}
           classes={'w-32'}
+          name='sampleType'
+          none={true}
         />
         <DocumentType
           name='documentType'

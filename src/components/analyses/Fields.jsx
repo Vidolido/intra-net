@@ -35,11 +35,11 @@ const Fields = ({ languages, fields: dbFields }) => {
   };
 
   return (
-    <fieldset>
+    <fieldset className='bg-white border border-slate-200 pl-1 rounded mt-2'>
       <button type='button' onClick={handleHide} className='relative w-full'>
         <h3 className='text-left'>Fields</h3>
         <ArrowSvg
-          className={`w-[22px] h-[22px] absolute right-1 top-[2px] fill-red-500 hover:fill-red-300 ${
+          className={`w-[22px] h-[22px] absolute right-1 top-[3px] fill-red-500 hover:fill-red-300 ${
             visible ? '' : 'rotate-180'
           }`}
         />

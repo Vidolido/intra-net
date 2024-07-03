@@ -38,7 +38,11 @@ const TemplateForm = ({
           languages={languages}
           value={draft.product}
         />
-        <SampleType types={types[0]} defaultValue={draft.sampleType} />
+        <SampleType
+          types={types[0]}
+          defaultValue={draft.sampleType}
+          none={true}
+        />
         <Origin countries={countries[0]} defaultValue={draft.origin} />
         <DocumentType types={types[0]} defaultValue={draft.documentType} />
         <SaveBasic draft={draft} />
