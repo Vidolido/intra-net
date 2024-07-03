@@ -9,7 +9,8 @@ import Setting from '@/db/models/Setting';
 export async function deleteDraftSetting(_id) {
 	try {
 		await dbConnect();
-		await Setting.deleteOne({ _id });
+		// await Setting.deleteOne({ _id });
+		await Setting.updateOne({ _id }, { isDeleted: true });
 		revalidatePath('/dashboard/settings', 'page');
 	} catch (error) {
 		console.log('Failed to create draft setting error:', error);

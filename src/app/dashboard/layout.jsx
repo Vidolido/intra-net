@@ -6,15 +6,15 @@ export const metadata = {
 	description: 'Dashboard',
 };
 
-export default function RootLayout({ children }) {
+export default function DashboardLayout({ children }) {
 	return (
 		<main className='flex gap-2 h-[calc(100vh-75px)]'>
-			<SettingsContextProvider>
-				<div>
-					<DashboardNavigation />
-				</div>
-				{children}
-			</SettingsContextProvider>
+			{/* <SettingsContextProvider> */}
+			<div>
+				<DashboardNavigation />
+			</div>
+			{children}
+			{/* </SettingsContextProvider> */}
 		</main>
 	);
 }

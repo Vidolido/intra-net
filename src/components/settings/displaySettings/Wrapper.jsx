@@ -7,7 +7,6 @@ import { useEditSettingsDispatchContext } from '@/state/settings/editSetting/edi
 
 const Wrapper = ({ children, options, settings }) => {
 	const dispatch = useEditSettingsDispatchContext();
-	console.log(settings, 'in wrapper');
 	useEffect(() => {
 		dispatch({
 			type: ADD,

@@ -37,6 +37,7 @@ const InsertSettings = ({ languages, setting }) => {
 				},
 			});
 		}
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 

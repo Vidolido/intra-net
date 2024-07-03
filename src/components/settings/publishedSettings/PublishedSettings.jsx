@@ -1,16 +1,20 @@
-import PublishedSetting from './PublishedSetting';
+// state/actions
+import { orderBySector } from '@/utils/orderBySector';
+
+// components
+import Ordered from './Ordered';
 
 const PublishedSettings = ({ published }) => {
-  return (
-    <div className='flex flex-col gap-1'>
-      <h2>Settings</h2>
-      {!published
-        ? 'There are no published settings.'
-        : published?.map((setting) => {
-            return <PublishedSetting key={setting._id} setting={setting} />;
-          })}
-    </div>
-  );
+	const mutPublished = orderBySector(published) || [];
+	// console.log(mutPublished, 'mutPublished');
+	return (
+		<div className='flex flex-col gap-1'>
+			<h2>Settings</h2>
+			{mutPublished.map((setting) => (
+				<Ordered key={setting.sector} setting={setting} />
+			))}
+		</div>
+	);
 };
 
 export default PublishedSettings;

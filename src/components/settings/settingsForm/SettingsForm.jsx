@@ -20,6 +20,8 @@ const sectors = [
 	{ name: 'I.T.' },
 ];
 
+const status = [{ status: 'draft' }, { status: 'published' }];
+
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
@@ -64,6 +66,16 @@ const SettingsForm = async ({ setting }) => {
 						type='text'
 						name='settingName'
 						defaultValue={setting.settingName}
+					/>
+				</label>
+				<label className='flex flex-col items-start bg-white p-1'>
+					<span>Status</span>
+					<SelectInput
+						name='documentStatus'
+						options={status}
+						label='status'
+						value='status'
+						defaultValue={setting.sector}
 					/>
 				</label>
 			</fieldset>
