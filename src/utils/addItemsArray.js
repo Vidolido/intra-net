@@ -5,7 +5,7 @@ export const addItemsArray = (optionsSchema) => {
 		...mutOptionsSchema.parameter,
 		inputValue: [],
 	};
-
+	console.log(mutOptionsSchema, 'THE  MUTOPTIONSSCEMA');
 	mutOptionsSchema.collections = mutOptionsSchema.collections.map(
 		(collection) => {
 			let nameArray = Object.entries(collection.name);

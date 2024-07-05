@@ -1,10 +1,10 @@
 'use server';
+import { cookies } from 'next/headers';
+import { revalidatePath } from 'next/cache';
 
 // connection/moddels/database functions
 import dbConnect from '@/db/conn';
 import Setting from '@/db/models/Setting';
-import { revalidatePath } from 'next/cache';
-import { cookies } from 'next/headers';
 
 export async function addCollections(collection, document) {
 	const { _id } = document;
@@ -12,12 +12,31 @@ export async function addCollections(collection, document) {
 		cookies();
 		await dbConnect();
 		const foundDocument = await Setting.findOne({ _id });
+		let optionsSchema = foundDocument.optionsSchema || {
+			parameter: {},
+			collections: [],
+		};
 		let collections = foundDocument.collections || [];
+
+		optionsSchema.collections.push(collection);
+
+		console.log(optionsSchema, 'schema');
+		// let mutOptionsSchema = !optionsSchema ? {
+		// 	collections:
+		// } :
+		// let mutOptionsSchema =!optionsSchema ? {
+		// 	collections: [...optionsSchema.collections, collection],
+		// } : {
+		// 	...op
+		// };
+
+		// console.log(mutOptionsSchema, 'THE MUT');
 
 		collections.push(collection);
 		const updatedDocument = await Setting.updateOne(
 			{ _id },
-			{ $set: { collections } }
+			// { $set: { collections, optionsSchema } }
+			{ $set: { optionsSchema } }
 		)
 			.lean()
 			.exec();

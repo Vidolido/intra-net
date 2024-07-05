@@ -36,6 +36,14 @@ const InsertSettings = ({ languages, setting }) => {
 					value: addItemsArray(setting.optionsSchema),
 				},
 			});
+			// dispatch({
+			// 	type: ADD,
+			// 	payload: {
+			// 		type: 'add',
+			// 		state: 'optionsSchema',
+			// 		value: setting.optionsSchema,
+			// 	},
+			// });
 		}
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps

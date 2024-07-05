@@ -12,16 +12,16 @@ export async function deleteCollections(collectionToDelete, document) {
 		cookies();
 		await dbConnect();
 		const foundDocument = await Setting.findOne({ _id });
-		let collections = foundDocument.collections || [];
+		let optionsSchema = foundDocument.optionsSchema;
 
-		collections = collections.filter(
+		optionsSchema.collections = optionsSchema.collections.filter(
 			(collection) =>
 				JSON.stringify(collection) !== JSON.stringify(collectionToDelete)
 		);
 
 		const updatedDocument = await Setting.updateOne(
 			{ _id },
-			{ $set: { collections } }
+			{ $set: { optionsSchema } }
 		)
 			.lean()
 			.exec();

@@ -7,7 +7,7 @@ const CollectionItem = ({ languages, inputs, defaultLanguage, onClick }) => {
 		<div className='flex gap-2'>
 			<LanguageInputContainer
 				languages={languages}
-				inputs={inputs}
+				inputs={inputs.name}
 				defaultLanguage={defaultLanguage}
 			/>
 			<ContextButton label='Remove' type='edit' onClick={onClick} />

@@ -1,11 +1,11 @@
 'use client';
-import { memo, useState } from 'react';
+import { useState } from 'react';
 
 // components
 import InputType from './InputType';
 
 const LanguageInputContainer = ({
-	fieldSetName = 'languge-input',
+	fieldSetName = 'language-input',
 	fieldSetClass = '',
 	label = '',
 	labelClass = '',
@@ -22,7 +22,14 @@ const LanguageInputContainer = ({
 		setLanguage(e.target.value);
 	};
 
-	// console.log(inputs, 'the inputs in languageInput');
+	let mutInputs;
+	if (Array.isArray(inputs)) {
+		mutInputs = inputs;
+	} else if (inputs !== null) {
+		mutInputs = Object.entries(inputs);
+	} else {
+		mutInputs = null;
+	}
 
 	return (
 		<fieldset name={fieldSetName} className={fieldSetClass}>
@@ -30,7 +37,7 @@ const LanguageInputContainer = ({
 				<span>{label}</span>
 			</label>
 			<div className='flex gap-[1px] justify-center items-start'>
-				{!inputs
+				{mutInputs == null
 					? languages?.map((lang) => {
 							return (
 								<InputType
@@ -41,19 +48,20 @@ const LanguageInputContainer = ({
 								/>
 							);
 					  })
-					: inputs?.map((input, index) => {
-							const inputName = Object.keys(input)[0];
+					: mutInputs?.map((input, index) => {
+							const inputName = input[0] || Object.keys(input)[0] || '';
+
 							const selectedLang = languages.filter(
 								(lang) => lang._id === language
 							)[0];
-							const value = Object.values(input);
+							const value = input[1] || Object.values(input)[0] || '';
 							return !onChange ? (
 								<InputType
 									key={index}
 									type='text'
-									name={inputName}
+									name={inputName.toString()}
 									classes={
-										inputName.includes(selectedLang?.language)
+										inputName && inputName.includes(selectedLang?.language)
 											? 'visible'
 											: 'hidden'
 									}
@@ -63,7 +71,7 @@ const LanguageInputContainer = ({
 								<InputType
 									key={index}
 									type='text'
-									name={inputName}
+									name={inputName.toString()}
 									classes={
 										inputName.includes(selectedLang?.language)
 											? 'visible'

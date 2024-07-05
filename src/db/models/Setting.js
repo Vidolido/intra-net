@@ -42,12 +42,21 @@ const collectionSchema = new Schema(
 	{ _id: true }
 );
 
+const optionsSchemaCollections = new Schema(
+	{
+		name: {
+			type: Schema.Types.Mixed,
+		},
+	},
+	{ _id: true }
+);
+
 const optionsSchema = new Schema(
 	{
 		parameter: {
 			type: parameterSchema,
 		},
-		collections: [{ name: Schema.Types.Mixed }],
+		collections: [optionsSchemaCollections],
 	},
 	{ _id: false }
 );
