@@ -28,31 +28,33 @@ const InsertSettings = ({ languages, setting }) => {
 
 	useEffect(() => {
 		if (isObjectEmpty(optionsSchema)) {
-			dispatch({
-				type: ADD,
-				payload: {
-					type: 'add',
-					state: 'optionsSchema',
-					value: addItemsArray(setting.optionsSchema),
-				},
-			});
 			// dispatch({
 			// 	type: ADD,
 			// 	payload: {
 			// 		type: 'add',
 			// 		state: 'optionsSchema',
-			// 		value: setting.optionsSchema,
+			// 		value: addItemsArray(setting.optionsSchema),
 			// 	},
 			// });
+			dispatch({
+				type: ADD,
+				payload: {
+					type: 'add',
+					state: 'optionsSchema',
+					value: setting.optionsSchema,
+				},
+			});
 		}
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [optionsSchema]);
 
 	let parameter =
 		optionsSchema?.parameter?.name?.singular[defaultLanguage.language];
 
-	let collections = optionsSchema?.collections || [];
+	// let collections = optionsSchema?.collections || [];
+	let collections =
+		setting?.optionsSchema?.collections || optionsSchema?.collections || [];
 
 	const handleRadioChange = (e) => {
 		dispatch({
@@ -161,7 +163,7 @@ const InsertSettings = ({ languages, setting }) => {
 		});
 		e.target.form.reset();
 	};
-	// console.log(state, 'the state');
+	console.log(state, 'the state');
 	return (
 		<form className='border border-slate-200 rounded p-1'>
 			<fieldset name='main-parameter'>
