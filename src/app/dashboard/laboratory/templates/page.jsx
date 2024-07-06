@@ -1,10 +1,9 @@
-import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemplateSettings';
-
 // state/actions
 import {
-  getLaboratoryDraftTemplates,
-  getPublishedTemplates,
+	getLaboratoryDraftTemplates,
+	getPublishedTemplates,
 } from '../../apiCalls';
+import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemplateSettings';
 import { nameArray } from '@/utils/nameArray';
 
 // components
@@ -16,29 +15,29 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 const page = async () => {
-  const { draftTemplates } = await getLaboratoryDraftTemplates();
-  const { published } = await getPublishedTemplates();
-  const { templateSettings } = await getTemplateSettings();
-  // console.log(templateSettings, 'TEMPLATE');
-  let products = templateSettings.filter(
-    (setting) => setting.settingName === 'Products'
-  );
+	const { draftTemplates } = await getLaboratoryDraftTemplates();
+	const { published } = await getPublishedTemplates();
+	const { templateSettings } = await getTemplateSettings();
+	// console.log(templateSettings, 'TEMPLATE');
+	let products = templateSettings.filter(
+		(setting) => setting.settingName === 'Products'
+	);
 
-  let items = products[0]?.settings?.map((setting) => ({
-    id: setting._id,
-    ...nameArray(setting.parameter.inputValue),
-  }));
+	let items = products[0]?.settings?.map((setting) => ({
+		id: setting._id,
+		...nameArray(setting.parameter.inputValue),
+	}));
 
-  return (
-    <div className='w-full'>
-      {/* <h1>Templates</h1> */}
-      <CreateDraftTemplateButton />
-      <div className='flex justify-between w-full'>
-        <PublishedTemplates published={published} products={items} />
-        <DisplayDraftTemplates drafts={draftTemplates} />
-      </div>
-    </div>
-  );
+	return (
+		<div className='w-full'>
+			{/* <h1>Templates</h1> */}
+			<CreateDraftTemplateButton />
+			<div className='flex justify-between w-full'>
+				<PublishedTemplates published={published} products={items} />
+				<DisplayDraftTemplates drafts={draftTemplates} />
+			</div>
+		</div>
+	);
 };
 
 export default page;
