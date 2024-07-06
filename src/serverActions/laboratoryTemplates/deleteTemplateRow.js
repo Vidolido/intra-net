@@ -7,6 +7,7 @@ import LaboratoryTemplate from '@/db/models/LaboratoryTemplate';
 
 // Да исхендлаам ерори
 export async function deleteTemplateRow(row, document) {
+	console.log(row, document);
 	try {
 		await dbConnect();
 		let foundDocument = await LaboratoryTemplate.findOne({ _id: document });
@@ -17,7 +18,9 @@ export async function deleteTemplateRow(row, document) {
 			return;
 		}
 
-		let mutTempalte = template.filter((item) => item._id.toString() !== row);
+		let mutTempalte = template.filter(
+			(item) => item._id.toString() !== row.toString()
+		);
 		await LaboratoryTemplate.updateOne(
 			{ _id: document },
 			{ template: mutTempalte }

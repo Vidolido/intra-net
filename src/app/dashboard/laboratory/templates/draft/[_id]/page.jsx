@@ -8,10 +8,7 @@ import {
 import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemplateSettings';
 
 // components
-import TemplateForm from '@/components/templates/TemplateForm';
-import TemplateCollection from '@/components/templates/TemplateCollection';
 import Template from '@/components/templates/Template';
-// import Template from '@/components/templates/template/Template';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -26,8 +23,6 @@ const page = async ({ params }) => {
 	const { settings } = setting || [];
 
 	const { groups } = await getGroups();
-
-	//   console.log(groups, 'THE GROUPS');
 
 	return (
 		<Template

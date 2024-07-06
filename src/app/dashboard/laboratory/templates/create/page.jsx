@@ -8,8 +8,6 @@ import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemp
 import { getDraftTemplate } from '../../apiCalls';
 
 // components
-import TemplateForm from '@/components/templates/TemplateForm';
-import TemplateCollection from '@/components/templates/TemplateCollection';
 import Template from '@/components/templates/Template';
 
 export const dynamic = 'force-dynamic';
@@ -21,9 +19,10 @@ const page = async () => {
 	const { languages } = await getLanguages();
 
 	const { setting } = await getLaboratorySettings();
-	const { settings } = (await setting) || [];
+	const { settings } = (await setting) || []; // Да прверам дали враќа undefind|null
 
 	const { groups } = await getGroups();
+
 	return (
 		<Template
 			title='Edit Draft Template'
@@ -37,16 +36,3 @@ const page = async () => {
 };
 
 export default page;
-// return (
-//   <div className='w-full'>
-//     <h2>Create Tempalte</h2>
-//     <TemplateForm
-//       languages={languages}
-//       settings={settings}
-//       draft={draft}
-//       groups={groups}
-//       templateSettings={templateSettings}
-//     />
-//     <TemplateCollection draft={draft} />
-//   </div>
-// );

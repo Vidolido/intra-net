@@ -1,4 +1,5 @@
 'use client';
+import { Fragment } from 'react';
 
 // state/actions
 import { useEditSettingsContext } from '@/state/settings/editSetting/editSettingsState';
@@ -6,7 +7,6 @@ import { useEditSettingsContext } from '@/state/settings/editSetting/editSetting
 // components
 import DragSvg from '@/../public/drag.svg';
 import RowOptions from './RowOptions';
-import { Fragment } from 'react';
 import EditSetingForm from '../editSetting/EditSetingForm';
 
 const TableRow = ({

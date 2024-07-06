@@ -4,13 +4,13 @@ import { useState } from 'react';
 // state/asctions
 import { addTemplateSetting } from '@/serverActions/laboratoryTemplates/addTemplateSetting';
 import { generateUUID } from '@/utils/generateUUID';
+import { isObjectEmpty } from '@/utils/functions';
 
 // components
 import SelectInput from '../../inputs/SelectInput';
 import InputType from '@/components/inputs/InputType';
 import ContextButton from '@/components/buttons/ContextButton';
 import GroupParam from './GroupParam';
-import { isObjectEmpty } from '@/utils/functions';
 
 const TemplateFormInput = ({ document, settings, groups, defaultLanguage }) => {
 	const [selection, setSelection] = useState(settings[0]);
@@ -109,8 +109,8 @@ const TemplateFormInput = ({ document, settings, groups, defaultLanguage }) => {
 	// console.log(group, 'the group');
 
 	return (
-		<div className='grid grid-cols-7 gap-4'>
-			<div className='w-full'>
+		<div className='grid grid-cols-7 gap-4 border rounded bg-white'>
+			<div className='flex flex-col gap-2 w-full p-1'>
 				<SelectInput
 					options={properties}
 					value='_id'
@@ -148,7 +148,7 @@ const TemplateFormInput = ({ document, settings, groups, defaultLanguage }) => {
 					</div>
 				);
 			})}
-			<div>
+			<div className='py-1'>
 				<InputType
 					classes={'w-10/12'}
 					name='result'
@@ -156,7 +156,7 @@ const TemplateFormInput = ({ document, settings, groups, defaultLanguage }) => {
 					onChange={handleAdditionalInput}
 				/>
 			</div>
-			<div>
+			<div className='py-1'>
 				<InputType
 					classes={'w-10/12'}
 					name='marginError'
@@ -164,7 +164,7 @@ const TemplateFormInput = ({ document, settings, groups, defaultLanguage }) => {
 					onChange={handleAdditionalInput}
 				/>
 			</div>
-			<div>
+			<div className='py-1'>
 				<ContextButton label='Add' type='edit' onClick={handleAdd} />
 			</div>
 		</div>

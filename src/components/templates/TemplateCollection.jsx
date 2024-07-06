@@ -1,12 +1,15 @@
+import { generateUUID } from '@/utils/generateUUID';
 import TemplateRow from './TemplateRow';
 
 const TemplateCollection = ({ draft }) => {
 	const { template } = draft;
 	let currentGroup = null;
 	const elements = [];
-
+	// console.log(draft, 'the draft');
 	template &&
 		template.forEach((item, index) => {
+			// console.log(item, 'OVOJ AJTEM');
+
 			if (item?.grouped?.isGrouped) {
 				if (!currentGroup) {
 					currentGroup = [];
@@ -21,11 +24,16 @@ const TemplateCollection = ({ draft }) => {
 					!template[index + 1].grouped.isGrouped ||
 					template[index + 1].grouped.group._id !== item.grouped.group._id
 				) {
+					// console.log(item, 'OVOJ AJTEM');
 					elements.push(
 						<div
-							key={`group-${item.grouped.group.id}`}
+							key={generateUUID()}
 							className='flex flex-col gap-[2px] border border-slate-300 rounded'>
-							<h5 className='p-1'>{item.grouped.group.name['en']}</h5>
+							<h5 className='p-1'>
+								{item?.grouped?.group?.parameter?.inputValue['en'] ||
+									item?.grouped?.group?.name['en'] ||
+									''}
+							</h5>
 							{currentGroup}
 						</div>
 					);
@@ -35,7 +43,7 @@ const TemplateCollection = ({ draft }) => {
 				// Да го проверам ова убаво
 				if (currentGroup) {
 					elements.push(
-						<div key={`group-${currentGroup[0].key}`} className='group'>
+						<div key={generateUUID()} className='group'>
 							{currentGroup}
 						</div>
 					);

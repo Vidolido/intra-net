@@ -1,12 +1,14 @@
 'use client';
 import { useState } from 'react';
 
+// state/actions
+import { saveOptionSchema } from '@/serverActions/settings/saveOptionSchema';
+
 // components
 import ArrowSvg from '@/../public/arrow.svg';
 import LanguageInputContainer from '@/components/inputs/LanguageInputContainer';
 import AddCollections from '../settingsForm/AddCollections';
 import FormCollections from '../settingsForm/FormCollections';
-import { saveOptionSchema } from '@/serverActions/settings/saveOptionSchema';
 import ContextButton from '@/components/buttons/ContextButton';
 
 const OptionsSchema = ({ setting, languages }) => {
