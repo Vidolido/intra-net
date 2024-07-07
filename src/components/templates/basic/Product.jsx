@@ -40,6 +40,7 @@ const Product = ({ languages, products, onChange, value, classes, name }) => {
 				options={names}
 				label='en'
 				defaultValue={value}
+				onChange={onChange}
 				classes={classes}
 			/>
 		</fieldset>

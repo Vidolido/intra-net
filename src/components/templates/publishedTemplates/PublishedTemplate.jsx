@@ -6,29 +6,49 @@ import Link from 'next/link';
 
 // components
 import ContextButton from '@/components/buttons/ContextButton';
+import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
+import { nameArray } from '@/utils/nameArray';
 
-const PublishedTemplate = ({ setting, products }) => {
-  const handleDelete = async (_id) => {
-    // await deleteDraftSetting(_id);
-  };
-  console.log(setting.product, 'THIS ONE SETTING');
-  console.log(products);
-  console.log(products.find((prod) => prod.id === setting.product));
-  const type = products.find((prod) => prod.id === setting.product);
-  return (
-    <Link
-      key={setting?._id}
-      href={`/dashboard/laboratory/templates/edit/${setting._id}`}
-      className='flex gap-2 justify-between items-center border-2 border-slate-200 hover:border-red-200 p-1'>
-      <h5>{type.name['en'] || setting._id}</h5>
-      <ContextButton
-        label='Delete'
-        type='edit'
-        onClick={() => handleDelete(setting._id)}
-        classes='self-end'
-      />
-    </Link>
-  );
+const PublishedTemplate = ({ template, products, templateSettings }) => {
+	let { types, countries } = mutateTemplateSettings(templateSettings);
+
+	const handleDelete = async (_id) => {
+		// await deleteDraftSetting(_id);
+	};
+
+	let mutTypes = types?.settings?.map((setting) => ({
+		id: setting._id,
+		...nameArray(setting.parameter.inputValue),
+	}));
+	let mutCountries = countries?.settings?.map((setting) => ({
+		id: setting._id,
+		...nameArray(setting.parameter.inputValue),
+	}));
+
+	const type = mutTypes.find((type) => type.id === template.documentType);
+	const country = mutCountries.find(
+		(country) => country.id === template.origin
+	);
+
+	return (
+		<>
+			<p>{type.name['en'] || ''}</p>
+			<p>{country.name['en'] || ''}</p>
+			<div className='flex justify-end gap-2'>
+				<Link
+					href={`/dashboard/laboratory/templates/edit/${template._id}`}
+					className='hover:underline text-black'>
+					edit
+				</Link>
+				<ContextButton
+					label='delete'
+					type='default'
+					onClick={() => handleDelete(template._id)}
+					classes='self-end'
+				/>
+			</div>
+		</>
+	);
 };
 
 export default PublishedTemplate;

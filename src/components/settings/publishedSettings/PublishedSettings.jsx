@@ -6,7 +6,6 @@ import Ordered from './Ordered';
 
 const PublishedSettings = ({ published }) => {
 	const mutPublished = orderBySector(published) || [];
-	// console.log(mutPublished, 'mutPublished');
 	return (
 		<div className='flex flex-col gap-1'>
 			<h2>Settings</h2>

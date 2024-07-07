@@ -1,12 +1,11 @@
-export const orderByProduct = (items) => {
-	const products = new Set();
-	const result = [];
-	items.forEach((item) => {
-		products.add(item.product);
-	});
-	products.forEach((product) => {
-		const filteredItems = items.filter((item) => item.sector === product);
-		result.push({ products, items: filteredItems });
-	});
-	return result;
+export const orderByProduct = (templates, products) => {
+	let ordered = products.reduce((acc, currentValue) => {
+		let template = templates.filter(
+			(template) => template.product === currentValue.id
+		);
+		currentValue.items = template;
+		acc.push(currentValue);
+		return acc;
+	}, []);
+	return ordered;
 };

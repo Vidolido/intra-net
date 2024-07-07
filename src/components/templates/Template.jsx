@@ -1,9 +1,10 @@
+// components
 import TableHeaders from './inputForm/TableHeaders';
 import TemplateFormInput from './inputForm/TemplateFormInput';
-import TemplateCollection from './TemplateCollection';
 import Header from './templateComponents/Header';
 import TemplateItems from './templateComponents/TemplateItems';
-import TemplateForm from './TemplateForm';
+// import TemplateCollection from './TemplateCollection';
+// import TemplateForm from './TemplateForm';
 
 const Template = ({
 	title,
@@ -17,7 +18,6 @@ const Template = ({
 		(language) => language.language === 'en'
 	);
 
-	// console.log(defaultLanguage);
 	return (
 		<div className='flex flex-col gap-1 w-full pr-2'>
 			<h2>{title}</h2>

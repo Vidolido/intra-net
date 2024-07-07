@@ -18,7 +18,6 @@ const page = async () => {
 	const { draftTemplates } = await getLaboratoryDraftTemplates();
 	const { published } = await getPublishedTemplates();
 	const { templateSettings } = await getTemplateSettings();
-	// console.log(templateSettings, 'TEMPLATE');
 	let products = templateSettings.filter(
 		(setting) => setting.settingName === 'Products'
 	);
@@ -33,7 +32,11 @@ const page = async () => {
 			{/* <h1>Templates</h1> */}
 			<CreateDraftTemplateButton />
 			<div className='flex justify-between w-full'>
-				<PublishedTemplates published={published} products={items} />
+				<PublishedTemplates
+					published={published}
+					products={items}
+					templateSettings={templateSettings}
+				/>
 				<DisplayDraftTemplates drafts={draftTemplates} />
 			</div>
 		</div>
