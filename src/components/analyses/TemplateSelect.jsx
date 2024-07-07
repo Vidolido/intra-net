@@ -23,6 +23,7 @@ const TemplateSelect = ({
 	templates,
 }) => {
 	const dispatch = useLaboratoryDispatchContext();
+	const state = useLaboratoryContext();
 	const { header } = useLaboratoryContext();
 
 	const filteredTempaltes = filterTemplates(templates, header);
@@ -50,8 +51,9 @@ const TemplateSelect = ({
 		}
 	};
 
-	console.log(header, 'the header');
-	console.log(filteredTempaltes, 'the filteredTempaltes');
+	console.log(state, 'the state');
+	// console.log(header, 'the header');
+	// console.log(filteredTempaltes, 'the filteredTempaltes');
 
 	return (
 		<fieldset name='template-selection' className='flex flex-col gap-2'>
