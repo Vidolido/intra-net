@@ -28,7 +28,7 @@ const TemplateSelect = ({
 	const filteredTempaltes = filterTemplates(templates, header);
 
 	const handleOnChange = (e) => {
-		console.log(e.target);
+		// console.log(e.target);
 		if (e.target.name === 'templateVersion') {
 			dispatch({
 				type: ADD,
@@ -51,6 +51,7 @@ const TemplateSelect = ({
 	};
 
 	console.log(header, 'the header');
+	console.log(filteredTempaltes, 'the filteredTempaltes');
 
 	return (
 		<fieldset name='template-selection' className='flex flex-col gap-2'>

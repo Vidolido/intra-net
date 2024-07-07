@@ -15,7 +15,7 @@ export const revalidate = 0;
 
 const page = async () => {
 	const { templateSettings } = await getTemplateSettings();
-	const { draft } = await getDraftTemplate();
+	const { draft } = await getDraftTemplate(); // јавува грешка доколку е на create/page.js
 	const { languages } = await getLanguages();
 
 	const { setting } = await getLaboratorySettings();

@@ -1,5 +1,9 @@
 // state/actions
-import { getAllTemplates, getLanguages } from '@/app/dashboard/apiCalls';
+import {
+	getAllTemplates,
+	getLaboratorySettings,
+	getLanguages,
+} from '@/app/dashboard/apiCalls';
 import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemplateSettings';
 
 // components
@@ -13,12 +17,16 @@ const page = async () => {
 	let { languages } = await getLanguages();
 	let { laboratoryTemplates } = await getAllTemplates();
 
+	const { setting } = await getLaboratorySettings();
+	const { settings } = setting || [];
+
 	return (
-		<div>
+		<div className='w-full'>
 			<h2>Create New Document</h2>
 			<AnalysesForm
 				templateSettings={templateSettings}
 				languages={languages}
+				settings={settings}
 				templates={laboratoryTemplates}
 			/>
 		</div>

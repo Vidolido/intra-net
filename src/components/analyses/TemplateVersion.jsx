@@ -7,7 +7,7 @@ const TemplateVersion = ({ onChange, templates }) => {
 		id: template._id,
 		template: template.template,
 	}));
-	// console.log(options, 'the options');
+	console.log(options, 'the options');
 	return (
 		<fieldset
 			name='sample-types'

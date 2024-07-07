@@ -1,21 +1,21 @@
-// 'use client';
 import { Fragment } from 'react';
 
 // state/actions
-import { generateUUID } from '@/utils/generateUUID';
 import { groupParameters } from '@/utils/templates/groupParameters';
+import { generateUUID } from '@/utils/generateUUID';
 
 // components
 import DragSvg from '@/../public/drag.svg';
-import TableHead from './TableHead';
-import RowOptions from './RowOptions';
+import TemplateInputHeaders from './TemplateInputHeaders';
+import TableHead from '@/components/templates/templateComponents/TableHead';
+import InputType from '@/components/inputs/InputType';
 
-const TemplateItems = ({ template, settings, defaultLanguage }) => {
+const TemplateInputFields = ({ template, settings, defaultLanguage }) => {
 	let mutTemplate = groupParameters(template.template) || [];
+	// console.log(settings, 'the settings');
 	return (
-		<table className='border'>
-			<TableHead
-				template={template.template}
+		<table className='border-collapse  w-full'>
+			<TemplateInputHeaders
 				settings={settings}
 				defaultLanguage={defaultLanguage}
 			/>
@@ -24,10 +24,9 @@ const TemplateItems = ({ template, settings, defaultLanguage }) => {
 					if (item.isGroup == undefined && item.parameter) {
 						return (
 							<tr key={generateUUID()}>
-								<td className='w-[20px] align-top cursor-pointer'>
-									<DragSvg className='text-slate-400 hover:text-red-600 text-center w-[25px] h-[25px] cursor-pointer' />
+								<td className='border px-2'>
+									{item.parameter.propertyValue['en']}
 								</td>
-								<td className='border'>{item.parameter.propertyValue['en']}</td>
 								{Object.entries(item.items).map((collection) => {
 									return (
 										<td
@@ -50,11 +49,16 @@ const TemplateItems = ({ template, settings, defaultLanguage }) => {
 										</td>
 									);
 								})}
-								<td>{item.result}</td>
-								<td>{item.marginError}</td>
+								<td className='outline outline-transparent outline-1 outline-offset-0  border w-[150px] hover:outline-red-300 bg-slate-200'>
+									<InputType
+										name={item.id}
+										classes='w-[150px] border-0 rounded-none bg-slate-100'
+									/>
+								</td>
+								{/* <td>{item.marginError}</td>
 								<td>
 									<RowOptions templateId={template._id} rowId={item._id} />
-								</td>
+								</td> */}
 							</tr>
 						);
 					}
@@ -64,8 +68,7 @@ const TemplateItems = ({ template, settings, defaultLanguage }) => {
 								<Fragment key={generateUUID()}>
 									{i === 0 ? (
 										<tr className='border-2 border-b border-slate-300'>
-											<td className='w-fit align-top cursor-pointer'> </td>
-											<th colSpan={8} className='text-left'>
+											<th colSpan={6} className='text-left'>
 												{item.name['en']}
 											</th>
 										</tr>
@@ -74,10 +77,6 @@ const TemplateItems = ({ template, settings, defaultLanguage }) => {
 										className={`border-r-2 border-l-2 border-slate-300 ${
 											i === item.items.length - 1 ? 'border-b-2' : null
 										}`}>
-										<td className='w-fit align-top cursor-pointer'>
-											<DragSvg className='text-slate-400 hover:text-red-600 text-center w-[25px] h-[25px] cursor-pointer' />
-										</td>
-
 										<td className='border'>
 											{collectionItem.parameter.propertyValue['en']}
 										</td>
@@ -104,14 +103,19 @@ const TemplateItems = ({ template, settings, defaultLanguage }) => {
 												</td>
 											);
 										})}
-										<td>{item.result}</td>
-										<td>{item.marginError}</td>
+										<td className='outline outline-transparent outline-1 outline-offset-0  border w-[150px] hover:outline-red-300 bg-slate-200'>
+											<InputType
+												name={item.id}
+												classes='w-[150px] border-0 rounded-none bg-slate-100'
+											/>
+										</td>
+										{/* <td>{item.marginError}</td>
 										<td>
 											<RowOptions
 												templateId={template._id}
 												rowId={collectionItem._id}
-											/>
-										</td>
+											/> 
+										</td> */}
 									</tr>
 								</Fragment>
 							);
@@ -123,4 +127,4 @@ const TemplateItems = ({ template, settings, defaultLanguage }) => {
 	);
 };
 
-export default TemplateItems;
+export default TemplateInputFields;

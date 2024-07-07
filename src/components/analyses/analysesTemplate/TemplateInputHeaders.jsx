@@ -1,7 +1,7 @@
 import { getDisplayHeadings } from '@/utils/getDisplayHeadings';
 
-const TableHead = ({ template, settings, defaultLanguage }) => {
-	// console.log(template[0], 'the template in TableHead');
+const TemplateInputHeaders = ({ template, settings, defaultLanguage }) => {
+	// console.log(template[0], 'the template in TemplateInputHeadersTableHead');
 	// console.log(settings, 'the settings in TableHead');
 	let headings =
 		(settings && getDisplayHeadings(settings[0], 'plural')) || null;
@@ -9,7 +9,6 @@ const TableHead = ({ template, settings, defaultLanguage }) => {
 	return (
 		<thead>
 			<tr>
-				<th className='w-[20px]'>{''}</th>
 				{headings && headings.main && (
 					<th className='text-left'>
 						{headings?.main[defaultLanguage.language]}
@@ -22,12 +21,12 @@ const TableHead = ({ template, settings, defaultLanguage }) => {
 							{collection[defaultLanguage.language]}
 						</th>
 					))}
-				<th className='text-left'>Default Value</th>
-				<th className='text-left'>Margin of Error</th>
-				<th className='text-left'>options</th>
+				<th className='text-left'>Result</th>
+				{/* <th className='text-left'>Margin of Error</th>
+				<th className='text-left'>options</th> */}
 			</tr>
 		</thead>
 	);
 };
 
-export default TableHead;
+export default TemplateInputHeaders;

@@ -8,7 +8,7 @@ import Fields from './Fields';
 import BasicInputFields from './BasicInputFields';
 import AnalysisTemplate from './AnalysisTemplate';
 
-const AnalysesForm = ({ templateSettings, languages, templates }) => {
+const AnalysesForm = ({ templateSettings, languages, settings, templates }) => {
 	let { products, types, countries, fields } =
 		mutateTemplateSettings(templateSettings);
 	return (
@@ -27,8 +27,12 @@ const AnalysesForm = ({ templateSettings, languages, templates }) => {
 					<BasicInputFields />
 				</div>
 
-				<div>
-					<AnalysisTemplate templates={templates} />
+				<div className='w-full flex-grow pl-2 pr-3'>
+					<AnalysisTemplate
+						templates={templates}
+						languages={languages}
+						settings={settings}
+					/>
 				</div>
 			</LaboratoryContextProvider>
 		</form>
