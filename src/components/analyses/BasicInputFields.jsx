@@ -10,7 +10,7 @@ const BasicInputFields = () => {
   const { fields } = useLaboratoryContext();
 
   return (
-    <fieldset>
+    <fieldset name='document-fields'>
       {/* <h3>Input Fields</h3> */}
       <div className='px-1'>
         {fields.length > 0

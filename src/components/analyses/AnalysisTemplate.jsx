@@ -5,25 +5,33 @@ import { useLaboratoryContext } from '@/state/laboratoryContext';
 
 // components
 import TemplateInputFields from './analysesTemplate/TemplateInputFields';
+import ContextButton from '../buttons/ContextButton';
 
 const AnalysisTemplate = ({ templates, languages, settings }) => {
-	const { selectedTemplate } = useLaboratoryContext();
+  const { selectedTemplate } = useLaboratoryContext();
 
-	let defaultLanguage = languages.find((lang) => lang.language === 'en');
+  let defaultLanguage = languages.find((lang) => lang.language === 'en');
 
-	let selection = templates.find(
-		(template) => template._id === selectedTemplate
-	);
+  let selection = templates.find(
+    (template) => template._id === selectedTemplate
+  );
 
-	return !selection ? (
-		<h4>Please select a template</h4>
-	) : (
-		<TemplateInputFields
-			template={selection}
-			settings={settings}
-			defaultLanguage={defaultLanguage}
-		/>
-	);
+  return !selection ? (
+    <h4>Please select a template</h4>
+  ) : (
+    <>
+      <TemplateInputFields
+        template={selection}
+        settings={settings}
+        defaultLanguage={defaultLanguage}
+      />
+      <ContextButton
+        label='save'
+        type='edit'
+        onClick={(e) => e.target.form.requestSubmit()}
+      />
+    </>
+  );
 };
 
 export default AnalysisTemplate;
