@@ -8,6 +8,7 @@ import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemp
 
 // components
 import AnalysesForm from '@/components/analyses/AnalysesForm';
+import { getDraftAnalysis } from '../../apiCalls';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -20,10 +21,14 @@ const page = async () => {
 	const { setting } = await getLaboratorySettings();
 	const { settings } = setting || [];
 
+	const { draft } = await getDraftAnalysis();
+	console.log(draft);
 	return (
 		<div className='w-full'>
 			<h2>Create New Document</h2>
+
 			<AnalysesForm
+				analysis={draft}
 				templateSettings={templateSettings}
 				languages={languages}
 				settings={settings}

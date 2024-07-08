@@ -17,22 +17,23 @@ const fieldsSchema = new Schema(
 );
 
 const analysisSchema = new Schema({
-	product: {
-		type: Schema.Types.Mixed,
-	},
-	documentType: {
-		type: Schema.Types.Mixed,
-	},
-	sampleType: {
-		type: Schema.Types.Mixed,
-	},
-	origin: {
-		type: Schema.Types.Mixed,
-	},
+	// product: {
+	// 	type: Schema.Types.Mixed,
+	// },
+	// documentType: {
+	// 	type: Schema.Types.Mixed,
+	// },
+	// sampleType: {
+	// 	type: Schema.Types.Mixed,
+	// },
+	// origin: {
+	// 	type: Schema.Types.Mixed,
+	// },
 	fields: {
 		type: [fieldsSchema],
 		default: undefined,
 	},
+	templateId: String,
 	template: {
 		type: Schema.Types.Mixed,
 		default: undefined,

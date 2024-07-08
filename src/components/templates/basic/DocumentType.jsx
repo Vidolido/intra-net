@@ -10,7 +10,7 @@ import { nameArray } from '@/utils/nameArray';
 // components
 import SelectInput from '@/components/inputs/SelectInput';
 
-const DocumentType = ({ types, onChange, defaultValue, classes, name }) => {
+const DocumentType = ({ name, types, setHeader, classes }) => {
 	let dispatch = useLaboratoryDispatchContext();
 
 	let documentTypes = findSettingType(types.settings, ['document']);
@@ -20,15 +20,10 @@ const DocumentType = ({ types, onChange, defaultValue, classes, name }) => {
 	}));
 
 	useEffect(() => {
-		if (dispatch) {
-			dispatch({
-				type: ADD_TO_COLLECTION,
-				payload: {
-					state: 'header',
-					value: { documentType: names[0].id },
-				},
-			});
-		}
+		setHeader((prev) => ({
+			...prev,
+			documentType: names[0].id,
+		}));
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -40,8 +35,12 @@ const DocumentType = ({ types, onChange, defaultValue, classes, name }) => {
 				options={names}
 				value='id'
 				defaultLanguage='en'
-				defaultValue={defaultValue}
-				onChange={onChange}
+				onChange={(e) =>
+					setHeader((prev) => ({
+						...prev,
+						documentType: e.target.value,
+					}))
+				}
 				classes={classes}
 			/>
 		</fieldset>

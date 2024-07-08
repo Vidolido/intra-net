@@ -13,14 +13,12 @@ const CreateDraftButton = () => {
 	};
 
 	return (
-		<>
-			<button
-				type='button'
-				onClick={handdleClick}
-				className='bg-red-500 disabled:bg-red-200 hover:bg-red-700 text-white font-semibold pt-[1px] pb-[3px] px-5 rounded'>
-				Add New Setting
-			</button>
-		</>
+		<button
+			type='button'
+			onClick={handdleClick}
+			className='bg-red-500 disabled:bg-red-200 hover:bg-red-700 text-white font-semibold pt-[1px] pb-[3px] px-5 rounded'>
+			Add New Setting
+		</button>
 	);
 };
 

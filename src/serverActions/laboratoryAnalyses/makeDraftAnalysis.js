@@ -3,12 +3,13 @@ import { revalidatePath } from 'next/cache';
 
 // connection/moddels/database functions
 import dbConnect from '@/db/conn';
-import Setting from '@/db/models/Setting';
+import Analysis from '@/db/models/Analysis';
+// import Setting from '@/db/models/Setting';
 
-export async function makeDraftSetting() {
+export async function makeDraftAnalysis() {
 	try {
 		await dbConnect();
-		const draft = await Setting.create({ documentStatus: 'draft' });
+		const draft = await Analysis.create({ documentStatus: 'draft' });
 		revalidatePath('/dashboard/settings', 'page');
 		return JSON.stringify(draft);
 	} catch (error) {

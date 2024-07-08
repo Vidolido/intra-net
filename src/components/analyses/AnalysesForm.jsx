@@ -8,36 +8,56 @@ import TemplateSelect from './TemplateSelect';
 import Fields from './Fields';
 import BasicInputFields from './BasicInputFields';
 import AnalysisTemplate from './AnalysisTemplate';
+import TemplateSelectForm from './selectTemplate/TemplateSelectForm';
+// import TemplateSelectForm from './selectTemplate/TemplateSelectForm';
 
-const AnalysesForm = ({ templateSettings, languages, settings, templates }) => {
-  let { products, types, countries, fields } =
-    mutateTemplateSettings(templateSettings);
-  return (
-    <form action={createDocument} className='flex'>
-      <LaboratoryContextProvider>
-        <div className='bg-slate-100 border-2 rounded p-1'>
-          <TemplateSelect
-            languages={languages}
-            products={products}
-            types={types}
-            countries={countries}
-            templates={templates}
-          />
+const AnalysesForm = ({
+	analysis,
+	templateSettings,
+	languages,
+	settings,
+	templates,
+}) => {
+	let { products, types, countries, fields } =
+		mutateTemplateSettings(templateSettings);
+	return (
+		<>
+			<div className='flex'>
+				<TemplateSelectForm
+					analysisId={analysis._id}
+					languages={languages}
+					products={products}
+					types={types}
+					countries={countries}
+					templates={templates}
+				/>
+			</div>
+			{/* <form action={createDocument} className='flex'>
+				<LaboratoryContextProvider>
+					<div className='bg-slate-100 border-2 rounded p-1'>
+						<TemplateSelect
+							languages={languages}
+							products={products}
+							types={types}
+							countries={countries}
+							templates={templates}
+						/>
 
-          <Fields languages={languages} fields={fields.settings} />
-          <BasicInputFields />
-        </div>
+						<Fields languages={languages} fields={fields.settings} />
+						<BasicInputFields />
+					</div>
 
-        <div className='w-full flex-grow pl-2 pr-3'>
-          <AnalysisTemplate
-            templates={templates}
-            languages={languages}
-            settings={settings}
-          />
-        </div>
-      </LaboratoryContextProvider>
-    </form>
-  );
+					<div className='w-full flex-grow pl-2 pr-3'>
+						<AnalysisTemplate
+							templates={templates}
+							languages={languages}
+							settings={settings}
+						/>
+					</div>
+				</LaboratoryContextProvider>
+			</form> */}
+		</>
+	);
 };
 
 export default AnalysesForm;
