@@ -14,7 +14,7 @@ export async function createDocument(formData) {
   // 	documentType: formData.get('documentType'),
   // 	documentStatus: formData.get('documentStatus'),
   // };
-  console.log(formData, 'formData');
+  // console.log(formData, 'formData');
   try {
     await dbConnect();
     // await LaboratoryTemplate.updateOne({ _id }, { ...payload });

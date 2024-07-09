@@ -10,7 +10,7 @@ export const groupParameters = (template) => {
           currentGroup._id !== currentValue.grouped.group._id
         ) {
           // Create a new group if there's no current group or the _id is different
-          console.log(currentValue, 'TEST');
+          // console.log(currentValue, 'TEST');
           currentGroup = {
             isGroup: true,
             name:

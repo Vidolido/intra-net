@@ -11,40 +11,43 @@ import { nameArray } from '@/utils/nameArray';
 import SelectInput from '@/components/inputs/SelectInput';
 
 const DocumentType = ({ name, types, setHeader, classes }) => {
-	let dispatch = useLaboratoryDispatchContext();
+  let dispatch = useLaboratoryDispatchContext();
 
-	let documentTypes = findSettingType(types.settings, ['document']);
-	let names = documentTypes?.map((setting) => ({
-		id: setting._id,
-		...nameArray(setting.parameter.inputValue),
-	}));
+  let documentTypes = findSettingType(types.settings, ['document']);
+  let names = documentTypes?.map((setting) => ({
+    id: setting._id,
+    ...nameArray(setting.parameter.inputValue),
+  }));
 
-	useEffect(() => {
-		setHeader((prev) => ({
-			...prev,
-			documentType: names[0].id,
-		}));
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+  useEffect(() => {
+    if (setHeader)
+      setHeader((prev) => ({
+        ...prev,
+        documentType: names[0].id,
+      }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-	return (
-		<fieldset name='document-type'>
-			<h6>DocumentType</h6>
-			<SelectInput
-				name={name}
-				options={names}
-				value='id'
-				defaultLanguage='en'
-				onChange={(e) =>
-					setHeader((prev) => ({
-						...prev,
-						documentType: e.target.value,
-					}))
-				}
-				classes={classes}
-			/>
-		</fieldset>
-	);
+  return (
+    <fieldset name='document-type'>
+      <h6>DocumentType</h6>
+      <SelectInput
+        name={name}
+        options={names}
+        value='id'
+        defaultLanguage='en'
+        onChange={(e) =>
+          setHeader
+            ? setHeader((prev) => ({
+                ...prev,
+                documentType: e.target.value,
+              }))
+            : null
+        }
+        classes={classes}
+      />
+    </fieldset>
+  );
 };
 
 export default DocumentType;
