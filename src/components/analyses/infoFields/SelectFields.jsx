@@ -6,18 +6,44 @@ import { mutateFields } from '@/utils/mutateFields';
 // components
 import ArrowSvg from '@/../public/arrow.svg';
 import SingleField from '../SingleField';
+import InputFields from './InputFIelds';
+import ContextButton from '@/components/buttons/ContextButton';
+import { saveFields } from '@/serverActions/laboratoryAnalyses/saveFields';
 
-const SelectFields = ({ fields }) => {
+const SelectFields = ({ fields: dbFields, analysisId }) => {
+	const mutFields = mutateFields(dbFields);
 	const [visible, setVisible] = useState(false);
-
-	const mutFields = mutateFields(fields);
+	const [fields, setFields] = useState(mutFields);
 
 	const handleHide = () => {
 		setVisible(!visible);
 	};
+
+	const handleChecked = (e) => {
+		const newFields = fields.map((field) => {
+			if (field._id === e.target.value) {
+				field.checked === 'false'
+					? (field.checked = 'checked')
+					: (field.checked = 'false');
+			}
+			return field;
+		});
+		setFields(newFields);
+	};
+	const hangleChange = (e) => {
+		// console.log(e.target.name, 'ova?');
+		// Треба да фатам повеќе јазици
+		const newFields = fields.map((field) => {
+			if (field._id === e.target.id) {
+				field.value = e.target.value;
+			}
+			return field;
+		});
+		setFields(newFields);
+	};
+	// console.log(fields);
 	return (
 		<form>
-			{' '}
 			<fieldset className='bg-white border border-slate-200 pl-1 rounded mt-2'>
 				<button type='button' onClick={handleHide} className='relative w-full'>
 					<h3 className='text-left'>Fields</h3>
@@ -29,13 +55,23 @@ const SelectFields = ({ fields }) => {
 				</button>
 				<fieldset
 					className={`grid grid-cols-2 ${!visible ? 'hidden' : 'visible'}`}>
-					{mutFields.length > 0
-						? mutFields.map((field) => (
-								<SingleField key={field._id} field={field} />
+					{fields.length > 0
+						? fields.map((field) => (
+								<SingleField
+									key={field._id}
+									field={field}
+									onChange={handleChecked}
+								/>
 						  ))
 						: ''}
 				</fieldset>
 			</fieldset>
+			<InputFields fields={fields} onChange={hangleChange} />
+			<ContextButton
+				label='Save'
+				type='edit'
+				onClick={() => saveFields(fields, analysisId)}
+			/>
 		</form>
 	);
 };

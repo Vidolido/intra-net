@@ -1,4 +1,5 @@
 const InputType = ({
+	id,
 	type = 'text',
 	name,
 	defaultValue = null,
@@ -8,6 +9,7 @@ const InputType = ({
 }) => {
 	return !defaultValue ? (
 		<input
+			id={id}
 			type={type}
 			name={name}
 			onChange={onChange}
@@ -16,6 +18,7 @@ const InputType = ({
 		/>
 	) : (
 		<input
+			id={id}
 			type={type}
 			name={name}
 			defaultValue={defaultValue}

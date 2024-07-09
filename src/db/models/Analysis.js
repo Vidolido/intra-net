@@ -1,38 +1,26 @@
 import mongoose, { Schema } from 'mongoose';
 
-const fieldsSchema = new Schema(
-	{
-		name: {
-			type: Schema.Types.Mixed,
-		},
-		value: {
+const fieldsSchema = new Schema({
+	_id: Schema.Types.ObjectId,
+	name: {
+		type: Schema.Types.Mixed,
+	},
+	inputType: {
+		type: String,
+		default: 'text',
+	},
+	value: {
+		type: Schema.Types.Mixed,
+	},
+	checked: {
+		type: {
 			type: String,
 		},
-		checked: {
-			type: Boolean,
-			default: false,
-		},
 	},
-	{ _id: true }
-);
+});
 
 const analysisSchema = new Schema({
-	// product: {
-	// 	type: Schema.Types.Mixed,
-	// },
-	// documentType: {
-	// 	type: Schema.Types.Mixed,
-	// },
-	// sampleType: {
-	// 	type: Schema.Types.Mixed,
-	// },
-	// origin: {
-	// 	type: Schema.Types.Mixed,
-	// },
-	fields: {
-		type: [fieldsSchema],
-		default: undefined,
-	},
+	fields: [fieldsSchema],
 	templateId: String,
 	template: {
 		type: Schema.Types.Mixed,
