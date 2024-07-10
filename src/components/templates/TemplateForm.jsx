@@ -6,7 +6,7 @@ import SampleType from './basic/SampleType';
 import TemplateFormInput from './inputForm/TemplateFormInput';
 import TableHeaders from './inputForm/TableHeaders';
 import SaveBasic from './basic/SaveBasic';
-import DocumentStatus from './DocumentStatus';
+import DocumentStatus from './templateComponents/DocumentStatus';
 
 const TemplateForm = ({
 	languages,

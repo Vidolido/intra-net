@@ -6,7 +6,7 @@ import DocumentType from '../basic/DocumentType';
 import Origin from '../basic/Origin';
 import Product from '../basic/Product';
 import SampleType from '../basic/SampleType';
-import DocumentStatus from '../DocumentStatus';
+import DocumentStatus from './DocumentStatus';
 
 const Header = ({ languages, templateSettings, template }) => {
 	let products = templateSettings.find(
@@ -47,7 +47,6 @@ const Header = ({ languages, templateSettings, template }) => {
 					types={types}
 					defaultValue={template.documentType}
 				/>
-				{/* <SaveBasic draft={template} /> */}
 				<DocumentStatus template={template} />
 				<button
 					type='submit'
