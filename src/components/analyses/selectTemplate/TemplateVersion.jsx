@@ -1,6 +1,8 @@
-// components
+// state/components
 import { saveTemplateId } from '@/serverActions/laboratoryAnalyses/saveTemplateId';
-import SelectInput from '../inputs/SelectInput';
+
+// components
+import SelectInput from '../../inputs/SelectInput';
 
 const TemplateVersion = ({ templates, analysisId }) => {
 	let mutTemplates = templates.map((template, index) => ({

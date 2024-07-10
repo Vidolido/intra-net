@@ -1,12 +1,11 @@
 'use client';
 
 // components
-import SingleInputField from '../SingleInputField';
+import SingleInputField from './SingleInputField';
 
 const InputFields = ({ fields, onChange }) => {
 	return (
 		<fieldset name='document-fields'>
-			{/* <h3>Input Fields</h3> */}
 			<div className='px-1'>
 				{fields.length > 0
 					? fields.map((field) =>

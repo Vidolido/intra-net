@@ -11,8 +11,9 @@ import TableHead from '@/components/templates/templateComponents/TableHead';
 import InputType from '@/components/inputs/InputType';
 
 const TemplateInputFields = ({ template, settings, defaultLanguage }) => {
-	let mutTemplate = groupParameters(template.template) || [];
+	let mutTemplate = groupParameters(template) || [];
 	// console.log(settings, 'the settings');
+	console.log(template, 'the template');
 	return (
 		<table className='border-collapse  w-full'>
 			<TemplateInputHeaders

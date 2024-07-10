@@ -4,61 +4,41 @@ import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
 // components
 import TemplateSelectForm from './selectTemplate/TemplateSelectForm';
 import SelectFields from './infoFields/SelectFields';
+import TemplateForm from './analysesTemplate/TemplateForm';
 
-const AnalysesForm = ({
-  analysis,
-  templateSettings,
-  languages,
-  settings,
-  templates,
+const Analysis = ({
+	analysis,
+	templateSettings,
+	languages,
+	settings,
+	templates,
 }) => {
-  // Да направам проверка, доколку веќе има избран темплејт во анализата,
-  // да ги искористи тие полиња наместо полињата од база
-  // цел: да ја користам истата компонента за add, edit и edit-draft
-  let { products, types, countries, fields } =
-    mutateTemplateSettings(templateSettings);
-
-  return (
-    <>
-      <div className='flex'>
-        <TemplateSelectForm
-          analysis={analysis}
-          languages={languages}
-          products={products}
-          types={types}
-          countries={countries}
-          templates={templates}
-        />
-      </div>
-      <div>
-        <SelectFields fields={fields.settings} analysisId={analysis._id} />
-      </div>
-      {/* <form action={createDocument} className='flex'>
-				<LaboratoryContextProvider>
-					<div className='bg-slate-100 border-2 rounded p-1'>
-						<TemplateSelect
-							languages={languages}
-							products={products}
-							types={types}
-							countries={countries}
-							templates={templates}
-						/>
-
-						<Fields languages={languages} fields={fields.settings} />
-						<BasicInputFields />
-					</div>
-
-					<div className='w-full flex-grow pl-2 pr-3'>
-						<AnalysisTemplate
-							templates={templates}
-							languages={languages}
-							settings={settings}
-						/>
-					</div>
-				</LaboratoryContextProvider>
-			</form> */}
-    </>
-  );
+	let { products, types, countries, fields } =
+		mutateTemplateSettings(templateSettings);
+	console.log(analysis.template, 'the analysis');
+	const template = templates.find(
+		(template) => template._id === analysis.template
+	);
+	return (
+		<div className='flex'>
+			<div>
+				<TemplateSelectForm
+					analysis={analysis}
+					languages={languages}
+					products={products}
+					types={types}
+					countries={countries}
+					templates={templates}
+				/>
+				<SelectFields fields={fields.settings} analysisId={analysis._id} />
+			</div>
+			<TemplateForm
+				template={template?.template}
+				languages={languages}
+				settings={settings}
+			/>
+		</div>
+	);
 };
 
-export default AnalysesForm;
+export default Analysis;
