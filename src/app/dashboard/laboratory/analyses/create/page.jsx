@@ -4,11 +4,11 @@ import {
   getLaboratorySettings,
   getLanguages,
 } from '@/app/dashboard/apiCalls';
+import { getDraftAnalysis } from '../../apiCalls';
 import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemplateSettings';
 
 // components
 import AnalysesForm from '@/components/analyses/AnalysesForm';
-import { getDraftAnalysis } from '../../apiCalls';
 import Analysis from '@/components/analyses/Analysis';
 
 export const dynamic = 'force-dynamic';
@@ -23,6 +23,7 @@ const page = async () => {
   const { settings } = setting || [];
 
   const { draft } = await getDraftAnalysis();
+
   return (
     <div className='w-full'>
       <h2>Create New Document</h2>
