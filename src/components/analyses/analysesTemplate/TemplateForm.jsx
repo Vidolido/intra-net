@@ -4,6 +4,7 @@ import TemplateInputFields from './TemplateInputFields';
 
 const TemplateForm = ({ template, languages, settings }) => {
 	let defaultLanguage = languages.find((lang) => lang.language === 'en');
+
 	console.log(template, 'the template');
 	return !template ? (
 		<h4>Please select a template</h4>

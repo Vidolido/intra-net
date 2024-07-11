@@ -7,7 +7,7 @@ import { mutateFields } from '@/utils/mutateFields';
 
 // components
 import ArrowSvg from '@/../public/arrow.svg';
-import SingleField from '../../../../oldFiles/oldAnalysis/SingleField';
+import SingleField from './SingleField';
 import InputFields from './InputFIelds';
 import ContextButton from '@/components/buttons/ContextButton';
 
@@ -66,7 +66,7 @@ const SelectFields = ({ fields: dbFields, analysisId }) => {
 									onChange={handleChecked}
 								/>
 						  ))
-						: ''}
+						: null}
 				</fieldset>
 			</fieldset>
 			<InputFields fields={fields} onChange={hangleChange} />

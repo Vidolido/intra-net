@@ -8,7 +8,6 @@ import { getDraftAnalysis } from '../../apiCalls';
 import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemplateSettings';
 
 // components
-// import AnalysesForm from '@/components/analyses/AnalysesForm';
 import Analysis from '@/components/analyses/Analysis';
 
 export const dynamic = 'force-dynamic';
@@ -34,13 +33,6 @@ const page = async () => {
 				settings={settings}
 				templates={laboratoryTemplates}
 			/>
-			{/* <AnalysesForm
-        analysis={draft}
-        templateSettings={templateSettings}
-        languages={languages}
-        settings={settings}
-        templates={laboratoryTemplates}
-      /> */}
 		</div>
 	);
 };

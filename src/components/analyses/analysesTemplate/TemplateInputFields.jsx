@@ -13,7 +13,7 @@ import InputType from '@/components/inputs/InputType';
 const TemplateInputFields = ({ template, settings, defaultLanguage }) => {
 	let mutTemplate = groupParameters(template) || [];
 	// console.log(settings, 'the settings');
-	console.log(template, 'the template');
+	// console.log(template, 'the template');
 	return (
 		<table className='border-collapse  w-full'>
 			<TemplateInputHeaders
@@ -82,7 +82,6 @@ const TemplateInputFields = ({ template, settings, defaultLanguage }) => {
 											{collectionItem.parameter.propertyValue['en']}
 										</td>
 										{Object.entries(collectionItem.items).map((collection) => {
-											console.log(collection[0]);
 											return (
 												<td
 													key={generateUUID()}
