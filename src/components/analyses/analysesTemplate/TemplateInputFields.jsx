@@ -50,11 +50,13 @@ const TemplateInputFields = ({ template, settings, defaultLanguage }) => {
 										</td>
 									);
 								})}
-								<td className='outline outline-transparent outline-1 outline-offset-0  border w-[150px] hover:outline-red-300 bg-slate-200'>
-									<InputType
-										name={item.id}
-										classes='w-[150px] border-0 rounded-none bg-slate-100'
-									/>
+								<td className='outline outline-transparent outline-1 outline-offset-0 w-[150px] border-[0px] hover:outline-red-300 bg-slate-200'>
+									<div className='flex flex-stretch'>
+										<InputType
+											name={item.id}
+											classes='w-full border-[0px] rounded-none bg-slate-100'
+										/>
+									</div>
 								</td>
 								{/* <td>{item.marginError}</td>
 								<td>
@@ -103,11 +105,13 @@ const TemplateInputFields = ({ template, settings, defaultLanguage }) => {
 												</td>
 											);
 										})}
-										<td className='outline outline-transparent outline-1 outline-offset-0  border w-[150px] hover:outline-red-300 bg-slate-200'>
-											<InputType
-												name={item.id}
-												classes='w-[150px] border-0 rounded-none bg-slate-100'
-											/>
+										<td className='outline outline-transparent outline-1 outline-offset-0 w-[150px] border-[0px] hover:outline-red-300 bg-slate-200'>
+											<div className='flex flex-stretch'>
+												<InputType
+													name={item.id}
+													classes='w-full border-[0px] rounded-none bg-slate-100'
+												/>
+											</div>
 										</td>
 										{/* <td>{item.marginError}</td>
 										<td>
