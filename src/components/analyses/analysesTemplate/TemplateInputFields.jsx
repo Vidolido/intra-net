@@ -9,11 +9,10 @@ import DragSvg from '@/../public/drag.svg';
 import TemplateInputHeaders from './TemplateInputHeaders';
 import TableHead from '@/components/templates/templateComponents/TableHead';
 import InputType from '@/components/inputs/InputType';
+import ContextButton from '@/components/buttons/ContextButton';
 
 const TemplateInputFields = ({ template, settings, defaultLanguage }) => {
 	let mutTemplate = groupParameters(template) || [];
-	// console.log(settings, 'the settings');
-	// console.log(template, 'the template');
 	return (
 		<table className='border-collapse  w-full'>
 			<TemplateInputHeaders
@@ -53,7 +52,7 @@ const TemplateInputFields = ({ template, settings, defaultLanguage }) => {
 								<td className='outline outline-transparent outline-1 outline-offset-0 w-[150px] border-[0px] hover:outline-red-300 bg-slate-200'>
 									<div className='flex flex-stretch'>
 										<InputType
-											name={item.id}
+											name={item._id}
 											classes='w-full border-[0px] rounded-none bg-slate-100'
 										/>
 									</div>
@@ -106,12 +105,12 @@ const TemplateInputFields = ({ template, settings, defaultLanguage }) => {
 											);
 										})}
 										<td className='outline outline-transparent outline-1 outline-offset-0 w-[150px] border-[0px] hover:outline-red-300 bg-slate-200'>
-											<div className='flex flex-stretch'>
+											<fieldset className='flex flex-stretch'>
 												<InputType
-													name={item.id}
+													name={item._id}
 													classes='w-full border-[0px] rounded-none bg-slate-100'
 												/>
-											</div>
+											</fieldset>
 										</td>
 										{/* <td>{item.marginError}</td>
 										<td>
@@ -126,7 +125,17 @@ const TemplateInputFields = ({ template, settings, defaultLanguage }) => {
 						});
 					}
 				})}
+				<tr>
+					<td>
+						<ContextButton
+							label='Save'
+							type='edit'
+							onClick={(e) => e.target.form.requestSubmit()}
+						/>
+					</td>
+				</tr>
 			</tbody>
+			<tfoot></tfoot>
 		</table>
 	);
 };
