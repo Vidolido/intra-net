@@ -13,7 +13,7 @@ export const mutateFields = (fields) => {
 				name: { ...currenValue.parameter.inputValue },
 				checked: !checked.items[0] ? '' : checked.items[0].value,
 				inputType: !type.items[0] ? '' : type.items[0].value,
-				value: currenValue.value != undefined ? currenValue.value : {},
+				value: currenValue.value != undefined ? currenValue.value : '',
 			},
 		]);
 	}, []);

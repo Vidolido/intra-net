@@ -32,21 +32,28 @@ const SelectFields = ({ fields: dbFields, analysisId }) => {
 		setFields(newFields);
 	};
 
-	const hangleChange = (e) => {
-		// Треба да фатам повеќе јазици
-		const newFields = fields.map((field) => {
-			if (field._id === e.target.id) {
-				field.value = e.target.value;
+	const handleClick = async (e) => {
+		let inputFields = e.target.form.elements
+			.namedItem('document-fields')
+			.querySelectorAll('input');
+
+		let newFields = Array.from(inputFields).reduce((acc, currentValue) => {
+			let field = fields.find((field) => field._id === currentValue.name);
+			field.value = currentValue.value;
+			if (acc.find((e) => e._id === currentValue.name)) {
+				acc.find((e) => e._id === currentValue.name).value = currentValue.value;
 			} else {
-				field.value = '';
+				acc.push(field);
 			}
-			return field;
-		});
-		setFields(newFields);
+			return acc;
+		}, []);
+
+		await saveFields(newFields, analysisId);
 	};
-	// console.log(fields);
+
+	const submit = saveFields.bind(null, analysisId);
 	return (
-		<form onSubmit={(e) => e.preventDefault()}>
+		<form action={submit}>
 			<fieldset className='bg-white border border-slate-200 pl-1 rounded mt-2'>
 				<button type='button' onClick={handleHide} className='relative w-full'>
 					<h3 className='text-left'>Fields</h3>
@@ -69,14 +76,11 @@ const SelectFields = ({ fields: dbFields, analysisId }) => {
 						: null}
 				</fieldset>
 			</fieldset>
-			<InputFields fields={fields} onChange={hangleChange} />
-			<ContextButton
-				label='Save'
-				type='edit'
-				onClick={() => saveFields(fields, analysisId)}
-			/>
+			<InputFields fields={fields} />
+			<ContextButton label='Save' type='edit' onClick={handleClick} />
 		</form>
 	);
 };
 
 export default SelectFields;
+// onClick={() => saveFields(fields, analysisId)}

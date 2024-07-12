@@ -5,6 +5,8 @@ const SingleField = ({ field, onChange }) => {
 		<label className='cursor-pointer'>
 			<input
 				type='checkbox'
+				id={field._id}
+				name='field-input'
 				value={field._id}
 				checked={field.checked === 'false' ? '' : field.checked}
 				onChange={onChange}
