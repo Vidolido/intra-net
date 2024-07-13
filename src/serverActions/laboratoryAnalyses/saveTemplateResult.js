@@ -4,20 +4,35 @@ import { revalidatePath } from 'next/cache';
 // connection/moddels/database functions
 import dbConnect from '@/db/conn';
 import Analysis from '@/db/models/Analysis';
-// import LaboratoryTemplate from '@/db/models/LaboratoryTemplate';
+import LaboratoryTemplate from '@/db/models/LaboratoryTemplate';
 
 // I NEED TO HANDLE ERRORS HERE
-export async function saveTemplateResult(formData) {
-	console.log(formData, 'form DATA');
+export async function saveTemplateResult(documentId, formData) {
+	let resultFields = Array.from(formData);
+	console.log(resultFields, 'resultfields');
 	try {
 		await dbConnect();
-		// await LaboratoryTemplate.updateOne({ _id }, { ...payload });
-		// const analysis = await Analysis.updateOne(
-		// 	{ _id: documentId },
-		// 	{
-		// 		$set: { template: templateId },
-		// 	}
-		// );
+		let analysis = await Analysis.findOne({ _id: documentId });
+		let template = await LaboratoryTemplate.findOne({
+			_id: analysis.templateId,
+		});
+		let populateResult = resultFields.reduce(
+			(acc, [id, value]) => {
+				if (acc.find((e) => e._id.toString() === id)) {
+					acc.find((e) => e._id.toString() === id).result = value;
+				}
+				return acc;
+			},
+			[...template.template]
+		);
+		// console.log(populateResult, 'populateResult');
+		await Analysis.updateOne(
+			{ _id: documentId },
+			{
+				$set: { template: populateResult },
+			}
+		);
+
 		revalidatePath('/dashboard/laboratory/analyses/create', 'page');
 		revalidatePath('/dashboard/laboratory/analyses/draft/[_id]', 'page');
 		revalidatePath('/dashboard/laboratory/analyses/edit/[_id]', 'page');

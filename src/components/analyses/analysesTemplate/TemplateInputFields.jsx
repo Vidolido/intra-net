@@ -5,9 +5,7 @@ import { groupParameters } from '@/utils/templates/groupParameters';
 import { generateUUID } from '@/utils/generateUUID';
 
 // components
-import DragSvg from '@/../public/drag.svg';
 import TemplateInputHeaders from './TemplateInputHeaders';
-import TableHead from '@/components/templates/templateComponents/TableHead';
 import InputType from '@/components/inputs/InputType';
 import ContextButton from '@/components/buttons/ContextButton';
 
@@ -51,8 +49,11 @@ const TemplateInputFields = ({ template, settings, defaultLanguage }) => {
 								})}
 								<td className='outline outline-transparent outline-1 outline-offset-0 w-[150px] border-[0px] hover:outline-red-300 bg-slate-200'>
 									<div className='flex flex-stretch'>
+										{console.log(item, 'THE ITEM up?')}
+
 										<InputType
 											name={item._id}
+											defaultValue={item.result}
 											classes='w-full border-[0px] rounded-none bg-slate-100'
 										/>
 									</div>
@@ -105,12 +106,14 @@ const TemplateInputFields = ({ template, settings, defaultLanguage }) => {
 											);
 										})}
 										<td className='outline outline-transparent outline-1 outline-offset-0 w-[150px] border-[0px] hover:outline-red-300 bg-slate-200'>
-											<fieldset className='flex flex-stretch'>
+											<div className='flex flex-stretch'>
+												{console.log(item, 'THE ITEM?')}
 												<InputType
-													name={item._id}
+													name={collectionItem._id}
+													defaultValue={collectionItem.result}
 													classes='w-full border-[0px] rounded-none bg-slate-100'
 												/>
-											</fieldset>
+											</div>
 										</td>
 										{/* <td>{item.marginError}</td>
 										<td>
