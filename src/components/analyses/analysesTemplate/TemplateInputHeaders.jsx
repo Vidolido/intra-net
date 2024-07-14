@@ -1,11 +1,8 @@
 import { getDisplayHeadings } from '@/utils/getDisplayHeadings';
 
 const TemplateInputHeaders = ({ template, settings, defaultLanguage }) => {
-	// console.log(template[0], 'the template in TemplateInputHeadersTableHead');
-	// console.log(settings, 'the settings in TableHead');
 	let headings =
 		(settings && getDisplayHeadings(settings[0], 'plural')) || null;
-	// console.log(headings);
 	return (
 		<thead>
 			<tr>

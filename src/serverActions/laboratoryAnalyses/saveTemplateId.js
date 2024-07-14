@@ -11,7 +11,8 @@ export async function saveTemplateId(templateId, documentId) {
 	try {
 		await dbConnect();
 		// await LaboratoryTemplate.updateOne({ _id }, { ...payload });
-		const analysis = await Analysis.updateOne(
+		console.log(templateId, 'the  templateId');
+		await Analysis.updateOne(
 			{ _id: documentId },
 			{
 				$set: { templateId },

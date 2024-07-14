@@ -1,9 +1,6 @@
 'use client';
 import { useState } from 'react';
 
-// state/actions
-import { filterTemplates } from '@/utils/filterTemplates';
-
 // components
 import DocumentType from '@/components/templates/basic/DocumentType';
 import Origin from '@/components/templates/basic/Origin';
@@ -22,18 +19,26 @@ const TemplateSelectForm = ({
 	// Доколку анализата има веќе зачувано темплејт се користи templateHeader
 	// во спротивно се праваи нов State
 	const template = templates.find(
-		(template) => template._id === analysis.template
+		(template) => template._id === analysis.templateId
 	);
+	// console.log(template, 'the template');
 	const templateHeader = {
-		product: template?.product,
-		origin: template?.origin,
-		sampleType: template?.sampleType,
-		documentType: template?.documentType,
+		product: template?.product || '',
+		origin: template?.origin || '',
+		sampleType: template?.sampleType || '',
+		documentType: template?.documentType || '',
 	};
 
-	const [header, setHeader] = useState(!template ? {} : templateHeader);
-
-	const filteredTempaltes = filterTemplates(templates, header);
+	const [header, setHeader] = useState(
+		!template
+			? {
+					product: '',
+					origin: '',
+					sampleType: '',
+					documentType: '',
+			  }
+			: templateHeader
+	);
 
 	return (
 		<form className='flex flex-col gap-2'>
@@ -68,8 +73,10 @@ const TemplateSelectForm = ({
 				/>
 			</div>
 			<TemplateVersion
-				templates={filteredTempaltes}
+				templates={templates}
+				templateId={analysis.templateId}
 				analysisId={analysis._id}
+				header={header}
 			/>
 		</form>
 	);

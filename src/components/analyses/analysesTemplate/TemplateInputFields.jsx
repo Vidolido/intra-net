@@ -49,8 +49,6 @@ const TemplateInputFields = ({ template, settings, defaultLanguage }) => {
 								})}
 								<td className='outline outline-transparent outline-1 outline-offset-0 w-[150px] border-[0px] hover:outline-red-300 bg-slate-200'>
 									<div className='flex flex-stretch'>
-										{console.log(item, 'THE ITEM up?')}
-
 										<InputType
 											name={item._id}
 											defaultValue={item.result}
@@ -107,7 +105,6 @@ const TemplateInputFields = ({ template, settings, defaultLanguage }) => {
 										})}
 										<td className='outline outline-transparent outline-1 outline-offset-0 w-[150px] border-[0px] hover:outline-red-300 bg-slate-200'>
 											<div className='flex flex-stretch'>
-												{console.log(item, 'THE ITEM?')}
 												<InputType
 													name={collectionItem._id}
 													defaultValue={collectionItem.result}

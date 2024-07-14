@@ -16,8 +16,7 @@ const TemplateForm = ({
 	let defaultLanguage = languages.find((lang) => lang.language === 'en');
 
 	const submit = saveTemplateResult.bind(null, analysisId);
-	console.log(template, 'THE TEMPLATE');
-	return templateId === 'none' ? (
+	return templateId === undefined || templateId === 'none' ? (
 		<h4>Please select a template</h4>
 	) : (
 		<form action={submit}>
