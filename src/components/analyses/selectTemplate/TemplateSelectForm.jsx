@@ -16,6 +16,8 @@ const TemplateSelectForm = ({
 	countries,
 	templates,
 }) => {
+	let isPublished = analysis.documentStatus === 'published' ? true : false;
+	console.log(isPublished, 'isPublished');
 	// Доколку анализата има веќе зачувано темплејт се користи templateHeader
 	// во спротивно се праваи нов State
 	const template = templates.find(
@@ -41,44 +43,46 @@ const TemplateSelectForm = ({
 	);
 
 	return (
-		<form className='flex flex-col gap-2'>
-			<div className='flex gap-2'>
-				<Product
-					name='product'
-					languages={languages}
-					products={products}
-					setHeader={setHeader}
-					classes={'w-32'}
+		!isPublished && (
+			<form className='flex flex-col gap-2'>
+				<div className='flex gap-2'>
+					<Product
+						name='product'
+						languages={languages}
+						products={products}
+						setHeader={setHeader}
+						classes={'w-32'}
+					/>
+					<Origin
+						name='origin'
+						countries={countries}
+						setHeader={setHeader}
+						classes={'w-32'}
+					/>
+				</div>
+				<div className='flex gap-2'>
+					<SampleType
+						name='sampleType'
+						types={types}
+						setHeader={setHeader}
+						none={true}
+						classes={'w-32'}
+					/>
+					<DocumentType
+						name='documentType'
+						types={types}
+						setHeader={setHeader}
+						classes={'w-32'}
+					/>
+				</div>
+				<TemplateVersion
+					templates={templates}
+					templateId={analysis.templateId}
+					analysisId={analysis._id}
+					header={header}
 				/>
-				<Origin
-					name='origin'
-					countries={countries}
-					setHeader={setHeader}
-					classes={'w-32'}
-				/>
-			</div>
-			<div className='flex gap-2'>
-				<SampleType
-					name='sampleType'
-					types={types}
-					setHeader={setHeader}
-					none={true}
-					classes={'w-32'}
-				/>
-				<DocumentType
-					name='documentType'
-					types={types}
-					setHeader={setHeader}
-					classes={'w-32'}
-				/>
-			</div>
-			<TemplateVersion
-				templates={templates}
-				templateId={analysis.templateId}
-				analysisId={analysis._id}
-				header={header}
-			/>
-		</form>
+			</form>
+		)
 	);
 };
 

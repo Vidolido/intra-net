@@ -10,6 +10,7 @@ const SingleInputField = ({ field, onChange }) => {
 				name={field._id}
 				type={field?.inputType}
 				classes={'min-w-fit'}
+				defaultValue={field?.value}
 				onChange={onChange}
 			/>
 		</label>

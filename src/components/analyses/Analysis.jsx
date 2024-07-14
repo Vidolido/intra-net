@@ -15,11 +15,13 @@ const Analysis = ({
 }) => {
 	let { products, types, countries, fields } =
 		mutateTemplateSettings(templateSettings);
-	// console.log(analysis.template, 'the analysis');
+	console.log(analysis, 'the analysis');
 	const template = templates.find(
 		(template) => template._id === analysis.templateId
 	);
 	const analysisTemplate = !analysis.template ? null : analysis.template;
+	console.log(analysisTemplate, 'analisysTemplate');
+
 	return (
 		<div className='flex'>
 			<div>
@@ -31,7 +33,7 @@ const Analysis = ({
 					countries={countries}
 					templates={templates}
 				/>
-				<SelectFields fields={fields.settings} analysisId={analysis._id} />
+				<SelectFields fields={fields.settings} analysis={analysis} />
 			</div>
 			<TemplateForm
 				templateId={analysis.templateId}

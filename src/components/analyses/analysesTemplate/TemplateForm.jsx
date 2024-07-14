@@ -5,6 +5,7 @@ import { saveTemplateResult } from '@/serverActions/laboratoryAnalyses/saveTempl
 
 // components
 import TemplateInputFields from './TemplateInputFields';
+import { useRouter } from 'next/navigation';
 
 const TemplateForm = ({
 	templateId,
@@ -13,13 +14,19 @@ const TemplateForm = ({
 	settings,
 	analysisId,
 }) => {
+	let router = useRouter();
 	let defaultLanguage = languages.find((lang) => lang.language === 'en');
 
 	const submit = saveTemplateResult.bind(null, analysisId);
+	console.log(template, 'the template');
 	return templateId === undefined || templateId === 'none' ? (
 		<h4>Please select a template</h4>
 	) : (
-		<form action={submit}>
+		<form
+			action={async (e) => {
+				await submit(e);
+				router.push('/dashboard/laboratory/analyses/edit/' + analysisId);
+			}}>
 			<TemplateInputFields
 				template={template}
 				settings={settings}

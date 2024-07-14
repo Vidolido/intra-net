@@ -11,7 +11,7 @@ import SingleField from './SingleField';
 import InputFields from './InputFIelds';
 import ContextButton from '@/components/buttons/ContextButton';
 
-const SelectFields = ({ fields: dbFields, analysisId }) => {
+const SelectFields = ({ fields: dbFields, analysis }) => {
 	const mutFields = mutateFields(dbFields);
 	const [visible, setVisible] = useState(false);
 	const [fields, setFields] = useState(mutFields);
@@ -48,12 +48,16 @@ const SelectFields = ({ fields: dbFields, analysisId }) => {
 			return acc;
 		}, []);
 
-		await saveFields(newFields, analysisId);
+		await saveFields(newFields, analysis._id);
 	};
 
-	const submit = saveFields.bind(null, analysisId);
+	const submit = saveFields.bind(null, analysis._id);
 	return (
-		<form action={submit}>
+		<form
+			action={async (e) => {
+				e.preventDefalut();
+				await submit(e);
+			}}>
 			<fieldset className='bg-white border border-slate-200 pl-1 rounded mt-2'>
 				<button type='button' onClick={handleHide} className='relative w-full'>
 					<h3 className='text-left'>Fields</h3>
@@ -76,7 +80,9 @@ const SelectFields = ({ fields: dbFields, analysisId }) => {
 						: null}
 				</fieldset>
 			</fieldset>
-			<InputFields fields={fields} />
+			<InputFields
+				fields={analysis.fields.length > 0 ? analysis.fields : fields}
+			/>
 			<ContextButton label='Save' type='edit' onClick={handleClick} />
 		</form>
 	);
