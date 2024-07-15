@@ -23,7 +23,9 @@ const page = async ({ params }) => {
   const { setting } = await getLaboratorySettings();
   const { settings } = setting || [];
 
+  // const { draft } = await getDraftAnalysis();
   const { document } = await getAnalysisById(_id);
+  // console.log(document, 'document');
   return (
     <div className='w-full'>
       <h2>Create New Document</h2>
