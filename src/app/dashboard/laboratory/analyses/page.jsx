@@ -9,39 +9,38 @@ import DisplayDraftDocuments from '@/components/analyses/documentsPage/DisplayDr
 import LastAddedDocuments from '@/components/analyses/documentsPage/LastAddedDocuments';
 
 const page = async () => {
-  const { templateSettings } = await getTemplateSettings();
+	const { templateSettings } = await getTemplateSettings();
 
-  const { documents: draftDocuments } = await getLaboratoryDocuments({
-    documentStatus: 'draft',
-  });
-  const { documents: publishedDocuments } = await getLaboratoryDocuments({
-    documentStatus: 'published',
-    time: 'today',
-  }); // тука да ги земам документите кои се од последните 24 часа, за да не ги зема сите документи од база.
+	const { documents: draftDocuments } = await getLaboratoryDocuments({
+		documentStatus: 'draft',
+	});
+	const { documents: publishedDocuments } = await getLaboratoryDocuments({
+		documentStatus: 'published',
+		time: 'today',
+	});
+	let products = templateSettings.filter(
+		(setting) => setting.settingName === 'Products'
+	);
 
-  let products = templateSettings.filter(
-    (setting) => setting.settingName === 'Products'
-  );
+	let items = products[0]?.settings?.map((setting) => ({
+		id: setting._id,
+		...nameArray(setting.parameter.inputValue),
+	}));
 
-  let items = products[0]?.settings?.map((setting) => ({
-    id: setting._id,
-    ...nameArray(setting.parameter.inputValue),
-  }));
-
-  return (
-    <div className='w-full pr-4'>
-      <h2>Analyses</h2>
-      <CreateDraftAnalysis />
-      <div className='flex justify-between w-full'>
-        <LastAddedDocuments
-          documents={publishedDocuments}
-          templateSettings={templateSettings}
-          products={items}
-        />
-        <DisplayDraftDocuments documents={draftDocuments} />
-      </div>
-    </div>
-  );
+	return (
+		<div className='w-full pr-4'>
+			<h2>Analyses</h2>
+			<CreateDraftAnalysis />
+			<div className='flex justify-between w-full'>
+				<LastAddedDocuments
+					documents={publishedDocuments}
+					templateSettings={templateSettings}
+					products={items}
+				/>
+				<DisplayDraftDocuments documents={draftDocuments} />
+			</div>
+		</div>
+	);
 };
 
 export default page;

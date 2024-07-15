@@ -33,6 +33,8 @@ const SelectFields = ({ fields: dbFields, analysis }) => {
 	};
 
 	const handleClick = async (e) => {
+		// e.target.form.preventDefault();
+
 		let inputFields = e.target.form.elements
 			.namedItem('document-fields')
 			.querySelectorAll('input');
@@ -51,13 +53,9 @@ const SelectFields = ({ fields: dbFields, analysis }) => {
 		await saveFields(newFields, analysis._id);
 	};
 
-	const submit = saveFields.bind(null, analysis._id);
+	// const submit = saveFields.bind(null, analysis._id);
 	return (
-		<form
-			action={async (e) => {
-				e.preventDefalut();
-				await submit(e);
-			}}>
+		<form>
 			<fieldset className='bg-white border border-slate-200 pl-1 rounded mt-2'>
 				<button type='button' onClick={handleHide} className='relative w-full'>
 					<h3 className='text-left'>Fields</h3>

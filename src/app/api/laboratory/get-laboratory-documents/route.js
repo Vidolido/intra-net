@@ -9,20 +9,23 @@ import dbConnect from '@/db/conn';
 import Analysis from '@/db/models/Analysis';
 
 export async function GET(request) {
-  let documentStatus = request.nextUrl.searchParams.get('documentStatus');
+	const query = {};
 
-  let query = Array.from(request.nextUrl.searchParams).map((param) => ({
-    [param[0]]: param[1],
-  }));
-  console.log(query, 'ova'); // do tuka sum
-  try {
-    cookies();
-    await dbConnect();
-    const documents = !documentStatus
-      ? await Analysis.find({})
-      : await Analysis.find({ documentStatus });
-    return NextResponse.json({ documents }, { status: 200 });
-  } catch (error) {
-    return NextResponse.json({ error }, { status: 500 });
-  }
+	if (request.nextUrl?.searchParams?.get('documentStatus')) {
+		query.documentStatus = request.nextUrl?.searchParams?.get('documentStatus');
+	}
+	if (request.nextUrl?.searchParams?.get('time') === 'today') {
+		const now = new Date();
+		const twentyFourHoursAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+		query.createdAt = { $gte: twentyFourHoursAgo };
+	}
+	// console.log(query, 'the query');
+	try {
+		cookies();
+		await dbConnect();
+		const documents = await Analysis.find(query);
+		return NextResponse.json({ documents }, { status: 200 });
+	} catch (error) {
+		return NextResponse.json({ error }, { status: 500 });
+	}
 }

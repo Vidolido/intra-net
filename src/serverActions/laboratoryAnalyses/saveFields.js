@@ -10,19 +10,20 @@ export async function saveFields(fields, documentId) {
 	try {
 		await dbConnect();
 
-		const analysis = await Analysis.updateOne(
+		await Analysis.updateOne(
 			{ _id: documentId },
 			{
 				$set: { fields: fields },
 			}
 		);
 		// console.log(analysis, 'update analysis fields');
+		revalidatePath('/dashboard/laboratory/analyses', 'page');
 		revalidatePath('/dashboard/laboratory/analyses/create', 'page');
 		revalidatePath('/dashboard/laboratory/analyses/draft/[_id]', 'page');
 		revalidatePath('/dashboard/laboratory/analyses/edit/[_id]', 'page');
 		return { message: 'Update successful' }; //
 	} catch (error) {
-		console.log('Failed to create draft Template error:', error);
-		throw Error('Could not add draft Template to database: ' + error);
+		console.log('Failed to create field, error:', error);
+		throw Error('Could not add field to database: ' + error);
 	}
 }
