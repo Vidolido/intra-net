@@ -8,6 +8,9 @@ import CreateDraftAnalysis from '@/components/analyses/CreateDraftAnalyses';
 import DisplayDraftDocuments from '@/components/analyses/documentsPage/DisplayDraftDocuments';
 import LastAddedDocuments from '@/components/analyses/documentsPage/LastAddedDocuments';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 const page = async () => {
 	const { templateSettings } = await getTemplateSettings();
 

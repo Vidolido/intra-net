@@ -6,6 +6,10 @@ const links = {
 		path: '/dashboard/laboratory',
 		additionalLinks: [
 			{
+				label: 'All Documents',
+				path: '/dashboard/laboratory/analyses/all',
+			},
+			{
 				label: 'Analyses',
 				path: '/dashboard/laboratory/analyses',
 			},

@@ -35,6 +35,7 @@ export async function saveTemplateResult(documentId, formData) {
 			}
 		);
 
+		revalidatePath('/dashboard/laboratory/analyses', 'page');
 		revalidatePath('/dashboard/laboratory/analyses/create', 'page');
 		revalidatePath('/dashboard/laboratory/analyses/draft/[_id]', 'page');
 		revalidatePath('/dashboard/laboratory/analyses/edit/[_id]', 'page');

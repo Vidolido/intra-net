@@ -5,25 +5,47 @@ import { cookies } from 'next/headers';
 
 // connection/models/db functions
 import dbConnect from '@/db/conn';
-// import LaboratoryTemplate from '@/db/models/LaboratoryTemplate';
 import Analysis from '@/db/models/Analysis';
 
 export async function GET(request) {
-	const query = {};
-
-	if (request.nextUrl?.searchParams?.get('documentStatus')) {
-		query.documentStatus = request.nextUrl?.searchParams?.get('documentStatus');
-	}
-	if (request.nextUrl?.searchParams?.get('time') === 'today') {
-		const now = new Date();
-		const twentyFourHoursAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000);
-		query.createdAt = { $gte: twentyFourHoursAgo };
-	}
-	// console.log(query, 'the query');
+	let documentStatus =
+		request.nextUrl?.searchParams?.get('documentStatus') || '';
+	let sorted = request.nextUrl?.searchParams?.get('sorted') ? true : false;
 	try {
 		cookies();
 		await dbConnect();
-		const documents = await Analysis.find(query);
+
+		let matchStage = {};
+		if (documentStatus) {
+			matchStage = { documentStatus: documentStatus };
+		}
+
+		let pipeline = [{ $match: matchStage }];
+		if (sorted) {
+			pipeline.push(
+				{
+					$group: {
+						_id: { $dateToString: { format: '%Y-%m-%d', date: '$createdAt' } },
+						documents: { $push: '$$ROOT' },
+					},
+				},
+				{
+					$project: {
+						_id: 0,
+						date: '$_id',
+						documents: 1,
+					},
+				},
+				{
+					$sort: { date: -1 },
+				}
+			);
+		} else {
+			pipeline.push({
+				$sort: { createdAt: -1 },
+			});
+		}
+		const documents = await Analysis.aggregate(pipeline);
 		return NextResponse.json({ documents }, { status: 200 });
 	} catch (error) {
 		return NextResponse.json({ error }, { status: 500 });
