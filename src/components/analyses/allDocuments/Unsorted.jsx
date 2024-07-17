@@ -1,15 +1,11 @@
-// state/actions
-import { nameArray } from '@/utils/nameArray';
 import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
-
-// components
 import DisplayDocument from './DisplayDocument';
+import { nameArray } from '@/utils/nameArray';
 
-const SingleDateCollection = ({ collection, templateSettings }) => {
+const Unsorted = ({ document, templateSettings }) => {
+	// console.log(document, 'the document');
+
 	let { products, types, countries } = mutateTemplateSettings(templateSettings);
-	//   let products = templateSettings.filter(
-	//     (setting) => setting.settingName === 'Products'
-	//   );
 
 	let mutProducts = products?.settings?.map((setting) => ({
 		id: setting._id,
@@ -23,23 +19,15 @@ const SingleDateCollection = ({ collection, templateSettings }) => {
 		id: setting._id,
 		...nameArray(setting.parameter.inputValue),
 	}));
-
-	return collection.documents.map((document) => (
+	return (
 		<DisplayDocument
-			key={document._id}
 			document={document}
 			products={mutProducts}
 			types={mutTypes}
 			countries={mutCountries}
+			dateTime={true}
 		/>
-	));
+	);
 };
 
-export default SingleDateCollection;
-{
-	/* <Ordered
-  key={document.id}
-  document={document}
-  templateSettings={templateSettings}
-/>; */
-}
+export default Unsorted;
