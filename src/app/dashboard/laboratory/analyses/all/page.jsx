@@ -5,22 +5,22 @@ import { getLaboratoryDocuments } from '../../apiCalls';
 import DateCollections from '@/components/analyses/allDocuments/DateCollections';
 
 const page = async () => {
-	const { documents } = await getLaboratoryDocuments({
-		documentStatus: 'published',
-		sorted: true,
-	});
+  const { documents } = await getLaboratoryDocuments({
+    documentStatus: 'published',
+    sorted: true,
+  });
 
-	return (
-		<div>
-			All Documents
-			{documents.map((dateCollection) => (
-				<DateCollections
-					key={dateCollection.date}
-					collection={dateCollection}
-				/>
-			))}
-		</div>
-	);
+  return (
+    <div className='w-10/12'>
+      All Documents
+      {documents.map((dateCollection) => (
+        <DateCollections
+          key={dateCollection.date}
+          collection={dateCollection}
+        />
+      ))}
+    </div>
+  );
 };
 
 export default page;

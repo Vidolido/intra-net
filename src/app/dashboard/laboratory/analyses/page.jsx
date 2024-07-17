@@ -12,38 +12,45 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 const page = async () => {
-	const { templateSettings } = await getTemplateSettings();
+  const { templateSettings } = await getTemplateSettings();
 
-	const { documents: draftDocuments } = await getLaboratoryDocuments({
-		documentStatus: 'draft',
-	});
-	const { documents: publishedDocuments } = await getLaboratoryDocuments({
-		documentStatus: 'published',
-		time: 'today',
-	});
-	let products = templateSettings.filter(
-		(setting) => setting.settingName === 'Products'
-	);
+  const { documents: draftDocuments } = await getLaboratoryDocuments({
+    documentStatus: 'draft',
+  });
+  // const { documents: publishedDocuments } = await getLaboratoryDocuments({
+  // 	documentStatus: 'published',
+  // 	time: 'today',
+  // });
+  const { documents: publishedDocuments } = await getLaboratoryDocuments({
+    documentStatus: 'published',
+    sorted: true,
+  });
 
-	let items = products[0]?.settings?.map((setting) => ({
-		id: setting._id,
-		...nameArray(setting.parameter.inputValue),
-	}));
+  let products = templateSettings.filter(
+    (setting) => setting.settingName === 'Products'
+  );
 
-	return (
-		<div className='w-full pr-4'>
-			<h2>Analyses</h2>
-			<CreateDraftAnalysis />
-			<div className='flex justify-between w-full'>
-				<LastAddedDocuments
-					documents={publishedDocuments}
-					templateSettings={templateSettings}
-					products={items}
-				/>
-				<DisplayDraftDocuments documents={draftDocuments} />
-			</div>
-		</div>
-	);
+  let items = products[0]?.settings?.map((setting) => ({
+    id: setting._id,
+    ...nameArray(setting.parameter.inputValue),
+  }));
+
+  console.log(items, 'published');
+
+  return (
+    <div className='w-full pr-4'>
+      <CreateDraftAnalysis />
+      <h2>Analyses</h2>
+      <div className='flex justify-between w-full'>
+        <LastAddedDocuments
+          documents={publishedDocuments}
+          templateSettings={templateSettings}
+          products={items}
+        />
+        <DisplayDraftDocuments documents={draftDocuments} />
+      </div>
+    </div>
+  );
 };
 
 export default page;
