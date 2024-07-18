@@ -1,9 +1,6 @@
-const Labels = ({ dateTime = false }) => {
+const Labels = ({ classes, dateTime }) => {
 	return (
-		<div
-			className={`grid grid-cols-${
-				dateTime ? 5 : 4
-			} gap-4 border rounded bg-white>`}>
+		<div className={` border rounded bg-white grid gap-4 ${classes}`}>
 			<p>Product</p>
 			<p>Origin</p>
 			<p>Sample</p>

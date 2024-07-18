@@ -24,7 +24,7 @@ const page = async () => {
 		<div className='w-10/12'>
 			All Documents
 			<div className='w-full'>
-				<Labels dateTime={true} />
+				<Labels classes={'grid-cols-5'} dateTime={true} />
 				{notSorted.map((document) => (
 					<Unsorted
 						key={document._id}

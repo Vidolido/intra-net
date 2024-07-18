@@ -1,6 +1,9 @@
 'use client';
 import { useState } from 'react';
 
+// state/actions
+import { formatDate } from '@/utils/formatDate';
+
 // components
 import ArrowSvg from '@/../public/arrow.svg';
 import Labels from './Labels';
@@ -9,7 +12,7 @@ import SingleDateCollection from './SingleDateCollection';
 const DateCollections = ({ collection, templateSettings }) => {
 	const [visible, setVisible] = useState(true);
 
-	let date = new Date(collection.date).toLocaleDateString('mk-MK');
+	const date = formatDate(collection.date);
 
 	const handleHide = () => {
 		setVisible(!visible);
@@ -25,7 +28,7 @@ const DateCollections = ({ collection, templateSettings }) => {
 				/>
 			</button>
 			<div className={` ${!visible ? 'hidden' : 'visible'}`}>
-				<Labels dateTime={false} />
+				<Labels classes={'grid-cols-5'} dateTime={false} />
 				<SingleDateCollection
 					collection={collection}
 					templateSettings={templateSettings}

@@ -7,9 +7,6 @@ import DisplayDocument from './DisplayDocument';
 
 const SingleDateCollection = ({ collection, templateSettings }) => {
 	let { products, types, countries } = mutateTemplateSettings(templateSettings);
-	//   let products = templateSettings.filter(
-	//     (setting) => setting.settingName === 'Products'
-	//   );
 
 	let mutProducts = products?.settings?.map((setting) => ({
 		id: setting._id,
@@ -36,10 +33,3 @@ const SingleDateCollection = ({ collection, templateSettings }) => {
 };
 
 export default SingleDateCollection;
-{
-	/* <Ordered
-  key={document.id}
-  document={document}
-  templateSettings={templateSettings}
-/>; */
-}

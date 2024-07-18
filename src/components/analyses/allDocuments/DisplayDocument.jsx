@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const DisplayDocument = ({
 	document,
 	products,
@@ -19,17 +21,19 @@ const DisplayDocument = ({
 	);
 	const date = new Date(document.createdAt);
 	return (
-		<div className={`grid grid-cols-${dateTime ? 5 : 4} gap-4 border-b>`}>
-			<p>{product.name['en']}</p>
-			<p>{origin.name['en']}</p>
-			<p>{sampleType?.name['en'] || 'none'}</p>
-			<p>{documentType?.name['en']}</p>
-			{dateTime && (
-				<p>{`${date.toLocaleDateString('mk-MK')} ${date.toLocaleTimeString(
-					'en-GB'
-				)}`}</p>
-			)}
-		</div>
+		<Link href={`/dashboard/laboratory/analyses/${document._id}`}>
+			<div className={`grid grid-cols-5 gap-4 border-b`}>
+				<p>{product.name['en']}</p>
+				<p>{origin.name['en']}</p>
+				<p>{sampleType?.name['en'] || 'none'}</p>
+				<p>{documentType?.name['en']}</p>
+				{dateTime && (
+					<p>{`${date.toLocaleDateString('mk-MK')} ${date.toLocaleTimeString(
+						'en-GB'
+					)}`}</p>
+				)}
+			</div>
+		</Link>
 	);
 };
 

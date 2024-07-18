@@ -3,7 +3,7 @@ import DisplayDocument from './DisplayDocument';
 import { nameArray } from '@/utils/nameArray';
 
 const Unsorted = ({ document, templateSettings }) => {
-	// console.log(document, 'the document');
+	console.log(document, 'the document');
 
 	let { products, types, countries } = mutateTemplateSettings(templateSettings);
 
