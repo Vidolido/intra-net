@@ -17,9 +17,7 @@ const page = async () => {
 
 	const { documents: notSorted } = await getLaboratoryDocuments({
 		documentStatus: 'published',
-		// sorted: true,
 	});
-	// console.log(notSorted, 'not');
 	return (
 		<div className='w-10/12'>
 			All Documents

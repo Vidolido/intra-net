@@ -1,10 +1,11 @@
+// state/actions
 import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
-import DisplayDocument from './DisplayDocument';
 import { nameArray } from '@/utils/nameArray';
 
-const Unsorted = ({ document, templateSettings }) => {
-	console.log(document, 'the document');
+// components
+import DisplayDocument from './DisplayDocument';
 
+const Unsorted = ({ document, templateSettings }) => {
 	let { products, types, countries } = mutateTemplateSettings(templateSettings);
 
 	let mutProducts = products?.settings?.map((setting) => ({
