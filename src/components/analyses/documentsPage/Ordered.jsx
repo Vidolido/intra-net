@@ -4,8 +4,6 @@ import { useState } from 'react';
 // components
 import ArrowSvg from '@/../public/arrow.svg';
 import PublishedDocuments from './PublishedDocuments';
-// import PublishedTemplate from './PublishedTemplate';
-// import PublishedSetting from './PublishedSetting';
 
 const Ordered = ({ document, templateSettings }) => {
   const [visible, setVisible] = useState(true);
@@ -38,11 +36,6 @@ const Ordered = ({ document, templateSettings }) => {
                   analysis={analysis}
                   templateSettings={templateSettings}
                 />
-                {/* <PublishedTemplate
-                  template={template}
-                  products={products}
-                  templateSettings={templateSettings}
-                /> */}
               </li>
             );
           })}
