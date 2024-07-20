@@ -5,7 +5,11 @@ import {
 	getLanguages,
 } from '@/app/dashboard/apiCalls';
 import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemplateSettings';
-import { getAnalysisById, getDraftAnalysis } from '../../../apiCalls';
+import {
+	getAnalysisById,
+	getDraftAnalysis,
+	getLaboratoryTemplates,
+} from '../../../apiCalls';
 
 // components
 import Analysis from '@/components/analyses/Analysis';
@@ -18,14 +22,14 @@ const page = async ({ params }) => {
 
 	let { templateSettings } = await getTemplateSettings();
 	let { languages } = await getLanguages();
-	let { laboratoryTemplates } = await getAllTemplates();
+	let { templates } = await getLaboratoryTemplates({
+		documentStatus: 'published',
+	});
 
 	const { setting } = await getLaboratorySettings();
 	const { settings } = setting || [];
 
-	// const { draft } = await getDraftAnalysis();
 	const { document } = await getAnalysisById(_id);
-	// console.log(document, 'document');
 	return (
 		<div className='w-full'>
 			<h2>Create New Document</h2>
@@ -34,7 +38,7 @@ const page = async ({ params }) => {
 				templateSettings={templateSettings}
 				languages={languages}
 				settings={settings}
-				templates={laboratoryTemplates}
+				templates={templates}
 			/>
 		</div>
 	);

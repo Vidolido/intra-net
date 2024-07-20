@@ -12,7 +12,7 @@ const DraftTemplate = ({ draft }) => {
 		await deleteDraftTemplate(_id);
 	};
 	return (
-		<div className='flex gap-2 justify-between border-2 border-slate-200 hover:border-red-200 p-2'>
+		<div className='flex gap-2 justify-between p-2'>
 			<Link
 				key={draft?._id}
 				href={`/dashboard/laboratory/templates/draft/${draft._id}`}>

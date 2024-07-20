@@ -1,18 +1,17 @@
 'use client';
-import Link from 'next/link';
 
 // state/actions
-// import { deleteDraftSetting } from '@/serverActions/settings/deleteDraftSetting';
+import { nameArray } from '@/utils/nameArray';
+import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
 
 // components
-import ContextButton from '@/components/buttons/ContextButton';
-import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
-import { nameArray } from '@/utils/nameArray';
+import Options from '@/components/options/Options';
 
 const PublishedTemplate = ({ template, products, templateSettings }) => {
 	let { types, countries } = mutateTemplateSettings(templateSettings);
 
 	const handleDelete = async (_id) => {
+		console.log(_id, 'DELETE ITEM');
 		// await deleteDraftSetting(_id);
 	};
 
@@ -20,31 +19,45 @@ const PublishedTemplate = ({ template, products, templateSettings }) => {
 		id: setting._id,
 		...nameArray(setting.parameter.inputValue),
 	}));
+
 	let mutCountries = countries?.settings?.map((setting) => ({
 		id: setting._id,
 		...nameArray(setting.parameter.inputValue),
 	}));
 
-	const type = mutTypes.find((type) => type.id === template.documentType);
+	const documentType = mutTypes.find(
+		(type) => type.id === template.documentType
+	);
+	const sampleType =
+		mutTypes.find((type) => type.id === template.sampleType) || 'none';
 	const country = mutCountries.find(
 		(country) => country.id === template.origin
 	);
-
 	return (
 		<>
-			<p>{type.name['en'] || ''}</p>
-			<p>{country.name['en'] || ''}</p>
-			<div className='flex justify-end gap-2'>
-				<Link
-					href={`/dashboard/laboratory/templates/edit/${template._id}`}
-					className='hover:underline text-black'>
-					edit
-				</Link>
-				<ContextButton
-					label='delete'
-					type='default'
-					onClick={() => handleDelete(template._id)}
-					classes='self-end'
+			<p className='pl-1 border-l border-transparent'>
+				{documentType.name['en'] || ''}
+			</p>
+			<p className='pl-1 border-l border-slate-300'>
+				{country.name['en'] || ''}
+			</p>
+			<p className='pl-1 border-l border-slate-300'>
+				{sampleType !== 'none' ? sampleType?.name['en'] : '--'}
+			</p>
+			<div className='border-l border-slate-300 relative'>
+				<Options
+					_id={template._id}
+					edit={{
+						show: true,
+						link: '/dashboard/laboratory/templates/edit/',
+						classes: 'hover:underline text-black',
+					}}
+					deleteItem={{
+						show: true,
+						type: 'default',
+						onClick: handleDelete,
+						classes: 'self-end',
+					}}
 				/>
 			</div>
 		</>

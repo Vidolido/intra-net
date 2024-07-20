@@ -57,23 +57,23 @@
     "collections": [
       {
         "name": {
-          "0-languages-en": "Methods",
-          "0-languages-mk": "Методи",
-          "0-languages-gr": "грчко"
+          "en": "Methods",
+          "gr": "грчко",
+          "mk": "Методи"
         }
       },
       {
         "name": {
-          "1-languages-en": "Units",
-          "1-languages-mk": "Единици",
-          "1-languages-gr": "грчко"
+          "en": "Units",
+          "gr": "грчко",
+          "mk": "Единици"
         }
       },
       {
         "name": {
-          "2-languages-en": "Limits",
-          "2-languages-mk": "Ограничувања",
-          "2-languages-gr": "грчко"
+          "en": "Limits",
+          "gr": "грчко",
+          "mk": "Ограничувања"
         }
       }
     ]
@@ -9816,7 +9816,7 @@
   "_id": {
     "$oid": "666d74595914b08e11ea659f"
   },
-  "documentStatus": "draft",
+  "documentStatus": "published",
   "isDeleted": false,
   "__v": 0,
   "collections": [
@@ -9850,9 +9850,9 @@
     "collections": [
       {
         "name": {
-          "0-languages-en": "Locale",
-          "0-languages-mk": "",
-          "0-languages-gr": ""
+          "en": "Locale",
+          "gr": "",
+          "mk": ""
         }
       }
     ]
@@ -10201,9 +10201,9 @@
     "collections": [
       {
         "name": {
-          "0-languages-en": "Type",
-          "0-languages-mk": "Вид",
-          "0-languages-gr": ""
+          "en": "Type",
+          "gr": "",
+          "mk": "Вид"
         }
       }
     ]
@@ -10226,8 +10226,8 @@
           }
         },
         "inputValue": {
-          "en": "Import",
-          "mk": "Импорт",
+          "en": "Import Certificate",
+          "mk": "Увозен Сертификат",
           "gr": ""
         }
       },
@@ -10812,6 +10812,92 @@
       "_id": {
         "$oid": "666d7b965914b08e11ea6ae8"
       }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": ""
+          },
+          "plural": {
+            "en": "Names",
+            "mk": "Имиња",
+            "gr": ""
+          }
+        },
+        "inputValue": {
+          "en": "Test Report",
+          "mk": "Извештај за тестирање",
+          "gr": ""
+        }
+      },
+      "collections": [
+        {
+          "name": {
+            "en": "Type",
+            "gr": "",
+            "mk": "Вид"
+          },
+          "items": [
+            {
+              "id": "6002af16-2ce6-4fb9-ae00-7c8a42868f78",
+              "inputType": "simple",
+              "value": "document"
+            }
+          ],
+          "_id": {
+            "$oid": "669acba10fc82990a8477469"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "669ace630fc82990a84774a4"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": ""
+          },
+          "plural": {
+            "en": "Names",
+            "mk": "Имиња",
+            "gr": ""
+          }
+        },
+        "inputValue": {
+          "en": "Quality Certificate",
+          "mk": "Уверение за  квалитет",
+          "gr": ""
+        }
+      },
+      "collections": [
+        {
+          "name": {
+            "en": "Type",
+            "gr": "",
+            "mk": "Вид"
+          },
+          "items": [
+            {
+              "id": "2194fbc4-4094-4c62-baff-64a40c4f2e9e",
+              "inputType": "simple",
+              "value": "document"
+            }
+          ],
+          "_id": {
+            "$oid": "669ace870fc82990a8477507"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "669ace870fc82990a8477506"
+      }
     }
   ]
 },
@@ -10819,7 +10905,7 @@
   "_id": {
     "$oid": "666d7d775914b08e11ea6cdd"
   },
-  "documentStatus": "draft",
+  "documentStatus": "published",
   "isDeleted": false,
   "__v": 0,
   "collections": [
@@ -10864,9 +10950,9 @@
     "collections": [
       {
         "name": {
-          "0-languages-en": "Type",
-          "0-languages-mk": "Вид",
-          "0-languages-gr": ""
+          "en": "Type",
+          "gr": "",
+          "mk": "Вид"
         }
       },
       {
@@ -11526,7 +11612,7 @@
   "_id": {
     "$oid": "666ff81a9ba07d1ed9f78a7f"
   },
-  "documentStatus": "draft",
+  "documentStatus": "published",
   "isDeleted": false,
   "__v": 0,
   "collections": [
@@ -11571,16 +11657,22 @@
     "collections": [
       {
         "name": {
-          "0-languages-en": "checked",
-          "0-languages-mk": "",
-          "0-languages-gr": ""
+          "en": "checked",
+          "gr": "",
+          "mk": ""
+        },
+        "_id": {
+          "$oid": "668d962ca2bb2e352dc82099"
         }
       },
       {
         "name": {
-          "1-languages-en": "type",
-          "1-languages-mk": "",
-          "1-languages-gr": ""
+          "en": "type",
+          "gr": "",
+          "mk": ""
+        },
+        "_id": {
+          "$oid": "668d962ca2bb2e352dc8209a"
         }
       }
     ]
@@ -11859,7 +11951,7 @@
             {
               "id": "71e1e9ba-0478-49fb-8bf4-0677e3cce84c",
               "inputType": "simple",
-              "value": "checked"
+              "value": "false"
             }
           ],
           "_id": {
@@ -12039,7 +12131,7 @@
             {
               "id": "92c3d2fe-cd04-4cfe-848d-1972498c3135",
               "inputType": "simple",
-              "value": "checked"
+              "value": "false"
             }
           ],
           "_id": {
@@ -12099,7 +12191,7 @@
             {
               "id": "84f76fc7-1b2b-4791-8ab3-c37fb7f57249",
               "inputType": "simple",
-              "value": "false"
+              "value": "checked"
             }
           ],
           "_id": {
@@ -12159,7 +12251,7 @@
             {
               "id": "ee2057c4-77fb-4162-9080-26d92dd32b2c",
               "inputType": "simple",
-              "value": "false"
+              "value": "checked"
             }
           ],
           "_id": {
@@ -12374,7 +12466,7 @@
   "_id": {
     "$oid": "6677ff0466c436e69add0ba5"
   },
-  "documentStatus": "draft",
+  "documentStatus": "published",
   "isDeleted": false,
   "__v": 0,
   "collections": [
@@ -12408,9 +12500,9 @@
     "collections": [
       {
         "name": {
-          "0-languages-en": "Tags",
-          "0-languages-mk": "",
-          "0-languages-gr": ""
+          "en": "Tags",
+          "gr": "",
+          "mk": ""
         }
       }
     ]
@@ -12676,4 +12768,236 @@
       }
     ]
   }
+},
+{
+  "_id": {
+    "$oid": "6687a169f1f4cc203c347aed"
+  },
+  "documentStatus": "published",
+  "isDeleted": false,
+  "__v": 0,
+  "sector": "Oil Movement",
+  "settingName": "Testot",
+  "optionsSchema": {
+    "parameter": {
+      "name": {
+        "singular": {
+          "en": "dva",
+          "mk": "zaza",
+          "gr": ""
+        },
+        "plural": {
+          "en": "trest",
+          "mk": "",
+          "gr": ""
+        }
+      }
+    },
+    "collections": [
+      {
+        "name": {
+          "en": "Limits",
+          "mk": "",
+          "gr": ""
+        },
+        "_id": {
+          "$oid": "6687c943f1f4cc203c351731"
+        }
+      }
+    ]
+  },
+  "settings": []
+},
+{
+  "_id": {
+    "$oid": "6687ba21f1f4cc203c34dd58"
+  },
+  "documentStatus": "draft",
+  "isDeleted": false,
+  "__v": 0,
+  "optionsSchema": {
+    "parameter": {
+      "name": {
+        "singular": {
+          "en": "",
+          "mk": "",
+          "gr": ""
+        },
+        "plural": {
+          "en": "",
+          "mk": "",
+          "gr": ""
+        }
+      }
+    },
+    "collections": [
+      {
+        "name": {
+          "en": "test",
+          "mk": "",
+          "gr": ""
+        },
+        "_id": {
+          "$oid": "6687bfa4f1f4cc203c35008d"
+        }
+      },
+      {
+        "name": {
+          "en": "dva",
+          "mk": "",
+          "gr": ""
+        },
+        "_id": {
+          "$oid": "6687bfa7f1f4cc203c350094"
+        }
+      },
+      {
+        "name": {
+          "en": "trestest",
+          "mk": "",
+          "gr": ""
+        },
+        "_id": {
+          "$oid": "6687bfaaf1f4cc203c35009f"
+        }
+      }
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "6687c9baf1f4cc203c3519da"
+  },
+  "documentStatus": "draft",
+  "isDeleted": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668a6aadec337e0fbb0bc2a6"
+  },
+  "documentStatus": "draft",
+  "isDeleted": false,
+  "__v": 0,
+  "optionsSchema": {
+    "parameter": {
+      "name": {
+        "singular": {
+          "en": "Language",
+          "mk": "Јазик",
+          "gr": ""
+        },
+        "plural": {
+          "en": "Languages",
+          "mk": "Јазици",
+          "gr": ""
+        }
+      }
+    },
+    "collections": [
+      {
+        "name": {
+          "en": "locale",
+          "mk": "Локал",
+          "gr": ""
+        },
+        "_id": {
+          "$oid": "668a6b10ec337e0fbb0bc8bd"
+        }
+      },
+      {
+        "name": {
+          "en": "language",
+          "mk": "",
+          "gr": ""
+        },
+        "_id": {
+          "$oid": "668a6b42ec337e0fbb0bc8c4"
+        }
+      }
+    ]
+  }
+},
+{
+  "_id": {
+    "$oid": "66901495a11a091cb30307c3"
+  },
+  "documentStatus": "draft",
+  "isDeleted": false,
+  "__v": 0,
+  "sector": "Oil Movement",
+  "settingName": "Nov test",
+  "optionsSchema": {
+    "parameter": {
+      "name": {
+        "singular": {
+          "en": "asdad",
+          "mk": "",
+          "gr": ""
+        },
+        "plural": {
+          "en": "asdasd",
+          "mk": "",
+          "gr": ""
+        }
+      }
+    },
+    "collections": [
+      {
+        "name": {
+          "en": "asdasd",
+          "mk": "",
+          "gr": ""
+        },
+        "_id": {
+          "$oid": "669014a4a11a091cb3030a24"
+        }
+      }
+    ]
+  },
+  "settings": [
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "asdad",
+            "mk": "",
+            "gr": ""
+          },
+          "plural": {
+            "en": "asdasd",
+            "mk": "",
+            "gr": ""
+          }
+        },
+        "inputValue": {
+          "en": "da da ",
+          "mk": "",
+          "gr": ""
+        }
+      },
+      "collections": [
+        {
+          "name": {
+            "en": "asdasd",
+            "mk": "",
+            "gr": ""
+          },
+          "items": [
+            {
+              "id": "3af7515f-0b8b-4ddd-acdb-82976ea03b39",
+              "inputType": "simple",
+              "value": "ne ne"
+            }
+          ],
+          "_id": {
+            "$oid": "669014a4a11a091cb3030a24"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "669014b3a11a091cb3030a3c"
+      }
+    }
+  ]
 }]

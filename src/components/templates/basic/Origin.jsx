@@ -13,6 +13,8 @@ const Origin = ({ name, countries, setHeader, classes }) => {
 		...nameArray(setting.parameter.inputValue),
 	}));
 
+	// console.log(countries, 'countries');
+
 	useEffect(() => {
 		if (setHeader) {
 			setHeader((prev) => ({
@@ -29,8 +31,7 @@ const Origin = ({ name, countries, setHeader, classes }) => {
 			<SelectInput
 				name={name}
 				options={names}
-				value='id'
-				defaultLanguage='en'
+				value='_id'
 				onChange={(e) =>
 					setHeader
 						? setHeader((prev) => ({
@@ -39,6 +40,7 @@ const Origin = ({ name, countries, setHeader, classes }) => {
 						  }))
 						: null
 				}
+				defaultLanguage='en'
 				classes={classes}
 			/>
 		</fieldset>

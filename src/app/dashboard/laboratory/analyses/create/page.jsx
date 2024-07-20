@@ -4,7 +4,7 @@ import {
 	getLaboratorySettings,
 	getLanguages,
 } from '@/app/dashboard/apiCalls';
-import { getDraftAnalysis } from '../../apiCalls';
+import { getDraftAnalysis, getLaboratoryTemplates } from '../../apiCalls';
 import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemplateSettings';
 
 // components
@@ -16,7 +16,10 @@ export const revalidate = 0;
 const page = async () => {
 	let { templateSettings } = await getTemplateSettings();
 	let { languages } = await getLanguages();
-	let { laboratoryTemplates } = await getAllTemplates();
+	// let { laboratoryTemplates } = await getAllTemplates();
+	let { templates: published } = await getLaboratoryTemplates({
+		documentStatus: 'published',
+	});
 
 	const { setting } = await getLaboratorySettings();
 	const { settings } = setting || [];
@@ -31,7 +34,7 @@ const page = async () => {
 				templateSettings={templateSettings}
 				languages={languages}
 				settings={settings}
-				templates={laboratoryTemplates}
+				templates={published}
 			/>
 		</div>
 	);
