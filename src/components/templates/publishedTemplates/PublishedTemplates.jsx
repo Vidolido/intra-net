@@ -8,7 +8,7 @@ const PublishedTemplates = ({ published, products, templateSettings }) => {
 	const mutPublished = orderByProduct(published, products) || [];
 	return (
 		<div className='flex flex-col min-w-[40%] gap-1'>
-			<h2>Templates</h2>
+			<h4>Templates</h4>
 			{mutPublished.map((product) =>
 				product.items.length > 0 ? (
 					<Ordered

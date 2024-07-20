@@ -6,10 +6,12 @@ import { deleteDraftTemplate } from '@/serverActions/laboratoryTemplates/deleteD
 
 // components
 import ContextButton from '@/components/buttons/ContextButton';
+import { deleteTemplate } from '@/serverActions/laboratoryTemplates/deleteTemplate';
 
 const DraftTemplate = ({ draft }) => {
 	const handleDelete = async (_id) => {
-		await deleteDraftTemplate(_id);
+		// await deleteDraftTemplate(_id);
+		await deleteTemplate(_id, 'draft');
 	};
 	return (
 		<div className='flex gap-2 justify-between p-2'>
@@ -17,7 +19,6 @@ const DraftTemplate = ({ draft }) => {
 				key={draft?._id}
 				href={`/dashboard/laboratory/templates/draft/${draft._id}`}>
 				<h5>{draft?._id}</h5>
-				<p>{draft?.settingName}</p>
 			</Link>
 			<ContextButton
 				label='Delete'

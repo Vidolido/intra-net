@@ -14,6 +14,7 @@ export const revalidate = 0;
 const page = async () => {
 	const { templates: published } = await getLaboratoryTemplates({
 		documentStatus: 'published',
+		isDeleted: false,
 	});
 	const { templates: draftTemplates } = await getLaboratoryTemplates({
 		documentStatus: 'draft',

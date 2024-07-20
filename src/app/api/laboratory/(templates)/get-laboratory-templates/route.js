@@ -13,7 +13,10 @@ export async function GET(request) {
 	try {
 		cookies();
 		await dbConnect();
-		const templates = await LaboratoryTemplate.find({ documentStatus });
+		const templates = await LaboratoryTemplate.find({
+			documentStatus,
+			isDeleted: false,
+		});
 		// revalidatePath('/dashboard/laboratory/templates/draft/[_id]', 'page');
 		return NextResponse.json({ templates }, { status: 200 });
 	} catch (error) {

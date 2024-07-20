@@ -1,6 +1,7 @@
 'use client';
 
 // state/actions
+import { deleteTemplate } from '@/serverActions/laboratoryTemplates/deleteTemplate';
 import { nameArray } from '@/utils/nameArray';
 import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
 
@@ -13,6 +14,7 @@ const PublishedTemplate = ({ template, products, templateSettings }) => {
 	const handleDelete = async (_id) => {
 		console.log(_id, 'DELETE ITEM');
 		// await deleteDraftSetting(_id);
+		await deleteTemplate(_id, 'published');
 	};
 
 	let mutTypes = types?.settings?.map((setting) => ({
