@@ -7,7 +7,7 @@ import { nameArray } from '@/utils/nameArray';
 // components
 import SelectInput from '@/components/inputs/SelectInput';
 
-const Origin = ({ name, countries, setHeader, classes }) => {
+const Origin = ({ name, countries, languages, value, setHeader, classes }) => {
 	let names = countries?.settings.map((setting) => ({
 		_id: setting._id,
 		...nameArray(setting.parameter.inputValue),
@@ -32,6 +32,7 @@ const Origin = ({ name, countries, setHeader, classes }) => {
 				name={name}
 				options={names}
 				value='_id'
+				defaultValue={value}
 				onChange={(e) =>
 					setHeader
 						? setHeader((prev) => ({
@@ -40,7 +41,7 @@ const Origin = ({ name, countries, setHeader, classes }) => {
 						  }))
 						: null
 				}
-				defaultLanguage='en'
+				defaultLanguage={languages[0].language}
 				classes={classes}
 			/>
 		</fieldset>

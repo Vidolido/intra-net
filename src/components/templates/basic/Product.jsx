@@ -7,13 +7,11 @@ import { nameArray } from '@/utils/nameArray';
 // components
 import SelectInput from '@/components/inputs/SelectInput';
 
-const Product = ({ name, languages, products, setHeader, classes, value }) => {
+const Product = ({ name, products, value, languages, classes, setHeader }) => {
 	let names = products?.settings.map((setting) => ({
 		_id: setting._id,
 		...nameArray(setting.parameter.inputValue),
 	}));
-
-	// console.log(products, 'products');
 
 	useEffect(() => {
 		if (setHeader) {
@@ -31,7 +29,7 @@ const Product = ({ name, languages, products, setHeader, classes, value }) => {
 			<SelectInput
 				name={name}
 				options={names}
-				value='_id'
+				defaultValue={value}
 				onChange={(e) =>
 					setHeader
 						? setHeader((prev) => ({
@@ -40,7 +38,7 @@ const Product = ({ name, languages, products, setHeader, classes, value }) => {
 						  }))
 						: null
 				}
-				defaultLanguage='en'
+				defaultLanguage={languages[0].language}
 				classes={classes}
 			/>
 		</fieldset>

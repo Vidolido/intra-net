@@ -8,7 +8,15 @@ import { nameArray } from '@/utils/nameArray';
 // components
 import SelectInput from '@/components/inputs/SelectInput';
 
-const SampleType = ({ types, setHeader, classes, name, none }) => {
+const SampleType = ({
+	name,
+	types,
+	value,
+	none,
+	languages,
+	setHeader,
+	classes,
+}) => {
 	let sampleTypes = findSettingType(types.settings, ['sample']);
 	let names = sampleTypes?.map((setting) => ({
 		_id: setting._id,
@@ -19,7 +27,7 @@ const SampleType = ({ types, setHeader, classes, name, none }) => {
 		if (setHeader)
 			setHeader((prev) => ({
 				...prev,
-				sampleType: !none ? names[0]._id : 'none',
+				sampleType: value ? names[0]._id : 'none',
 			}));
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
@@ -31,6 +39,7 @@ const SampleType = ({ types, setHeader, classes, name, none }) => {
 				name={name}
 				options={names}
 				value='id'
+				defaultValue={value}
 				none={none}
 				onChange={(e) =>
 					setHeader
@@ -40,7 +49,7 @@ const SampleType = ({ types, setHeader, classes, name, none }) => {
 						  }))
 						: null
 				}
-				defaultLanguage='en'
+				defaultLanguage={languages[0].language}
 				classes={classes}
 			/>
 		</fieldset>

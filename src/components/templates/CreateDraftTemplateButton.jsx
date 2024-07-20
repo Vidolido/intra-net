@@ -7,7 +7,7 @@ import { makeDraftTemplate } from '@/serverActions/laboratoryTemplates/makeDraft
 const CreateDraftTemplateButton = () => {
 	const router = useRouter();
 
-	const handdleClick = async (e) => {
+	const handdleClick = async () => {
 		await makeDraftTemplate();
 		router.push('/dashboard/laboratory/templates/create');
 	};

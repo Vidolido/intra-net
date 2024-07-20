@@ -8,7 +8,14 @@ import { nameArray } from '@/utils/nameArray';
 // components
 import SelectInput from '@/components/inputs/SelectInput';
 
-const DocumentType = ({ name, types, setHeader, classes }) => {
+const DocumentType = ({
+	name,
+	types,
+	languages,
+	value,
+	setHeader,
+	classes,
+}) => {
 	let documentTypes = findSettingType(types.settings, ['document']);
 	let names = documentTypes?.map((setting) => ({
 		id: setting._id,
@@ -31,6 +38,7 @@ const DocumentType = ({ name, types, setHeader, classes }) => {
 				name={name}
 				options={names}
 				value='id'
+				defaultValue={value}
 				onChange={(e) =>
 					setHeader
 						? setHeader((prev) => ({
@@ -39,7 +47,7 @@ const DocumentType = ({ name, types, setHeader, classes }) => {
 						  }))
 						: null
 				}
-				defaultLanguage='en'
+				defaultLanguage={languages[0].language}
 				classes={classes}
 			/>
 		</fieldset>

@@ -18,7 +18,6 @@ const Header = ({ languages, templateSettings, template }) => {
 	let countries = templateSettings.find(
 		(setting) => setting.settingName === 'Countries'
 	);
-
 	const submit = saveBasicData.bind(null, template._id);
 	return (
 		<form action={submit}>
@@ -28,24 +27,27 @@ const Header = ({ languages, templateSettings, template }) => {
 				<Product
 					name='product'
 					products={products}
-					languages={languages}
 					value={template.product}
+					languages={languages}
 				/>
 				<SampleType
 					name='sampleType'
 					types={types}
-					defaultValue={template.sampleType}
+					value={template.sampleType}
 					none={true}
+					languages={languages}
 				/>
 				<Origin
 					name='origin'
 					countries={countries}
-					defaultValue={template.origin}
+					value={template.origin}
+					languages={languages}
 				/>
 				<DocumentType
 					name='documentType'
 					types={types}
-					defaultValue={template.documentType}
+					value={template.documentType}
+					languages={languages}
 				/>
 				<DocumentStatus template={template} />
 				<button

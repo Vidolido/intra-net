@@ -22,7 +22,7 @@ const page = async () => {
 	const { settings } = (await setting) || []; // Да прверам дали враќа undefind|null
 
 	const { groups } = await getGroups();
-
+	// console.log(draft, 'the draft');
 	return (
 		<Template
 			title='Edit Draft Template'
