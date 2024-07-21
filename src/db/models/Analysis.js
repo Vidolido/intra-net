@@ -27,13 +27,14 @@ const analysisSchema = new Schema(
 			sampleType: String,
 			documentType: String,
 		},
+		laboratoryNumber: String,
 		fields: [fieldsSchema],
 		templateId: String,
 		template: {
 			type: Schema.Types.Mixed,
 			default: undefined,
 		},
-		note: {
+		notes: {
 			type: String,
 			default: undefined,
 		},

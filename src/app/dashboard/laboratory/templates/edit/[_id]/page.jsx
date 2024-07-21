@@ -17,7 +17,7 @@ export const revalidate = 0;
 const page = async ({ params }) => {
 	const { _id } = params;
 	const { draft } = await getLaboratoryDraftById(_id);
-	const { template } = await getSingleTemplate(_id);
+	const { template } = await getSingleTemplate(_id); // ova go smeniv so draft
 	const { languages } = await getLanguages();
 	const { templateSettings } = await getTemplateSettings();
 
@@ -32,7 +32,7 @@ const page = async ({ params }) => {
 			title='Edit Draft Template'
 			languages={languages}
 			settings={settings}
-			template={draft}
+			template={template}
 			groups={groups}
 			templateSettings={templateSettings}
 		/>

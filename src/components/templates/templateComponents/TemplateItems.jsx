@@ -1,9 +1,12 @@
+import { Fragment } from 'react';
+
 // state/actions
 import { generateUUID } from '@/utils/generateUUID';
 import { getDisplayHeadings } from '@/utils/getDisplayHeadings';
 import { groupParameters } from '@/utils/templates/groupParameters';
+
+// components
 import TemplateRow from '../templateComponents/TemplateRow';
-import { Fragment } from 'react';
 
 const TemplateItems = ({ template, settings, defaultLanguage }) => {
 	let headings =
