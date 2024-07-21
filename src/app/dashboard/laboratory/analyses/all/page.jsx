@@ -3,9 +3,10 @@ import { getLaboratoryDocuments } from '../../apiCalls';
 import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemplateSettings';
 
 // components
-import Labels from '@/components/analyses/allDocuments/Labels';
-import Unsorted from '@/components/analyses/allDocuments/Unsorted';
-import DateCollections from '@/components/analyses/allDocuments/DateCollections';
+// import Labels from '@/components/analyses/allDocuments/Labels';
+// import Unsorted from '@/components/analyses/allDocuments/Unsorted';
+// import DateCollections from '@/components/analyses/allDocuments/DateCollections';
+import Filter from '@/components/analyses/allDocuments/filter/Filter';
 
 const page = async () => {
 	const { templateSettings } = await getTemplateSettings();
@@ -19,9 +20,14 @@ const page = async () => {
 		documentStatus: 'published',
 	});
 	return (
-		<div className='w-10/12'>
-			All Documents
-			<div className='w-full'>
+		<div className='w-full pr-6'>
+			<h3>All Documents</h3>
+			<Filter
+				sorted={documents}
+				notSorted={notSorted}
+				templateSettings={templateSettings}
+			/>
+			{/* <div className='w-full'>
 				<Labels classes={'grid-cols-5'} dateTime={true} />
 				{notSorted.map((document) => (
 					<Unsorted
@@ -37,7 +43,7 @@ const page = async () => {
 					collection={dateCollection}
 					templateSettings={templateSettings}
 				/>
-			))}
+			))} */}
 		</div>
 	);
 };
