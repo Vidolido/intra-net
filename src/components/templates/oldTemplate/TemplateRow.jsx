@@ -5,7 +5,7 @@ import { useLaboratoryContext } from '@/state/laboratoryContext';
 import { deleteTemplateRow } from '@/serverActions/laboratoryTemplates/deleteTemplateRow';
 
 // comnponents
-import ContextButton from '../buttons/ContextButton';
+import ContextButton from '../../buttons/ContextButton';
 import DragSvg from '@/../public/drag.svg';
 
 const TemplateRow = ({ item, document }) => {

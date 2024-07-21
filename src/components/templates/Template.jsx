@@ -34,7 +34,8 @@ const Template = ({
 					defaultLanguage={defaultLanguage}
 				/>
 			</div>
-			<h2>Template</h2>
+			<h3>Template</h3>
+
 			<TemplateItems
 				template={template}
 				settings={settings}

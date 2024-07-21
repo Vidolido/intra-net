@@ -10,13 +10,14 @@ const Options = ({ _id, edit, deleteItem }) => {
 	const [showButtons, setShowButtons] = useState(false);
 
 	return (
-		<div className='flex justify-center w-fit relative'>
+		<div className='flex relative'>
 			<OptionsSvg
 				onClick={() => setShowButtons(!showButtons)}
 				className='text-slate-400 hover:text-red-600 text-center w-[25px] h-[25px] cursor-pointer'
 			/>
 			{showButtons && (
-				<div className='w-fit flex gap-1 border ml-[1px]'>
+				<div
+					className={`w-fit flex gap-1 border ml-[1px] absolute left-[25px]`}>
 					{edit.show && (
 						<Link href={edit.link + '/' + _id} className={edit.classes}>
 							edit

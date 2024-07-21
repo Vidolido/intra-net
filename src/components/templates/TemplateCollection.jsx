@@ -1,5 +1,5 @@
 import { generateUUID } from '@/utils/generateUUID';
-import TemplateRow from './TemplateRow';
+import TemplateRow from './oldTemplate/TemplateRow';
 
 const TemplateCollection = ({ draft }) => {
 	const { template } = draft;

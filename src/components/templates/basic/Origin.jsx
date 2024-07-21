@@ -41,7 +41,7 @@ const Origin = ({ name, countries, languages, value, setHeader, classes }) => {
 						  }))
 						: null
 				}
-				defaultLanguage={languages[0].language}
+				defaultLanguage={languages[0]?.language}
 				classes={classes}
 			/>
 		</fieldset>

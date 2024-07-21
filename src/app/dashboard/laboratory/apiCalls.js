@@ -18,10 +18,21 @@ export async function getLaboratoryTemplates(searchQuery) {
 	return res.json();
 }
 
-// This is just a test function, should remove when done.
-// This is just a test function, should remove when done.
-// This is just a test function, should remove when done.
-// This is just a test function, should remove when done.
+export async function getSingleTemplate(_id) {
+	let baseUrl =
+		'http://localhost:3000/api/laboratory/get-single-template/' + _id;
+
+	const res = await fetch(baseUrl);
+
+	if (!res.ok) {
+		console.log(res);
+		throw new Error('Failed to get draft template from db. Reason: ' + res);
+	}
+
+	return res.json();
+}
+
+// should rename this as createDraftDocument
 export async function getDraftTemplate() {
 	const res = await fetch(
 		'http://localhost:3000/api/laboratory/draft-template'

@@ -46,8 +46,8 @@ const TemplateSelectForm = ({
 				<div className='flex gap-2'>
 					<Product
 						name='product'
-						languages={languages}
 						products={products}
+						languages={languages}
 						setHeader={setHeader}
 						classes={'w-32'}
 					/>
@@ -56,6 +56,7 @@ const TemplateSelectForm = ({
 						countries={countries}
 						setHeader={setHeader}
 						classes={'w-32'}
+						languages={languages}
 					/>
 				</div>
 				<div className='flex gap-2'>
@@ -65,12 +66,14 @@ const TemplateSelectForm = ({
 						setHeader={setHeader}
 						none={true}
 						classes={'w-32'}
+						languages={languages}
 					/>
 					<DocumentType
 						name='documentType'
 						types={types}
 						setHeader={setHeader}
 						classes={'w-32'}
+						languages={languages}
 					/>
 				</div>
 				<TemplateVersion
