@@ -16,7 +16,6 @@ export async function saveBasicData(_id, formData) {
 		documentStatus: formData.get('documentStatus'),
 	};
 
-	console.log(payload, 'the payload');
 	try {
 		await dbConnect();
 		await LaboratoryTemplate.updateOne({ _id }, { ...payload });

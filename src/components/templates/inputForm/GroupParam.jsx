@@ -12,12 +12,8 @@ import SelectGroup from './SelectGroup';
 
 const GroupParam = ({ setGroup, groups }) => {
 	const [showOptions, setShowOptions] = useState(false);
-	// let names = groups?.settings.map((setting) => ({
-	// 	id: setting._id,
-	// 	...nameArray(setting.parameter.inputValue),
-	// }));
+
 	const handleGroup = () => {
-		// console.log(groups.settings[0], 'THE FUCKING GROUP');
 		setShowOptions(!showOptions);
 		setGroup(groups?.settings[0]);
 	};
@@ -27,7 +23,6 @@ const GroupParam = ({ setGroup, groups }) => {
 		setGroup({});
 	};
 
-	// console.log(groups, 'the groups');
 	return (
 		<fieldset
 			name='group-parameter'

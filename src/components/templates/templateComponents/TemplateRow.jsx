@@ -12,7 +12,6 @@ const TemplateRow = ({ item, templateId }) => {
 				{item.parameter.propertyValue['en']}
 			</p>
 			{Object.entries(item.items).map((collection) => {
-				console.log(collection, 'the collection');
 				return (
 					<div key={collection[0]}>
 						{collection[1] &&

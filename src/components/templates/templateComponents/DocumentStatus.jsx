@@ -1,23 +1,24 @@
 'use client';
+// DA PROVERAM DALI NAVISTINA JA KORISTAM OVAA KOMPONENTA
 
 // state/actions
 import { changeDocumentStatus } from '@/serverActions/laboratoryTemplates/changeDocumentStatus';
 
 // componets
 import SelectInput from '../../inputs/SelectInput';
-import ContextButton from '../../buttons/ContextButton';
+// import ContextButton from '../../buttons/ContextButton';
 
 const status = [{ status: 'draft' }, { status: 'published' }];
 
 const DocumentStatus = ({ template }) => {
-	const handleClick = async (e) => {
-		e.preventDefault();
+	// const handleClick = async (e) => {
+	// 	e.preventDefault();
 
-		const element = e.target.form.elements.namedItem('documentStatus');
+	// 	const element = e.target.form.elements.namedItem('documentStatus');
 
-		let test = await changeDocumentStatus(element.value, template._id);
-		// console.log(test);
-	};
+	// 	let test = await changeDocumentStatus(element.value, template._id);
+	// 	console.log(test);
+	// };
 	return (
 		<fieldset name='document-status'>
 			<h6>Status</h6>

@@ -39,7 +39,7 @@ const TemplateSelectForm = ({
 			  }
 			: templateHeader
 	);
-	console.log(template, 'the  template');
+	// console.log(template, 'the  template');
 	return (
 		!isPublished && (
 			<form className='flex flex-col gap-2'>

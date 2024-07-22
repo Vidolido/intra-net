@@ -13,12 +13,7 @@ const Settings = ({ title, setting, languages }) => {
 				<div className='flex flex-col gap-2 min-w-80'>
 					<Header setting={setting} />
 					<OptionsSchema setting={setting} languages={languages} />
-					{/* <SettingsForm setting={setting} /> */}
-					{/* {!setting.optionsSchema ? (
-						''
-					) : (
-						<InsertSettings languages={languages} setting={setting} />
-					)} */}
+
 					<InsertSettings languages={languages} setting={setting} />
 				</div>
 				<div>

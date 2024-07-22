@@ -1,6 +1,5 @@
 'use client';
 
-import ContextButton from '@/components/buttons/ContextButton';
 import Options from '@/components/options/Options';
 import { deleteTemplateRow } from '@/serverActions/laboratoryTemplates/deleteTemplateRow';
 

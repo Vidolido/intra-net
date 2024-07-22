@@ -20,22 +20,9 @@ export async function addCollections(collection, document) {
 
 		optionsSchema.collections.push(collection);
 
-		console.log(optionsSchema, 'schema');
-		// let mutOptionsSchema = !optionsSchema ? {
-		// 	collections:
-		// } :
-		// let mutOptionsSchema =!optionsSchema ? {
-		// 	collections: [...optionsSchema.collections, collection],
-		// } : {
-		// 	...op
-		// };
-
-		// console.log(mutOptionsSchema, 'THE MUT');
-
 		collections.push(collection);
 		const updatedDocument = await Setting.updateOne(
 			{ _id },
-			// { $set: { collections, optionsSchema } }
 			{ $set: { optionsSchema } }
 		)
 			.lean()

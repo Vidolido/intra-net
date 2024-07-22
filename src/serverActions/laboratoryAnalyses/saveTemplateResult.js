@@ -8,10 +8,7 @@ import LaboratoryTemplate from '@/db/models/LaboratoryTemplate';
 
 // I NEED TO HANDLE ERRORS HERE
 export async function saveTemplateResult(documentId, formData) {
-	// console.log(documentId, 'documentId');
-	// console.log(formData, 'formData');
 	let resultFields = Array.from(formData);
-	// console.log(resultFields, 'resultfields');
 	try {
 		await dbConnect();
 		let analysis = await Analysis.findOne({ _id: documentId });
@@ -27,7 +24,6 @@ export async function saveTemplateResult(documentId, formData) {
 			},
 			[...template.template]
 		);
-		// console.log(populateResult, 'populateResult');
 		await Analysis.updateOne(
 			{ _id: documentId },
 			{

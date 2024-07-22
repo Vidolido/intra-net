@@ -16,7 +16,6 @@ export async function saveFields(fields, documentId) {
 				$set: { fields: fields },
 			}
 		);
-		// console.log(analysis, 'update analysis fields');
 		revalidatePath('/dashboard/laboratory/analyses', 'page');
 		revalidatePath('/dashboard/laboratory/analyses/create', 'page');
 		revalidatePath('/dashboard/laboratory/analyses/draft/[_id]', 'page');

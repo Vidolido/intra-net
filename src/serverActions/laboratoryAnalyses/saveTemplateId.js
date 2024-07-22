@@ -8,7 +8,6 @@ import Analysis from '@/db/models/Analysis';
 
 // I NEED TO HANDLE ERRORS HERE
 export async function saveTemplateId(templateId, header, documentId) {
-	//   console.log(header, 'the header');
 	try {
 		await dbConnect();
 		await Analysis.updateOne(
