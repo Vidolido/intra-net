@@ -7,7 +7,7 @@ import ViewTemplate from './viewParts/ViewTemplate';
 
 const SingleDocument = ({ document, products, settings, languages }) => {
 	// console.log(document, 'the document');
-	let date = formatDate(new Date());
+	let { date, time } = formatDate(new Date());
 	let names = products?.settings.map((setting) => ({
 		_id: setting._id,
 		...nameArray(setting.parameter.inputValue),
@@ -134,7 +134,7 @@ const SingleDocument = ({ document, products, settings, languages }) => {
 			<div className='flex justify-between'>
 				<div>
 					<p>Скопје</p>
-					<p>{date}</p>
+					<p>{`${date} ${time}`}</p>
 				</div>
 				<div>Потпис и печат</div>
 			</div>

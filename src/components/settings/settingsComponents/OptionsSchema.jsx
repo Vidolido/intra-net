@@ -12,6 +12,7 @@ import FormCollections from '../settingsForm/FormCollections';
 import ContextButton from '@/components/buttons/ContextButton';
 
 const OptionsSchema = ({ setting, languages }) => {
+	console.log(setting, 'setting in optionsSchema');
 	const { optionsSchema } = setting;
 	const defaultLanguage = languages.find((lang) => lang.language === 'en');
 
@@ -29,7 +30,10 @@ const OptionsSchema = ({ setting, languages }) => {
 		  }))
 		: [];
 
-	const [visible, setVisible] = useState(false);
+	// const [visible, setVisible] = useState(false);
+	const [visible, setVisible] = useState(
+		setting.optionsSchema && setting.settings ? false : true
+	);
 
 	let docId = setting._id;
 	const submit = saveOptionSchema.bind(null, docId);

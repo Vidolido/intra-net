@@ -12,9 +12,13 @@ const Settings = ({ title, setting, languages }) => {
 			<div className='flex gap-2'>
 				<div className='flex flex-col gap-2 min-w-80'>
 					<Header setting={setting} />
-					<OptionsSchema setting={setting} languages={languages} />
+					{setting.settingName != null && (
+						<OptionsSchema setting={setting} languages={languages} />
+					)}
 
-					<InsertSettings languages={languages} setting={setting} />
+					{setting.settingName != null && setting.optionsSchema != null && (
+						<InsertSettings languages={languages} setting={setting} />
+					)}
 				</div>
 				<div>
 					<DisplaySettings languages={languages} setting={setting} />

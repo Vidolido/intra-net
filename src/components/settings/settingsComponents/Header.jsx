@@ -20,7 +20,9 @@ const sectors = [
 const status = [{ status: 'draft' }, { status: 'published' }];
 
 const Header = ({ setting }) => {
-	const [visible, setVisible] = useState(false);
+	console.log(setting, 'setting in header');
+
+	const [visible, setVisible] = useState(setting.settingName ? false : true);
 
 	let docId = setting._id;
 	let submit = saveDocumentSettings.bind(null, docId);
@@ -62,16 +64,18 @@ const Header = ({ setting }) => {
 						defaultValue={setting.settingName}
 					/>
 				</label>
-				<label className='flex flex-col items-start bg-white p-1'>
-					<span>Status</span>
-					<SelectInput
-						name='documentStatus'
-						options={status}
-						label='status'
-						value='status'
-						defaultValue={setting.documentStatus}
-					/>
-				</label>
+				{setting.settingName != null && (
+					<label className='flex flex-col items-start bg-white p-1'>
+						<span>Status</span>
+						<SelectInput
+							name='documentStatus'
+							options={status}
+							label='status'
+							value='status'
+							defaultValue={setting.documentStatus}
+						/>
+					</label>
+				)}
 			</fieldset>
 			{!visible ? (
 				''

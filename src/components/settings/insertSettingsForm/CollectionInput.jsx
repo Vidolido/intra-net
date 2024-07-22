@@ -12,7 +12,7 @@ const CollectionInput = ({ languages, inputType, name, values, onChange }) => {
 		});
 	}
 
-	console.log(mutValues, 'mutValues');
+	// console.log(mutValues, 'mutValues');
 	return (
 		<fieldset name={name} className='flex items-start gap-2'>
 			{inputType === 'simple' ? (
