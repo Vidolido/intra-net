@@ -1,5 +1,8 @@
 import Link from 'next/link';
 
+// state/actions
+import { formatDate } from '@/utils/formatDate';
+
 const DisplayDocument = ({
   document,
   products,
@@ -20,7 +23,7 @@ const DisplayDocument = ({
   const origin = countries.find(
     (country) => country.id === document.header.origin
   );
-  const date = new Date(document.createdAt);
+  const { date, time } = formatDate(document.createdAt);
   return (
     <Link href={`/dashboard/laboratory/analyses/${document._id}`}>
       <div className={`border-b hover:border-red-300 grid gap-4 ${classes}`}>
@@ -28,11 +31,7 @@ const DisplayDocument = ({
         <p>{origin.name['en']}</p>
         <p>{sampleType?.name['en'] || 'none'}</p>
         <p>{documentType?.name['en']}</p>
-        {dateTime && (
-          <p>{`${date.toLocaleDateString('mk-MK')} ${date.toLocaleTimeString(
-            'en-GB'
-          )}`}</p>
-        )}
+        {dateTime && <p>{`${date} ${time}`}</p>}
       </div>
     </Link>
   );

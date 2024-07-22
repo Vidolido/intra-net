@@ -12,7 +12,7 @@ import SingleDateCollection from './SingleDateCollection';
 const DateCollections = ({ collection, templateSettings }) => {
   const [visible, setVisible] = useState(true);
 
-  const date = formatDate(collection.date);
+  const { date } = formatDate(collection.date);
 
   const handleHide = () => {
     setVisible(!visible);
