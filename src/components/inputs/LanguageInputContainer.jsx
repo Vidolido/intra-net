@@ -39,11 +39,21 @@ const LanguageInputContainer = ({
 			<div className='flex gap-[1px] justify-center items-start'>
 				{mutInputs == null
 					? languages?.map((lang) => {
-							return (
+							{
+								/* return (
 								<InputType
 									key={lang._id}
 									type='text'
 									name={`${name}-languages-${lang.language}`}
+									classes={language === lang._id ? 'visible' : 'hidden'}
+								/>
+							); */
+							}
+							return (
+								<InputType
+									key={lang._id}
+									type='text'
+									name={lang.language}
 									classes={language === lang._id ? 'visible' : 'hidden'}
 								/>
 							);

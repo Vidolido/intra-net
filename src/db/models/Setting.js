@@ -68,9 +68,9 @@ const settingsSchema = new Schema(
 		optionsSchema: {
 			type: optionsSchema,
 		},
-		collections: {
-			type: Schema.Types.Mixed,
-		},
+		// collections: {
+		// 	type: Schema.Types.Mixed,
+		// },
 		settings: {
 			type: [collectionSchema],
 			default: undefined,
