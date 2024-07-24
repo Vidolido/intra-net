@@ -6,6 +6,7 @@ import dbConnect from '@/db/conn';
 import Setting from '@/db/models/Setting';
 
 // TODO: Handle errors
+// TODO: Rename this function: saveSettingHeader
 export async function saveDocumentSettings(state, formData) {
 	const _id = formData.get('document_id');
 	let payload = {
