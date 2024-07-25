@@ -13,60 +13,60 @@ import Collections from './Collections';
 import ContextButton from '@/components/buttons/ContextButton';
 
 const OptionsSchema = ({ setting, languages }) => {
-  const [state, formAction] = useFormState(saveOptionSchema, null);
+	const [state, formAction] = useFormState(saveOptionSchema, null);
 
-  const [visible, setVisible] = useState(true);
-  const [collections, setCollections] = useState(
-    setting?.optionsSchema?.collections || []
-  );
-  return (
-    <form
-      action={formAction}
-      className='flex flex-col gap-1 bg-slate-100 border-[1px] border-slate-100 p-1 rounded'>
-      <input
-        type='text'
-        className='hidden'
-        defaultValue={setting._id}
-        name='document_id'
-      />
-      <button
-        type='button'
-        onClick={() => setVisible(!visible)}
-        className='relative w-full'>
-        <h4 className='text-left'>Option schema</h4>
-        <ArrowSvg
-          className={`w-[22px] h-[22px] absolute right-1 top-[3px] fill-red-500 hover:fill-red-300 ${
-            visible ? '' : 'rotate-180'
-          }`}
-        />
-      </button>
-      {visible && (
-        <>
-          <MainInput setting={setting} languages={languages} />
-          <AddCollections
-            collectionsLength={collections.length}
-            languages={languages}
-            setCollections={setCollections}
-          />
-          {!!collections.length && (
-            <Collections
-              collections={collections}
-              setCollections={setCollections}
-              languages={languages}
-            />
-          )}
-        </>
-      )}
-      <p>{state?.error}</p>
-      {!!collections.length && (
-        <ContextButton
-          label='Save Options Schema'
-          type='edit'
-          onClick={(e) => e.target.form.requestSubmit()}
-        />
-      )}
-    </form>
-  );
+	const [visible, setVisible] = useState(setting?.optionsSchema ? false : true);
+	const [collections, setCollections] = useState(
+		setting?.optionsSchema?.collections || []
+	);
+	return (
+		<form
+			action={formAction}
+			className='flex flex-col gap-1 bg-slate-100 border-[1px] border-slate-100 p-1 rounded'>
+			<input
+				type='text'
+				className='hidden'
+				defaultValue={setting._id}
+				name='document_id'
+			/>
+			<button
+				type='button'
+				onClick={() => setVisible(!visible)}
+				className='relative w-full'>
+				<h4 className='text-left'>Option schema</h4>
+				<ArrowSvg
+					className={`w-[22px] h-[22px] absolute right-1 top-[3px] fill-red-500 hover:fill-red-300 ${
+						visible ? '' : 'rotate-180'
+					}`}
+				/>
+			</button>
+			{visible && (
+				<>
+					<MainInput setting={setting} languages={languages} />
+					<AddCollections
+						collectionsLength={collections.length}
+						languages={languages}
+						setCollections={setCollections}
+					/>
+					{!!collections.length && (
+						<Collections
+							collections={collections}
+							setCollections={setCollections}
+							languages={languages}
+						/>
+					)}
+				</>
+			)}
+			<p>{state?.error}</p>
+			{!!collections.length && visible && (
+				<ContextButton
+					label='Save Options Schema'
+					type='edit'
+					onClick={(e) => e.target.form.requestSubmit()}
+				/>
+			)}
+		</form>
+	);
 };
 
 export default OptionsSchema;
