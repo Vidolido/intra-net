@@ -1,8 +1,8 @@
 import LanguageInputContainer from '@/components/inputs/LanguageInputContainer';
 
 const MainInput = ({ setting, languages }) => {
-  const singular = setting?.parameter?.name?.singular;
-  const plural = setting?.parameter?.name?.plural;
+  const singular = setting?.optionsSchema?.parameter?.name?.singular;
+  const plural = setting?.optionsSchema?.parameter?.name?.plural;
 
   return (
     <fieldset
@@ -16,7 +16,7 @@ const MainInput = ({ setting, languages }) => {
           name={'singular-'}
           languages={languages}
           defaultLanguage={languages[0]}
-          inputs={singular && null}
+          inputs={singular}
         />
         <LanguageInputContainer
           fieldSetName='plural'
@@ -24,7 +24,7 @@ const MainInput = ({ setting, languages }) => {
           name={'plural-'}
           languages={languages}
           defaultLanguage={languages[0]}
-          inputs={plural && null}
+          inputs={plural}
         />
       </div>
     </fieldset>

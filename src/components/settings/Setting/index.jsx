@@ -1,6 +1,7 @@
 // state/actions
 // components
 import HeaderForm from './HeaderForm';
+import InsertSettingsForm from './InsertSettingsForm';
 import OptionsSchema from './OptionsSchemaForm';
 
 const Setting = ({ title, setting, languages }) => {
@@ -10,6 +11,9 @@ const Setting = ({ title, setting, languages }) => {
       <HeaderForm setting={setting} languages={languages} />
       {setting.settingName && (
         <OptionsSchema setting={setting} languages={languages} />
+      )}
+      {setting.optionsSchema != null && (
+        <InsertSettingsForm setting={setting} languages={languages} />
       )}
     </div>
   );

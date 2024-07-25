@@ -3,7 +3,6 @@ import DisplaySettings from './displaySettings/DisplaySettings';
 import InsertSettings from './insertSettingsForm/InsertSettings';
 import Header from './settingsComponents/Header';
 import OptionsSchema from './settingsComponents/OptionsSchema';
-import SettingsForm from './settingsForm/SettingsForm';
 
 const Settings = ({ title, setting, languages }) => {
   return (

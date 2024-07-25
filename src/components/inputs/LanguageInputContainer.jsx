@@ -30,7 +30,7 @@ const LanguageInputContainer = ({
   } else {
     mutInputs = null;
   }
-
+  // console.log(mutInputs, 'MUTINPUTS');
   return (
     <fieldset name={fieldSetName} className={fieldSetClass}>
       <label className={labelClass}>
@@ -55,7 +55,7 @@ const LanguageInputContainer = ({
                 (lang) => lang._id === language
               )[0];
               const value = input[1] || Object.values(input)[1] || '';
-
+              // console.log(input[0], input[1], 'OVIJA');
               return !onChange ? (
                 <InputType
                   key={index}

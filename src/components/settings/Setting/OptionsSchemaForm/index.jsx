@@ -16,8 +16,9 @@ const OptionsSchema = ({ setting, languages }) => {
   const [state, formAction] = useFormState(saveOptionSchema, null);
 
   const [visible, setVisible] = useState(true);
-  const [collections, setCollections] = useState([]);
-
+  const [collections, setCollections] = useState(
+    setting?.optionsSchema?.collections || []
+  );
   return (
     <form
       action={formAction}

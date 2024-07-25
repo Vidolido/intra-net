@@ -10,7 +10,7 @@ const SelectInput = ({
   defaultValue = '',
   defaultLanguage,
 }) => {
-  console.log(options, 'THE  OPTIONS');
+  // console.log(options, 'THE  OPTIONS');
   return (
     <select
       name={name}
