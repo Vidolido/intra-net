@@ -1,9 +1,7 @@
 // state/actions
-import { SettingsContextProvider } from '@/state/settingsContext';
 import { getDraftSetting, getLanguages } from '../../apiCalls';
 
 // components
-import Settings from '@/components/settings/Settings';
 import Setting from '@/components/settings/Setting';
 
 export const dynamic = 'force-dynamic';
@@ -14,11 +12,6 @@ const page = async () => {
   const { draft } = await getDraftSetting();
   return (
     <Setting title='Add New Setting' setting={draft} languages={languages} />
-  );
-  return (
-    <SettingsContextProvider>
-      <Settings title='Add New Setting' setting={draft} languages={languages} />
-    </SettingsContextProvider>
   );
 };
 
