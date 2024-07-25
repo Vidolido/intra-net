@@ -9,11 +9,18 @@ import CollectionInput from './CollectionInput';
 
 const InsertSettingsForm = ({ setting, languages }) => {
 	let [inputType, setInputType] = useState('simple');
+	let [selectedCollection, setSelectedCollection] = useState({});
 	let [collectionInput, setCollectionInput] = useState([]);
+
 	let parameter =
 		setting?.optionsSchema?.parameter?.name?.singular[languages[0].language];
 	let collections = setting?.optionsSchema?.collections;
-	console.log(parameter, 'the parameter');
+	// console.log(parameter, 'the parameter');
+
+	const handleSelection = (e) => {
+		// console.log(e.target.value);
+		setSelectedCollection(e.target.value);
+	};
 	return (
 		<form className='border border-slate-200 rounded p-1'>
 			<LanguageInputContainer
@@ -32,7 +39,7 @@ const InsertSettingsForm = ({ setting, languages }) => {
 						options={collections}
 						defaultLanguage='en'
 						value={parameter && parameter}
-						// onChange={handleOnSelect}
+						onChange={handleSelection}
 					/>
 				</fieldset>
 				<fieldset className='flex flex-col'>
@@ -51,6 +58,7 @@ const InsertSettingsForm = ({ setting, languages }) => {
 			<CollectionInput
 				languages={languages}
 				inputType={inputType}
+				selectedCollection={selectedCollection}
 				collectionInput={collectionInput}
 				setCollectionInput={setCollectionInput}
 			/>

@@ -15,6 +15,14 @@ const parameterSchema = new Schema(
 	{ _id: false }
 );
 
+const collectionItemsSchema = new Schema(
+	{
+		inputType: String,
+		value: Schema.Types.Mixed,
+	},
+	{ _id: true }
+);
+
 const collectionSchema = new Schema(
 	{
 		parameter: {
