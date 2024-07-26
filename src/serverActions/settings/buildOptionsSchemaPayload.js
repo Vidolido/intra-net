@@ -1,6 +1,6 @@
 export function buildPayload(formData) {
   return Array.from(formData).reduce((acc, [key, value]) => {
-    if (key === 'document_id') return acc;
+    // if (key === 'document_id') null;
 
     const [mainKey, lang] = key.split('-');
 
