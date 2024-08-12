@@ -8,100 +8,56 @@ import Setting from '@/db/models/Setting';
 import { buildPayload } from './buildOptionsSchemaPayload';
 
 export async function saveOptionSchema(state, formData) {
-  console.log(formData, 'the form data');
-  try {
-    cookies();
+	// console.log(formData, 'the form data');
+	try {
+		cookies();
 
-    const _id = formData.get('document_id');
-    if (!_id) {
-      throw new Error('Document ID is missing.');
-    }
+		const _id = formData.get('document_id');
+		if (!_id) {
+			throw new Error('Document ID is missing.');
+		}
 
-    const payload = buildPayload(formData);
+		const payload = buildPayload(formData);
 
-    await dbConnect();
-    await Setting.updateOne({ _id }, { optionsSchema: payload });
+		let isSingularEmpty = Object.entries(payload.parameter.name.singular).find(
+			(input) => input[1].length > 0
+		);
+		let isPluralEmpty = Object.entries(payload.parameter.name.plural).find(
+			([_, data]) => data.length > 0
+		);
+		if (isSingularEmpty == undefined) {
+			return {
+				error: {
+					singular: 'Singular name is empty',
+				},
+			};
+		}
+		if (isPluralEmpty == undefined) {
+			return {
+				error: {
+					plural: 'Plural name is empty',
+				},
+			};
+		}
 
-    const pathsToRevalidate = [
-      `/dashboard/settings/edit/${_id}`,
-      `/dashboard/settings/draft/${_id}`,
-      '/dashboard/settings/add',
-    ];
+		await dbConnect();
+		await Setting.updateOne({ _id }, { optionsSchema: payload });
 
-    pathsToRevalidate.forEach((path) => revalidatePath(path, 'page'));
+		const pathsToRevalidate = [
+			`/dashboard/settings/edit/${_id}`,
+			`/dashboard/settings/draft/${_id}`,
+			'/dashboard/settings/add',
+		];
 
-    return { message: 'Success' };
-  } catch (error) {
-    console.error('Failed to save option schema:', error);
-    return { error: error.message };
-  }
+		pathsToRevalidate.forEach((path) => revalidatePath(path, 'page'));
+
+		return { message: 'Success', error: {} };
+	} catch (error) {
+		console.error('Failed to save option schema:', error);
+		return {
+			error: {
+				message: error.message,
+			},
+		};
+	}
 }
-// export async function saveOptionSchema(state, formData) {
-//   cookies();
-//   let _id = formData.get('document_id');
-
-//   let payload = Array.from(formData).reduce((acc, [key, value]) => {
-//     if (key === 'document_id') return acc;
-
-//     if (key.includes('plural')) {
-//       let lang = key.split('-')[1];
-//       acc = {
-//         ...acc,
-//         parameter: {
-//           ...acc.parameter,
-//           name: {
-//             ...acc.parameter?.name,
-//             plural: {
-//               ...acc.parameter?.name?.plural,
-//               [lang]: value,
-//             },
-//           },
-//         },
-//       };
-//     } else if (key.includes('singular')) {
-//       let lang = key.split('-')[1];
-//       acc = {
-//         ...acc,
-//         parameter: {
-//           ...acc.parameter,
-//           name: {
-//             ...acc.parameter?.name,
-//             singular: {
-//               ...acc.parameter?.name?.singular,
-//               [lang]: value,
-//             },
-//           },
-//         },
-//       };
-//     } else if (key.includes('collection')) {
-//       const nameParts = key.match(/collection\[(\d+)\]-(\w+)/);
-//       const collectionIndex = parseInt(nameParts[1], 10);
-//       const lang = nameParts[2];
-
-//       if (!acc.collections) {
-//         acc.collections = [];
-//       }
-
-//       if (!acc.collections[collectionIndex]) {
-//         acc.collections[collectionIndex] = { name: {} };
-//       }
-
-//       acc.collections[collectionIndex].name[lang] = value;
-//     }
-
-//     return acc;
-//   }, {});
-
-//   try {
-//     await dbConnect();
-//     await Setting.updateOne({ _id }, { optionsSchema: payload });
-//     revalidatePath('/dashboard/settings/edit/[_id]', 'page');
-//     revalidatePath('/dashboard/settings/draft/[_id]', 'page');
-//     revalidatePath('/dashboard/settings/add', 'page');
-//     return {
-//       message: 'Success',
-//     };
-//   } catch (error) {
-//     return { error: error.message };
-//   }
-// }

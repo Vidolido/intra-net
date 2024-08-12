@@ -13,7 +13,10 @@ import Collections from './Collections';
 import ContextButton from '@/components/buttons/ContextButton';
 
 const OptionsSchema = ({ setting, languages }) => {
-	const [state, formAction] = useFormState(saveOptionSchema, null);
+	const [state, formAction] = useFormState(saveOptionSchema, {
+		error: {},
+		message: {},
+	});
 
 	const [visible, setVisible] = useState(setting?.optionsSchema ? false : true);
 	const [collections, setCollections] = useState(
@@ -42,7 +45,13 @@ const OptionsSchema = ({ setting, languages }) => {
 			</button>
 			{visible && (
 				<>
-					<MainInput setting={setting} languages={languages} />
+					<MainInput
+						setting={setting}
+						languages={languages}
+						error={state.error}
+					/>
+					{/* <p>{state?.error?.singular || state?.error?.plural}</p> */}
+
 					<AddCollections
 						collectionsLength={collections.length}
 						languages={languages}
@@ -57,7 +66,7 @@ const OptionsSchema = ({ setting, languages }) => {
 					)}
 				</>
 			)}
-			<p>{state?.error}</p>
+			<p>{state?.error.message}</p>
 			{!!collections.length && visible && (
 				<ContextButton
 					label='Save Options Schema'

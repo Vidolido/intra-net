@@ -1,13 +1,15 @@
-// state/actions
 import { useState } from 'react';
+
+// state/actions
+import { generateUUID } from '@/utils/generateUUID';
 
 // components
 import ContextButton from '@/components/buttons/ContextButton';
 import LanguageInputContainer from '@/components/inputs/LanguageInputContainer';
-import { generateUUID } from '@/utils/generateUUID';
 
 const AddCollections = ({ collectionsLength, languages, setCollections }) => {
 	const [error, setError] = useState(null);
+
 	const handleAdd = (e) => {
 		let collectionInputs = e.target.form.elements
 			.namedItem('options-schema-add')
@@ -21,7 +23,7 @@ const AddCollections = ({ collectionsLength, languages, setCollections }) => {
 			},
 			{}
 		);
-		console.log(collectData, 'collectData');
+		// console.log(collectData, 'collectData');
 		let areAllFieldsEmpty = Array.from(collectionInputs).find(
 			(input) => input.value.length > 0
 		);
@@ -33,7 +35,7 @@ const AddCollections = ({ collectionsLength, languages, setCollections }) => {
 				_id: generateUUID(),
 				name: collectData,
 			};
-			console.log(payload, 'THE PAY');
+			// console.log(payload, 'THE PAY');
 			setError(null);
 			setCollections((prev) => [...prev, payload]);
 			collectionInputs.forEach((input) => (input.value = ''));
