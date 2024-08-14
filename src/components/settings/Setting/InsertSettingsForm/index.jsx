@@ -1,27 +1,41 @@
 'use client';
 import { useEffect, useState } from 'react';
 
+// state/actions
+import { insertSetting } from '@/serverActions/settings/insertSetting';
+
 // components
 import LanguageInputContainer from '@/components/inputs/LanguageInputContainer';
 import SelectInput from '@/components/inputs/SelectInput';
 import RadioButtons from './RadioButtons';
 import CollectionInput from './CollectionInput';
 import ContextButton from '@/components/buttons/ContextButton';
+import DisplayCollections from './DisplayCollections';
 
 const InsertSettingsForm = ({ setting, languages }) => {
-	const [selectedCollection, setSelectedCollection] = useState('');
-	const [inputType, setInputType] = useState('simple');
-	const [parameterInput, setParameterInput] = useState('');
-	const [collectionInput, setCollectionInput] = useState([]);
-	const [error, setError] = useState({});
-
 	let parameter =
 		setting?.optionsSchema?.parameter?.name?.singular[languages[0].language];
 
 	let collections = setting?.optionsSchema?.collections;
-	// console.log(parameter, 'the parameter');
-	//   console.log(collections, 'the collections');
-	//   console.log(selectedCollection, 'selected collection');
+
+	const initialState = {
+		parameter: {
+			name: { ...setting?.optionsSchema?.parameter?.name },
+		},
+		collections: [
+			...collections.map((collection) => ({
+				name: collection.name,
+				collectionId: collection._id,
+				items: [],
+			})),
+		],
+	};
+	const [state, setState] = useState(initialState);
+	const [error, setError] = useState({});
+
+	const [selectedCollection, setSelectedCollection] = useState('');
+	const [inputType, setInputType] = useState('simple');
+
 	useEffect(() => {
 		if (!selectedCollection) {
 			setSelectedCollection(!collections[0] ? '' : collections[0]._id);
@@ -30,15 +44,22 @@ const InsertSettingsForm = ({ setting, languages }) => {
 	}, [selectedCollection]);
 
 	const hanldeMainParameterChange = (e) => {
-		// console.log(e.target.name);
-		// console.log(e.target.value);
 		let lang = e.target.name.split('-');
 		lang = lang[lang.length - 1];
-		// console.log(lang, 'the lang');
-		setParameterInput((prev) => ({
+
+		setState((prev) => ({
 			...prev,
-			[lang]: e.target.value,
+			parameter: {
+				...prev.parameter,
+				inputValue: {
+					...prev?.parameter?.inputValue,
+					[lang]: e.target.value,
+				},
+			},
 		}));
+	};
+	const handleChangeInputType = (e) => {
+		setInputType(e.target.value);
 	};
 
 	const handleSelection = (e) => {
@@ -46,26 +67,45 @@ const InsertSettingsForm = ({ setting, languages }) => {
 		setSelectedCollection(e.target.value);
 	};
 
-	// this is just a test function
-	const handleSubmit = (e) => {
-		if (!parameterInput) {
+	const handleSubmit = async (e) => {
+		if (state.parameter.inputValue == undefined) {
 			setError((prev) => ({
 				...prev,
 				mainParameter: 'Fill all fields',
 			}));
 		} else {
-			setError((prev) => ({
-				...prev,
-				mainParameter: '',
-			}));
+			// setError((prev) => ({
+			// 	...prev,
+			// 	mainParameter: '',
+			// }));
+			setError({});
+			// setState((prev) => ({
+			// 	...prev,
+			// 	parameter: {
+			// 		name: { ...prev.parameter.name },
+			// 	},
+			// }));
+			setState(initialState);
+
+			let mainParam = e.target.form.elements
+				.namedItem('main-parameter-inputs')
+				.querySelectorAll('input');
+			// Array.from(mainParam).map((item) => (item = item.value = ''));
+			Array.from(mainParam).forEach((item) => (item.value = ''));
+
+			// console.log(mainParam, ' THE MAIN PARAM');
 		}
+		// e.target.form.requestSubmit();
+		const test = await insertSetting(state, setting._id);
+		console.log(test, '<< this happend');
 	};
-	//   console.log(selectedCollection, 'selectedCollection ');
-	console.log(parameterInput, 'the param input');
+
+	console.log(state, 'THE  STATE');
 	return (
 		<form className='border border-slate-200 rounded p-1'>
 			<LanguageInputContainer
 				label={!parameter ? 'Parameter name' : parameter}
+				fieldSetName='main-parameter-inputs'
 				fieldSetClass='flex flex-col items-start'
 				name='parameter-'
 				languages={languages}
@@ -94,7 +134,7 @@ const InsertSettingsForm = ({ setting, languages }) => {
 						labels={['Simple', 'Translations', 'key/value']}
 						name='inputType'
 						inputType={inputType}
-						onChange={(e) => setInputType(e.target.value)}
+						onChange={handleChangeInputType}
 					/>
 				</fieldset>
 			</div>
@@ -102,11 +142,20 @@ const InsertSettingsForm = ({ setting, languages }) => {
 				languages={languages}
 				inputType={inputType}
 				selectedCollection={selectedCollection}
-				collectionInput={collectionInput}
-				setCollectionInput={setCollectionInput}
+				state={state}
+				setState={setState}
 				setError={setError}
 			/>
 			<p>{error.collectionInput}</p>
+			<div className='border border-slate-300 rounded p-1'>
+				<h5>Items</h5>
+				<DisplayCollections
+					languages={languages}
+					state={state}
+					setState={setState}
+					selectedCollection={selectedCollection}
+				/>
+			</div>
 			<ContextButton
 				label='Add Setting'
 				type='edit'

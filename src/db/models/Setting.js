@@ -20,7 +20,7 @@ const collectionItemsSchema = new Schema(
 		inputType: String,
 		value: Schema.Types.Mixed,
 	},
-	{ _id: true }
+	{ _id: true, strict: true }
 );
 
 const collectionSchema = new Schema(
@@ -28,13 +28,17 @@ const collectionSchema = new Schema(
 		parameter: {
 			type: parameterSchema,
 		},
+
 		collections: [
 			{
 				name: {
 					type: Schema.Types.Mixed,
 				},
+				// items: {
+				// 	type: [Schema.Types.Mixed],
+				// },
 				items: {
-					type: [Schema.Types.Mixed],
+					type: [collectionItemsSchema],
 				},
 			},
 		],
@@ -53,6 +57,9 @@ const collectionSchema = new Schema(
 const optionsSchemaCollections = new Schema(
 	{
 		name: {
+			type: Schema.Types.Mixed,
+		},
+		items: {
 			type: Schema.Types.Mixed,
 		},
 	},

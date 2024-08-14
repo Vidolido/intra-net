@@ -53,7 +53,9 @@ const TableRow = ({
 				</td>
 				{collections.map((collection) => {
 					return (
-						<td key={collection._id} className='text-left align-top px-2 '>
+						<td
+							key={collection._id || collection.collectionId}
+							className='text-left align-top px-2 '>
 							{collection.items &&
 								collection?.items.map((item, i) => {
 									if (
@@ -63,7 +65,7 @@ const TableRow = ({
 									)
 										return;
 									return (
-										<p key={item.id}>
+										<p key={item.id || item._id}>
 											{' '}
 											{(typeof item.value === 'string' && item.value) ||
 												item.value[defaultLanguage.language] ||

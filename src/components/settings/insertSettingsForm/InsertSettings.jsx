@@ -137,7 +137,8 @@ const InsertSettings = ({ languages, setting }) => {
 				},
 			},
 		});
-		Array.from(optionsInput).map((item) => (item = item.value = ''));
+		Array.from(optionsInput).map((item) => (item.value = ''));
+		// Array.from(optionsInput).map((item) => (item = item.value = ''));
 	};
 
 	const handleAddSetting = async (e) => {
