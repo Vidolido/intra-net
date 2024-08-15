@@ -34,10 +34,17 @@ const sectors = [
 const status = [{ status: 'draft' }, { status: 'published' }];
 
 const HeaderForm = ({ setting, languages }) => {
-  const [state, formAction] = useFormState(saveSettingHeader, null);
-  let hasName =
-    setting.settingName != null && setting.settingName ? false : true;
+  // const [state, formAction] = useFormState(saveSettingHeader, null);
+  const [state, formAction] = useFormState(saveSettingHeader, {
+    message: '',
+    error: '',
+  });
+  // let hasName =
+  //   setting.settingName != null && setting.settingName ? false : true;
+  let hasName = !setting.settingName;
   const [visible, setVisible] = useState(hasName);
+
+  console.log(state, ' THE STATE FRONTEND');
   return (
     <form action={formAction} className='p-1 border border-slate-200 rounded'>
       <input
@@ -94,7 +101,7 @@ const HeaderForm = ({ setting, languages }) => {
           </label>
         )}
       </fieldset>
-      <p>{state?.error}</p>
+      {/* <p>{state?.error}</p> */}
       {visible && (
         <ContextButton
           label='Save Document Settings'

@@ -1,111 +1,140 @@
 'use server';
 
+import { queryParser } from '@/utils/analyses/queryParser';
+
 // languages
 export async function getLanguages() {
-	const res = await fetch('http://localhost:3000/api/languages');
+  const res = await fetch('http://localhost:3000/api/languages');
 
-	if (!res.ok) {
-		console.log(res);
-		throw new Error('Failed to get languages from db. Reason: ' + res);
-	}
+  if (!res.ok) {
+    console.log(res);
+    throw new Error('Failed to get languages from db. Reason: ' + res);
+  }
 
-	return res.json();
+  return res.json();
 }
 
 // draft settings
-export async function getDraftSettings() {
-	const res = await fetch(
-		'http://localhost:3000/api/settings/get-all-draft-settings'
-	);
+export async function getSettings(searchQuery) {
+  const baseUrl = 'http://localhost:3000/api/settings/get-settings';
 
-	if (!res.ok) {
-		console.log(res);
-		throw new Error('Failed to get draft settings from db. Reason: ' + res);
-	}
+  let query = queryParser(baseUrl, searchQuery);
 
-	return res.json();
+  const res = await fetch(query);
+
+  if (!res.ok) {
+    console.log(res);
+    throw new Error('Failed to get settings from db. Reason: ' + res);
+  }
+
+  return res.json();
 }
 
+export async function getSettingById(_id) {
+  const res = await fetch(`http://localhost:3000/api/settings/by-id/${_id}`);
+
+  if (!res.ok) {
+    console.log(res);
+    throw new Error('Failed to get setting from db. Reason: ' + res);
+  }
+
+  return res.json();
+}
+//^^ NOVI
+////getDraftSettings
+// export async function getDraftSettings() {
+//   const res = await fetch(
+//     'http://localhost:3000/api/settings/get-all-draft-settings'
+//   );
+
+//   if (!res.ok) {
+//     console.log(res);
+//     throw new Error('Failed to get draft settings from db. Reason: ' + res);
+//   }
+
+//   return res.json();
+// }
+
 export async function getDraftSetting() {
-	const res = await fetch('http://localhost:3000/api/settings/draft-setting', {
-		next: { tags: ['draft'] },
-		cache: 'no-store',
-	});
+  const res = await fetch('http://localhost:3000/api/settings/draft-setting', {
+    next: { tags: ['draft'] },
+    cache: 'no-store',
+  });
 
-	if (!res.ok) {
-		console.log(res);
-		throw new Error('Failed to get vehicles from db. Reason: ' + res);
-	}
+  if (!res.ok) {
+    console.log(res);
+    throw new Error('Failed to get vehicles from db. Reason: ' + res);
+  }
 
-	return res.json();
+  return res.json();
 }
 
 export async function getDraftById(_id) {
-	const res = await fetch(
-		`http://localhost:3000/api/settings/edit-draft/${_id}`
-	);
+  const res = await fetch(
+    `http://localhost:3000/api/settings/edit-draft/${_id}`
+  );
 
-	if (!res.ok) {
-		console.log(res);
-		throw new Error('Failed to get draft setting from db. Reason: ' + res);
-	}
+  if (!res.ok) {
+    console.log(res);
+    throw new Error('Failed to get draft setting from db. Reason: ' + res);
+  }
 
-	return res.json();
+  return res.json();
 }
 
-export async function getPublishedSettings() {
-	const res = await fetch(
-		'http://localhost:3000/api/settings/get-published-settings'
-	);
+// export async function getPublishedSettings() {
+//   const res = await fetch(
+//     'http://localhost:3000/api/settings/get-published-settings'
+//   );
 
-	if (!res.ok) {
-		console.log(res);
-		throw new Error('Failed to get draft settings from db. Reason: ' + res);
-	}
+//   if (!res.ok) {
+//     console.log(res);
+//     throw new Error('Failed to get draft settings from db. Reason: ' + res);
+//   }
 
-	return res.json();
-}
+//   return res.json();
+// }
 
 export async function getPublishedById(_id) {
-	const res = await fetch(
-		`http://localhost:3000/api/settings/edit-setting/${_id}`
-	);
+  const res = await fetch(
+    `http://localhost:3000/api/settings/edit-setting/${_id}`
+  );
 
-	if (!res.ok) {
-		console.log(res);
-		throw new Error('Failed to get setting from db. Reason: ' + res);
-	}
+  if (!res.ok) {
+    console.log(res);
+    throw new Error('Failed to get setting from db. Reason: ' + res);
+  }
 
-	return res.json();
+  return res.json();
 }
 
 // draft settings
 
 // labodatory templates
 export async function getLaboratorySettings() {
-	const res = await fetch(
-		'http://localhost:3000/api/laboratory/template-setting'
-	);
+  const res = await fetch(
+    'http://localhost:3000/api/laboratory/template-setting'
+  );
 
-	if (!res.ok) {
-		console.log(res);
-		throw new Error('Failed to get settings from db. Reason: ' + res);
-	}
+  if (!res.ok) {
+    console.log(res);
+    throw new Error('Failed to get settings from db. Reason: ' + res);
+  }
 
-	return res.json();
+  return res.json();
 }
 
 export async function getGroups() {
-	const res = await fetch(
-		'http://localhost:3000/api/laboratory/template-groups'
-	);
+  const res = await fetch(
+    'http://localhost:3000/api/laboratory/template-groups'
+  );
 
-	if (!res.ok) {
-		console.log(res);
-		throw new Error('Failed to get groups from db. Reason: ' + res);
-	}
+  if (!res.ok) {
+    console.log(res);
+    throw new Error('Failed to get groups from db. Reason: ' + res);
+  }
 
-	return res.json();
+  return res.json();
 }
 
 // export async function getLaboratoryDraftTemplates() {
@@ -122,16 +151,16 @@ export async function getGroups() {
 // }
 
 export async function getLaboratoryDraftById(_id) {
-	const res = await fetch(
-		`http://localhost:3000/api/laboratory/edit-draft/${_id}`
-	);
+  const res = await fetch(
+    `http://localhost:3000/api/laboratory/edit-draft/${_id}`
+  );
 
-	if (!res.ok) {
-		console.log(res);
-		throw new Error('Failed to get draft template from db. Reason: ' + res);
-	}
+  if (!res.ok) {
+    console.log(res);
+    throw new Error('Failed to get draft template from db. Reason: ' + res);
+  }
 
-	return res.json();
+  return res.json();
 }
 
 // export async function getPublishedTemplates() {

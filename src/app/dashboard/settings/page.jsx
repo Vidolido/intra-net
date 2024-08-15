@@ -1,5 +1,5 @@
 // state/context
-import { getDraftSettings, getPublishedSettings } from '../apiCalls';
+import { getSettings } from '../apiCalls';
 
 // components
 import CreateDraftButton from '@/components/settings/CreateDraftButton';
@@ -10,15 +10,20 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 const page = async () => {
-  const { draftSettings } = await getDraftSettings();
-  const { published } = await getPublishedSettings();
-  //   console.log(published, 'pub');
+  const { settings: drafts } = await getSettings({
+    isDeleted: false,
+  });
+  const { settings: published } = await getSettings({
+    documentStatus: 'published',
+    isDeleted: false,
+  });
+
   return (
     <div className='w-full'>
       <CreateDraftButton />
       <div className='flex justify-between w-full'>
         <PublishedSettings published={published} />
-        <DisplayDraftSettings drafts={draftSettings} />
+        <DisplayDraftSettings drafts={drafts} />
       </div>
     </div>
   );
