@@ -3,10 +3,10 @@ import Link from 'next/link';
 
 // state/actions
 import { deleteDraftSetting } from '@/serverActions/settings/deleteDraftSetting';
+import { deleteSettingDocument } from '@/serverActions/settings/deleteSettingDocument';
 
 // components
 import ContextButton from '@/components/buttons/ContextButton';
-import { deleteSettingDocument } from '@/serverActions/settings/deleteSettingDocument';
 
 const DraftSetting = ({ draft }) => {
   const handleDelete = async (_id) => {

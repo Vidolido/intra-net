@@ -44,7 +44,7 @@ const HeaderForm = ({ setting, languages }) => {
   let hasName = !setting.settingName;
   const [visible, setVisible] = useState(hasName);
 
-  console.log(state, ' THE STATE FRONTEND');
+  // console.log(state, ' THE STATE FRONTEND');
   return (
     <form action={formAction} className='p-1 border border-slate-200 rounded'>
       <input
@@ -101,7 +101,7 @@ const HeaderForm = ({ setting, languages }) => {
           </label>
         )}
       </fieldset>
-      {/* <p>{state?.error}</p> */}
+      <p>{state?.error}</p>
       {visible && (
         <ContextButton
           label='Save Document Settings'

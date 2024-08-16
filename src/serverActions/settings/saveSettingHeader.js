@@ -1,11 +1,10 @@
 'use server';
 import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
 
 // connection/moddels/database functions
 import dbConnect from '@/db/conn';
 import Setting from '@/db/models/Setting';
-import { redirect } from 'next/navigation';
-import { NextResponse } from 'next/server';
 
 // TODO: Handle errors
 // TODO: Rename this function: saveSettingHeader
@@ -14,48 +13,38 @@ export async function saveSettingHeader(state, formData) {
   let payload = {
     sector: formData.get('sector'),
     settingName: formData.get('settingName'),
-    documentStatus: formData.get('documentStatus') || 'draft',
+    documentStatus: formData.get('documentStatus'),
   };
-  console.log(state, 'THE STATE BRATUUU');
+  let shouldRedirect = false;
   try {
     await dbConnect();
-    await Setting.updateOne({ _id }, { ...payload });
+    let updated = await Setting.updateOne({ _id }, { ...payload });
+
+    // shouldRedirect treba da bide zavisno od toa dali se menuva parametarot na dokumentot
+    // treba da go zemam dokumentot, da proveram dali parametarot e ist ili e razlichen.
+    shouldRedirect = updated.modifiedCount === 1 ? true : false;
 
     const pathsToRevalidate = [
-      `/dashboard/settings/edit/${_id}`,
-      `/dashboard/settings/draft/${_id}`,
+      `/dashboard/settings/edit/[_id]`,
+      `/dashboard/settings/draft/[_id]`,
       '/dashboard/settings/create',
     ];
 
     pathsToRevalidate.forEach((path) => revalidatePath(path, 'page'));
 
-    state = {
-      ...state,
+    return {
       message: 'Save successful.',
     };
-    // return NextResponse.json({ state }, { status: 200 });
-    // return {
-    //   message: 'Save successful.',
-    // };
-
-    // return state;
   } catch (error) {
-    // state.error = error.message;
-    state = {
-      ...state,
+    console.log('Failed to save setting, error:', error);
+    return {
       error: error.message,
     };
-    // return { error: error.message };
-    // return NextResponse.json({ state }, { status: 500 });
-
-    // return state;
   } finally {
-    // return state;
-    if (payload.documentStatus === 'draft') {
-      redirect(`/dashboard/settings/draft/${_id}`);
-    }
-    if (payload.documentStatus === 'published') {
-      redirect(`/dashboard/settings/edit/${_id}`);
+    if (shouldRedirect) {
+      let redirectTo =
+        payload.documentStatus === 'published' ? 'edit' : 'draft';
+      redirect(`/dashboard/settings/${redirectTo}/${_id}`);
     }
   }
 }

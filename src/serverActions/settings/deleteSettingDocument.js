@@ -12,7 +12,7 @@ export async function deleteSettingDocument(_id, type) {
     if (type === 'draft') {
       await Setting.deleteOne({ _id });
     } else {
-      await Setting.updateOne({ _id }, { isDeleted: true });
+      await Setting.updateOne({ _id }, { $set: { isDeleted: true } });
     }
     revalidatePath('/dashboard/settings', 'page');
   } catch (error) {

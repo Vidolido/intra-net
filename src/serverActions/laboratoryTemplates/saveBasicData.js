@@ -15,18 +15,28 @@ export async function saveBasicData(_id, formData) {
     documentType: formData.get('documentType'),
     documentStatus: formData.get('documentStatus'),
   };
-
+  // let shouldRedirect = false;
   try {
     await dbConnect();
-    await LaboratoryTemplate.updateOne({ _id }, { ...payload });
+    let updated = await LaboratoryTemplate.updateOne({ _id }, { ...payload });
+    // shouldRedirect = updated.modifiedCount === 1 ? true : false;
   } catch (error) {
     console.log('Failed to create draft Template error:', error);
     throw Error('Could not add draft Template to database: ' + error);
   }
-  revalidatePath('/dashboard/laboratory/templates/create', 'page');
-  revalidatePath('/dashboard/laboratory/templates/draft/[_id]', 'page');
-  revalidatePath('/dashboard/laboratory/templates/edit/[_id]', 'page');
+  // revalidatePath('/dashboard/laboratory/templates/create', 'page');
+  // revalidatePath('/dashboard/laboratory/templates/draft/[_id]', 'page');
+  // revalidatePath('/dashboard/laboratory/templates/edit/[_id]', 'page');
 
+  const pathsToRevalidate = [
+    `/dashboard/laboratory/templates/draft/[_id]`,
+    `/dashboard/laboratory/templates/edit/[_id]`,
+    '/dashboard/laboratory/templates/create',
+  ];
+
+  pathsToRevalidate.forEach((path) => revalidatePath(path, 'page'));
+
+  // if (shouldRedirect && payload.documentStatus === 'published') {
   if (payload.documentStatus === 'published') {
     redirect(`/dashboard/laboratory/templates/edit/${_id}`);
   } else {
