@@ -8,7 +8,7 @@ import { getDraftAnalysis, getLaboratoryTemplates } from '../../apiCalls';
 import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemplateSettings';
 
 // components
-import Analysis from '@/components/analyses/Analysis';
+import Analysis from '@/components/Analyses';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;

@@ -12,7 +12,7 @@ import {
 } from '../../../apiCalls';
 
 // components
-import Analysis from '@/components/analyses/Analysis';
+import Analysis from '@/components/Analyses/Analysis';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;

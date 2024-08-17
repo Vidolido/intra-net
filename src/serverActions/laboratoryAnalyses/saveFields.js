@@ -16,10 +16,18 @@ export async function saveFields(fields, documentId) {
 				$set: { fields: fields },
 			}
 		);
-		revalidatePath('/dashboard/laboratory/analyses', 'page');
-		revalidatePath('/dashboard/laboratory/analyses/create', 'page');
-		revalidatePath('/dashboard/laboratory/analyses/draft/[_id]', 'page');
-		revalidatePath('/dashboard/laboratory/analyses/edit/[_id]', 'page');
+
+		const pathsToRevalidate = [
+			'/dashboard/laboratory/analyses/edit/[_id]',
+			'/dashboard/laboratory/analyses/draft/[_id]',
+			'/dashboard/laboratory/analyses/create',
+		];
+
+		pathsToRevalidate.forEach((path) => revalidatePath(path, 'page'));
+		// revalidatePath('/dashboard/laboratory/analyses', 'page');
+		// revalidatePath('/dashboard/laboratory/analyses/create', 'page');
+		// revalidatePath('/dashboard/laboratory/analyses/draft/[_id]', 'page');
+		// revalidatePath('/dashboard/laboratory/analyses/edit/[_id]', 'page');
 		return { message: 'Update successful' }; //
 	} catch (error) {
 		console.log('Failed to create field, error:', error);

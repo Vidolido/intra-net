@@ -4,9 +4,10 @@ import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemp
 import { nameArray } from '@/utils/nameArray';
 
 // components
-import CreateDraftAnalysis from '@/components/analyses/CreateDraftAnalyses';
-import DisplayDraftDocuments from '@/components/analyses/documentsPage/DisplayDraftDocuments';
-import LastAddedDocuments from '@/components/analyses/documentsPage/LastAddedDocuments';
+import CreateDraftAnalysis from '@/components/Analyses/CreateDraftAnalyses';
+import DisplayDraftDocuments from '@/components/Analyses/documentsPage/DisplayDraftDocuments';
+import LastAddedDocuments from '@/components/Analyses/documentsPage/LastAddedDocuments';
+import Analyses from '@/components/Analyses';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -27,24 +28,18 @@ const page = async () => {
 		(setting) => setting.settingName === 'Products'
 	);
 
-	let items = products[0]?.settings?.map((setting) => ({
+	let mutProducts = products[0]?.settings?.map((setting) => ({
 		id: setting._id,
 		...nameArray(setting.parameter.inputValue),
 	}));
 
 	return (
-		<div className='w-full pr-4'>
-			<CreateDraftAnalysis />
-			<h2>Analyses</h2>
-			<div className='flex justify-between w-full'>
-				<LastAddedDocuments
-					documents={publishedDocuments}
-					templateSettings={templateSettings}
-					products={items}
-				/>
-				<DisplayDraftDocuments documents={draftDocuments} />
-			</div>
-		</div>
+		<Analyses
+			templateSettings={templateSettings}
+			draftDocuments={draftDocuments}
+			publishedDocuments={publishedDocuments}
+			products={mutProducts}
+		/>
 	);
 };
 

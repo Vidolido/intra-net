@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { makeDraftAnalysis } from '@/serverActions/laboratoryAnalyses/makeDraftAnalysis';
 
 // components
-import ContextButton from '../buttons/ContextButton';
+import ContextButton from '../../buttons/ContextButton';
 
 const CreateDraftAnalysis = () => {
 	const router = useRouter();

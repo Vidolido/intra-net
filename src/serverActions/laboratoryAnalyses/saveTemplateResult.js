@@ -31,10 +31,18 @@ export async function saveTemplateResult(documentId, formData) {
 			}
 		);
 
-		revalidatePath('/dashboard/laboratory/analyses', 'page');
-		revalidatePath('/dashboard/laboratory/analyses/create', 'page');
-		revalidatePath('/dashboard/laboratory/analyses/draft/[_id]', 'page');
-		revalidatePath('/dashboard/laboratory/analyses/edit/[_id]', 'page');
+		const pathsToRevalidate = [
+			'/dashboard/laboratory/analyses/draft/[_id]',
+			'/dashboard/laboratory/analyses/edit/[_id]',
+			'/dashboard/laboratory/analyses/create',
+		];
+
+		pathsToRevalidate.forEach((path) => revalidatePath(path, 'page'));
+
+		// revalidatePath('/dashboard/laboratory/analyses', 'page');
+		// revalidatePath('/dashboard/laboratory/analyses/create', 'page');
+		// revalidatePath('/dashboard/laboratory/analyses/draft/[_id]', 'page');
+		// revalidatePath('/dashboard/laboratory/analyses/edit/[_id]', 'page');
 		return { message: 'createDocument RAN' };
 	} catch (error) {
 		console.log('Failed to create draft Template error:', error);

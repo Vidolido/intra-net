@@ -35,6 +35,15 @@ export async function addTemplateSetting({
 			.lean()
 			.exec();
 
+		const pathsToRevalidate = [
+			`/dashboard/laboratory/templates/edit/[_id]`,
+			`/dashboard/laboratory/templates/draft/[_id]`,
+			'/dashboard/laboratory/templates/create',
+		];
+
+		pathsToRevalidate.forEach((path) => revalidatePath(path, 'page'));
+
+		revalidatePath('/dashboard/laboratory/templates/create', 'page');
 		return {
 			message: 'addTemplateSetting ran',
 			updatedTemplate,
@@ -43,5 +52,4 @@ export async function addTemplateSetting({
 		console.log('Failed to create draft Template error:', error);
 		throw Error('Could not add draft Template to database: ' + error);
 	}
-	revalidatePath('/dashboard/laboratory/templates/create', 'page');
 }

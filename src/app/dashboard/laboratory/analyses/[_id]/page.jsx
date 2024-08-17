@@ -4,7 +4,7 @@ import { getLaboratorySettings, getLanguages } from '@/app/dashboard/apiCalls';
 import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemplateSettings';
 
 // components
-import SingleDocument from '@/components/analyses/viewDocument/SingleDocument';
+import SingleDocument from '@/components/Analyses/viewDocument/SingleDocument';
 
 const page = async ({ params }) => {
 	let { _id } = params;
