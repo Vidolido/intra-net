@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 // components
 import ArrowSvg from '@/../public/arrow.svg';
-import DraftDocument from './DraftDocument';
+import DraftDocument from '../(page)/DisplayDraftDocuments/DraftDocument';
 
 const DisplayDraftDocuments = ({ documents }) => {
 	const [visible, setVisible] = useState(false);

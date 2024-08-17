@@ -4,9 +4,6 @@ import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemp
 import { nameArray } from '@/utils/nameArray';
 
 // components
-import CreateDraftAnalysis from '@/components/Analyses/CreateDraftAnalyses';
-import DisplayDraftDocuments from '@/components/Analyses/documentsPage/DisplayDraftDocuments';
-import LastAddedDocuments from '@/components/Analyses/documentsPage/LastAddedDocuments';
 import Analyses from '@/components/Analyses';
 
 export const dynamic = 'force-dynamic';
