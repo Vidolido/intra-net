@@ -50,13 +50,14 @@ const SelectFields = ({ fields: dbFields, analysis }) => {
 			return acc;
 		}, []);
 
+		// HANDLE ERRORS HERE
 		await saveFields(newFields, analysis._id);
 	};
 
 	// const submit = saveFields.bind(null, analysis._id);
 	return (
-		<form>
-			<fieldset className='bg-white border border-slate-200 pl-1 rounded mt-2'>
+		<form className='bg-slate-100 border border-t-0 border-slate-200'>
+			<fieldset className='bg-white border border-slate-200 pl-1 rounded'>
 				<button type='button' onClick={handleHide} className='relative w-full'>
 					<h3 className='text-left'>Fields</h3>
 					<ArrowSvg
@@ -81,7 +82,14 @@ const SelectFields = ({ fields: dbFields, analysis }) => {
 			<InputFields
 				fields={analysis.fields.length > 0 ? analysis.fields : fields}
 			/>
-			<ContextButton label='Save' type='edit' onClick={handleClick} />
+			<div className='p-1'>
+				<ContextButton
+					label='Save'
+					type='edit'
+					onClick={handleClick}
+					classes='w-full'
+				/>
+			</div>
 		</form>
 	);
 };

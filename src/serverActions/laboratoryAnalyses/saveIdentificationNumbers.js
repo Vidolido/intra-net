@@ -7,13 +7,16 @@ import Analysis from '@/db/models/Analysis';
 // import LaboratoryTemplate from '@/db/models/LaboratoryTemplate';
 
 // I NEED TO HANDLE ERRORS HERE
-export async function saveTemplateId(templateId, header, documentId) {
+export async function saveIdentificationNumbers(
+	identificationNumbers,
+	documentId
+) {
 	try {
 		await dbConnect();
 		await Analysis.updateOne(
 			{ _id: documentId },
 			{
-				$set: { header, templateId },
+				$set: { identificationNumbers },
 			}
 		);
 
@@ -25,9 +28,9 @@ export async function saveTemplateId(templateId, header, documentId) {
 
 		pathsToRevalidate.forEach((path) => revalidatePath(path, 'page'));
 
-		return { message: 'createDocument RAN' };
+		return { message: 'saveIdentificationNumber RAN' };
 	} catch (error) {
-		console.log('Failed to create draft Template error:', error);
-		throw Error('Could not add draft Template to database: ' + error);
+		console.log('Failed to save identification numbers. Error:', error);
+		throw Error('Could not save identification numbers to database: ' + error);
 	}
 }

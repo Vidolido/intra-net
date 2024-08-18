@@ -15,7 +15,11 @@ const TemplateVersion = ({ templates, templateId, analysisId, header }) => {
 
 	useEffect(() => {
 		let fn = async () => {
-			await saveTemplateId('none', header, analysisId);
+			await saveTemplateId(
+				templateId != undefined ? templateId : 'none',
+				header,
+				analysisId
+			);
 		};
 		fn();
 	}, [
@@ -24,6 +28,7 @@ const TemplateVersion = ({ templates, templateId, analysisId, header }) => {
 		header.origin,
 		header.sampleType,
 		header.documentType,
+		templateId,
 		analysisId,
 	]);
 
@@ -31,6 +36,8 @@ const TemplateVersion = ({ templates, templateId, analysisId, header }) => {
 	const handleChange = async (e) => {
 		await saveTemplateId(e.target.value, header, analysisId);
 	};
+
+	// console.log(templateId, 'TEMPLATE ID');
 	return (
 		<fieldset
 			name='template-version'

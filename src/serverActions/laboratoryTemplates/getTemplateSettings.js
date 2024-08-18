@@ -9,7 +9,11 @@ import Setting from '@/db/models/Setting';
 export async function getTemplateSettings() {
 	try {
 		await dbConnect();
-		let templateSettings = await Setting.find({ sector: 'I.T.' }).lean();
+		// let templateSettings = await Setting.find({ sector: 'I.T.' }).lean();
+		let templateSettings = await Setting.find({
+			documentStatus: 'published',
+			isDeleted: false,
+		}).lean();
 
 		return {
 			templateSettings: JSON.parse(JSON.stringify(templateSettings)),

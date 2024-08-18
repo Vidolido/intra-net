@@ -1,13 +1,11 @@
 // state/actions
 import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
+
+// components
 import TemplateSelectForm from '../selectTemplate/TemplateSelectForm';
 import SelectFields from '../infoFields/SelectFields';
 import TemplateForm from '../analysesTemplate/TemplateForm';
-
-// components
-// import TemplateSelectForm from './selectTemplate/TemplateSelectForm';
-// import SelectFields from './infoFields/SelectFields';
-// import TemplateForm from './analysesTemplate/TemplateForm';
+import IdentificationNumbers from './IdentificationNumbers';
 
 const Analysis = ({
 	analysis,
@@ -16,7 +14,7 @@ const Analysis = ({
 	settings,
 	templates,
 }) => {
-	let { products, types, countries, fields } =
+	let { products, types, countries, fields, identificationNumbers } =
 		mutateTemplateSettings(templateSettings);
 	// console.log(analysis, 'the analysis');
 	const template = templates.find(
@@ -26,8 +24,14 @@ const Analysis = ({
 	// console.log(analysisTemplate, 'analisysTemplate');
 
 	return (
-		<div className='flex'>
-			<div>
+		<div className='flex gap-2'>
+			<div className='flex flex-col gap-1'>
+				<IdentificationNumbers
+					languages={languages}
+					analysis={analysis}
+					identificationNumbers={identificationNumbers}
+				/>
+				<SelectFields fields={fields.settings} analysis={analysis} />
 				<TemplateSelectForm
 					analysis={analysis}
 					languages={languages}
@@ -36,7 +40,6 @@ const Analysis = ({
 					countries={countries}
 					templates={templates}
 				/>
-				<SelectFields fields={fields.settings} analysis={analysis} />
 			</div>
 			<TemplateForm
 				templateId={analysis.templateId}
