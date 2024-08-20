@@ -10,9 +10,9 @@ const Ordered = ({ product, products, templateSettings }) => {
   const [visible, setVisible] = useState(false);
 
   return (
-    <div className='border-2 border-slate-300 relative'>
+    <div className='border border-slate-300 relative'>
       <h4
-        className={`border-b relative z-10 cursor-pointer hover:text-red-500 pl-1 ${
+        className={`relative z-10 cursor-pointer hover:text-red-500 pl-1 ${
           !visible ? '' : 'text-red-600'
         }`}
         onClick={() => setVisible(!visible)}>
@@ -37,7 +37,7 @@ const Ordered = ({ product, products, templateSettings }) => {
             return (
               <li
                 key={template._id}
-                className='grid  grid-cols-[1fr_1fr_1fr_25px] border-b last-of-type:border-transparent hover:border-red-300'>
+                className='grid grid-cols-[1fr_1fr_1fr_25px] border-b last-of-type:border-transparent hover:border-red-300'>
                 <PublishedTemplate
                   template={template}
                   products={products}

@@ -8,18 +8,20 @@ import dbConnect from '@/db/conn';
 import LaboratoryTemplate from '@/db/models/LaboratoryTemplate';
 
 export async function GET(request) {
-	let documentStatus =
-		request.nextUrl?.searchParams?.get('documentStatus') || '';
-	try {
-		cookies();
-		await dbConnect();
-		const templates = await LaboratoryTemplate.find({
-			documentStatus,
-			isDeleted: false,
-		});
-		// revalidatePath('/dashboard/laboratory/templates/draft/[_id]', 'page');
-		return NextResponse.json({ templates }, { status: 200 });
-	} catch (error) {
-		return NextResponse.json({ error }, { status: 500 });
-	}
+  let documentStatus =
+    request.nextUrl?.searchParams?.get('documentStatus') || '';
+  let sort = !request.nextUrl?.searchParams?.get('sorted') ? 1 : -1;
+  console.log(sort, 'SORTING');
+  try {
+    cookies();
+    await dbConnect();
+    const templates = await LaboratoryTemplate.find({
+      documentStatus,
+      isDeleted: false,
+    }).sort({ _id: sort });
+    // revalidatePath('/dashboard/laboratory/templates/draft/[_id]', 'page');
+    return NextResponse.json({ templates }, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ error }, { status: 500 });
+  }
 }
