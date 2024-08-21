@@ -25,15 +25,17 @@ const DisplayDocument = ({
   );
   const { date, time } = formatDate(document.createdAt);
   return (
-    <Link href={`/dashboard/laboratory/analyses/${document._id}`}>
-      <div className={`border-b hover:border-red-300 grid gap-4 ${classes}`}>
-        <p>{product.name['en']}</p>
-        <p>{origin.name['en']}</p>
-        <p>{sampleType?.name['en'] || 'none'}</p>
-        <p>{documentType?.name['en']}</p>
-        {dateTime && <p>{`${date} ${time}`}</p>}
-      </div>
-    </Link>
+    <>
+      <Link href={`/dashboard/laboratory/analyses/${document._id}`}>
+        <div className={`border-b hover:border-red-300 grid gap-4 ${classes}`}>
+          <p>{product.name['en']}</p>
+          <p>{origin.name['en']}</p>
+          <p>{sampleType?.name['en'] || 'none'}</p>
+          <p>{documentType?.name['en']}</p>
+          {dateTime && <p>{`${date} ${time}`}</p>}
+        </div>
+      </Link>
+    </>
   );
 };
 

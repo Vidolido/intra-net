@@ -11,7 +11,6 @@ export async function GET(request) {
   let documentStatus =
     request.nextUrl?.searchParams?.get('documentStatus') || '';
   let sort = !request.nextUrl?.searchParams?.get('sorted') ? 1 : -1;
-  console.log(sort, 'SORTING');
   try {
     cookies();
     await dbConnect();

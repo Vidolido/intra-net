@@ -5,7 +5,12 @@ import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
 // components
 import DisplayDocument from './DisplayDocument';
 
-const SingleDateCollection = ({ collection, templateSettings }) => {
+const SingleDateCollection = ({
+  collection,
+  templateSettings,
+  // showOptions,
+  // documentClasses,
+}) => {
   let { products, types, countries } = mutateTemplateSettings(templateSettings);
 
   let mutProducts = products?.settings?.map((setting) => ({
@@ -28,7 +33,8 @@ const SingleDateCollection = ({ collection, templateSettings }) => {
       products={mutProducts}
       types={mutTypes}
       countries={mutCountries}
-      classes='grid-cols-4'
+      // showOptions={showOptions}
+      classes={'grid-cols-4'}
     />
   ));
 };
