@@ -1,8 +1,14 @@
 import { getDisplayHeadings } from '@/utils/getDisplayHeadings';
 
-const TemplateInputHeaders = ({ template, settings, defaultLanguage }) => {
+const TemplateInputHeaders = ({
+	template,
+	laboratorySettings,
+	defaultLanguage,
+}) => {
 	let headings =
-		(settings && getDisplayHeadings(settings[0], 'plural')) || null;
+		(laboratorySettings &&
+			getDisplayHeadings(laboratorySettings[0], 'plural')) ||
+		null;
 	return (
 		<thead>
 			<tr>

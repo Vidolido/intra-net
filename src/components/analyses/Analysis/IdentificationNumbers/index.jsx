@@ -10,56 +10,57 @@ import InputType from '@/components/inputs/InputType';
 import SelectInput from '@/components/inputs/SelectInput';
 
 const IdentificationNumbers = ({
-  languages,
-  analysis,
-  identificationNumbers,
+	languages,
+	analysis,
+	identificationNumbers,
 }) => {
-  let names = identificationNumbers?.settings.map((setting) => ({
-    _id: setting._id,
-    ...nameArray(setting.parameter.inputValue),
-    value: '',
-  }));
-  const [state, setState] = useState(
-    !analysis.identificationNumbers.length
-      ? names
-      : analysis.identificationNumbers
-  );
-  const [selected, setSelected] = useState(names[0]._id);
+	const [state, setState] = useState(
+		!analysis.identificationNumbers.length
+			? identificationNumbers.map((item) => ({
+					_id: item._id,
+					name: item.name,
+					value: '',
+			  }))
+			: analysis.identificationNumbers
+	);
+	const [selected, setSelected] = useState(identificationNumbers[0]._id);
 
-  const handleChange = (e) => {
-    const newState = [...state];
-    let selection = newState.find((item) => item._id.toString() === selected);
-    selection.value = e.target.value;
-    setState(newState);
-  };
+	const handleChange = (e) => {
+		const newState = [...state];
+		let selection = newState.find((item) => item._id.toString() === selected);
+		selection.value = e.target.value;
+		setState(newState);
+	};
 
-  const handleBlur = async () => {
-    await saveIdentificationNumbers(state, analysis._id);
-  };
+	const handleBlur = async () => {
+		await saveIdentificationNumbers(state, analysis._id);
+	};
 
-  const handleOnChange = (e) => {
-    setSelected(e.target.value);
-  };
-
-  return (
-    <form className='pb-1'>
-      <h6>Identification Numbers</h6>
-      <div className='flex w-fit gap-2'>
-        <InputType
-          onBlur={handleBlur}
-          onChange={handleChange}
-          classes={'w-28'}
-          value={state.find((item) => item._id.toString() === selected).value}
-        />
-        <SelectInput
-          options={state}
-          property={'name'}
-          defaultLanguage={'en'}
-          onChange={handleOnChange}
-        />
-      </div>
-    </form>
-  );
+	const handleOnChange = (e) => {
+		setSelected(e.target.value);
+	};
+	console.log(state, 'THE  STATE');
+	return (
+		<form className='pb-1'>
+			<h6>Identification Numbers</h6>
+			<div className='flex w-fit gap-2'>
+				<InputType
+					onBlur={handleBlur}
+					onChange={handleChange}
+					classes={'w-28'}
+					value={
+						state?.find((item) => item._id.toString() === selected).value || ''
+					}
+				/>
+				<SelectInput
+					options={state}
+					property={'name'}
+					defaultLanguage={'en'}
+					onChange={handleOnChange}
+				/>
+			</div>
+		</form>
+	);
 };
 
 export default IdentificationNumbers;

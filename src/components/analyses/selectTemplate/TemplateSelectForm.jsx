@@ -11,6 +11,7 @@ import TemplateVersion from './TemplateVersion';
 const TemplateSelectForm = ({
 	analysis,
 	languages,
+	settings,
 	products,
 	types,
 	countries,
@@ -40,20 +41,21 @@ const TemplateSelectForm = ({
 			: templateHeader
 	);
 	// console.log(template, 'the  template');
+	console.log(settings, 'THE SETTINGS IN  TEMPLATE  SELECT FORM');
 	return (
 		!isPublished && (
 			<form className='flex flex-col gap-2'>
 				<div className='flex gap-2'>
 					<Product
 						name='product'
-						products={products}
+						products={settings?.products}
 						languages={languages}
 						setHeader={setHeader}
 						classes={'w-32'}
 					/>
 					<Origin
 						name='origin'
-						countries={countries}
+						countries={settings?.countries}
 						setHeader={setHeader}
 						classes={'w-32'}
 						languages={languages}
@@ -62,7 +64,7 @@ const TemplateSelectForm = ({
 				<div className='flex gap-2'>
 					<SampleType
 						name='sampleType'
-						types={types}
+						types={settings?.sampleTypes}
 						setHeader={setHeader}
 						none={true}
 						classes={'w-32'}
@@ -70,7 +72,7 @@ const TemplateSelectForm = ({
 					/>
 					<DocumentType
 						name='documentType'
-						types={types}
+						types={settings?.documentTypes}
 						setHeader={setHeader}
 						classes={'w-32'}
 						languages={languages}

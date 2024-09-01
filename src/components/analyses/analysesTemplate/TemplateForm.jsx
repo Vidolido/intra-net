@@ -8,31 +8,31 @@ import TemplateInputFields from './TemplateInputFields';
 import { useRouter } from 'next/navigation';
 
 const TemplateForm = ({
-  templateId,
-  template,
-  languages,
-  settings,
-  analysisId,
+	templateId,
+	template,
+	languages,
+	laboratorySettings,
+	analysisId,
 }) => {
-  let router = useRouter();
-  let defaultLanguage = languages.find((lang) => lang.language === 'en');
+	let router = useRouter();
+	let defaultLanguage = languages.find((lang) => lang.language === 'en');
 
-  const submit = saveTemplateResult.bind(null, analysisId);
-  return templateId === undefined || templateId === 'none' ? (
-    <h4>Please select a template</h4>
-  ) : (
-    <form
-      action={async (e) => {
-        await submit(e);
-        router.push('/dashboard/laboratory/analyses/edit/' + analysisId);
-      }}>
-      <TemplateInputFields
-        template={template}
-        settings={settings}
-        defaultLanguage={defaultLanguage}
-      />
-    </form>
-  );
+	const submit = saveTemplateResult.bind(null, analysisId);
+	return templateId === undefined || templateId === 'none' ? (
+		<h4>Please select a template</h4>
+	) : (
+		<form
+			action={async (e) => {
+				await submit(e);
+				router.push('/dashboard/laboratory/analyses/edit/' + analysisId);
+			}}>
+			<TemplateInputFields
+				template={template}
+				laboratorySettings={laboratorySettings}
+				defaultLanguage={defaultLanguage}
+			/>
+		</form>
+	);
 };
 
 export default TemplateForm;

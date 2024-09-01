@@ -17,27 +17,27 @@ const SampleType = ({
 	setHeader,
 	classes,
 }) => {
-	let sampleTypes = findSettingType(types.settings, ['sample']);
-	let names = sampleTypes?.map((setting) => ({
-		_id: setting._id,
-		...nameArray(setting.parameter.inputValue),
-	}));
+	// let sampleTypes = findSettingType(types, ['sample']);
+	// let names = sampleTypes?.map((setting) => ({
+	// 	_id: setting._id,
+	// 	...nameArray(setting.parameter.inputValue),
+	// }));
 
 	useEffect(() => {
 		if (setHeader)
 			setHeader((prev) => ({
 				...prev,
-				sampleType: value ? names[0]._id : 'none',
+				sampleType: value ? types[0]._id : 'none',
 			}));
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-
+	console.log(types, 'SAMPLE TYPES');
 	return (
 		<fieldset name='sample-types'>
 			<h6>Sample Type</h6>
 			<SelectInput
 				name={name}
-				options={names}
+				options={types}
 				value='id'
 				defaultValue={value}
 				none={none}

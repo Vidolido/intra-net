@@ -8,18 +8,13 @@ import { nameArray } from '@/utils/nameArray';
 import SelectInput from '@/components/inputs/SelectInput';
 
 const Origin = ({ name, countries, languages, value, setHeader, classes }) => {
-	let names = countries?.settings.map((setting) => ({
-		_id: setting._id,
-		...nameArray(setting.parameter.inputValue),
-	}));
-
 	// console.log(countries, 'countries');
 
 	useEffect(() => {
 		if (setHeader) {
 			setHeader((prev) => ({
 				...prev,
-				origin: names[0]._id,
+				origin: countries[0]._id,
 			}));
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -30,7 +25,7 @@ const Origin = ({ name, countries, languages, value, setHeader, classes }) => {
 			<h6>Origin</h6>
 			<SelectInput
 				name={name}
-				options={names}
+				options={countries}
 				value='_id'
 				defaultValue={value}
 				onChange={(e) =>

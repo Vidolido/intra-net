@@ -16,17 +16,17 @@ const DocumentType = ({
 	setHeader,
 	classes,
 }) => {
-	let documentTypes = findSettingType(types.settings, ['document']);
-	let names = documentTypes?.map((setting) => ({
-		id: setting._id,
-		...nameArray(setting.parameter.inputValue),
-	}));
+	// let documentTypes = findSettingType(types.settings, ['document']);
+	// let names = documentTypes?.map((setting) => ({
+	// 	id: setting._id,
+	// 	...nameArray(setting.parameter.inputValue),
+	// }));
 
 	useEffect(() => {
 		if (setHeader)
 			setHeader((prev) => ({
 				...prev,
-				documentType: names[0].id,
+				documentType: value ? types[0]._id : 'none',
 			}));
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
@@ -36,7 +36,7 @@ const DocumentType = ({
 			<h6>DocumentType</h6>
 			<SelectInput
 				name={name}
-				options={names}
+				options={types}
 				value='id'
 				defaultValue={value}
 				onChange={(e) =>

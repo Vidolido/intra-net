@@ -9,12 +9,16 @@ import TemplateInputHeaders from './TemplateInputHeaders';
 import InputType from '@/components/inputs/InputType';
 import ContextButton from '@/components/buttons/ContextButton';
 
-const TemplateInputFields = ({ template, settings, defaultLanguage }) => {
+const TemplateInputFields = ({
+	template,
+	laboratorySettings,
+	defaultLanguage,
+}) => {
 	let mutTemplate = groupParameters(template) || [];
 	return (
 		<table className='border-collapse  w-full'>
 			<TemplateInputHeaders
-				settings={settings}
+				laboratorySettings={laboratorySettings}
 				defaultLanguage={defaultLanguage}
 			/>
 			<tbody>

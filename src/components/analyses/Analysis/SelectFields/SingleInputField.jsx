@@ -1,5 +1,5 @@
 // components
-import InputType from '../../inputs/InputType';
+import InputType from '@/components/inputs/InputType';
 
 const SingleInputField = ({ field, onChange }) => {
 	return (
