@@ -8,15 +8,7 @@ import Product from '@/components/Templates/basic/Product';
 import SampleType from '@/components/Templates/basic/SampleType';
 import TemplateVersion from './TemplateVersion';
 
-const TemplateSelectForm = ({
-	analysis,
-	languages,
-	settings,
-	products,
-	types,
-	countries,
-	templates,
-}) => {
+const TemplateSelectForm = ({ analysis, languages, settings, templates }) => {
 	let isPublished = analysis.documentStatus === 'published' ? true : false;
 	// Доколку анализата има веќе зачувано темплејт се користи templateHeader
 	// во спротивно се праваи нов State
@@ -41,7 +33,8 @@ const TemplateSelectForm = ({
 			: templateHeader
 	);
 	// console.log(template, 'the  template');
-	console.log(settings, 'THE SETTINGS IN  TEMPLATE  SELECT FORM');
+	// console.log(settings, 'THE SETTINGS IN  TEMPLATE  SELECT FORM');
+	console.log(header, 'THE  HEADER');
 	return (
 		!isPublished && (
 			<form className='flex flex-col gap-2'>

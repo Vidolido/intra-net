@@ -1,10 +1,6 @@
 'use client';
 import { useEffect } from 'react';
 
-// state/actions
-import { findSettingType } from '@/utils/findSettingType';
-import { nameArray } from '@/utils/nameArray';
-
 // components
 import SelectInput from '@/components/inputs/SelectInput';
 
@@ -26,7 +22,7 @@ const DocumentType = ({
 		if (setHeader)
 			setHeader((prev) => ({
 				...prev,
-				documentType: value ? types[0]._id : 'none',
+				documentType: types[0]._id,
 			}));
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
