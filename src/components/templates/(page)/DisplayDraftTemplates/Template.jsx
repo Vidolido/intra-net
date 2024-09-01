@@ -8,7 +8,7 @@ import { deleteDraftTemplate } from '@/serverActions/laboratoryTemplates/deleteD
 import ContextButton from '@/components/buttons/ContextButton';
 import { deleteTemplate } from '@/serverActions/laboratoryTemplates/deleteTemplate';
 
-const DraftTemplate = ({ draft }) => {
+const Template = ({ draft }) => {
 	const handleDelete = async (_id) => {
 		// await deleteDraftTemplate(_id);
 		await deleteTemplate(_id, 'draft');
@@ -29,4 +29,4 @@ const DraftTemplate = ({ draft }) => {
 	);
 };
 
-export default DraftTemplate;
+export default Template;

@@ -2,11 +2,11 @@
 import { saveBasicData } from '@/serverActions/laboratoryTemplates/saveBasicData';
 
 // components
-import DocumentType from '../basic/DocumentType';
-import Origin from '../basic/Origin';
-import Product from '../basic/Product';
-import SampleType from '../basic/SampleType';
-import DocumentStatus from './DocumentStatus';
+import Product from './(headerOptions)/Product';
+import SampleType from './(headerOptions)/SampleType';
+import Origin from './(headerOptions)/Origin';
+import DocumentType from './(headerOptions)/DocumentType';
+import DocumentStatus from './(headerOptions)/DocumentStatus';
 
 const Header = ({ languages, templateSettings, template }) => {
 	let products = templateSettings.find(
@@ -41,6 +41,7 @@ const Header = ({ languages, templateSettings, template }) => {
 					name='origin'
 					countries={countries}
 					value={template.origin}
+					none={true}
 					languages={languages}
 				/>
 				<DocumentType

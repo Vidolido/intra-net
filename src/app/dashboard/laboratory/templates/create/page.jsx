@@ -8,7 +8,7 @@ import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemp
 import { getDraftTemplate } from '../../apiCalls';
 
 // components
-import Template from '@/components/templates/Template';
+import Template from '@/components/Templates/Template';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;

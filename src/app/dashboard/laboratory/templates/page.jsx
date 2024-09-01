@@ -4,45 +4,45 @@ import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemp
 import { nameArray } from '@/utils/nameArray';
 
 // components
-import CreateDraftTemplateButton from '@/components/templates/CreateDraftTemplateButton';
-import DisplayDraftTemplates from '@/components/templates/draftTemplates/DisplayDraftTemplates';
-import PublishedTemplates from '@/components/templates/publishedTemplates/PublishedTemplates';
+import Templates from '@/components/Templates';
+import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
+const mutSettings = (setting) =>
+	setting.settings?.map((s) => ({
+		id: s._id,
+		...nameArray(s.parameter.inputValue),
+	}));
+
 const page = async () => {
-  const { templates: published } = await getLaboratoryTemplates({
-    documentStatus: 'published',
-    isDeleted: false,
-  });
-  const { templates: draftTemplates } = await getLaboratoryTemplates({
-    documentStatus: 'draft',
-    sorted: true,
-  });
-  const { templateSettings } = await getTemplateSettings();
+	const { templates: published } = await getLaboratoryTemplates({
+		documentStatus: 'published',
+		isDeleted: false,
+	});
+	const { templates: draftTemplates } = await getLaboratoryTemplates({
+		documentStatus: 'draft',
+		sorted: true,
+	});
+	const { templateSettings } = await getTemplateSettings();
 
-  let products = templateSettings.filter(
-    (setting) => setting.settingName === 'Products'
-  );
+	const { products, countries, types } = await mutateTemplateSettings(
+		templateSettings
+	);
 
-  let items = products[0]?.settings?.map((setting) => ({
-    id: setting._id,
-    ...nameArray(setting.parameter.inputValue),
-  }));
-  return (
-    <div className='w-full pr-2'>
-      <CreateDraftTemplateButton />
-      <div className='flex justify-between w-full'>
-        <PublishedTemplates
-          published={published}
-          products={items}
-          templateSettings={templateSettings}
-        />
-        <DisplayDraftTemplates drafts={draftTemplates} />
-      </div>
-    </div>
-  );
+	let settings = {
+		products: mutSettings(products),
+		types: mutSettings(types),
+		countries: mutSettings(countries),
+	};
+	return (
+		<Templates
+			published={published}
+			drafts={draftTemplates}
+			settings={settings}
+		/>
+	);
 };
 
 export default page;

@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 // components
 import ArrowSvg from '@/../public/arrow.svg';
-import DraftTemplate from './DraftTemplate';
+import Template from './Template';
 
 const DisplayDraftTemplates = ({ drafts }) => {
 	const [visible, setVisible] = useState(false);
@@ -29,7 +29,7 @@ const DisplayDraftTemplates = ({ drafts }) => {
 							<li
 								key={template._id}
 								className=' border border-t-1 border-b-transparent last-of-type:border-b-slate-200 hover:border-b-red-300 '>
-								<DraftTemplate key={template._id} draft={template} />
+								<Template key={template._id} draft={template} />
 							</li>
 						);
 					})}
