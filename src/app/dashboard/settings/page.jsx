@@ -2,9 +2,7 @@
 import { getSettings } from '../apiCalls';
 
 // components
-import CreateDraftButton from '@/components/settings/CreateDraftButton';
-import DisplayDraftSettings from '@/components/settings/draftSettings/DisplayDraftSettings';
-import PublishedSettings from '@/components/settings/publishedSettings/PublishedSettings';
+import Settings from '@/components/Settings';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -18,15 +16,7 @@ const page = async () => {
     isDeleted: false,
   });
 
-  return (
-    <div className='w-full'>
-      <CreateDraftButton />
-      <div className='flex justify-between w-full'>
-        <PublishedSettings published={published} />
-        <DisplayDraftSettings drafts={drafts} />
-      </div>
-    </div>
-  );
+  return <Settings drafts={drafts} published={published} />;
 };
 
 export default page;

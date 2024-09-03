@@ -2,6 +2,18 @@
 
 import { queryParser } from '@/utils/analyses/queryParser';
 
+// sectors
+export async function getSectors() {
+  const res = await fetch('http://localhost:3000/api/settings/get-sectors');
+
+  if (!res.ok) {
+    console.log(res);
+    throw new Error('Failed to get sectors from db. Reason: ' + res);
+  }
+
+  return res.json();
+}
+
 // languages
 export async function getLanguages() {
   const res = await fetch('http://localhost:3000/api/languages');

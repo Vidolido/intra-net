@@ -5,12 +5,12 @@ import { useEffect, useState } from 'react';
 import { insertSetting } from '@/serverActions/settings/insertSetting';
 
 // components
-import LanguageInputContainer from '@/components/inputs/LanguageInputContainer';
-import SelectInput from '@/components/inputs/SelectInput';
 import RadioButtons from './RadioButtons';
 import CollectionInput from './CollectionInput';
-import ContextButton from '@/components/buttons/ContextButton';
 import DisplayCollections from './DisplayCollections';
+import SelectInput from '@/components/inputs/SelectInput';
+import ContextButton from '@/components/buttons/ContextButton';
+import LanguageInputContainer from '@/components/inputs/LanguageInputContainer';
 
 const InsertSettingsForm = ({ setting, languages }) => {
   let parameter =

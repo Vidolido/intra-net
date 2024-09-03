@@ -1,8 +1,8 @@
 'use client';
+import { useRouter } from 'next/navigation';
 
 // state/actions
 import { makeDraftSetting } from '@/serverActions/settings/makeDraftSetting';
-import { useRouter } from 'next/navigation';
 
 const CreateDraftButton = () => {
   const router = useRouter();

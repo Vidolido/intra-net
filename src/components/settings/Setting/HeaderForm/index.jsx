@@ -12,39 +12,18 @@ import SelectInput from '@/components/inputs/SelectInput';
 import InputType from '@/components/inputs/InputType';
 import ContextButton from '@/components/buttons/ContextButton';
 
-const sectors = [
-  {
-    _id: generateUUID(),
-    name: { en: 'Administration', mk: 'Администрација', gr: '' },
-  },
-  {
-    _id: generateUUID(),
-    name: { en: 'Oil Movement', mk: 'Д.Н.Д.', gr: '' },
-  },
-  {
-    _id: generateUUID(),
-    name: { en: 'Laboratory', mk: 'Лабораторија', gr: '' },
-  },
-  {
-    _id: generateUUID(),
-    name: { en: 'I.T.', mk: 'И.Т.', gr: '' },
-  },
-];
-
 const status = [{ status: 'draft' }, { status: 'published' }];
 
-const HeaderForm = ({ setting, languages }) => {
-  // const [state, formAction] = useFormState(saveSettingHeader, null);
+const HeaderForm = ({ languages, sectors, setting }) => {
   const [state, formAction] = useFormState(saveSettingHeader, {
     message: '',
     error: '',
   });
-  // let hasName =
-  //   setting.settingName != null && setting.settingName ? false : true;
+
   let hasName = !setting.settingName;
   const [visible, setVisible] = useState(hasName);
 
-  // console.log(state, ' THE STATE FRONTEND');
+  // console.log(sectors, ' THE STATE sectors');
   return (
     <form action={formAction} className='p-1 border border-slate-200 rounded'>
       <input
