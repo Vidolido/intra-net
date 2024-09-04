@@ -1,8 +1,8 @@
 // components
 import DisplaySettings from './displaySettings/DisplaySettings';
-import InsertSettings from './insertSettingsForm/InsertSettings';
-import Header from './settingsComponents/Header';
-import OptionsSchema from './settingsComponents/OptionsSchema';
+import InsertSettings from './insertSettingsFormOld/InsertSettings';
+import Header from './settingsComponentsOld/Header';
+import OptionsSchema from './settingsComponentsOld/OptionsSchema';
 
 const Settings = ({ title, setting, languages }) => {
   return (

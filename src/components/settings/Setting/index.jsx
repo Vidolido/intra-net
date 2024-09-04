@@ -1,5 +1,6 @@
 // components
-import DisplaySettings from '../displaySettings/DisplaySettings';
+// import DisplaySettings from '../displaySettings/DisplaySettings';
+import DisplaySettings from './DisplaySettings';
 import HeaderForm from './HeaderForm';
 import InsertSettingsForm from './InsertSettingsForm';
 import OptionsSchema from './OptionsSchemaForm';
@@ -22,9 +23,13 @@ const Setting = ({ title, languages, sectors, setting }) => {
             <InsertSettingsForm setting={setting} languages={languages} />
           )}
         </div>
-        <div>
-          <DisplaySettings languages={languages} setting={setting} />
-        </div>
+        <DisplaySettings
+          defaultLanguage={languages[0].language}
+          languages={languages}
+          settingId={setting._id}
+          settings={setting.settings}
+        />
+        {/* <DisplaySettings languages={languages} setting={setting} /> */}
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ const page = async () => {
 
   const { draft } = await getDraftSetting();
 
-  console.log(sectors, 'THE SECTORS');
+  // console.log(sectors, 'THE SECTORS');
 
   return (
     <Setting

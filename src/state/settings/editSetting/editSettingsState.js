@@ -9,24 +9,24 @@ export const EditSettingsContext = createContext();
 export const EditSettingsDispatchContext = createContext();
 
 export const EditSettingsContextProvider = ({ children }) => {
-	const [state, dispatch] = useImmerReducer(
-		editSettingsReducer,
-		editSettingState
-	);
+  const [state, dispatch] = useImmerReducer(
+    editSettingsReducer,
+    editSettingState
+  );
 
-	return (
-		<EditSettingsContext.Provider value={state}>
-			<EditSettingsDispatchContext.Provider value={dispatch}>
-				{children}
-			</EditSettingsDispatchContext.Provider>
-		</EditSettingsContext.Provider>
-	);
+  return (
+    <EditSettingsContext.Provider value={state}>
+      <EditSettingsDispatchContext.Provider value={dispatch}>
+        {children}
+      </EditSettingsDispatchContext.Provider>
+    </EditSettingsContext.Provider>
+  );
 };
 
 export const useEditSettingsContext = () => {
-	return useContext(EditSettingsContext);
+  return useContext(EditSettingsContext);
 };
 
 export const useEditSettingsDispatchContext = () => {
-	return useContext(EditSettingsDispatchContext);
+  return useContext(EditSettingsDispatchContext);
 };

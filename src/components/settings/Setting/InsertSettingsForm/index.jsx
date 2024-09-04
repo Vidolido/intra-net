@@ -9,8 +9,8 @@ import RadioButtons from './RadioButtons';
 import CollectionInput from './CollectionInput';
 import DisplayCollections from './DisplayCollections';
 import SelectInput from '@/components/inputs/SelectInput';
-import ContextButton from '@/components/buttons/ContextButton';
 import LanguageInputContainer from '@/components/inputs/LanguageInputContainer';
+import ContextButton from '@/components/buttons/ContextButton';
 
 const InsertSettingsForm = ({ setting, languages }) => {
   let parameter =
@@ -24,8 +24,9 @@ const InsertSettingsForm = ({ setting, languages }) => {
     },
     collections: [
       ...collections.map((collection) => ({
+        _id: collection._id,
         name: collection.name,
-        collectionId: collection._id,
+        // collectionId: collection._id,
         items: [],
       })),
     ],
@@ -83,11 +84,12 @@ const InsertSettingsForm = ({ setting, languages }) => {
       Array.from(mainParam).forEach((item) => (item.value = ''));
     }
     // e.target.form.requestSubmit();
+    console.log(state, 'state pred save');
     const test = await insertSetting(state, setting._id);
     console.log(test, '<< this happend');
   };
 
-  // console.log(state, 'THE  STATE');
+  console.log(state, 'THE  STATE');
   return (
     <form className='border border-slate-200 rounded p-1'>
       <LanguageInputContainer

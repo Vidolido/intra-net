@@ -7,21 +7,20 @@ import dbConnect from '@/db/conn';
 import Setting from '@/db/models/Setting';
 
 // TODO: Handle errors
-// TODO: Rename this function: saveSettingHeader
 export async function saveSettingHeader(state, formData) {
   const _id = formData.get('document_id');
   let payload = {
     sector: formData.get('sector'),
     settingName: formData.get('settingName'),
-    documentStatus: formData.get('documentStatus'),
+    documentStatus: formData.get('documentStatus') || 'draft',
   };
+
   let shouldRedirect = false;
+
   try {
     await dbConnect();
     let updated = await Setting.updateOne({ _id }, { ...payload });
 
-    // shouldRedirect treba da bide zavisno od toa dali se menuva parametarot na dokumentot
-    // treba da go zemam dokumentot, da proveram dali parametarot e ist ili e razlichen.
     shouldRedirect = updated.modifiedCount === 1 ? true : false;
 
     const pathsToRevalidate = [

@@ -18,7 +18,7 @@ const page = async ({ params }) => {
   const { _id } = params;
   const { setting } = await getSettingById(_id);
 
-  console.log(sectors, 'THE SECTORS');
+  // console.log(sectors, 'THE SECTORS');
 
   return (
     <Setting

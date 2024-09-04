@@ -14,10 +14,11 @@ export const revalidate = 0;
 const page = async ({ params }) => {
   const { languages } = await getLanguages();
   const { sectors } = await getSectors();
+
   const { _id } = params;
   const { setting } = await getSettingById(_id);
 
-  console.log(sectors, 'THE SECTORS');
+  // console.log(sectors, 'THE SECTORS');
   return (
     <Setting
       title='Edit Setting'
