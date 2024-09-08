@@ -8,42 +8,43 @@ import Setting from '@/db/models/Setting';
 
 // TODO: Handle errors
 export async function saveSettingHeader(state, formData) {
-  const _id = formData.get('document_id');
-  let payload = {
-    sector: formData.get('sector'),
-    settingName: formData.get('settingName'),
-    documentStatus: formData.get('documentStatus') || 'draft',
-  };
+	const _id = formData.get('document_id');
 
-  let shouldRedirect = false;
+	let payload = {
+		sector: formData.get('sector'),
+		settingName: formData.get('settingName'),
+		documentStatus: formData.get('documentStatus') || 'draft',
+	};
 
-  try {
-    await dbConnect();
-    let updated = await Setting.updateOne({ _id }, { ...payload });
+	let shouldRedirect = false;
 
-    shouldRedirect = updated.modifiedCount === 1 ? true : false;
+	try {
+		await dbConnect();
+		let updated = await Setting.updateOne({ _id }, { ...payload });
 
-    const pathsToRevalidate = [
-      `/dashboard/settings/edit/[_id]`,
-      `/dashboard/settings/draft/[_id]`,
-      '/dashboard/settings/create',
-    ];
+		shouldRedirect = updated.modifiedCount === 1 ? true : false;
 
-    pathsToRevalidate.forEach((path) => revalidatePath(path, 'page'));
+		const pathsToRevalidate = [
+			`/dashboard/settings/edit/[_id]`,
+			`/dashboard/settings/draft/[_id]`,
+			'/dashboard/settings/create',
+		];
 
-    return {
-      message: 'Save successful.',
-    };
-  } catch (error) {
-    console.log('Failed to save setting, error:', error);
-    return {
-      error: error.message,
-    };
-  } finally {
-    if (shouldRedirect) {
-      let redirectTo =
-        payload.documentStatus === 'published' ? 'edit' : 'draft';
-      redirect(`/dashboard/settings/${redirectTo}/${_id}`);
-    }
-  }
+		pathsToRevalidate.forEach((path) => revalidatePath(path, 'page'));
+
+		return {
+			message: 'Save successful.',
+		};
+	} catch (error) {
+		console.log('Failed to save setting, error:', error);
+		return {
+			error: error.message,
+		};
+	} finally {
+		if (shouldRedirect) {
+			let redirectTo =
+				payload.documentStatus === 'published' ? 'edit' : 'draft';
+			redirect(`/dashboard/settings/${redirectTo}/${_id}`);
+		}
+	}
 }
