@@ -1,32 +1,31 @@
 'use client';
+import { useCallback, useState } from 'react';
+
 // components
 import DragSvg from '@/../public/drag.svg';
-import { useState } from 'react';
 import DisplaySetting from './DisplaySetting';
 import Options from './Options';
 
 const SettingRow = ({
 	defaultLanguage,
 	languages,
-	settingId,
+	documentId,
 	setting,
+	option,
+	handleOptions,
+	handleExpand,
+	handleEdit,
 	classes,
 	gridTemplateColumns,
 }) => {
-	const [options, setOptions] = useState({
-		_id: null,
-		showOptions: false,
-		edit: false,
-		expand: false,
-	});
+	// const [currentOption, setCurrentOption] = useState('');
+	// const [options, setOptions] = useState(optionsForSettings);
 	const [visible, setVisible] = useState(false);
 
 	const property = setting?.parameter?.inputValue;
 	const collections = setting?.collections;
 
-	const handleShowOptions = (e) => {
-		setVisible(!visible);
-	};
+	// console.log(option, 'OVOA');
 	return (
 		<div className={classes} style={{ gridTemplateColumns }}>
 			<div className='border-r'>
@@ -34,19 +33,27 @@ const SettingRow = ({
 			</div>
 
 			{/* edit component */}
-			{visible && <div>OVA SE OPCIITE</div>}
+			{/* {option.showOptions && <div>OVA SE OPCIITE</div>} */}
 
 			{/* view db data component */}
-			{!visible && (
-				<DisplaySetting
-					defaultLanguage={defaultLanguage}
-					property={property}
-					collections={collections}
-				/>
-			)}
+			{/* {!option.showOptions && ( */}
+			<DisplaySetting
+				defaultLanguage={defaultLanguage}
+				property={property}
+				collections={collections}
+				option={option}
+			/>
+			{/* )} */}
 
 			{/* button component */}
-			<Options onClick={handleShowOptions} />
+			<Options
+				documentId={documentId}
+				settingId={setting._id}
+				option={option}
+				onClick={handleOptions}
+				handleExpand={handleExpand}
+				handleEdit={handleEdit}
+			/>
 			{/* <div className='border-r px-3'>
 				<button onClick={handleClick}>ClickME</button>
 			</div> */}

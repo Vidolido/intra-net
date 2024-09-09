@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-
-const DisplaySetting = ({ defaultLanguage, property, collections }) => {
-	// const [options, setOptions] = useState({
-	// 	edit: false,
-	// 	expand: false,
-	// });
+const DisplaySetting = ({
+	defaultLanguage,
+	property,
+	collections,
+	option = null,
+}) => {
 	return (
 		<>
 			<div className='border-r px-3'>
@@ -13,9 +12,10 @@ const DisplaySetting = ({ defaultLanguage, property, collections }) => {
 			{collections.map((collection) => (
 				<div key={collection._id} className='border-r px-3'>
 					{collection?.items.map((item, i) => {
+						if (option && !option.options.expand && i > 0) return;
+
 						return (
 							<p key={item._id}>
-								{' '}
 								{(typeof item.value === 'string' && item.value) ||
 									item.value[defaultLanguage] ||
 									`${item?.value?.key} - ${item?.value?.value}`}
