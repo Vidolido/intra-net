@@ -7,11 +7,15 @@ const links = {
 		additionalLinks: [
 			{
 				label: 'All Documents',
-				path: '/dashboard/laboratory/analyses/all',
+				path: '/dashboard/laboratory/documents/all',
 			},
+			// {
+			// 	label: 'Analyses',
+			// 	path: '/dashboard/laboratory/analyses',
+			// },
 			{
-				label: 'Analyses',
-				path: '/dashboard/laboratory/analyses',
+				label: 'New Document',
+				path: '/dashboard/laboratory/documents',
 			},
 			{
 				label: 'Templates',

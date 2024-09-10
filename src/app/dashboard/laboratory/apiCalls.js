@@ -49,10 +49,10 @@ export async function getDraftTemplate() {
 /**
  *
  */
-// Laboratory Documents
-export async function getDraftAnalysis() {
+// Laboratody Documents
+export async function getDraftDocument() {
 	const res = await fetch(
-		'http://localhost:3000/api/laboratory/draft-analysis'
+		'http://localhost:3000/api/laboratory/draft-document'
 	);
 
 	if (!res.ok) {
@@ -91,3 +91,21 @@ export async function getAnalysisById(_id) {
 	return res.json();
 }
 // Laboratody Documents
+/**
+ *
+ */
+// Calls to other collections
+// export async function getSettings(searchQuery) {
+// 	const baseUrl = 'http://localhost:3000/api/settings/get-settings';
+
+// 	let query = queryParser(baseUrl, searchQuery);
+
+// 	const res = await fetch(query);
+
+// 	if (!res.ok) {
+// 		console.log(res);
+// 		throw new Error('Failed to get settings from db. Reason: ' + res);
+// 	}
+
+// 	return res.json();
+// }

@@ -20,7 +20,12 @@ export async function GET(request) {
 				$natural: -1,
 			});
 
-		revalidatePath('/dashboard/settings', 'page');
+		const pathsToRevalidate = [
+			'/dashboard/settings',
+			'/dashboard/laboratory/documents',
+		];
+
+		pathsToRevalidate.forEach((path) => revalidatePath(path, 'page'));
 
 		return NextResponse.json({ settings }, { status: 200 });
 	} catch (error) {

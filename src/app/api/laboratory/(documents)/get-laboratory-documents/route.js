@@ -5,7 +5,8 @@ import { cookies } from 'next/headers';
 
 // connection/models/db functions
 import dbConnect from '@/db/conn';
-import Analysis from '@/db/models/Analysis';
+import Document from '@/db/models/Document';
+// import Analysis from '@/db/models/Analysis';
 
 export async function GET(request) {
 	let documentStatus =
@@ -45,7 +46,7 @@ export async function GET(request) {
 				$sort: { createdAt: -1 },
 			});
 		}
-		const documents = await Analysis.aggregate(pipeline);
+		const documents = await Document.aggregate(pipeline);
 		return NextResponse.json({ documents }, { status: 200 });
 	} catch (error) {
 		return NextResponse.json({ error }, { status: 500 });
