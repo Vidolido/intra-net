@@ -1,5 +1,6 @@
 // state/actions
 import { getLaboratoryDocuments } from '../../apiCalls';
+import { getSettings } from '@/app/dashboard/apiCalls';
 import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemplateSettings';
 
 // components
@@ -9,7 +10,11 @@ import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemp
 import Filter from '@/components/Analyses/allDocuments/filter/Filter';
 
 const page = async () => {
-  const { templateSettings } = await getTemplateSettings();
+  // const { templateSettings } = await getTemplateSettings();
+  const { settings: templateSettings } = await getSettings({
+    documentStatus: 'published',
+    isDeleted: false,
+  });
 
   const { documents } = await getLaboratoryDocuments({
     documentStatus: 'published',

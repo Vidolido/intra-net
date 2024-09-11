@@ -17,7 +17,6 @@ const DateCollections = ({ collection, templateSettings }) => {
   const handleHide = () => {
     setVisible(!visible);
   };
-  // const documentClasses = showOptions ? 'grid-cols-5' : 'grid-cols-4';
   return (
     <div>
       <button type='button' onClick={handleHide} className='relative w-full'>
@@ -33,8 +32,6 @@ const DateCollections = ({ collection, templateSettings }) => {
         <SingleDateCollection
           collection={collection}
           templateSettings={templateSettings}
-          // showOptions={showOptions}
-          // documentClasses={documentClasses}
         />
       </div>
     </div>

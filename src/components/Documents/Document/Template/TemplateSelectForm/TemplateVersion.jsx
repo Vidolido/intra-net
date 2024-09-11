@@ -3,8 +3,8 @@ import { useEffect } from 'react';
 
 // state/actions
 // import { saveTemplateId } from '@/serverActions/laboratoryAnalyses/saveTemplateId';
-import { filterTemplates } from '@/utils/filterTemplates';
 import { saveTemplateId } from '@/data-access/documents/document/saveTemplateId';
+import { filterTemplates } from '@/utils/filterTemplates';
 
 const TemplateVersion = ({ templates, templateId, documentId, header }) => {
   const filteredTempaltes = filterTemplates(templates, header);

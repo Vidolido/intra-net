@@ -4,7 +4,6 @@ import { revalidatePath } from 'next/cache';
 // connection/moddels/database functions
 import dbConnect from '@/db/conn';
 import Document from '@/db/models/Document';
-// import LaboratoryTemplate from '@/db/models/LaboratoryTemplate';
 
 // I NEED TO HANDLE ERRORS HERE
 export async function saveIdentificationNumbers(

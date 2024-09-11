@@ -26,7 +26,7 @@ const DisplayDocument = ({
   const { date, time } = formatDate(document.createdAt);
   return (
     <>
-      <Link href={`/dashboard/laboratory/analyses/${document._id}`}>
+      <Link href={`/dashboard/laboratory/documents/${document._id}`}>
         <div className={`border-b hover:border-red-300 grid gap-4 ${classes}`}>
           <p>{product.name['en']}</p>
           <p>{origin.name['en']}</p>

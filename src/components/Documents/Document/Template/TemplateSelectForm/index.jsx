@@ -37,8 +37,8 @@ const TemplateSelectForm = ({ document, languages, settings, templates }) => {
   console.log(header, 'THE  HEADER');
   return (
     !isPublished && (
-      <form className='flex flex-row gap-2'>
-        <div className='flex gap-2'>
+      <form className='flex flex-col gap-2'>
+        <div className='flex flex-row gap-2'>
           <Product
             name='product'
             products={settings?.products}
@@ -53,8 +53,6 @@ const TemplateSelectForm = ({ document, languages, settings, templates }) => {
             classes={'w-32'}
             languages={languages}
           />
-        </div>
-        <div className='flex gap-2'>
           <SampleType
             name='sampleType'
             types={settings?.sampleTypes}

@@ -4,19 +4,16 @@ import { revalidatePath } from 'next/cache';
 // connection/moddels/database functions
 import dbConnect from '@/db/conn';
 import Document from '@/db/models/Document';
-// import LaboratoryTemplate from '@/db/models/LaboratoryTemplate';
 
 // I NEED TO HANDLE ERRORS HERE
-export async function saveIdentificationNumbers(
-  identificationNumbers,
-  documentId
-) {
+export async function saveTemplateId(templateId, header, documentId) {
+  console.log(templateId, header, documentId, 'OVOOOOOAAAA');
   try {
     await dbConnect();
     await Document.updateOne(
       { _id: documentId },
       {
-        $set: { identificationNumbers },
+        $set: { header, templateId },
       }
     );
 
@@ -28,9 +25,9 @@ export async function saveIdentificationNumbers(
 
     pathsToRevalidate.forEach((path) => revalidatePath(path, 'page'));
 
-    return { message: 'saveIdentificationNumber RAN' };
+    return { message: 'save successful' };
   } catch (error) {
-    console.log('Failed to save identification numbers. Error:', error);
-    throw Error('Could not save identification numbers to database: ' + error);
+    console.log('Failed to save template id. Error:', error);
+    throw Error('Could not save template id to document: ' + error);
   }
 }

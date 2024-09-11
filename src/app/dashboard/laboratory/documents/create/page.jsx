@@ -1,6 +1,11 @@
 // state/actions
 import { getDraftDocument, getLaboratoryTemplates } from '../../apiCalls';
-import { getLaboratorySettings, getLanguages } from '@/app/dashboard/apiCalls';
+import {
+  getLaboratorySettings,
+  getLanguages,
+  getSectors,
+  getSettings,
+} from '@/app/dashboard/apiCalls';
 import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemplateSettings';
 import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
 import { findSettingType } from '@/utils/findSettingType';
@@ -14,56 +19,63 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 const mutSettings = (setting) =>
-	setting.settings?.map((s) => ({
-		_id: s._id,
-		...nameArray(s.parameter.inputValue),
-	}));
+  setting.settings?.map((s) => ({
+    _id: s._id,
+    ...nameArray(s.parameter.inputValue),
+  }));
 const mutFields = (settings) =>
-	settings?.map((s) => ({
-		_id: s._id,
-		...nameArray(s.parameter.inputValue),
-	}));
+  settings?.map((s) => ({
+    _id: s._id,
+    ...nameArray(s.parameter.inputValue),
+  }));
 
 const page = async () => {
-	let { templateSettings } = await getTemplateSettings();
-	let { languages } = await getLanguages();
-	let { templates: published } = await getLaboratoryTemplates({
-		documentStatus: 'published',
-	});
+  // let { templateSettings } = await getTemplateSettings();
+  //   const { sectors } = await getSectors();
 
-	const { setting } = await getLaboratorySettings();
-	const { settings: laboratorySettings } = setting || [];
+  const { settings: templateSettings } = await getSettings({
+    documentStatus: 'published',
+    isDeleted: false,
+  });
 
-	const { draft } = await getDraftDocument();
+  let { languages } = await getLanguages();
+  let { templates: published } = await getLaboratoryTemplates({
+    documentStatus: 'published',
+  });
 
-	let { products, types, countries, fields, identificationNumbers } =
-		await mutateTemplateSettings(templateSettings);
+  const { setting } = await getLaboratorySettings();
+  const { settings: laboratorySettings } = setting || [];
 
-	// console.log(types, 'TYPES');
+  const { draft } = await getDraftDocument();
 
-	let sampleTypes = findSettingType(types.settings, ['sample']);
-	let documentTypes = findSettingType(types.settings, ['document']);
+  let { products, types, countries, fields, identificationNumbers } =
+    await mutateTemplateSettings(templateSettings);
 
-	let settings = {
-		products: mutSettings(products),
-		sampleTypes: mutFields(sampleTypes),
-		documentTypes: mutFields(documentTypes),
-		countries: mutSettings(countries),
-		fields: mutateFields(fields.settings),
-		identificationNumbers: mutSettings(identificationNumbers),
-	};
-	return (
-		<div className='w-full'>
-			<h2>Create New Document</h2>
-			<Document
-				document={draft}
-				settings={settings}
-				languages={languages}
-				laboratorySettings={laboratorySettings}
-				templates={published}
-			/>
-		</div>
-	);
+  // console.log(types, 'TYPES');
+
+  let sampleTypes = findSettingType(types.settings, ['sample']);
+  let documentTypes = findSettingType(types.settings, ['document']);
+
+  let settings = {
+    products: mutSettings(products),
+    sampleTypes: mutFields(sampleTypes),
+    documentTypes: mutFields(documentTypes),
+    countries: mutSettings(countries),
+    fields: mutateFields(fields.settings),
+    identificationNumbers: mutSettings(identificationNumbers),
+  };
+  return (
+    <div className='w-full'>
+      <h2>Create New Document</h2>
+      <Document
+        document={draft}
+        settings={settings}
+        languages={languages}
+        laboratorySettings={laboratorySettings}
+        templates={published}
+      />
+    </div>
+  );
 };
 
 export default page;
