@@ -4,40 +4,40 @@ import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemp
 import { nameArray } from '@/utils/nameArray';
 
 // components
-import Analyses from '@/components/Analyses';
+import Analyses from '@/components/AnalysesOld';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 const page = async () => {
-	const { templateSettings } = await getTemplateSettings();
+  const { templateSettings } = await getTemplateSettings();
 
-	const { documents: draftDocuments } = await getLaboratoryDocuments({
-		documentStatus: 'draft',
-	});
+  const { documents: draftDocuments } = await getLaboratoryDocuments({
+    documentStatus: 'draft',
+  });
 
-	const { documents: publishedDocuments } = await getLaboratoryDocuments({
-		documentStatus: 'published',
-		sorted: true,
-	});
+  const { documents: publishedDocuments } = await getLaboratoryDocuments({
+    documentStatus: 'published',
+    sorted: true,
+  });
 
-	let products = templateSettings.filter(
-		(setting) => setting.settingName === 'Products'
-	);
+  let products = templateSettings.filter(
+    (setting) => setting.settingName === 'Products'
+  );
 
-	let mutProducts = products[0]?.settings?.map((setting) => ({
-		id: setting._id,
-		...nameArray(setting.parameter.inputValue),
-	}));
+  let mutProducts = products[0]?.settings?.map((setting) => ({
+    id: setting._id,
+    ...nameArray(setting.parameter.inputValue),
+  }));
 
-	return (
-		<Analyses
-			templateSettings={templateSettings}
-			draftDocuments={draftDocuments}
-			publishedDocuments={publishedDocuments}
-			products={mutProducts}
-		/>
-	);
+  return (
+    <Analyses
+      templateSettings={templateSettings}
+      draftDocuments={draftDocuments}
+      publishedDocuments={publishedDocuments}
+      products={mutProducts}
+    />
+  );
 };
 
 export default page;

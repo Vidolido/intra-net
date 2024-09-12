@@ -7,7 +7,7 @@ import { useEditSettingsContext } from '@/state/settings/editSetting/editSetting
 // components
 import DragSvg from '@/../public/drag.svg';
 import RowOptions from './RowOptions';
-import EditSetingForm from '../editSetting/EditSetingForm';
+import EditSetingForm from '../editSettingOld/EditSetingForm';
 
 const TableRow = ({
   languages,

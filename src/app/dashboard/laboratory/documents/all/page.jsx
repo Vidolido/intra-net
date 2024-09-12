@@ -7,7 +7,7 @@ import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemp
 // import Labels from '@/components/analyses/allDocuments/Labels';
 // import Unsorted from '@/components/analyses/allDocuments/Unsorted';
 // import DateCollections from '@/components/analyses/allDocuments/DateCollections';
-import Filter from '@/components/Analyses/allDocuments/filter/Filter';
+import Filter from '@/components/AnalysesOld/allDocuments/filter/Filter';
 
 const page = async () => {
   // const { templateSettings } = await getTemplateSettings();

@@ -5,7 +5,6 @@ import {
   getLanguages,
   getSettings,
 } from '@/app/dashboard/apiCalls';
-import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemplateSettings';
 import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
 import { findSettingType } from '@/utils/findSettingType';
 import { mutateFields } from '@/utils/mutateFields';

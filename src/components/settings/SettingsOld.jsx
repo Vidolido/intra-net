@@ -1,5 +1,5 @@
 // components
-import DisplaySettings from './displaySettings/DisplaySettings';
+import DisplaySettings from './displaySettingsOld/DisplaySettings';
 import InsertSettings from './insertSettingsFormOld/InsertSettings';
 import Header from './settingsComponentsOld/Header';
 import OptionsSchema from './settingsComponentsOld/OptionsSchema';

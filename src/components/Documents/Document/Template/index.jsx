@@ -13,7 +13,7 @@ const Template = ({
   );
   const analysisTemplate = !document.template ? null : document.template;
   return (
-    <div className='w-[60%]'>
+    <div className='w-[80%]'>
       <TemplateSelectForm
         document={document}
         languages={languages}
