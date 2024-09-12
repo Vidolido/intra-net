@@ -31,7 +31,6 @@ const SampleType = ({
 			}));
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-	console.log(types, 'SAMPLE TYPES');
 	return (
 		<fieldset name='sample-types'>
 			<h6>Sample Type</h6>
