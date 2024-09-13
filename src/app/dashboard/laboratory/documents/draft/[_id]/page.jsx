@@ -1,5 +1,5 @@
 // state/actions
-import { getAnalysisById, getLaboratoryTemplates } from '../../../apiCalls';
+import { getDocumentById, getLaboratoryTemplates } from '../../../apiCalls';
 import { getLaboratorySettings, getLanguages } from '@/app/dashboard/apiCalls';
 import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemplateSettings';
 import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
@@ -36,7 +36,8 @@ const page = async ({ params }) => {
 	const { setting } = await getLaboratorySettings();
 	const { settings: laboratorySettings } = setting || [];
 
-	const { document } = await getAnalysisById(_id);
+	// const { document } = await getAnalysisById(_id);
+	const { document } = await getDocumentById(_id);
 
 	let { products, types, countries, fields, identificationNumbers } =
 		await mutateTemplateSettings(templateSettings);

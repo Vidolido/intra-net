@@ -7,7 +7,7 @@ import { saveTemplateResult } from '@/serverActions/laboratoryAnalyses/saveTempl
 // components
 import TemplateInputFields from './TemplateInputFields';
 
-const TemplateForm = ({
+const TemplateResults = ({
 	templateId,
 	template,
 	languages,
@@ -15,12 +15,11 @@ const TemplateForm = ({
 	documentId,
 }) => {
 	let router = useRouter();
+
 	let defaultLanguage = languages.find((lang) => lang.language === 'en');
 
 	const submit = saveTemplateResult.bind(null, documentId);
-	return templateId === undefined || templateId === 'none' ? (
-		<h4>Please select a template</h4>
-	) : (
+	return (
 		<form
 			action={async (e) => {
 				await submit(e);
@@ -35,4 +34,4 @@ const TemplateForm = ({
 	);
 };
 
-export default TemplateForm;
+export default TemplateResults;

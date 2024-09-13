@@ -23,14 +23,14 @@ const SampleType = ({
 	// 	...nameArray(setting.parameter.inputValue),
 	// }));
 
-	useEffect(() => {
-		if (setHeader)
-			setHeader((prev) => ({
-				...prev,
-				sampleType: value ? types[0]._id : 'none',
-			}));
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	// useEffect(() => {
+	// 	if (setHeader)
+	// 		setHeader((prev) => ({
+	// 			...prev,
+	// 			sampleType: value ? types[0]._id : 'none',
+	// 		}));
+	// 	// eslint-disable-next-line react-hooks/exhaustive-deps
+	// }, []);
 	return (
 		<fieldset name='sample-types'>
 			<h6>Sample Type</h6>

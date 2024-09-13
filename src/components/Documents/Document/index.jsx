@@ -1,8 +1,7 @@
 // components
-import IdentificationNumbers from './IdentificationNumbers';
+// import IdentificationNumbers from './IdentificationNumbers';
 import SelectFields from './SelectFields';
-
-import Template from './Template';
+import TemplateForms from './TemplateForms';
 
 const Document = ({
 	document,
@@ -29,7 +28,7 @@ const Document = ({
 				<SelectFields fields={settings?.fields} document={document} />
 			</div>
 			<div className='w-[80%]'>
-				<Template
+				<TemplateForms
 					document={document}
 					languages={languages}
 					settings={settings}

@@ -9,6 +9,7 @@ const DocumentType = ({
 	types,
 	languages,
 	value,
+	none,
 	setHeader,
 	classes,
 }) => {
@@ -18,14 +19,14 @@ const DocumentType = ({
 	// 	...nameArray(setting.parameter.inputValue),
 	// }));
 
-	useEffect(() => {
-		if (setHeader)
-			setHeader((prev) => ({
-				...prev,
-				documentType: types[0]._id,
-			}));
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	// useEffect(() => {
+	// 	if (setHeader)
+	// 		setHeader((prev) => ({
+	// 			...prev,
+	// 			documentType: types[0]._id,
+	// 		}));
+	// 	// eslint-disable-next-line react-hooks/exhaustive-deps
+	// }, []);
 
 	return (
 		<fieldset name='document-type'>
@@ -34,6 +35,7 @@ const DocumentType = ({
 				name={name}
 				options={types}
 				value='id'
+				none={none}
 				defaultValue={value}
 				onChange={(e) =>
 					setHeader

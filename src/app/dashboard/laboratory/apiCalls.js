@@ -78,9 +78,9 @@ export async function getLaboratoryDocuments(searchQuery) {
 	return res.json();
 }
 
-export async function getAnalysisById(_id) {
+export async function getDocumentById(_id) {
 	const res = await fetch(
-		`http://localhost:3000/api/laboratory/analysis-by-id/${_id}`
+		`http://localhost:3000/api/laboratory/document-by-id/${_id}`
 	);
 
 	if (!res.ok) {
@@ -90,6 +90,19 @@ export async function getAnalysisById(_id) {
 
 	return res.json();
 }
+
+// export async function getAnalysisById(_id) {
+// 	const res = await fetch(
+// 		`http://localhost:3000/api/laboratory/analysis-by-id/${_id}`
+// 	);
+
+// 	if (!res.ok) {
+// 		console.log(res);
+// 		throw new Error('Failed to get document from db. Reason: ' + res);
+// 	}
+
+// 	return res.json();
+// }
 // Laboratody Documents
 /**
  *

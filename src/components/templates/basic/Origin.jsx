@@ -7,18 +7,26 @@ import { nameArray } from '@/utils/nameArray';
 // components
 import SelectInput from '@/components/inputs/SelectInput';
 
-const Origin = ({ name, countries, languages, value, setHeader, classes }) => {
+const Origin = ({
+	name,
+	countries,
+	languages,
+	value,
+	setHeader,
+	none,
+	classes,
+}) => {
 	// console.log(countries, 'countries');
 
-	useEffect(() => {
-		if (setHeader) {
-			setHeader((prev) => ({
-				...prev,
-				origin: countries[0]._id,
-			}));
-		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	// useEffect(() => {
+	// 	if (setHeader) {
+	// 		setHeader((prev) => ({
+	// 			...prev,
+	// 			origin: countries[0]._id,
+	// 		}));
+	// 	}
+	// 	// eslint-disable-next-line react-hooks/exhaustive-deps
+	// }, []);
 
 	return (
 		<fieldset name='countries-of-origin'>
@@ -27,6 +35,7 @@ const Origin = ({ name, countries, languages, value, setHeader, classes }) => {
 				name={name}
 				options={countries}
 				value='_id'
+				none={none}
 				defaultValue={value}
 				onChange={(e) =>
 					setHeader

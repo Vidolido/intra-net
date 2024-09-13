@@ -8,7 +8,7 @@ export const mutateFields = (fields) => {
 			(collection) => collection.name['en'] === 'type'
 		);
 		let isChecked = checked.items[0].value === 'checked' ? true : false;
-		console.log(isChecked, 'isChecked');
+		// console.log(isChecked, 'isChecked');
 		let order = null;
 		if (isChecked) {
 			order = ++test;

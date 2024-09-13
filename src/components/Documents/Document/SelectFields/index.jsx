@@ -13,9 +13,8 @@ import InputFields from './InputFIelds';
 
 function findHighestOrder(arr) {
 	return arr.reduce((max, obj) => {
-		// If the object has an 'order' field, compare it to the current max
 		return obj.order !== undefined && obj.order > max ? obj.order : max;
-	}, -Infinity); // Initialize max with a very low value
+	}, 0);
 }
 
 const SelectFields = ({ fields: dbFields, document }) => {
@@ -62,8 +61,8 @@ const SelectFields = ({ fields: dbFields, document }) => {
 	};
 
 	// const submit = saveFields.bind(null, document._id);
-	console.log(fields, 'the fields');
-	console.log(dbFields, 'the dbFields');
+	// console.log(fields, 'the fields');
+	// console.log(dbFields, 'the dbFields');
 	return (
 		<form className='bg-slate-100 border border-t-0 border-slate-200 rounded'>
 			<fieldset className='bg-white border border-slate-200 pl-1 rounded'>

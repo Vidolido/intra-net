@@ -17,7 +17,8 @@ const SelectInput = ({
 			className={`box-content border-2 border-grey-50 border-opacity-60 rounded hover:border-red-200 focus:outline-none cursor-pointer ${classes}`}
 			onChange={onChange}
 			defaultValue={defaultValue}>
-			{none || !options ? <option value='none'>--</option> : ''}
+			{/* {none || !options ? <option value='none'>--</option> : ''} */}
+			{none || !options ? <option value=''>--</option> : ''}
 			{options?.map((option, index) => {
 				return (
 					<option
