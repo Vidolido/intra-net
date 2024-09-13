@@ -7,7 +7,7 @@ import Document from '@/db/models/Document';
 
 // I NEED TO HANDLE ERRORS HERE
 export async function saveTemplateId(templateId, header, documentId) {
-  console.log(templateId, header, documentId, 'OVOOOOOAAAA');
+  // console.log(templateId, header, documentId, 'OVOOOOOAAAA');
   try {
     await dbConnect();
     await Document.updateOne(
