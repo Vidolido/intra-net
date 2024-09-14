@@ -3,14 +3,14 @@ import { revalidatePath } from 'next/cache';
 
 // connection/moddels/database functions
 import dbConnect from '@/db/conn';
-import Analysis from '@/db/models/Analysis';
+import Document from '@/db/models/Document';
 
 // I NEED TO HANDLE ERRORS HERE
 export async function saveFields(fields, documentId) {
 	try {
 		await dbConnect();
 
-		await Analysis.updateOne(
+		await Document.updateOne(
 			{ _id: documentId },
 			{
 				$set: { fields: fields },

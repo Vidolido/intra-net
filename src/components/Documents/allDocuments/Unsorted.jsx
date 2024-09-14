@@ -4,6 +4,7 @@ import { nameArray } from '@/utils/nameArray';
 
 // components
 import DisplayDocument from './DisplayDocument';
+import { Suspense } from 'react';
 
 const Unsorted = ({ document, templateSettings }) => {
 	let { products, types, countries } = mutateTemplateSettings(templateSettings);
@@ -21,14 +22,16 @@ const Unsorted = ({ document, templateSettings }) => {
 		...nameArray(setting.parameter.inputValue),
 	}));
 	return (
-		<DisplayDocument
-			document={document}
-			products={mutProducts}
-			types={mutTypes}
-			countries={mutCountries}
-			dateTime={true}
-			classes='grid-cols-5'
-		/>
+		<Suspense loading={<h2>Loading...</h2>}>
+			<DisplayDocument
+				document={document}
+				products={mutProducts}
+				types={mutTypes}
+				countries={mutCountries}
+				dateTime={true}
+				classes='grid-cols-5'
+			/>
+		</Suspense>
 	);
 };
 

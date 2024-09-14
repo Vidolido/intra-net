@@ -30,46 +30,17 @@ const buildQuery = (products, origin, sampleTypes, documentTypes) => {
 	return query;
 };
 
-export async function filterDocuments(filter, sorted) {
+export async function filterDocuments(filter) {
 	const { products, sampleTypes, documentTypes, origin } = filter;
-	console.log(filter, sorted);
 	try {
 		await dbConnect();
 
 		const query = buildQuery(products, origin, sampleTypes, documentTypes);
-		let pipeline = [{ $match: query }];
-		if (sorted) {
-			pipeline.push(
-				{
-					$group: {
-						_id: { $dateToString: { format: '%Y-%m-%d', date: '$createdAt' } },
-						documents: { $push: '$$ROOT' },
-					},
-				},
-				{
-					$project: {
-						_id: 0,
-						date: '$_id',
-						documents: 1,
-					},
-				},
-				{
-					$sort: { date: -1 },
-				}
-			);
-		} else {
-			pipeline.push({
-				$sort: { createdAt: -1 },
-			});
-		}
-		const documents = await Document.aggregate(pipeline);
-		// console.log(documents, 'the documents');
-		// const matchingDocuments = await Document.find(query).exec();
+		const matchingDocuments = await Document.find(query).exec();
 		// console.log(matchingDocuments, 'OVIE DOKUMENTI');
 		// return JSON.stringify(matchingDocuments);
 		return {
-			// documents: JSON.stringify(matchingDocuments),
-			documents: JSON.stringify(documents),
+			documents: JSON.stringify(matchingDocuments),
 		};
 	} catch (error) {
 		console.log('Failed to find documents in database. error:', error);
