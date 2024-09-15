@@ -17,6 +17,8 @@ const DateCollections = ({ collection, templateSettings }) => {
 	const handleHide = () => {
 		setVisible(!visible);
 	};
+
+	console.log(collection, 'collection');
 	return (
 		<Suspense loading={<h2>Loading...</h2>}>
 			<div>
