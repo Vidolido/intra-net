@@ -10,36 +10,38 @@ import Labels from './Labels';
 import SingleDateCollection from './SingleDateCollection';
 
 const DateCollections = ({ collection, templateSettings }) => {
-	const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(true);
 
-	const { date } = formatDate(collection.date);
+  const { date } = formatDate(collection?.date);
 
-	const handleHide = () => {
-		setVisible(!visible);
-	};
+  const handleHide = () => {
+    setVisible(!visible);
+  };
 
-	console.log(collection, 'collection');
-	return (
-		<Suspense loading={<h2>Loading...</h2>}>
-			<div>
-				<button type='button' onClick={handleHide} className='relative w-full'>
-					<h4 className='text-left hover:text-red-500'>{date}</h4>
-					<ArrowSvg
-						className={`w-[22px] h-[22px] absolute right-1 top-[3px] fill-red-500 hover:fill-red-300 ${
-							visible ? '' : 'rotate-180'
-						}`}
-					/>
-				</button>
-				<div className={` ${!visible ? 'hidden' : 'visible'}`}>
-					<Labels classes={'grid-cols-4'} dateTime={false} />
-					<SingleDateCollection
-						collection={collection}
-						templateSettings={templateSettings}
-					/>
-				</div>
-			</div>
-		</Suspense>
-	);
+  //   console.log(collection, 'collection');
+  return (
+    <div>
+      <button type='button' onClick={handleHide} className='relative w-full'>
+        <h4 className='text-left hover:text-red-500'>{date}</h4>
+        <ArrowSvg
+          className={`w-[22px] h-[22px] absolute right-1 top-[3px] fill-red-500 hover:fill-red-300 ${
+            visible ? '' : 'rotate-180'
+          }`}
+        />
+      </button>
+      <div className={` ${!visible ? 'hidden' : 'visible'}`}>
+        {collection?.date && (
+          <Labels classes={'grid-cols-4'} dateTime={false} />
+        )}
+        {collection && (
+          <SingleDateCollection
+            collection={collection}
+            templateSettings={templateSettings}
+          />
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default DateCollections;
