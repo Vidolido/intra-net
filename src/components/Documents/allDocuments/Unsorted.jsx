@@ -3,7 +3,7 @@ import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
 import { nameArray } from '@/utils/nameArray';
 
 // components
-import DisplayDocument from './DisplayDocument';
+import DisplayDocument from './DisplayDocument2';
 
 const Unsorted = ({ document, templateSettings }) => {
   let { products, types, countries } = mutateTemplateSettings(templateSettings);
