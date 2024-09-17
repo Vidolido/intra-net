@@ -35,7 +35,7 @@ const TemplateSelectForm = ({ document, languages, settings, templates }) => {
 			: templateHeader
 	);
 	// console.log(template, 'the  template');
-	// console.log(settings, 'THE SETTINGS IN  TEMPLATE  SELECT FORM');
+	console.log(settings, 'THE SETTINGS IN  TEMPLATE  SELECT FORM');
 	// console.log(header, 'THE  HEADER');
 	const filteredTempaltes = filterTemplates(templates, header);
 	console.log(filteredTempaltes, 'filteredTempaltes');

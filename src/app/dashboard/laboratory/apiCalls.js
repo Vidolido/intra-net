@@ -91,6 +91,18 @@ export async function getDocumentById(_id) {
 	return res.json();
 }
 
+// Client
+export async function getCustomers() {
+	const res = await fetch('http://localhost:3000/api/customers/all');
+
+	if (!res.ok) {
+		console.log(res);
+		throw new Error('Failed to get clients from db. Reason: ' + res);
+	}
+
+	return res.json();
+}
+
 // export async function getAnalysisById(_id) {
 // 	const res = await fetch(
 // 		`http://localhost:3000/api/laboratory/analysis-by-id/${_id}`

@@ -1,5 +1,9 @@
 // state/actions
-import { getDraftDocument, getLaboratoryTemplates } from '../../apiCalls';
+import {
+	getCustomers,
+	getDraftDocument,
+	getLaboratoryTemplates,
+} from '../../apiCalls';
 import {
 	getLaboratorySettings,
 	getLanguages,
@@ -32,6 +36,7 @@ const mutFields = (settings) =>
 const page = async () => {
 	// let { templateSettings } = await getTemplateSettings();
 	//   const { sectors } = await getSectors();
+	const { customers } = await getCustomers();
 
 	const { settings: templateSettings } = await getSettings({
 		documentStatus: 'published',
@@ -64,10 +69,13 @@ const page = async () => {
 		fields: mutateFields(fields.settings),
 		identificationNumbers: mutSettings(identificationNumbers),
 	};
+
+	console.log(customers, 'customers');
 	return (
 		<div className='w-full'>
 			<h2>Create New Document</h2>
 			<Document
+				customers={customers}
 				document={draft}
 				settings={settings}
 				languages={languages}

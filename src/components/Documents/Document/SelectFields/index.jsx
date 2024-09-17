@@ -17,7 +17,7 @@ function findHighestOrder(arr) {
 	}, 0);
 }
 
-const SelectFields = ({ fields: dbFields, document }) => {
+const SelectFields = ({ customers, fields: dbFields, document }) => {
 	const [visible, setVisible] = useState(false);
 	const [fields, setFields] = useState(dbFields);
 	const handleHide = () => {
@@ -87,7 +87,9 @@ const SelectFields = ({ fields: dbFields, document }) => {
 						: null}
 				</fieldset>
 			</fieldset>
+
 			<InputFields
+				customers={customers}
 				fields={document.fields.length > 0 ? document.fields : fields}
 			/>
 			<div className='p-1'>

@@ -1,12 +1,28 @@
 'use client';
 
+import InputType from '@/components/inputs/InputType';
 // components
 import SingleInputField from './SingleInputField';
+import { nameArray } from '@/utils/nameArray';
+import SelectInput from '@/components/inputs/SelectInput';
 
-const InputFields = ({ fields, onChange }) => {
+const InputFields = ({ customers, fields, onChange }) => {
+	let mutCustomers = customers.map((customer) => ({
+		_id: customer._id,
+		...nameArray(customer.name),
+	}));
+
+	console.log(mutCustomers, 'mut CUSTOMERS');
+	console.log(customers, 'mut customers');
+
 	return (
 		<fieldset name='document-fields'>
-			<div className='px-1'>
+			<ul className='px-1'>
+				<label>
+					<span className='block'>Customer</span>
+					<SelectInput options={customers} defaultLanguage={'en'} />
+				</label>
+
 				{fields.length > 0
 					? fields.map((field) =>
 							field.checked !== 'false' ? (
@@ -20,7 +36,7 @@ const InputFields = ({ fields, onChange }) => {
 							)
 					  )
 					: ''}
-			</div>
+			</ul>
 		</fieldset>
 	);
 };

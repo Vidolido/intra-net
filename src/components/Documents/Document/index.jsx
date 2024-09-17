@@ -4,6 +4,7 @@ import SelectFields from './SelectFields';
 import TemplateForms from './TemplateForms';
 
 const Document = ({
+	customers,
 	document,
 	settings,
 	languages,
@@ -18,14 +19,11 @@ const Document = ({
 	return (
 		<div className='flex gap-6 pr-3'>
 			<div className='flex flex-col gap-1 shrink'>
-				{/* <DocumentInfo languages={languages} settings={settings} /> */}
-
-				{/* <IdentificationNumbers
-					languages={languages}
+				<SelectFields
+					customers={customers}
+					fields={settings?.fields}
 					document={document}
-					identificationNumbers={settings?.identificationNumbers}
-				/> */}
-				<SelectFields fields={settings?.fields} document={document} />
+				/>
 			</div>
 			<div className='w-[80%]'>
 				<TemplateForms
