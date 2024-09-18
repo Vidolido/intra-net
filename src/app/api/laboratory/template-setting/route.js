@@ -14,6 +14,7 @@ export async function GET() {
 		const setting = await Setting.findOne({
 			settingName: 'Laboratory Templates',
 		});
+		console.log(setting, 'thesetting');
 		revalidatePath('/dashboard/laboratory/templates/', 'page');
 		// revalidateTag('draft');
 		return NextResponse.json({ setting }, { status: 200 });

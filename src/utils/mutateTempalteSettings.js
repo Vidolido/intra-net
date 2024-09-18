@@ -29,12 +29,7 @@ export const mutateTemplateSettings = (templateSettings) => {
 				};
 				break;
 			}
-			case 'Identification Numbers': {
-				acc = {
-					...acc,
-					identificationNumbers: currentValue,
-				};
-			}
+
 			default: {
 				return acc;
 			}

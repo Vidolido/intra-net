@@ -1,5 +1,9 @@
 // state/actions
-import { getDocumentById, getLaboratoryTemplates } from '../../../apiCalls';
+import {
+	getCustomers,
+	getDocumentById,
+	getLaboratoryTemplates,
+} from '../../../apiCalls';
 import {
 	getLaboratorySettings,
 	getLanguages,
@@ -30,6 +34,8 @@ const mutFields = (settings) =>
 const page = async ({ params }) => {
 	const { _id } = params;
 
+	const { customers } = await getCustomers();
+
 	let { languages } = await getLanguages();
 
 	const { settings: templateSettings } = await getSettings({
@@ -47,8 +53,9 @@ const page = async ({ params }) => {
 	// const { document } = await getAnalysisById(_id);
 	const { document } = await getDocumentById(_id);
 
-	let { products, types, countries, fields, identificationNumbers } =
-		await mutateTemplateSettings(templateSettings);
+	let { products, types, countries, fields } = await mutateTemplateSettings(
+		templateSettings
+	);
 
 	let sampleTypes = findSettingType(types.settings, ['sample']);
 	let documentTypes = findSettingType(types.settings, ['document']);
@@ -59,7 +66,6 @@ const page = async ({ params }) => {
 		documentTypes: mutFields(documentTypes),
 		countries: mutSettings(countries),
 		fields: mutateFields(fields.settings),
-		identificationNumbers: mutSettings(identificationNumbers),
 	};
 
 	//   console.log(templateSettings, 'templateSettings');
@@ -68,6 +74,7 @@ const page = async ({ params }) => {
 		<div className='w-full'>
 			<h2>Create New Document</h2>
 			<Document
+				customers={customers}
 				document={document}
 				settings={settings}
 				languages={languages}

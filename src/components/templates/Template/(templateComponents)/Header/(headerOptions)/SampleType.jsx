@@ -18,6 +18,7 @@ const SampleType = ({
 	classes,
 }) => {
 	let sampleTypes = findSettingType(types.settings, ['sample']);
+	console.log(sampleTypes, 'sampleTypes');
 	let names = sampleTypes?.map((setting) => ({
 		_id: setting._id,
 		...nameArray(setting.parameter.inputValue),

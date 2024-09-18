@@ -23,6 +23,7 @@ const page = async () => {
 
 	const { groups } = await getGroups();
 	// console.log(draft, 'the draft');
+	// console.log(templateSettings, 'template settings');
 	return (
 		<Template
 			title='Edit Draft Template'

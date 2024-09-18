@@ -19,6 +19,8 @@ const Header = ({ languages, templateSettings, template }) => {
 		(setting) => setting.settingName === 'Countries'
 	);
 	const submit = saveBasicData.bind(null, template._id);
+	console.log(types, 'types');
+	// console.log(templateSettings, 'templateSettings');
 	return (
 		<form action={submit}>
 			<fieldset
