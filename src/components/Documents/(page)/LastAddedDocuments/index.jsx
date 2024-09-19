@@ -1,5 +1,5 @@
 // components
-import DateCollections from '../../AllDocuments/DateCollections';
+import DateCollections from '../../AllDocuments/DisplayDocuments/DateCollections';
 
 const LastAddedDocuments = ({ documents, templateSettings }) => {
   let today = new Date().toISOString().split('T')[0];

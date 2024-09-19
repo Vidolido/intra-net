@@ -3,7 +3,7 @@ import { nameArray } from '@/utils/nameArray';
 import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
 
 // components
-import DisplayDocument from './DisplayDocument2';
+import DisplayDocument from '../DisplayDocument2';
 
 const SingleDateCollection = ({
   collection,

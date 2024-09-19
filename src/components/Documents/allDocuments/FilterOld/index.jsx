@@ -9,9 +9,9 @@ import { filterDocuments } from '@/serverActions/laboratoryAnalyses/filterDocume
 
 // components
 
-import DateCollections from '../DateCollections';
-import Labels from '../Labels';
-import Unsorted from '../Unsorted';
+import DateCollections from '../DisplayDocuments/DateCollections';
+import Labels from '../DisplayDocuments/Labels';
+import Unsorted from '../DisplayDocuments/Unsorted';
 
 const Filter = ({ templateSettings }) => {
   // let [showDocuments, setShowDocuments] = useState('notSorted');

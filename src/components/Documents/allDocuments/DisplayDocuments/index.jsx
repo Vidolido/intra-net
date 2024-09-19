@@ -1,7 +1,7 @@
 // components
-import DateCollections from '../DateCollections';
-import Labels from '../Labels';
-import Unsorted from '../Unsorted';
+import DateCollections from './DateCollections';
+import Labels from './Labels';
+import Unsorted from './Unsorted';
 
 const DisplayDocuments = ({ templateSettings, sortByYear, documents }) => {
   return (

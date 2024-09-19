@@ -15,7 +15,7 @@ const Setting = ({ title, languages, sectors, setting }) => {
       },
     })) || [];
   return (
-    <div className='min-w-[300px] max-w-fit'>
+    <div className='min-w-[300px] max-w-[80%] max-w-fit'>
       <h2>{title}</h2>
       <div className='flex gap-2 min-w-80'>
         <div>
