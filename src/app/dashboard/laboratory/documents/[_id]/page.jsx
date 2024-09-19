@@ -1,39 +1,50 @@
 // state/actions
-import { getDocumentById } from '../../apiCalls';
 import { getLaboratorySettings, getLanguages } from '@/app/dashboard/apiCalls';
+import { getDocumentById } from '../../apiCalls';
 import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemplateSettings';
+import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
+import { findSettingType } from '@/utils/findSettingType';
 
 // components
-import SingleDocument from '@/components/Documents/viewDocument/SingleDocument';
-// import SingleDocument from '@/components/Documents/SingleDocument';
+import SingleDocument from '@/components/Documents/SingleDocument';
+import TestReport from '@/components/Documents/SingleDocument/TestReport';
+
+// Don't know if i need them
+// export const dynamic = 'force-dynamic';
+// export const revalidate = 0;
 
 const page = async ({ params }) => {
-  let { _id } = params;
-  const { templateSettings } = await getTemplateSettings();
-  const { document } = await getDocumentById(_id);
+	let { _id } = params;
+	const { languages } = await getLanguages();
+	const { templateSettings } = await getTemplateSettings();
 
-  const { languages } = await getLanguages();
+	const { document } = await getDocumentById(_id);
 
-  const { setting } = await getLaboratorySettings();
-  const { settings } = setting || [];
+	const { setting } = await getLaboratorySettings();
+	const { settings } = setting || [];
 
-  let products = templateSettings.find(
-    (setting) => setting.settingName === 'Products'
-  );
+	const { products, types, countries } =
+		mutateTemplateSettings(templateSettings);
 
-  //   console.log(document, 'the document');
+	// let sampleTypes = findSettingType(types.settings, ['sample']);
+	let documentTypes = findSettingType(types.settings, ['document']);
+	let isTestReport =
+		documentTypes.find((type) => type._id === document.header.documentType)
+			.parameter.inputValue['en'] === 'Test Report';
 
-  return (
-    <>
-      <SingleDocument
-        document={document}
-        products={products}
-        settings={settings}
-        languages={languages}
-      />
-      {/* <SingleDocument /> */}
-    </>
-  );
+	if (isTestReport)
+		return (
+			<TestReport
+				document={document}
+				products={products}
+				settings={settings}
+				languages={languages}
+			/>
+		);
+
+	return (
+		<SingleDocument templateSettings={templateSettings} document={document} />
+	);
 };
 
 export default page;
