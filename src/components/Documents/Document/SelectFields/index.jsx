@@ -17,7 +17,12 @@ function findHighestOrder(arr) {
 	}, 0);
 }
 
-const SelectFields = ({ customers, fields: dbFields, document }) => {
+const SelectFields = ({
+	customers,
+	fields: dbFields,
+	document,
+	documentTypes,
+}) => {
 	const [visible, setVisible] = useState(false);
 	const [fields, setFields] = useState(dbFields);
 	const handleHide = () => {
@@ -63,6 +68,12 @@ const SelectFields = ({ customers, fields: dbFields, document }) => {
 	// const submit = saveFields.bind(null, document._id);
 	// console.log(fields, 'the fields');
 	// console.log(dbFields, 'the dbFields');
+	// console.log(, 'the document');
+	// console.log(
+	// 	documentTypes.find((type) => type._id === document?.header?.documentType),
+	// 	'the documentType'
+	// );
+	console.log(dbFields, 'the documentTypes');
 	return (
 		<form className='bg-slate-100 border border-t-0 border-slate-200 rounded'>
 			<fieldset className='bg-white border border-slate-200 pl-1 rounded'>

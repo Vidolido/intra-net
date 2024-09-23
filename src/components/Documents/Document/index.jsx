@@ -15,16 +15,20 @@ const Document = ({
 	//   (template) => template._id === document.templateId
 	// );
 	// const analysisTemplate = !document.template ? null : document.template;
+	const hasSelectedTemplate = !document.templateId ? true : false;
 
 	return (
 		<div className='flex gap-6 pr-3'>
-			<div className='flex flex-col gap-1 shrink'>
-				<SelectFields
-					customers={customers}
-					fields={settings?.fields}
-					document={document}
-				/>
-			</div>
+			{!hasSelectedTemplate && (
+				<div className='flex flex-col gap-1 shrink'>
+					<SelectFields
+						customers={customers}
+						fields={settings?.fields}
+						document={document}
+						documentTypes={settings?.documentTypes}
+					/>
+				</div>
+			)}
 			<div className='w-[80%]'>
 				<TemplateForms
 					document={document}

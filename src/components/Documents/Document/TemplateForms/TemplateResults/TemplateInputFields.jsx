@@ -37,7 +37,10 @@ const TemplateInputFields = ({
 											{collection[1] &&
 												collection[1].map((collectionItem, i) => {
 													return (
-														<p key={collectionItem.id}>
+														<p
+															key={
+																collectionItem.id || collectionItem._id || i
+															}>
 															{' '}
 															{(typeof collectionItem.value === 'string' &&
 																collectionItem.value) ||
@@ -93,7 +96,7 @@ const TemplateInputFields = ({
 													{collection[1] &&
 														collection[1].map((collectionItem, i) => {
 															return (
-																<p key={collectionItem.id}>
+																<p key={collectionItem._id}>
 																	{' '}
 																	{(typeof collectionItem.value === 'string' &&
 																		collectionItem.value) ||

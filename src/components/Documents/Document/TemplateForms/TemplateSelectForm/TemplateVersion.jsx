@@ -30,7 +30,7 @@ const TemplateVersion = ({
 	useEffect(() => {
 		let fn = async () => {
 			await saveTemplateId(
-				templateId != undefined ? templateId : 'none',
+				templateId != undefined ? templateId : undefined,
 				header,
 				documentId
 			);

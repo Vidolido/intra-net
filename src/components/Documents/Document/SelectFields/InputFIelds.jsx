@@ -12,8 +12,8 @@ const InputFields = ({ customers, fields, onChange }) => {
 		...nameArray(customer.name),
 	}));
 
-	console.log(mutCustomers, 'mut CUSTOMERS');
-	console.log(customers, 'mut customers');
+	// console.log(mutCustomers, 'mut CUSTOMERS');
+	// console.log(customers, 'mut customers');
 
 	return (
 		<fieldset name='document-fields'>
