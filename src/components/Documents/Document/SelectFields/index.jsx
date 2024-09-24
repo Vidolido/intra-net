@@ -73,7 +73,7 @@ const SelectFields = ({
 	// 	documentTypes.find((type) => type._id === document?.header?.documentType),
 	// 	'the documentType'
 	// );
-	console.log(dbFields, 'the documentTypes');
+	// console.log(documentTypes, 'the documentTypes');
 	return (
 		<form className='bg-slate-100 border border-t-0 border-slate-200 rounded'>
 			<fieldset className='bg-white border border-slate-200 pl-1 rounded'>

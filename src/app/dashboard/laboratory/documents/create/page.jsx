@@ -65,20 +65,22 @@ const page = async () => {
 		sampleTypes: mutFields(sampleTypes),
 		documentTypes: mutFields(documentTypes),
 		countries: mutSettings(countries),
-		fields: mutateFields(fields.settings),
+		// fields: mutateFields(fields.settings),
 	};
+
+	console.log(fields.settings[4].collections[1].items[0].value);
 
 	return (
 		<div className='w-full'>
 			<h2>Create New Document</h2>
-			<Document
+			{/* <Document
 				customers={customers}
 				document={draft}
 				settings={settings}
 				languages={languages}
 				laboratorySettings={laboratorySettings}
 				templates={published}
-			/>
+			/> */}
 		</div>
 	);
 };
