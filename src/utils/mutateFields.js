@@ -1,5 +1,5 @@
 export const mutateFields = (fields) => {
-	let test = 0;
+	let inc = 0;
 	let mutFields = fields.reduce((acc, currenValue) => {
 		let checked = currenValue.collections.find(
 			(collection) => collection.name['en'] === 'checked'
@@ -11,7 +11,7 @@ export const mutateFields = (fields) => {
 		// console.log(isChecked, 'isChecked');
 		let order = null;
 		if (isChecked) {
-			order = ++test;
+			order = ++inc;
 		}
 		return (acc = [
 			...acc,
