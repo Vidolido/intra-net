@@ -1,0 +1,33 @@
+[{
+  "_id": {
+    "$oid": "66d6fb715727d197508c3aa3"
+  },
+  "name": {
+    "en": "Laboratory",
+    "mk": "Лабораторија",
+    "gr": ""
+  },
+  "isDeleted": false
+},
+{
+  "_id": {
+    "$oid": "66d6fbcf5727d197508c3aa4"
+  },
+  "name": {
+    "en": "Oil Movement",
+    "mk": "Д.Н.Д.",
+    "gr": ""
+  },
+  "isDeleted": false
+},
+{
+  "_id": {
+    "$oid": "66d6fbed5727d197508c3aa5"
+  },
+  "name": {
+    "en": "I.T.",
+    "mk": "И.Т.",
+    "gr": ""
+  },
+  "isDeleted": false
+}]

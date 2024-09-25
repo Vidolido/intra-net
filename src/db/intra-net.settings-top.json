@@ -11668,7 +11668,7 @@
   "sector": {
     "$oid": "66d6fbed5727d197508c3aa5"
   },
-  "settingName": "Fields",
+  "settingName": "FieldsOld",
   "settings": [
     {
       "parameter": {
@@ -12707,390 +12707,6 @@
       ],
       "_id": {
         "$oid": "6677ffdd66c436e69add0e4b"
-      }
-    }
-  ]
-},
-{
-  "_id": {
-    "$oid": "6683df7ba4557b8149f5c323"
-  },
-  "documentStatus": "published",
-  "isDeleted": true,
-  "__v": 0,
-  "collections": [
-    [
-      {
-        "0-languages-en": "pub1"
-      },
-      {
-        "0-languages-mk": ""
-      },
-      {
-        "0-languages-gr": ""
-      }
-    ],
-    [
-      {
-        "1-languages-en": "pub2"
-      },
-      {
-        "1-languages-mk": ""
-      },
-      {
-        "1-languages-gr": ""
-      }
-    ]
-  ],
-  "optionsSchema": {
-    "parameter": {
-      "name": {
-        "singular": {
-          "en": "Publ",
-          "mk": "",
-          "gr": ""
-        },
-        "plural": {
-          "en": "Publ",
-          "mk": "",
-          "gr": ""
-        }
-      }
-    },
-    "collections": [
-      {
-        "name": {
-          "0-languages-en": "pub1",
-          "0-languages-mk": "",
-          "0-languages-gr": ""
-        }
-      },
-      {
-        "name": {
-          "1-languages-en": "pub2",
-          "1-languages-mk": "",
-          "1-languages-gr": ""
-        }
-      }
-    ]
-  },
-  "sector": {
-    "$oid": "66d6fbcf5727d197508c3aa4"
-  },
-  "settingName": "Test",
-  "settings": [
-    {
-      "parameter": {
-        "name": {
-          "singular": {
-            "en": "Publ",
-            "mk": "",
-            "gr": ""
-          },
-          "plural": {
-            "en": "Publ",
-            "mk": "",
-            "gr": ""
-          }
-        },
-        "inputValue": {
-          "en": "te",
-          "mk": "",
-          "gr": ""
-        }
-      },
-      "collections": [
-        {
-          "name": {
-            "en": "pub1",
-            "mk": "",
-            "gr": ""
-          },
-          "items": [
-            {
-              "id": "798ee188-fd27-4fb4-9277-00f0dbf37d31",
-              "inputType": "simple",
-              "value": "st"
-            },
-            {
-              "id": "1c40a077-7d87-4a32-aba6-4750ef9b748e",
-              "inputType": "translations",
-              "value": {
-                "en": "dsada",
-                "mk": "",
-                "gr": ""
-              }
-            },
-            {
-              "id": "4ad2a459-10ba-4e97-9117-016fed37511b",
-              "inputType": "key/value",
-              "value": {
-                "key": "da",
-                "value": "ad"
-              }
-            }
-          ],
-          "_id": {
-            "$oid": "6683dfb1a4557b8149f5c7c6"
-          }
-        },
-        {
-          "name": {
-            "en": "pub2",
-            "mk": "",
-            "gr": ""
-          },
-          "items": [
-            {
-              "id": "b69915e6-095d-4e3a-bb2b-7dd5333e3638",
-              "inputType": "simple",
-              "value": "da"
-            },
-            {
-              "id": "24cff325-318a-4046-b189-9c2a20ccb03c",
-              "inputType": "translations",
-              "value": {
-                "en": "da",
-                "mk": "",
-                "gr": ""
-              }
-            },
-            {
-              "id": "b09577c4-f0d0-4d20-a3ba-4ad34dd6faf8",
-              "inputType": "key/value",
-              "value": {
-                "key": "ad",
-                "value": "da"
-              }
-            }
-          ],
-          "_id": {
-            "$oid": "6683dfb1a4557b8149f5c7c7"
-          }
-        }
-      ],
-      "_id": {
-        "$oid": "6683dfb1a4557b8149f5c7c5"
-      }
-    }
-  ]
-},
-{
-  "_id": {
-    "$oid": "66869cef373da83e6d75276d"
-  },
-  "documentStatus": "published",
-  "isDeleted": true,
-  "__v": 0,
-  "sector": {
-    "$oid": "66d6fb715727d197508c3aa3"
-  },
-  "settingName": "Template Settings",
-  "optionsSchema": {
-    "parameter": {
-      "name": {
-        "singular": {
-          "en": "",
-          "mk": "",
-          "gr": ""
-        },
-        "plural": {
-          "en": "",
-          "mk": "",
-          "gr": ""
-        }
-      }
-    },
-    "collections": [
-      {
-        "name": {
-          "en": "ads",
-          "mk": "",
-          "gr": ""
-        },
-        "_id": {
-          "$oid": "66a22cb5e61edaaf660a2916"
-        }
-      }
-    ]
-  }
-},
-{
-  "_id": {
-    "$oid": "66c329c568198e94f4696ae3"
-  },
-  "documentStatus": "published",
-  "isDeleted": true,
-  "__v": 0,
-  "sector": {
-    "$oid": "66d6fb715727d197508c3aa3"
-  },
-  "settingName": "Identification Numbers",
-  "optionsSchema": {
-    "parameter": {
-      "name": {
-        "singular": {
-          "en": "Name",
-          "mk": "Име",
-          "gr": "гр"
-        },
-        "plural": {
-          "en": "Names",
-          "mk": "Имиња",
-          "gr": "гр"
-        }
-      }
-    },
-    "collections": [
-      {
-        "name": {
-          "en": "Document Number",
-          "mk": "Број на документ",
-          "gr": "гр"
-        },
-        "_id": {
-          "$oid": "66c32fa968198e94f46973b9"
-        }
-      },
-      {
-        "name": {
-          "en": "Aliases",
-          "mk": "Псевдоними",
-          "gr": "гр"
-        },
-        "_id": {
-          "$oid": "66c32fa968198e94f46973ba"
-        }
-      }
-    ]
-  },
-  "settings": [
-    {
-      "parameter": {
-        "name": {
-          "singular": {
-            "en": "Name",
-            "mk": "Име",
-            "gr": "гр"
-          },
-          "plural": {
-            "en": "Names",
-            "mk": "Имиња",
-            "gr": "гр"
-          }
-        },
-        "inputValue": {
-          "en": "Test Report No.",
-          "mk": "Извештај за Тестирање Бр.",
-          "gr": "гр"
-        }
-      },
-      "collections": [
-        {
-          "name": {
-            "en": "Document Number",
-            "mk": "Број на документ",
-            "gr": "гр"
-          },
-          "items": [
-            {
-              "inputType": "simple",
-              "value": "text",
-              "_id": {
-                "$oid": "66c32ff468198e94f46973c5"
-              }
-            }
-          ],
-          "_id": {
-            "$oid": "66c32ff468198e94f46973c4"
-          }
-        },
-        {
-          "name": {
-            "en": "Aliases",
-            "mk": "Псевдоними",
-            "gr": "гр"
-          },
-          "items": [
-            {
-              "inputType": "simple",
-              "value": "none",
-              "_id": {
-                "$oid": "66c32ff468198e94f46973c7"
-              }
-            }
-          ],
-          "_id": {
-            "$oid": "66c32ff468198e94f46973c6"
-          }
-        }
-      ],
-      "_id": {
-        "$oid": "66c32ff468198e94f46973c3"
-      }
-    },
-    {
-      "parameter": {
-        "name": {
-          "singular": {
-            "en": "Name",
-            "mk": "Име",
-            "gr": "гр"
-          },
-          "plural": {
-            "en": "Names",
-            "mk": "Имиња",
-            "gr": "гр"
-          }
-        },
-        "inputValue": {
-          "gr": "gr",
-          "en": "Certificate No.",
-          "mk": "Сертификат Бр."
-        }
-      },
-      "collections": [
-        {
-          "name": {
-            "en": "Document Number",
-            "mk": "Број на документ",
-            "gr": "гр"
-          },
-          "items": [
-            {
-              "inputType": "simple",
-              "value": "text",
-              "_id": {
-                "$oid": "66c3301a68198e94f46973dc"
-              }
-            }
-          ],
-          "_id": {
-            "$oid": "66c3301a68198e94f46973db"
-          }
-        },
-        {
-          "name": {
-            "en": "Aliases",
-            "mk": "Псевдоними",
-            "gr": "гр"
-          },
-          "items": [
-            {
-              "inputType": "simple",
-              "value": "none",
-              "_id": {
-                "$oid": "66c3301a68198e94f46973de"
-              }
-            }
-          ],
-          "_id": {
-            "$oid": "66c3301a68198e94f46973dd"
-          }
-        }
-      ],
-      "_id": {
-        "$oid": "66c3301a68198e94f46973da"
       }
     }
   ]
@@ -27802,7 +27418,7 @@
   "sector": {
     "$oid": "66d6fbed5727d197508c3aa5"
   },
-  "settingName": "Types",
+  "settingName": "Fields",
   "optionsSchema": {
     "parameter": {
       "name": {
@@ -28721,6 +28337,768 @@
       ],
       "_id": {
         "$oid": "66eabb19adda554a9bde2a45"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66ec7f7c1a29a06aa4638cdb"
+  },
+  "documentStatus": "published",
+  "isDeleted": false,
+  "__v": 0,
+  "sector": {
+    "$oid": "66d6fbed5727d197508c3aa5"
+  },
+  "settingName": "Types",
+  "optionsSchema": {
+    "parameter": {
+      "name": {
+        "singular": {
+          "en": "Name",
+          "mk": "Име",
+          "gr": "гр"
+        },
+        "plural": {
+          "en": "Names",
+          "mk": "Имиња",
+          "gr": "гр"
+        }
+      }
+    },
+    "collections": [
+      {
+        "name": {
+          "en": "Type",
+          "mk": "Вид",
+          "gr": "гр"
+        },
+        "_id": {
+          "$oid": "66ec7fb71a29a06aa46390b1"
+        }
+      }
+    ]
+  },
+  "settings": [
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": "гр"
+          },
+          "plural": {
+            "en": "Names",
+            "mk": "Имиња",
+            "gr": "гр"
+          }
+        },
+        "inputValue": {
+          "en": "Export Certificate",
+          "mk": "Увозен сертификат",
+          "gr": "гр"
+        }
+      },
+      "collections": [
+        {
+          "_id": {
+            "$oid": "66ec7fb71a29a06aa46390b1"
+          },
+          "name": {
+            "en": "Type",
+            "mk": "Вид",
+            "gr": "гр"
+          },
+          "items": [
+            {
+              "inputType": "simple",
+              "value": "document",
+              "_id": {
+                "$oid": "66ec80341a29a06aa46390ba"
+              }
+            }
+          ]
+        }
+      ],
+      "_id": {
+        "$oid": "66ec80341a29a06aa46390b9"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": "гр"
+          },
+          "plural": {
+            "en": "Names",
+            "mk": "Имиња",
+            "gr": "гр"
+          }
+        },
+        "inputValue": {
+          "gr": "",
+          "en": "Import Certificate",
+          "mk": "Сертификат за извоз"
+        }
+      },
+      "collections": [
+        {
+          "_id": {
+            "$oid": "66ec7fb71a29a06aa46390b1"
+          },
+          "name": {
+            "en": "Type",
+            "mk": "Вид",
+            "gr": "гр"
+          },
+          "items": [
+            {
+              "inputType": "simple",
+              "value": "document",
+              "_id": {
+                "$oid": "66ec805a1a29a06aa46390c7"
+              }
+            }
+          ]
+        }
+      ],
+      "_id": {
+        "$oid": "66ec805a1a29a06aa46390c6"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": "гр"
+          },
+          "plural": {
+            "en": "Names",
+            "mk": "Имиња",
+            "gr": "гр"
+          }
+        },
+        "inputValue": {
+          "mk": "Понуда",
+          "en": "Offer",
+          "gr": "гр"
+        }
+      },
+      "collections": [
+        {
+          "_id": {
+            "$oid": "66ec7fb71a29a06aa46390b1"
+          },
+          "name": {
+            "en": "Type",
+            "mk": "Вид",
+            "gr": "гр"
+          },
+          "items": [
+            {
+              "inputType": "simple",
+              "value": "document",
+              "_id": {
+                "$oid": "66ec80711a29a06aa46390dc"
+              }
+            }
+          ]
+        }
+      ],
+      "_id": {
+        "$oid": "66ec80711a29a06aa46390db"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": "гр"
+          },
+          "plural": {
+            "en": "Names",
+            "mk": "Имиња",
+            "gr": "гр"
+          }
+        },
+        "inputValue": {
+          "en": "Research Analysis",
+          "mk": "Истражна Анализа",
+          "gr": "гр"
+        }
+      },
+      "collections": [
+        {
+          "_id": {
+            "$oid": "66ec7fb71a29a06aa46390b1"
+          },
+          "name": {
+            "en": "Type",
+            "mk": "Вид",
+            "gr": "гр"
+          },
+          "items": [
+            {
+              "inputType": "simple",
+              "value": "document",
+              "_id": {
+                "$oid": "66ec80bb1a29a06aa46390f7"
+              }
+            }
+          ]
+        }
+      ],
+      "_id": {
+        "$oid": "66ec80bb1a29a06aa46390f6"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": "гр"
+          },
+          "plural": {
+            "en": "Names",
+            "mk": "Имиња",
+            "gr": "гр"
+          }
+        },
+        "inputValue": {
+          "en": "Certificate",
+          "mk": "Сертификат",
+          "gr": "гр"
+        }
+      },
+      "collections": [
+        {
+          "_id": {
+            "$oid": "66ec7fb71a29a06aa46390b1"
+          },
+          "name": {
+            "en": "Type",
+            "mk": "Вид",
+            "gr": "гр"
+          },
+          "items": [
+            {
+              "inputType": "simple",
+              "value": "document",
+              "_id": {
+                "$oid": "66ec81171a29a06aa463915e"
+              }
+            }
+          ]
+        }
+      ],
+      "_id": {
+        "$oid": "66ec81171a29a06aa463915d"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": "гр"
+          },
+          "plural": {
+            "en": "Names",
+            "mk": "Имиња",
+            "gr": "гр"
+          }
+        },
+        "inputValue": {
+          "en": "Test Report",
+          "mk": "Извештај за тестирање",
+          "gr": "гр"
+        }
+      },
+      "collections": [
+        {
+          "_id": {
+            "$oid": "66ec7fb71a29a06aa46390b1"
+          },
+          "name": {
+            "en": "Type",
+            "mk": "Вид",
+            "gr": "гр"
+          },
+          "items": [
+            {
+              "inputType": "simple",
+              "value": "document",
+              "_id": {
+                "$oid": "66ec81db1a29a06aa46391f3"
+              }
+            }
+          ]
+        }
+      ],
+      "_id": {
+        "$oid": "66ec81db1a29a06aa46391f2"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": "гр"
+          },
+          "plural": {
+            "en": "Names",
+            "mk": "Имиња",
+            "gr": "гр"
+          }
+        },
+        "inputValue": {
+          "en": "Barrel",
+          "mk": "Буре",
+          "gr": "гр"
+        }
+      },
+      "collections": [
+        {
+          "_id": {
+            "$oid": "66ec7fb71a29a06aa46390b1"
+          },
+          "name": {
+            "en": "Type",
+            "mk": "Вид",
+            "gr": "гр"
+          },
+          "items": [
+            {
+              "inputType": "simple",
+              "value": "sample",
+              "_id": {
+                "$oid": "66ec823b1a29a06aa46392e8"
+              }
+            }
+          ]
+        }
+      ],
+      "_id": {
+        "$oid": "66ec823b1a29a06aa46392e7"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": "гр"
+          },
+          "plural": {
+            "en": "Names",
+            "mk": "Имиња",
+            "gr": "гр"
+          }
+        },
+        "inputValue": {
+          "en": "Bottle",
+          "mk": "Шише",
+          "gr": "гр"
+        }
+      },
+      "collections": [
+        {
+          "_id": {
+            "$oid": "66ec7fb71a29a06aa46390b1"
+          },
+          "name": {
+            "en": "Type",
+            "mk": "Вид",
+            "gr": "гр"
+          },
+          "items": [
+            {
+              "inputType": "simple",
+              "value": "sample",
+              "_id": {
+                "$oid": "66ec824d1a29a06aa463931b"
+              }
+            }
+          ]
+        }
+      ],
+      "_id": {
+        "$oid": "66ec824d1a29a06aa463931a"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": "гр"
+          },
+          "plural": {
+            "en": "Names",
+            "mk": "Имиња",
+            "gr": "гр"
+          }
+        },
+        "inputValue": {
+          "en": "Canister",
+          "mk": "Канистер",
+          "gr": "гр"
+        }
+      },
+      "collections": [
+        {
+          "_id": {
+            "$oid": "66ec7fb71a29a06aa46390b1"
+          },
+          "name": {
+            "en": "Type",
+            "mk": "Вид",
+            "gr": "гр"
+          },
+          "items": [
+            {
+              "inputType": "simple",
+              "value": "sample",
+              "_id": {
+                "$oid": "66ec825d1a29a06aa4639354"
+              }
+            }
+          ]
+        }
+      ],
+      "_id": {
+        "$oid": "66ec825d1a29a06aa4639353"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": "гр"
+          },
+          "plural": {
+            "en": "Names",
+            "mk": "Имиња",
+            "gr": "гр"
+          }
+        },
+        "inputValue": {
+          "gr": "гр",
+          "en": "Cistern Truck",
+          "mk": "Авто Цистерна"
+        }
+      },
+      "collections": [
+        {
+          "_id": {
+            "$oid": "66ec7fb71a29a06aa46390b1"
+          },
+          "name": {
+            "en": "Type",
+            "mk": "Вид",
+            "gr": "гр"
+          },
+          "items": [
+            {
+              "inputType": "simple",
+              "value": "sample",
+              "_id": {
+                "$oid": "66ec82811a29a06aa4639393"
+              }
+            }
+          ]
+        }
+      ],
+      "_id": {
+        "$oid": "66ec82811a29a06aa4639392"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": "гр"
+          },
+          "plural": {
+            "en": "Names",
+            "mk": "Имиња",
+            "gr": "гр"
+          }
+        },
+        "inputValue": {
+          "gr": "гр",
+          "en": "Drainage Tank",
+          "mk": "Дренажен резервоар"
+        }
+      },
+      "collections": [
+        {
+          "_id": {
+            "$oid": "66ec7fb71a29a06aa46390b1"
+          },
+          "name": {
+            "en": "Type",
+            "mk": "Вид",
+            "gr": "гр"
+          },
+          "items": [
+            {
+              "inputType": "simple",
+              "value": "sample",
+              "_id": {
+                "$oid": "66ec82a21a29a06aa46393d8"
+              }
+            }
+          ]
+        }
+      ],
+      "_id": {
+        "$oid": "66ec82a21a29a06aa46393d7"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": "гр"
+          },
+          "plural": {
+            "en": "Names",
+            "mk": "Имиња",
+            "gr": "гр"
+          }
+        },
+        "inputValue": {
+          "en": "Pipes",
+          "mk": "Цевовод",
+          "gr": "гр"
+        }
+      },
+      "collections": [
+        {
+          "_id": {
+            "$oid": "66ec7fb71a29a06aa46390b1"
+          },
+          "name": {
+            "en": "Type",
+            "mk": "Вид",
+            "gr": "гр"
+          },
+          "items": [
+            {
+              "inputType": "simple",
+              "value": "sample",
+              "_id": {
+                "$oid": "66ec82e61a29a06aa4639423"
+              }
+            }
+          ]
+        }
+      ],
+      "_id": {
+        "$oid": "66ec82e61a29a06aa4639422"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": "гр"
+          },
+          "plural": {
+            "en": "Names",
+            "mk": "Имиња",
+            "gr": "гр"
+          }
+        },
+        "inputValue": {
+          "en": "Gas Station",
+          "mk": "Бензинска пумпа",
+          "gr": "гр"
+        }
+      },
+      "collections": [
+        {
+          "_id": {
+            "$oid": "66ec7fb71a29a06aa46390b1"
+          },
+          "name": {
+            "en": "Type",
+            "mk": "Вид",
+            "gr": "гр"
+          },
+          "items": [
+            {
+              "inputType": "simple",
+              "value": "sample",
+              "_id": {
+                "$oid": "66ec83051a29a06aa4639474"
+              }
+            }
+          ]
+        }
+      ],
+      "_id": {
+        "$oid": "66ec83051a29a06aa4639473"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": "гр"
+          },
+          "plural": {
+            "en": "Names",
+            "mk": "Имиња",
+            "gr": "гр"
+          }
+        },
+        "inputValue": {
+          "gr": "гр",
+          "en": "Vagon",
+          "mk": "Вагон"
+        }
+      },
+      "collections": [
+        {
+          "_id": {
+            "$oid": "66ec7fb71a29a06aa46390b1"
+          },
+          "name": {
+            "en": "Type",
+            "mk": "Вид",
+            "gr": "гр"
+          },
+          "items": [
+            {
+              "inputType": "simple",
+              "value": "sample",
+              "_id": {
+                "$oid": "66ec831a1a29a06aa46394cb"
+              }
+            }
+          ]
+        }
+      ],
+      "_id": {
+        "$oid": "66ec831a1a29a06aa46394ca"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": "гр"
+          },
+          "plural": {
+            "en": "Names",
+            "mk": "Имиња",
+            "gr": "гр"
+          }
+        },
+        "inputValue": {
+          "en": "Tank",
+          "mk": "Резервоар",
+          "gr": "гр"
+        }
+      },
+      "collections": [
+        {
+          "_id": {
+            "$oid": "66ec7fb71a29a06aa46390b1"
+          },
+          "name": {
+            "en": "Type",
+            "mk": "Вид",
+            "gr": "гр"
+          },
+          "items": [
+            {
+              "inputType": "simple",
+              "value": "sample",
+              "_id": {
+                "$oid": "66ec83341a29a06aa4639548"
+              }
+            }
+          ]
+        }
+      ],
+      "_id": {
+        "$oid": "66ec83341a29a06aa4639547"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Name",
+            "mk": "Име",
+            "gr": "гр"
+          },
+          "plural": {
+            "en": "Names",
+            "mk": "Имиња",
+            "gr": "гр"
+          }
+        },
+        "inputValue": {
+          "en": "Tanker",
+          "mk": "Танкер",
+          "gr": "гр"
+        }
+      },
+      "collections": [
+        {
+          "_id": {
+            "$oid": "66ec7fb71a29a06aa46390b1"
+          },
+          "name": {
+            "en": "Type",
+            "mk": "Вид",
+            "gr": "гр"
+          },
+          "items": [
+            {
+              "inputType": "simple",
+              "value": "sample",
+              "_id": {
+                "$oid": "66ec83441a29a06aa46395ab"
+              }
+            }
+          ]
+        }
+      ],
+      "_id": {
+        "$oid": "66ec83441a29a06aa46395aa"
       }
     }
   ]
