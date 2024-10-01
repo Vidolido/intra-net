@@ -8,7 +8,7 @@ const SingleField = ({ field, onChange }) => {
 				id={field._id}
 				name='field-input'
 				value={field._id}
-				checked={field.checked === 'false' ? '' : field.checked}
+				checked={!field.checked ? '' : 'checked'}
 				onChange={onChange}
 			/>{' '}
 			<span>{field.name['en']}</span>

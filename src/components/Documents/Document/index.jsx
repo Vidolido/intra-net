@@ -3,18 +3,27 @@
 import SelectFields from './SelectFields';
 import TemplateForms from './TemplateForms';
 
+function findHighestOrder(arr) {
+	return arr.reduce((max, obj) => {
+		return obj.order !== undefined && obj.order > max ? obj.order : max;
+	}, 0);
+}
+
+function filterByLinkedSetting(fields, linkedSettings) {
+	return fields.filter((field) =>
+		linkedSettings.some((link) => field.links.includes(link))
+	);
+}
+
 const Document = ({
 	customers,
 	document,
 	settings,
+	productAliases,
 	languages,
 	laboratorySettings,
 	templates,
 }) => {
-	// const template = templates.find(
-	//   (template) => template._id === document.templateId
-	// );
-	// const analysisTemplate = !document.template ? null : document.template;
 	const hasSelectedTemplate = !document.templateId ? true : false;
 
 	return (
@@ -23,9 +32,11 @@ const Document = ({
 				<div className='flex flex-col gap-1 shrink'>
 					<SelectFields
 						customers={customers}
-						fields={settings?.fields}
+						fields={settings.fields}
 						document={document}
 						documentTypes={settings?.documentTypes}
+						products={settings.products}
+						productAliases={productAliases}
 					/>
 				</div>
 			)}
