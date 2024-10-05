@@ -17,7 +17,7 @@ const Options = ({ _id, edit, deleteItem }) => {
 			/>
 			{showButtons && (
 				<div
-					className={`w-fit flex gap-1 border ml-[1px] absolute left-[25px]`}>
+					className={`w-fit flex gap-1 border ml-[1px] absolute left-[28px] px-1`}>
 					{edit.show && (
 						<Link href={edit.link + '/' + _id} className={edit.classes}>
 							edit

@@ -36,7 +36,6 @@ const page = async () => {
 		types: mutSettings(types),
 		countries: mutSettings(countries),
 	};
-	console.log(types, 'the  types');
 	return (
 		<Templates
 			published={published}

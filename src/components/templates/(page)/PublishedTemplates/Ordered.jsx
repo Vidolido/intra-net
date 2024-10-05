@@ -9,7 +9,7 @@ const Ordered = ({ product, settings }) => {
 	const [visible, setVisible] = useState(false);
 
 	return (
-		<div className='border border-slate-300 relative'>
+		<div className='border border-slate-300 relative px-1 rounded'>
 			<h4
 				className={`relative z-10 cursor-pointer hover:text-red-500 pl-1 ${
 					!visible ? '' : 'text-red-600'
@@ -25,7 +25,7 @@ const Ordered = ({ product, settings }) => {
 			{!visible ? (
 				''
 			) : (
-				<ul>
+				<ul className='pb-1'>
 					<li className='grid grid-cols-[1fr_1fr_1fr_25px] col-end-auto text-black font-semibold bg-slate-200 '>
 						<p className='pl-1 pb-1 min-w-36'>Type</p>
 						<p className='border-l border-slate-400 pl-1 pb-1'>Country</p>
