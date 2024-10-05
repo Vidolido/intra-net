@@ -1,29 +1,14 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // state/actions
-import { saveFields } from '@/data-access/documents/document/saveFields';
-import { mutateFields } from '@/utils/mutateFields';
+import { saveDocumentBasicInfo } from '@/data-access/documents/document/saveDocumentBasicInfo';
 
 // components
-import ArrowSvg from '@/../public/arrow.svg';
 import ContextButton from '@/components/buttons/ContextButton';
-import SingleField from './SingleField';
+// import SingleField from './CheckBoxFields/SingleField';
 import InputFields from './InputFIelds';
-
-function findHighestOrder(arr) {
-	return arr.reduce((max, obj) => {
-		return obj.order !== undefined && obj.order > max ? obj.order : max;
-	}, 0);
-}
-
-// function filterByLink(arrayOfObjects, linkValue) {
-//   return arrayOfObjects.filter(
-//     (obj) => obj.links.includes('other') || obj.links.includes(linkValue)
-//   );
-// }
-
-function setChecked() {}
+import CheckBoxFields from './CheckBoxFields';
 
 function filterByLinkedSetting(fields, linkedSettings) {
 	return fields.filter((field) =>
@@ -45,8 +30,6 @@ const SelectFields = ({
 	customers,
 	fields: dbFields,
 	document,
-	documentTypes,
-	products,
 	productAliases,
 }) => {
 	const fieldsInitState = () => {
@@ -59,25 +42,39 @@ const SelectFields = ({
 	const [visible, setVisible] = useState(false);
 
 	const [fields, setFields] = useState(fieldsInitState);
-	const handleHide = () => {
-		setVisible(!visible);
-	};
 
-	const handleChecked = (e) => {
-		let order = findHighestOrder(fields);
-		const newFields = fields.map((field) => {
-			if (field._id === e.target.value) {
-				!field.checked ? (field.checked = true) : (field.checked = false);
-				field.order = order + 1;
-			}
-			return field;
-		});
-		setFields(newFields);
-	};
+	useEffect(() => {
+		if (document?.basicInfo) {
+			const newFieldsCheckedStatus = fields.map((field) => {
+				const isChecked = document.basicInfo.fields.some(
+					(f) => f._id === field._id
+				);
+
+				console.log(isChecked, 'THE DAMN IS CHEKED');
+
+				return { ...field, checked: !isChecked ? field.checked : isChecked };
+			});
+			setFields(newFieldsCheckedStatus);
+		}
+	}, [document?.basicInfo]);
+
+	// const handleHide = () => {
+	// 	setVisible(!visible);
+	// };
+
+	// const handleChecked = (e) => {
+	// 	let order = findHighestOrder(fields);
+	// 	const newFields = fields.map((field) => {
+	// 		if (field._id === e.target.value) {
+	// 			!field.checked ? (field.checked = true) : (field.checked = false);
+	// 			field.order = order + 1;
+	// 		}
+	// 		return field;
+	// 	});
+	// 	setFields(newFields);
+	// };
 
 	const handleClick = async (e) => {
-		// e.target.form.preventDefault();
-
 		let selectFields = e.target.form.elements
 			.namedItem('document-fields')
 			.querySelectorAll('select');
@@ -85,58 +82,40 @@ const SelectFields = ({
 			.namedItem('document-fields')
 			.querySelectorAll('input');
 
-		let merge = Array.from(selectFields).concat(Array.from(inputFields));
-		// console.log(selectFields, 'selectFields selectFields selectFields');
-		// console.log(inputFields, 'inputFields inputFields inputFields');
-		console.log(merge, 'merge merge merge');
+		let merged = Array.from(selectFields).concat(Array.from(inputFields));
 
-		let newFields = Array.from(inputFields).reduce((acc, currentValue) => {
-			let field = fields.find((field) => field._id === currentValue.name);
-			field.value = currentValue.value;
-			if (acc.find((e) => e._id === currentValue.name)) {
-				acc.find((e) => e._id === currentValue.name).value = currentValue.value;
-			} else {
-				acc.push(field);
-			}
-			return acc;
-		}, []);
+		const basicInfo = Array.from(merged).reduce(
+			(acc, currentValue) => {
+				if (currentValue.name === 'customer') {
+					acc.customer = {
+						customerId: currentValue.value,
+					};
+				} else {
+					acc.fields.push({
+						_id: currentValue.id,
+						data: currentValue.value,
+					});
+				}
+				return acc;
+			},
+			{ customer: {}, fields: [] }
+		);
 
 		// HANDLE ERRORS HERE
-		await saveFields(newFields, document._id);
+		// await saveFields(newFields, document._id);
+		await saveDocumentBasicInfo(basicInfo, document._id);
 	};
-
-	// console.log(products, 'the products');
 
 	return (
 		<form className='bg-slate-100 border border-t-0 border-slate-200 rounded'>
-			<fieldset className='bg-white border border-slate-200 pl-1 rounded'>
-				<button type='button' onClick={handleHide} className='relative w-full'>
-					<h3 className='text-left'>Fields</h3>
-					<ArrowSvg
-						className={`w-[22px] h-[22px] absolute right-1 top-[3px] fill-red-500 hover:fill-red-300 ${
-							visible ? '' : 'rotate-180'
-						}`}
-					/>
-				</button>
-				<fieldset
-					className={`grid grid-cols-2 ${!visible ? 'hidden' : 'visible'}`}>
-					{fields.length > 0
-						? fields.map((field) => (
-								<SingleField
-									key={field._id}
-									field={field}
-									onChange={handleChecked}
-								/>
-						  ))
-						: null}
-				</fieldset>
-			</fieldset>
-
+			{/* <SelectFields /> */}
+			<CheckBoxFields fields={fields} setFields={setFields} />
 			<InputFields
 				customers={customers}
 				fields={fields}
 				documentHeader={document.header}
 				productAliases={productAliases}
+				basicInfo={document?.basicInfo}
 			/>
 			<div className='p-1'>
 				<ContextButton

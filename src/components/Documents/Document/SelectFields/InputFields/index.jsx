@@ -9,6 +9,7 @@ const InputFields = ({
 	fields,
 	documentHeader,
 	productAliases,
+	basicInfo,
 	onChange,
 }) => {
 	return (
@@ -16,24 +17,29 @@ const InputFields = ({
 			<ul className='px-1'>
 				<label>
 					<span className='block'>Customer</span>
-					<SelectInput options={customers} defaultLanguage={'en'} />
+					<SelectInput
+						options={customers}
+						name='customer'
+						defaultLanguage={'en'}
+						defaultValue={basicInfo?.customer?.customerId || customers[0]._id}
+					/>
 				</label>
 
-				{fields.length > 0
-					? fields.map((field) =>
-							field.checked ? (
+				{fields.length > 0 &&
+					fields.map(
+						(field) =>
+							field.checked && (
 								<SingleInputField
 									key={field._id}
+									id={field._id}
 									field={field}
 									documentHeader={documentHeader}
 									productAliases={productAliases}
+									basicInfo={basicInfo}
 									onChange={onChange}
 								/>
-							) : (
-								''
 							)
-					  )
-					: ''}
+					)}
 			</ul>
 		</fieldset>
 	);

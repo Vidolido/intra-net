@@ -22,14 +22,6 @@ const collectionItemsSchema = new Schema(
 	},
 	{ _id: true, strict: true }
 );
-// const collectionItemsSchema = new Schema(
-//   {
-//     _id: Schema.Types.ObjectId,
-//     inputType: String,
-//     value: Schema.Types.Mixed,
-//   },
-//   { strict: true }
-// );
 
 const collectionSchema = new Schema(
 	{

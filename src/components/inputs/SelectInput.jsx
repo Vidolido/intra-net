@@ -1,4 +1,5 @@
 const SelectInput = ({
+	id,
 	name,
 	property = 'name',
 	options,
@@ -13,6 +14,7 @@ const SelectInput = ({
 	// console.log(options, 'THE  OPTIONS');
 	return (
 		<select
+			id={id}
 			name={name}
 			className={`box-content border-2 border-grey-50 border-opacity-60 rounded hover:border-red-200 focus:outline-none cursor-pointer ${classes}`}
 			onChange={onChange}

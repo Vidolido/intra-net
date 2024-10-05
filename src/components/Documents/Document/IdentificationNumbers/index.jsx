@@ -2,7 +2,7 @@
 import { useState } from 'react';
 
 // state/actions
-import { saveIdentificationNumbers } from '@/data-access/documents/document/saveIdentificationNumbers';
+import { saveIdentificationNumbers } from '@/data-access/documents/document/saveIdentificationNumbersOldFunc';
 
 // components
 import InputType from '@/components/inputs/InputType';

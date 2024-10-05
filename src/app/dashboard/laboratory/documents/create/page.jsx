@@ -66,13 +66,6 @@ const page = async () => {
 		).items,
 	}));
 
-	// console.log(
-	// 	products.settings[0].collections.find(
-	// 		(collection) => collection.name.en === 'Aliases'
-	// 	).items,
-	// 	'Aliases simple'
-	// );
-	// console.log(productAliases[0], 'productAliases');
 	return (
 		<div className='w-full'>
 			<h2>Create New Document</h2>

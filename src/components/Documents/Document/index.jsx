@@ -24,7 +24,8 @@ const Document = ({
 	laboratorySettings,
 	templates,
 }) => {
-	const hasSelectedTemplate = !document.templateId ? true : false;
+	const hasSelectedTemplate = !document?.templateId ? true : false;
+	// const hasSelectedTemplate = !document.templateId ? true : false;
 
 	return (
 		<div className='flex gap-6 pr-3'>
@@ -34,8 +35,6 @@ const Document = ({
 						customers={customers}
 						fields={settings.fields}
 						document={document}
-						documentTypes={settings?.documentTypes}
-						products={settings.products}
 						productAliases={productAliases}
 					/>
 				</div>

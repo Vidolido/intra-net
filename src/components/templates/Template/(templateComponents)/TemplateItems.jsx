@@ -13,7 +13,7 @@ const TemplateItems = ({ template, settings, defaultLanguage }) => {
 		(settings && getDisplayHeadings(settings[0], 'plural')) || null;
 
 	let mutTemplate = groupParameters(template.template) || [];
-	console.log(mutTemplate, 'MUT TEMPLATE');
+	// console.log(mutTemplate, 'MUT TEMPLATE');
 	return (
 		<div className='border w-3/4'>
 			<div className='grid grid-cols-[25px_25%_1fr_1fr_1fr_1fr_1fr_25px] border border-slate-400 bg-slate-100'>

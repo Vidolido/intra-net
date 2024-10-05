@@ -7,12 +7,7 @@ import ViewTemplate from '../TestReport/ViewTemplate';
 // import ViewTemplate from './ViewTemplate';
 // import ViewTemplate from './viewParts/ViewTemplate';
 
-const OtherDocuments = ({
-	document,
-	products,
-	laboratorySettings,
-	languages,
-}) => {
+const Certificate = ({ document, products, laboratorySettings, languages }) => {
 	// console.log(document, 'the document');
 	let { date, time } = formatDate(new Date());
 	let names = products?.settings.map((setting) => ({
@@ -141,4 +136,4 @@ const OtherDocuments = ({
 	);
 };
 
-export default OtherDocuments;
+export default Certificate;
