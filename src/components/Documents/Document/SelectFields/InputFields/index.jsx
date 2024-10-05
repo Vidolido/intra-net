@@ -7,6 +7,8 @@ import SelectInput from '@/components/inputs/SelectInput';
 const InputFields = ({
 	customers,
 	fields,
+	isTestReport,
+	isCertificate,
 	documentHeader,
 	productAliases,
 	basicInfo,
@@ -15,15 +17,17 @@ const InputFields = ({
 	return (
 		<fieldset name='document-fields'>
 			<ul className='px-1'>
-				<label>
-					<span className='block'>Customer</span>
-					<SelectInput
-						options={customers}
-						name='customer'
-						defaultLanguage={'en'}
-						defaultValue={basicInfo?.customer?.customerId || customers[0]._id}
-					/>
-				</label>
+				{(isTestReport || isCertificate) && (
+					<label>
+						<span className='block'>Customer</span>
+						<SelectInput
+							options={customers}
+							name='customer'
+							defaultLanguage={'en'}
+							defaultValue={basicInfo?.customer?.customerId || customers[0]._id}
+						/>
+					</label>
+				)}
 
 				{fields.length > 0 &&
 					fields.map(

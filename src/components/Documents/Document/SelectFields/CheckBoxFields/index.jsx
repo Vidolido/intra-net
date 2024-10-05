@@ -45,7 +45,7 @@ const CheckBoxFields = ({ fields, setFields }) => {
 							<SingleField
 								key={field?._id}
 								field={field}
-								basicInfo={document?.basicInfo}
+								// basicInfo={document?.basicInfo}
 								onChange={handleChecked}
 							/>
 					  ))

@@ -26,7 +26,7 @@ const Document = ({
 }) => {
 	const hasSelectedTemplate = !document?.templateId ? true : false;
 	// const hasSelectedTemplate = !document.templateId ? true : false;
-
+	console.log(settings.documentTypes, 'the settings');
 	return (
 		<div className='flex gap-6 pr-3'>
 			{!hasSelectedTemplate && (
@@ -35,6 +35,7 @@ const Document = ({
 						customers={customers}
 						fields={settings.fields}
 						document={document}
+						documentTypes={settings.documentTypes}
 						productAliases={productAliases}
 					/>
 				</div>

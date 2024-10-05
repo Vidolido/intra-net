@@ -30,6 +30,7 @@ const SelectFields = ({
 	customers,
 	fields: dbFields,
 	document,
+	documentTypes,
 	productAliases,
 }) => {
 	const fieldsInitState = () => {
@@ -39,7 +40,6 @@ const SelectFields = ({
 		]);
 		return setCheckedStatus(mutFields, document.header.documentType);
 	};
-	const [visible, setVisible] = useState(false);
 
 	const [fields, setFields] = useState(fieldsInitState);
 
@@ -49,30 +49,12 @@ const SelectFields = ({
 				const isChecked = document.basicInfo.fields.some(
 					(f) => f._id === field._id
 				);
-
-				console.log(isChecked, 'THE DAMN IS CHEKED');
-
 				return { ...field, checked: !isChecked ? field.checked : isChecked };
 			});
 			setFields(newFieldsCheckedStatus);
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [document?.basicInfo]);
-
-	// const handleHide = () => {
-	// 	setVisible(!visible);
-	// };
-
-	// const handleChecked = (e) => {
-	// 	let order = findHighestOrder(fields);
-	// 	const newFields = fields.map((field) => {
-	// 		if (field._id === e.target.value) {
-	// 			!field.checked ? (field.checked = true) : (field.checked = false);
-	// 			field.order = order + 1;
-	// 		}
-	// 		return field;
-	// 	});
-	// 	setFields(newFields);
-	// };
 
 	const handleClick = async (e) => {
 		let selectFields = e.target.form.elements
@@ -105,6 +87,12 @@ const SelectFields = ({
 		// await saveFields(newFields, document._id);
 		await saveDocumentBasicInfo(basicInfo, document._id);
 	};
+	const isTestReport =
+		documentTypes.find((type) => type._id === document.header.documentType).name
+			.en === 'Test Report';
+	const isCertificate =
+		documentTypes.find((type) => type._id === document.header.documentType).name
+			.en === 'Certificate';
 
 	return (
 		<form className='bg-slate-100 border border-t-0 border-slate-200 rounded'>
@@ -113,6 +101,8 @@ const SelectFields = ({
 			<InputFields
 				customers={customers}
 				fields={fields}
+				isTestReport={isTestReport}
+				isCertificate={isCertificate}
 				documentHeader={document.header}
 				productAliases={productAliases}
 				basicInfo={document?.basicInfo}
