@@ -10,6 +10,7 @@ const InputFields = ({
 	isTestReport,
 	isCertificate,
 	documentHeader,
+	laboratoryNumber,
 	productAliases,
 	basicInfo,
 	onChange,
@@ -38,6 +39,7 @@ const InputFields = ({
 									id={field._id}
 									field={field}
 									documentHeader={documentHeader}
+									laboratoryNumber={laboratoryNumber}
 									productAliases={productAliases}
 									basicInfo={basicInfo}
 									onChange={onChange}

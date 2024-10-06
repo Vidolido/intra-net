@@ -26,10 +26,16 @@ function setCheckedStatus(fields, linkedSettings) {
 	}, []);
 }
 
+function findType(types, documentType) {
+	// return types.find((type) => type._id === documentType).name.en;
+	return types.find((type) => type._id === documentType)._id;
+}
+
 const SelectFields = ({
 	customers,
 	fields: dbFields,
 	document,
+	laboratoryNumber,
 	documentTypes,
 	productAliases,
 }) => {
@@ -84,7 +90,6 @@ const SelectFields = ({
 		);
 
 		// HANDLE ERRORS HERE
-		// await saveFields(newFields, document._id);
 		await saveDocumentBasicInfo(basicInfo, document._id);
 	};
 	const isTestReport =
@@ -94,9 +99,11 @@ const SelectFields = ({
 		documentTypes.find((type) => type._id === document.header.documentType).name
 			.en === 'Certificate';
 
+	let isOfType = findType(documentTypes, document.header.documentType);
+
+	console.log(isOfType, 'is of type');
 	return (
 		<form className='bg-slate-100 border border-t-0 border-slate-200 rounded'>
-			{/* <SelectFields /> */}
 			<CheckBoxFields fields={fields} setFields={setFields} />
 			<InputFields
 				customers={customers}
@@ -104,6 +111,7 @@ const SelectFields = ({
 				isTestReport={isTestReport}
 				isCertificate={isCertificate}
 				documentHeader={document.header}
+				laboratoryNumber={laboratoryNumber}
 				productAliases={productAliases}
 				basicInfo={document?.basicInfo}
 			/>

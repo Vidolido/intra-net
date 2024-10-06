@@ -44,10 +44,14 @@ const ViewTemplate = ({
 				</h6>
 				<p></p>
 			</div>
-			{mutTemplate.map((item) => {
+			{mutTemplate.map((item, i) => {
 				if (item.isGroup == undefined && item.parameter) {
 					return (
-						<TemplateRow key={item._id} item={item} templateId={templateId} />
+						<TemplateRow
+							key={item._id || i}
+							item={item}
+							templateId={templateId}
+						/>
 					);
 				}
 				if (item.isGroup) {

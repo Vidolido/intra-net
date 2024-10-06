@@ -7,6 +7,8 @@ import { cookies } from 'next/headers';
 import dbConnect from '@/db/conn';
 import Document from '@/db/models/Document';
 
+//draft/edit
+
 export async function GET(request, { params }) {
 	let { _id } = params;
 	try {

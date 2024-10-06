@@ -1,23 +1,23 @@
 // components
-// import IdentificationNumbers from './IdentificationNumbers';
 import SelectFields from './SelectFields';
 import TemplateForms from './TemplateForms';
 
-function findHighestOrder(arr) {
-	return arr.reduce((max, obj) => {
-		return obj.order !== undefined && obj.order > max ? obj.order : max;
-	}, 0);
-}
+// function findHighestOrder(arr) {
+// 	return arr.reduce((max, obj) => {
+// 		return obj.order !== undefined && obj.order > max ? obj.order : max;
+// 	}, 0);
+// }
 
-function filterByLinkedSetting(fields, linkedSettings) {
-	return fields.filter((field) =>
-		linkedSettings.some((link) => field.links.includes(link))
-	);
-}
+// function filterByLinkedSetting(fields, linkedSettings) {
+// 	return fields.filter((field) =>
+// 		linkedSettings.some((link) => field.links.includes(link))
+// 	);
+// }
 
 const Document = ({
 	customers,
 	document,
+	laboratoryNumber,
 	settings,
 	productAliases,
 	languages,
@@ -25,8 +25,6 @@ const Document = ({
 	templates,
 }) => {
 	const hasSelectedTemplate = !document?.templateId ? true : false;
-	// const hasSelectedTemplate = !document.templateId ? true : false;
-	console.log(settings.documentTypes, 'the settings');
 	return (
 		<div className='flex gap-6 pr-3'>
 			{!hasSelectedTemplate && (
@@ -35,6 +33,7 @@ const Document = ({
 						customers={customers}
 						fields={settings.fields}
 						document={document}
+						laboratoryNumber={laboratoryNumber}
 						documentTypes={settings.documentTypes}
 						productAliases={productAliases}
 					/>

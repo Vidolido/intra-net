@@ -5,18 +5,29 @@ import SelectInput from '@/components/inputs/SelectInput';
 const SingleInputField = ({
 	field,
 	documentHeader,
+	laboratoryNumber,
 	productAliases,
 	basicInfo,
 	onChange,
 }) => {
-	const fieldData = !basicInfo
+	let fieldData = !basicInfo
 		? null
 		: basicInfo?.fields.find((f) => f._id === field._id)?.data || '';
+
+	let documentLaboratoryNumber = basicInfo?.fields.find(
+		(f) => f._id === field._id
+	);
+
+	fieldData =
+		field.name.en === 'Laboratory Number' && !documentLaboratoryNumber?.data
+			? laboratoryNumber
+			: documentLaboratoryNumber?.data;
+
 	if (field.inputType === 'select' && field.name.en === 'Sample') {
 		let alias = productAliases.find(
 			(alias) => alias._id === documentHeader.product
 		);
-		//
+
 		return (
 			<label>
 				<span className='block'>{field.name['en']}</span>

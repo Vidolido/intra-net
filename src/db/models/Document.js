@@ -26,6 +26,9 @@ import mongoose, { Schema } from 'mongoose';
 const fieldsSchema = new Schema(
 	{
 		_id: Schema.Types.ObjectId,
+		name: {
+			type: Schema.Types.Mixed,
+		},
 		order: {
 			type: Number,
 			default: 0,

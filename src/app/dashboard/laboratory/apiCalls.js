@@ -91,6 +91,21 @@ export async function getDocumentById(_id) {
 	return res.json();
 }
 
+export async function getLaboratoryDocumentNumber(searchQuery) {
+	let baseUrl = `http://localhost:3000/api/laboratory/get-laboratory-document-number`;
+
+	let query = queryParser(baseUrl, searchQuery);
+
+	const res = await fetch(query);
+
+	if (!res.ok) {
+		console.log(res);
+		throw new Error('Failed to get document from db. Reason: ' + res.error);
+	}
+
+	return res.json();
+}
+
 // Client
 export async function getCustomers() {
 	const res = await fetch('http://localhost:3000/api/customers/all');

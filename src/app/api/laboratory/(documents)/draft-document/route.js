@@ -7,6 +7,8 @@ import { cookies } from 'next/headers';
 import dbConnect from '@/db/conn';
 import Document from '@/db/models/Document';
 
+//create
+
 export async function GET() {
 	try {
 		cookies();

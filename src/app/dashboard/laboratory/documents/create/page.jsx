@@ -2,6 +2,7 @@
 import {
 	getCustomers,
 	getDraftDocument,
+	getLaboratoryDocumentNumber,
 	getLaboratoryTemplates,
 } from '../../apiCalls';
 import {
@@ -44,6 +45,12 @@ const page = async () => {
 
 	const { draft } = await getDraftDocument();
 
+	const { laboratoryNumber } = draft?.header
+		? await getLaboratoryDocumentNumber({
+				documentType: draft?.header?.documentType,
+		  })
+		: '';
+
 	let { products, types, countries, fields } = await mutateTemplateSettings(
 		templateSettings
 	);
@@ -65,13 +72,15 @@ const page = async () => {
 			(collection) => collection.name.en === 'Aliases'
 		).items,
 	}));
-
+	// console.log(draft, 'draft document');
+	// console.log(laboratoryNumber, 'OVOA GLEJ GO');
 	return (
 		<div className='w-full'>
 			<h2>Create New Document</h2>
 			<Document
 				customers={customers}
 				document={draft}
+				laboratoryNumber={laboratoryNumber}
 				settings={settings}
 				productAliases={productAliases}
 				languages={languages}

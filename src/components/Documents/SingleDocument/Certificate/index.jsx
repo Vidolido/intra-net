@@ -1,13 +1,32 @@
 // state/actions
 import { nameArray } from '@/utils/nameArray';
 import { formatDate } from '@/utils/formatDate';
-import ViewTemplate from '../TestReport/ViewTemplate';
 
 // components
-// import ViewTemplate from './ViewTemplate';
-// import ViewTemplate from './viewParts/ViewTemplate';
+import ViewTemplate from '../TestReport/ViewTemplate';
 
-const Certificate = ({ document, products, laboratorySettings, languages }) => {
+const mutateBasicInfo = (sourceArray, matchArray) => {
+	return sourceArray
+		.map(({ _id, parameter }) => {
+			const match = matchArray.find(({ _id: matchId }) => matchId === _id);
+
+			return match
+				? { _id: _id, name: parameter.inputValue, data: match.data }
+				: null;
+		})
+		.filter(Boolean); // Filter out null or undefined items
+};
+
+const Certificate = ({
+	customers,
+	document,
+	documentTypes,
+	products,
+	productAliases,
+	fields,
+	laboratorySettings,
+	languages,
+}) => {
 	// console.log(document, 'the document');
 	let { date, time } = formatDate(new Date());
 	let names = products?.settings.map((setting) => ({
@@ -15,6 +34,25 @@ const Certificate = ({ document, products, laboratorySettings, languages }) => {
 		...nameArray(setting.parameter.inputValue),
 	}));
 	let product = names.find((prod) => prod._id === document?.header?.product);
+	let customer = customers.find(
+		(customer) => customer._id === document?.basicInfo?.customer?.customerId
+	);
+
+	let documentType = documentTypes.find(
+		(docType) => docType._id === document?.header?.documentType
+	);
+
+	let mutBasicInfo = mutateBasicInfo(
+		fields.settings,
+		document.basicInfo.fields
+	);
+
+	let laboratoryNumber = mutBasicInfo.find(
+		(info) => info.name.en === 'Laboratory Number'
+	);
+
+	console.log(document.basicInfo, 'BASIC  INFO');
+
 	// console.log(product, 'the products');
 	//   let date = formatDate(new Date());
 	return (
@@ -51,12 +89,29 @@ const Certificate = ({ document, products, laboratorySettings, languages }) => {
 					<h5 className='uppercase font-semibold'>Quality Certificate No:</h5>
 				</div>
 				<div className='flex justify-center items-center border border-slate-700 p-4'>
-					<p>0231/24</p>
+					<p>{laboratoryNumber?.data || ''}</p>
 				</div>
 			</div>
 			<div>
 				{/* четврт ред */}
 				<div className='w-fit text-sm'>
+					{mutBasicInfo &&
+						mutBasicInfo.map((infoField) => {
+							return (
+								<div
+									key={infoField._id}
+									className='grid grid-cols-[1fr_1fr] gap-10'>
+									<div>
+										<p className='font-semibold'>{infoField.name.mk}</p>
+										<p>{infoField.name.en}</p>
+									</div>
+
+									<div className='flex items-center'>
+										<p> {infoField.data}</p>
+									</div>
+								</div>
+							);
+						})}
 					<div className='grid grid-cols-[1fr_1fr] gap-10'>
 						<div>
 							<span>Купувач / Client</span>

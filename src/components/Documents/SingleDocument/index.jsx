@@ -4,26 +4,16 @@ import Certificate from './Certificate';
 import OtherDocuments from './OtherDocuments';
 import TestReport from './TestReport';
 
-const documentType = () => {};
-
 const SingleDocument = ({
+	customers,
 	document,
 	documentTypes,
 	products,
+	productAliases,
+	fields,
 	laboratorySettings,
 	languages,
 }) => {
-	// switch(type) {
-	//   case 'A':
-	//     return <DocumentA />
-	//     case 'B':
-	//       return <DocumentB />
-	//       default:
-	//         return <div>Invalid document type</div>
-
-	// }
-	// console.log(laboratorySettings, 'the laboratorySettings');
-
 	let isTestReport =
 		documentTypes.find((type) => type._id === document.header.documentType)
 			.parameter.inputValue['en'] === 'Test Report';
@@ -36,8 +26,12 @@ const SingleDocument = ({
 	if (isTestReport)
 		return (
 			<TestReport
+				customers={customers}
 				document={document}
+				documentTypes={documentTypes}
 				products={products}
+				productAliases={productAliases}
+				fields={fields}
 				laboratorySettings={laboratorySettings}
 				languages={languages}
 			/>
@@ -46,8 +40,12 @@ const SingleDocument = ({
 	if (isCertificate)
 		return (
 			<Certificate
+				customers={customers}
 				document={document}
+				documentTypes={documentTypes}
 				products={products}
+				productAliases={productAliases}
+				fields={fields}
 				laboratorySettings={laboratorySettings}
 				languages={languages}
 			/>

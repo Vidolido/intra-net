@@ -2,6 +2,7 @@
 import {
 	getCustomers,
 	getDocumentById,
+	getLaboratoryDocumentNumber,
 	getLaboratoryTemplates,
 } from '../../../apiCalls';
 import {
@@ -20,8 +21,8 @@ import Document from '@/components/Documents/Document';
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
-const mutSettings = (setting) =>
-	setting.settings?.map((s) => ({
+const mutSettings = (settings) =>
+	settings?.map((s) => ({
 		_id: s._id,
 		...nameArray(s.parameter.inputValue),
 	}));
@@ -50,8 +51,13 @@ const page = async ({ params }) => {
 	const { setting } = await getLaboratorySettings();
 	const { settings: laboratorySettings } = setting || [];
 
-	// const { document } = await getAnalysisById(_id);
 	const { document } = await getDocumentById(_id);
+
+	const { laboratoryNumber } = document?.header
+		? await getLaboratoryDocumentNumber({
+				documentType: document?.header?.documentType,
+		  })
+		: '';
 
 	let { products, types, countries, fields } = await mutateTemplateSettings(
 		templateSettings
@@ -61,10 +67,10 @@ const page = async ({ params }) => {
 	let documentTypes = findSettingType(types.settings, ['document']);
 
 	let settings = {
-		products: mutSettings(products),
+		products: mutSettings(products.settings),
 		sampleTypes: mutFields(sampleTypes),
 		documentTypes: mutFields(documentTypes),
-		countries: mutSettings(countries),
+		countries: mutSettings(countries.settings),
 		fields: mutateFields(fields.settings),
 	};
 
@@ -75,14 +81,13 @@ const page = async ({ params }) => {
 		).items,
 	}));
 
-	//   console.log(templateSettings, 'templateSettings');
-	//   console.log(laboratorySettings, 'laboratorySettings');
 	return (
 		<div className='w-full'>
 			<h2>Create New Document</h2>
 			<Document
 				customers={customers}
 				document={document}
+				laboratoryNumber={laboratoryNumber}
 				settings={settings}
 				productAliases={productAliases}
 				languages={languages}
