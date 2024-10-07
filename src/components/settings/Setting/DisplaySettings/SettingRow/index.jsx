@@ -17,6 +17,7 @@ const SettingRow = ({
   handleExpand,
   handleEdit,
   classes,
+  numberOfCollections,
   editClass,
   gridTemplateColumns,
 }) => {
@@ -35,13 +36,19 @@ const SettingRow = ({
       </div>
 
       {/* edit component */}
-      {/* {option.options.edit && (
+      {option.options.edit && (
         <EditRow
+          languages={languages}
           documentId={documentId}
+          property={property}
+          collections={collections}
           setting={setting}
+          gridTemplateColumns={gridTemplateColumns}
+          numberOfCollections={numberOfCollections}
           classes={editClass}
         />
-      )} */}
+      )}
+      {/* {option.options.edit && <h2>EDIT</h2>} */}
 
       {/* view db data component */}
       {!option.options.edit && (

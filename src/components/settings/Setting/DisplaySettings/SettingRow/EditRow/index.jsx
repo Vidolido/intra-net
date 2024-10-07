@@ -1,31 +1,41 @@
 'use client';
 
 import InputType from '@/components/inputs/InputType';
+import LanguageInputContainer from '@/components/inputs/LanguageInputContainer';
 import SelectInput from '@/components/inputs/SelectInput';
 
-const EditRow = ({ documentId, setting, classes }) => {
+const EditRow = ({
+  languages,
+  documentId,
+  setting,
+  numberOfCollections,
+  classes,
+}) => {
   const mainParam = setting.parameter;
   const collections = setting.collections;
-  console.log(mainParam, 'the mainParam');
-  console.log(collections, 'the collections');
+  let gridTemplateColumns = `repeat(${numberOfCollections},1fr)`;
+  // console.log(setting, 'the setting');
+  // console.log(mainParam, 'the mainParam');
+  // console.log(collections, 'the collections');
+  // console.log(gridTemplateColumns, 'the gridTemplateColumns');
+  // console.log(numberOfCollections, 'the numberOfCollections');
+
   return (
-    <form className={classes}>
+    <form
+      className={`grid col-span-4 h-[200px]`}
+      style={{ gridTemplateColumns }}>
       <div className='flex'>
-        <label>
-          <InputType />
-        </label>
-        <select>
-          <option value=''>Main Parameter</option>
-          <option value=''>Collections</option>
-        </select>
-        {/* <label>
-          <span className='block'>Main Parameter</span>
-          <input type='radio' name='parameter' id='' />
-        </label>
-        <label>
-          <span className='block'>Collections</span>
-          <input type='radio' name='parameter' id='' />
-        </label> */}
+        {/* {mainParam.inputValue.en} */}
+        <LanguageInputContainer fieldSetClass='w-fit' languages={languages} />
+      </div>
+      <div className='w-fif'>
+        <InputType classes='w-fit' />
+      </div>
+      <div className='w-fif'>
+        <InputType />
+      </div>
+      <div className='w-fif'>
+        <InputType />
       </div>
     </form>
   );

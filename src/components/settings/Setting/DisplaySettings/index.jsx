@@ -78,10 +78,6 @@ const DisplaySettings = ({
     [options]
   );
 
-  // console.log(settings, 'settings');
-  console.log(options, 'options');
-
-  // console.log(optionsForSettings, 'optionsForSettings');
   return (
     <div>
       <Headings
@@ -105,6 +101,7 @@ const DisplaySettings = ({
               handleExpand={handleExpand}
               handleEdit={handleEdit}
               classes={classes + ' hover:border-b-red-400'}
+              numberOfCollections={colNo + 1}
               editClass={editClass}
               gridTemplateColumns={gridTemplateColumns}
             />

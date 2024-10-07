@@ -50,7 +50,9 @@ const LanguageInputContainer = ({
                   key={lang._id}
                   type='text'
                   name={name + lang.language}
-                  classes={language === lang._id ? 'visible' : 'hidden'}
+                  classes={`${
+                    language === lang._id ? 'visible' : 'hidden'
+                  } w-[100px]`}
                   onChange={onChange}
                 />
               );
@@ -72,11 +74,11 @@ const LanguageInputContainer = ({
                   key={index}
                   type='text'
                   name={name + inputName.toString()}
-                  classes={
-                    inputName && inputName.includes(selectedLang?.language)
+                  classes={`${
+                    inputName.includes(selectedLang?.language)
                       ? 'visible'
                       : 'hidden'
-                  }
+                  } w-[100px]`}
                   defaultValue={value}
                 />
               ) : (
@@ -84,11 +86,11 @@ const LanguageInputContainer = ({
                   key={index}
                   type='text'
                   name={name + inputName.toString()}
-                  classes={
+                  classes={`${
                     inputName.includes(selectedLang?.language)
                       ? 'visible'
                       : 'hidden'
-                  }
+                  } w-[100px]`}
                   onChange={onChange}
                   value={value}
                 />
