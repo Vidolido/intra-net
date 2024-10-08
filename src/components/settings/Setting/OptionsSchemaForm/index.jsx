@@ -57,6 +57,7 @@ const OptionsSchema = ({ setting, languages }) => {
             languages={languages}
             setCollections={setCollections}
           />
+
           {!!collections.length && (
             <Collections
               collections={collections}

@@ -7,7 +7,7 @@ const DisplaySetting = ({
   return (
     <>
       <div className='border-r px-3'>
-        <p>{property[defaultLanguage]}</p>
+        <p>{property[defaultLanguage] || 'Parameter name'}</p>
       </div>
       {collections.map((collection) => (
         <div key={collection._id} className='border-r px-3'>

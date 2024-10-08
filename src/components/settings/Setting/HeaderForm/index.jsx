@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useFormState } from 'react-dom';
 
 // state/actions
-import { generateUUID } from '@/utils/generateUUID';
+// import { generateUUID } from '@/utils/generateUUID';
 import { saveSettingHeader } from '@/serverActions/settings/saveSettingHeader';
 
 // components
@@ -23,7 +23,6 @@ const HeaderForm = ({ languages, sectors, setting }) => {
   let hasName = !setting.settingName;
   const [visible, setVisible] = useState(hasName);
 
-  // console.log(sectors, ' THE STATE sectors');
   return (
     <form action={formAction} className='p-1 border border-slate-200 rounded'>
       <input

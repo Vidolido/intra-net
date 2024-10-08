@@ -28,6 +28,8 @@ const SettingRow = ({
   const property = setting?.parameter?.inputValue;
   const collections = setting?.collections;
 
+  console.log(property, 'the prop');
+
   // console.log(option, 'OVOA');
   return (
     <div className={classes} style={{ gridTemplateColumns }}>
