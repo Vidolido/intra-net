@@ -8,7 +8,7 @@ import Options from '@/components/options/Options'; // might delete or refactor
 
 const Template = ({ template, settings }) => {
 	const handleDelete = async (_id) => {
-		console.log(_id, 'DELETE ITEM');
+		// console.log(_id, 'DELETE ITEM');
 		// await deleteDraftSetting(_id);
 		await deleteTemplate(_id, 'published');
 	};

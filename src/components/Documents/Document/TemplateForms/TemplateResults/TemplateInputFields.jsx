@@ -8,6 +8,7 @@ import { generateUUID } from '@/utils/generateUUID';
 import TemplateInputHeaders from './TemplateInputHeaders';
 import InputType from '@/components/inputs/InputType';
 import ContextButton from '@/components/buttons/ContextButton';
+import { formatKeyValue } from '@/utils/settings/formatKeyValue';
 
 const TemplateInputFields = ({
 	template,
@@ -47,7 +48,12 @@ const TemplateInputFields = ({
 																collectionItem.value[
 																	defaultLanguage.language
 																] ||
-																`${collectionItem?.value?.key} - ${collectionItem?.value?.value}`}
+																formatKeyValue(
+																	collectionItem?.value?.key,
+																	collectionItem?.value?.value,
+																	'min',
+																	'max'
+																)}
 														</p>
 													);
 												})}

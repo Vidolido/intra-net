@@ -11,6 +11,7 @@ import GroupParam from './GroupParam';
 import SelectInput from '@/components/inputs/SelectInput';
 import InputType from '@/components/inputs/InputType';
 import ContextButton from '@/components/buttons/ContextButton';
+import { formatKeyValue } from '@/utils/settings/formatKeyValue';
 
 const FormInput = ({ document, settings, groups, defaultLanguage }) => {
 	const [selection, setSelection] = useState(settings[0]);
@@ -142,7 +143,12 @@ const FormInput = ({ document, settings, groups, defaultLanguage }) => {
 									<span>
 										{(typeof item.value === 'string' && item.value) ||
 											item.value[defaultLanguage.language] ||
-											`${item?.value?.key} - ${item?.value?.value}`}
+											formatKeyValue(
+												item?.value?.key,
+												item?.value?.value,
+												'min',
+												'max'
+											)}
 									</span>
 								</label>
 							);
