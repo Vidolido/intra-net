@@ -26,6 +26,7 @@ const ViewTemplate = ({
   templateId,
   laboratorySettings,
   defaultLanguage,
+  collectionCount,
 }) => {
   const { template: stateTemplate } = useSingleDocumentContext();
   const dispatch = useSingleDocumentDispatchContext();
@@ -39,9 +40,13 @@ const ViewTemplate = ({
 
   let mutTemplate = groupParameters(template) || [];
 
+  //   const collectionCount = headings?.collections?.length || 0;
+  const gridCols = `grid-cols-[25px_25%_${'1fr_'.repeat(collectionCount)}25px]`;
+  //   grid-cols-[25px_25%_1fr_1fr_1fr_1fr_25px]
   return (
     <div className='border'>
-      <div className='grid grid-cols-[25px_25%_1fr_1fr_1fr_1fr_25px] place-content-center border border-slate-500'>
+      <div
+        className={`grid ${gridCols} place-content-center border border-slate-500`}>
         <div className='border-r border-slate-500 py-6'></div>
         {headings && headings.main && (
           <h6 className='border-r border-slate-500 flex justify-center items-center'>

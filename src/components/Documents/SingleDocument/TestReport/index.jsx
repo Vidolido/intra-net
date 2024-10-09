@@ -179,6 +179,7 @@ const TestReport = ({
           templateId={document.templateId}
           laboratorySettings={laboratorySettings}
           defaultLanguage={languages[0]}
+          collectionCount={1}
         />
       </div>
       <div>
