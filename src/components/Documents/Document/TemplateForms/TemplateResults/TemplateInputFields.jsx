@@ -17,7 +17,7 @@ const TemplateInputFields = ({
 }) => {
 	let mutTemplate = groupParameters(template) || [];
 	return (
-		<table className='border-collapse  w-full'>
+		<table className='border-collapse w-full'>
 			<TemplateInputHeaders
 				laboratorySettings={laboratorySettings}
 				defaultLanguage={defaultLanguage}
@@ -109,7 +109,12 @@ const TemplateInputFields = ({
 																		collectionItem.value[
 																			defaultLanguage.language
 																		] ||
-																		`${collectionItem?.value?.key} - ${collectionItem?.value?.value}`}
+																		formatKeyValue(
+																			collectionItem?.value?.key,
+																			collectionItem?.value?.value,
+																			'min',
+																			'max'
+																		)}
 																</p>
 															);
 														})}

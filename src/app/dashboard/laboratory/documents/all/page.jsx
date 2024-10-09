@@ -4,13 +4,16 @@ import { getSettings } from '@/app/dashboard/apiCalls';
 // components
 import AllDocuments from '@/components/Documents/AllDocuments/Index';
 
-const page = async () => {
-  const { settings: templateSettings } = await getSettings({
-    documentStatus: 'published',
-    isDeleted: false,
-  });
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
-  return <AllDocuments templateSettings={templateSettings} />;
+const page = async () => {
+	const { settings: templateSettings } = await getSettings({
+		documentStatus: 'published',
+		isDeleted: false,
+	});
+
+	return <AllDocuments templateSettings={templateSettings} />;
 };
 
 export default page;
