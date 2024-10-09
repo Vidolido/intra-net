@@ -1,4 +1,8 @@
 // state/actions
+// import {
+//   useSingleDocumentContext,
+//   useSingleDocumentDispatchContext,
+// } from '@/state/laboratory/documents/singleDocument/singleDocumentContext';
 import { nameArray } from '@/utils/nameArray';
 import { formatDate } from '@/utils/formatDate';
 
@@ -41,6 +45,9 @@ const TestReport = ({
   laboratorySettings,
   languages,
 }) => {
+  // const { template } = useSingleDocumentContext();
+  // const dispatch = useSingleDocumentDispatchContext();
+
   let { date, time } = formatDate(new Date(document.createdAt));
   let names = products?.settings.map((setting) => ({
     _id: setting._id,
@@ -117,9 +124,9 @@ const TestReport = ({
         <div className='w-fit text-sm'>
           {mutBasicInfo &&
             mutBasicInfo.map((infoField) => {
-              console.log(infoField.data, 'info Data');
+              // console.log(infoField.data, 'info Data');
               let test = isValidDate(infoField.date);
-              console.log(test, 'THE TEST');
+              // console.log(test, 'THE TEST');
               //   let { date } = Date(infoField.data)
               //     ? formatDate(infoField.data)
               //     : infoField;
