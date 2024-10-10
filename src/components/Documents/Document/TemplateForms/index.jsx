@@ -9,10 +9,12 @@ const TemplateForms = ({
   laboratorySettings,
   templates,
 }) => {
-  const template = templates.find(
-    (template) => template._id === document.templateId
-  );
+  const template =
+    document.templateId !== null &&
+    templates.find((template) => template._id === document.templateId);
   const analysisTemplate = !document.template ? null : document.template;
+
+  // console.log(document, 'THE DOCUMENT IN TEMPLATEFORMS');
 
   return (
     <div className='w-[80%]'>

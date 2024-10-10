@@ -8,20 +8,21 @@ import { makeDraftDocument } from '@/data-access/documents/makeDraftDocument';
 import ContextButton from '@/components/buttons/ContextButton';
 
 const CreateDraftDocuments = () => {
-	const router = useRouter();
+  const router = useRouter();
 
-	const handdleClick = async (e) => {
-		await makeDraftDocument();
-		router.push('/dashboard/laboratory/documents/create');
-	};
+  const handleClick = async (e) => {
+    const { draft } = await makeDraftDocument();
+    // console.log(draft, 'the draft');
+    router.push(`/dashboard/laboratory/documents/create?_id=${draft._id}`);
+  };
 
-	return (
-		<ContextButton
-			label='Create New Document'
-			type='edit'
-			onClick={handdleClick}
-		/>
-	);
+  return (
+    <ContextButton
+      label='Create New Document'
+      type='edit'
+      onClick={handleClick}
+    />
+  );
 };
 
 export default CreateDraftDocuments;
