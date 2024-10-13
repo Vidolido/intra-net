@@ -3,6 +3,8 @@ import InputType from '@/components/inputs/InputType';
 import SelectInput from '@/components/inputs/SelectInput';
 
 const SingleInputField = ({
+	order,
+	fields,
 	field,
 	documentHeader,
 	laboratoryNumber,
@@ -10,6 +12,7 @@ const SingleInputField = ({
 	basicInfo,
 	onChange,
 }) => {
+	// console.log(field, 'the field');
 	let fieldData = !basicInfo
 		? null
 		: basicInfo?.fields.find((f) => f._id === field._id)?.data || '';
@@ -39,6 +42,22 @@ const SingleInputField = ({
 					defaultValue={!fieldData ? alias.aliases[0]._id : fieldData}
 					defaultLanguage='en'
 				/>
+				{/* <SelectInput
+					id={field._id}
+					options={order}
+					defaultValue={field?.order}
+				/> */}
+				<select
+					className={`box-content border-2 border-grey-50 border-opacity-60 rounded hover:border-red-200 focus:outline-none cursor-pointer`}
+					defaultValue={field.order}>
+					{order?.map((order, index) => {
+						return (
+							<option key={index} value={order}>
+								{order}
+							</option>
+						);
+					})}
+				</select>
 			</label>
 		);
 	} else {
@@ -53,6 +72,24 @@ const SingleInputField = ({
 					defaultValue={!fieldData ? field?.value : fieldData}
 					onChange={onChange}
 				/>
+
+				<select
+					id={null}
+					className={`box-content border-2 border-grey-50 border-opacity-60 rounded hover:border-red-200 focus:outline-none cursor-pointer`}
+					defaultValue={field.order}>
+					{order?.map((order, index) => {
+						return (
+							<option key={index} value={order}>
+								{order}
+							</option>
+						);
+					})}
+				</select>
+				{/* <SelectInput
+					id={field._id}
+					options={order}
+					defaultValue={field?.order}
+				/> */}
 			</label>
 		);
 	}

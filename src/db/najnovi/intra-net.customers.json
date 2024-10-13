@@ -1,0 +1,30 @@
+[{
+  "_id": {
+    "$oid": "66e9c7d1cb21c072923ae226"
+  },
+  "name": {
+    "en": "Okta - Operational support",
+    "mk": "Окта - Оперативна поддршка",
+    "gr": ""
+  },
+  "address": {
+    "en": "St. 1 No. 25 Miladinovci - Ilinden",
+    "mk": "Ул. 1 Бр. 25 Миладиновци - Илинден",
+    "gr": ""
+  },
+  "phone": "+38978525656",
+  "mobile": "+38978525656",
+  "email": "tojtaa@mail.com",
+  "state": {
+    "en": "North Macedonia",
+    "mk": "Северна Македонија",
+    "gr": ""
+  },
+  "city": {
+    "en": "Skopje",
+    "mk": "Скопје",
+    "gr": ""
+  },
+  "customerType": "home",
+  "isDeleted": false
+}]
