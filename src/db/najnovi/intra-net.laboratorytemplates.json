@@ -1,0 +1,7895 @@
+[{
+  "_id": {
+    "$oid": "670c1546fa12bce8d5a6bce5"
+  },
+  "documentStatus": "published",
+  "isDeleted": false,
+  "__v": 0,
+  "documentType": "66ec81db1a29a06aa46391f2",
+  "origin": "670aa5ad35050ae18f0e5f5d",
+  "product": "670aaa0635050ae18f0e8a50",
+  "sampleType": "66ec83341a29a06aa4639547",
+  "template": [
+    {
+      "parameter": {
+        "_id": "670bf2c9fa12bce8d5a141c4",
+        "propertyValue": {
+          "en": "Density at 15°C",
+          "mk": "Густина на 15°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D4052",
+            "_id": "670bf2c9fa12bce8d5a141c9"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "g/ml",
+            "_id": "670bf2c9fa12bce8d5a141cf"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "0,7750",
+              "value": "0,8400"
+            },
+            "_id": "670bf2c9fa12bce8d5a141d2"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c155bfa12bce8d5a6cb77"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf7f9fa12bce8d5a1ada4",
+        "propertyValue": {
+          "en": "Initial Boiling Pont",
+          "mk": "Почетна точка на вриење",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D86",
+            "_id": "670bf7f9fa12bce8d5a1ada5"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "⁰C",
+            "_id": "670bf7f9fa12bce8d5a1adab"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "translations",
+            "value": {
+              "en": "Report",
+              "mk": "Извештај",
+              "gr": "gr"
+            },
+            "_id": "670c14cefa12bce8d5a68043"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ],
+              "_id": "66d6d4f25f35bf59463b6ecd"
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c1565fa12bce8d5a6d055"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bea16fa12bce8d5a10016",
+        "propertyValue": {
+          "en": "10% vol. recovered",
+          "mk": "10% дестилација",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM  D86",
+            "_id": "670bea16fa12bce8d5a10017"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670bea16fa12bce8d5a1001d"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "205"
+            },
+            "_id": "670c14affa12bce8d5a67039"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ],
+              "_id": "66d6d4f25f35bf59463b6ecd"
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c156dfa12bce8d5a6d537"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bea43fa12bce8d5a10053",
+        "propertyValue": {
+          "en": "20% vol. recovered",
+          "mk": "20% дестилација",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM  D86",
+            "_id": "670bea43fa12bce8d5a10054"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670bea43fa12bce8d5a1005a"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "translations",
+            "value": {
+              "en": "Report",
+              "mk": "Извештај",
+              "gr": "gr"
+            },
+            "_id": "670c147dfa12bce8d5a653ba"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ],
+              "_id": "66d6d4f25f35bf59463b6ecd"
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c1572fa12bce8d5a6da1c"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bea70fa12bce8d5a100a8",
+        "propertyValue": {
+          "gr": "gr",
+          "en": "50% vol. recovered",
+          "mk": "50% дестилација"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM  D86",
+            "_id": "670bea70fa12bce8d5a100a9"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670bea70fa12bce8d5a100af"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "translations",
+            "value": {
+              "en": "Report",
+              "mk": "Извештај",
+              "gr": "gr"
+            },
+            "_id": "670c148efa12bce8d5a66205"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ],
+              "_id": "66d6d4f25f35bf59463b6ecd"
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c157bfa12bce8d5a6df04"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670beaa5fa12bce8d5a10115",
+        "propertyValue": {
+          "en": "90% vol. recovered",
+          "mk": "90% дестилација",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM  D86",
+            "_id": "670beaa5fa12bce8d5a10116"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670beaa5fa12bce8d5a1011c"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ],
+              "_id": "66d6d4f25f35bf59463b6ecd"
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c1585fa12bce8d5a6e3ef"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf31afa12bce8d5a14513",
+        "propertyValue": {
+          "en": "End Point",
+          "mk": "Крај",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D86",
+            "_id": "670bf31afa12bce8d5a14514"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670bf31afa12bce8d5a1451a"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "300"
+            },
+            "_id": "670c14e6fa12bce8d5a68dda"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ],
+              "_id": "66d6d4f25f35bf59463b6ecd"
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c158dfa12bce8d5a6e8dd"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c01d1fa12bce8d5a32e9f",
+        "propertyValue": {
+          "en": "Residue",
+          "mk": "Остаток",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D86",
+            "_id": "670c01d1fa12bce8d5a32ea0"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670c01d1fa12bce8d5a32ea6"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "",
+              "value": "1,5"
+            },
+            "_id": "670c01d1fa12bce8d5a32ea7"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ],
+              "_id": "66d6d4f25f35bf59463b6ecd"
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c159afa12bce8d5a6edce"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bfa2bfa12bce8d5a1f3fa",
+        "propertyValue": {
+          "en": "Loss",
+          "mk": "Губиток",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D86",
+            "_id": "670bfa2bfa12bce8d5a1f3fb"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670bfa2bfa12bce8d5a1f401"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "1,5"
+            },
+            "_id": "670c1518fa12bce8d5a69d2a"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ],
+              "_id": "66d6d4f25f35bf59463b6ecd"
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c159ffa12bce8d5a6f2c2"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c166afa12bce8d5a6fc75",
+        "propertyValue": {
+          "en": "Flash Point (Abel)",
+          "mk": "Точка на палење (Abel)",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "IP 170",
+            "_id": "670c166afa12bce8d5a6fc7c"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670c166afa12bce8d5a6fc80"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "simple",
+            "value": "min 38,0 (Abel&Tag)",
+            "_id": "670c166afa12bce8d5a6fc82"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c1691fa12bce8d5a70b2c"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf949fa12bce8d5a1d583",
+        "propertyValue": {
+          "en": "Kinematic viscosity at -20°C",
+          "mk": "Кинематска вискозност на -20°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D445",
+            "_id": "670bf949fa12bce8d5a1d584"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "mm²/s",
+            "_id": "670bf949fa12bce8d5a1d58b"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "8,000"
+            },
+            "_id": "670bf949fa12bce8d5a1d58c"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c16a6fa12bce8d5a71036"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c051efa12bce8d5a3ec86",
+        "propertyValue": {
+          "en": "Total acidity",
+          "mk": "Вкупна киселост",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D3242",
+            "_id": "670c051efa12bce8d5a3ec89"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "mg KOH/g",
+            "_id": "670c051efa12bce8d5a3ec8d"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "0,015"
+            },
+            "_id": "670c051efa12bce8d5a3ec8e"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c16d1fa12bce8d5a71543"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bec36fa12bce8d5a10649",
+        "propertyValue": {
+          "en": "Aromatics content",
+          "mk": "Содржина на аромати",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D 1319",
+            "_id": "670bec36fa12bce8d5a1064a"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670bec36fa12bce8d5a10651"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "25"
+            },
+            "_id": "670bec36fa12bce8d5a10652"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c16f2fa12bce8d5a71a53"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c0497fa12bce8d5a3ca3d",
+        "propertyValue": {
+          "en": "Total sulphur",
+          "mk": "Вкупен сулфур",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D5453",
+            "_id": "670c0497fa12bce8d5a3ca3f"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%m/m",
+            "_id": "670c0497fa12bce8d5a3ca47"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "0,30"
+            },
+            "_id": "670c0497fa12bce8d5a3ca4a"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c171bfa12bce8d5a71f66"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bfb4ffa12bce8d5a22282",
+        "propertyValue": {
+          "en": "Mercaptan suplhur",
+          "mk": "Меркаптански сулфур",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D 3227",
+            "_id": "670bfb4ffa12bce8d5a22283"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%m/m",
+            "_id": "670bfb4ffa12bce8d5a22287"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "0,003"
+            },
+            "_id": "670bfb4ffa12bce8d5a22288"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c172cfa12bce8d5a7247c"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf610fa12bce8d5a17ba1",
+        "propertyValue": {
+          "en": "Freezing point",
+          "mk": "Точка на мрзнење",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D2386",
+            "_id": "670bf610fa12bce8d5a17ba2"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670bf610fa12bce8d5a17ba8"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "-47"
+            },
+            "_id": "670bf610fa12bce8d5a17ba9"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c1744fa12bce8d5a72995"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf1d1fa12bce8d5a138c7",
+        "propertyValue": {
+          "en": "Copper corrosion (2h at 100°C)",
+          "mk": "Корозија на бакар (2h at 100°C)",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D130",
+            "_id": "670bf1d1fa12bce8d5a138c8"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "Class",
+            "_id": "670bf1d1fa12bce8d5a138cb"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "1"
+            },
+            "_id": "670bf1d1fa12bce8d5a138cc"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c1754fa12bce8d5a72eb1"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bfc68fa12bce8d5a24ded",
+        "propertyValue": {
+          "en": "Net heat of combustion",
+          "mk": "Нето топлина на согорување",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D3338",
+            "_id": "670bfc68fa12bce8d5a24def"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "MJ/kg",
+            "_id": "670bfc68fa12bce8d5a24df6"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "42,8"
+            },
+            "_id": "670bfc68fa12bce8d5a24df9"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c176cfa12bce8d5a733d0"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c1809fa12bce8d5a73db5",
+        "propertyValue": {
+          "en": "Smoke point (automatic method)",
+          "mk": "Точка на димење (автоматска метода)",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D1322",
+            "_id": "670c1809fa12bce8d5a73db6"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "mm",
+            "_id": "670c1809fa12bce8d5a73dbc"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c1833fa12bce8d5a74c96"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bfc33fa12bce8d5a24675",
+        "propertyValue": {
+          "en": "Naphtalеnes",
+          "mk": "Нафталени",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D1840",
+            "_id": "670bfc33fa12bce8d5a24676"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670bfc33fa12bce8d5a2467b"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "3,00"
+            },
+            "_id": "670bfc33fa12bce8d5a2467c"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c1845fa12bce8d5a751c5"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf674fa12bce8d5a184e8",
+        "propertyValue": {
+          "en": "Gum content",
+          "mk": "Содржина на смоли",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "IP 540",
+            "_id": "670bf674fa12bce8d5a184ec"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "mg/100ml",
+            "_id": "670bf674fa12bce8d5a184ed"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "7"
+            },
+            "_id": "670bf674fa12bce8d5a184ef"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c1859fa12bce8d5a756f7"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf173fa12bce8d5a13325",
+        "propertyValue": {
+          "en": "Conductivity",
+          "mk": "Проводливост",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D2624*",
+            "_id": "670c1882fa12bce8d5a761e2"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "pS/m (t°C)",
+            "_id": "670bf173fa12bce8d5a13326"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c188ffa12bce8d5a76fd6"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf0befa12bce8d5a12b15",
+        "propertyValue": {
+          "en": "Color, Saybolt ",
+          "mk": "Боја, Saybolt",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D 156",
+            "_id": "670bf0befa12bce8d5a12b16"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c1899fa12bce8d5a7750f"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf081fa12bce8d5a1261b",
+        "propertyValue": {
+          "en": "Change in volume of the aqueous layer",
+          "mk": "Промена на волумен на воден слој",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D1094",
+            "_id": "670bf081fa12bce8d5a1261c"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "ml",
+            "_id": "670bf081fa12bce8d5a1261e"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Water Reaction",
+              "mk": "Реакција со вода",
+              "gr": "gr"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d4ce5f35bf59463b65bf",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "670c18c0fa12bce8d5a77fe2"
+                }
+              ]
+            }
+          ],
+          "_id": "670c18c0fa12bce8d5a77fe1"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c18dbfa12bce8d5a7852d"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf839fa12bce8d5a1b31e",
+        "propertyValue": {
+          "en": "Interface conditions",
+          "mk": "Изглед на гранична површина",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D1094",
+            "_id": "670bf839fa12bce8d5a1b31f"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "translations",
+            "value": {
+              "en": "Rating",
+              "mk": "Оценка",
+              "gr": "gr"
+            },
+            "_id": "670bf839fa12bce8d5a1b321"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Water Reaction",
+              "mk": "Реакција со вода",
+              "gr": "gr"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d4ce5f35bf59463b65bf",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "670c18c0fa12bce8d5a77fe2"
+                }
+              ]
+            }
+          ],
+          "_id": "670c18c0fa12bce8d5a77fe1"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c1906fa12bce8d5a794f2"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c0252fa12bce8d5a34c2b",
+        "propertyValue": {
+          "en": "Separation",
+          "mk": "Одвојување на слоеви",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D1094",
+            "_id": "670c0252fa12bce8d5a34c2c"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "translations",
+            "value": {
+              "en": "Rating",
+              "mk": "Оценка",
+              "gr": "gr"
+            },
+            "_id": "670c0252fa12bce8d5a34c2e"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Water Reaction",
+              "mk": "Реакција со вода",
+              "gr": "gr"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d4ce5f35bf59463b65bf",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "670c18c0fa12bce8d5a77fe2"
+                }
+              ]
+            }
+          ],
+          "_id": "670c18c0fa12bce8d5a77fe1"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c190bfa12bce8d5a79a36"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bebd5fa12bce8d5a10549",
+        "propertyValue": {
+          "en": "Appearance",
+          "mk": "Изглед",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "translations",
+            "value": {
+              "en": "Visual Assessment",
+              "mk": "Visual Assessment",
+              "gr": "gr"
+            },
+            "_id": "670bebd5fa12bce8d5a1054a"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "simple",
+            "value": "C&B1",
+            "_id": "670bebd5fa12bce8d5a10550"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c1921fa12bce8d5a79f7d"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c097bfa12bce8d5a55abd",
+        "propertyValue": {
+          "en": ">=4 μm (c )",
+          "mk": ">=4 μm (c )",
+          "gr": ">=4 μm (c )"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "IP 565",
+            "_id": "670c097bfa12bce8d5a55ac1"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "translations",
+            "value": {
+              "en": "Report",
+              "mk": "Извештај",
+              "gr": "gr"
+            },
+            "_id": "670c097bfa12bce8d5a55ac2"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Cumulative chanel particle counts",
+              "mk": "Кумулативен број на честички",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d59b5f35bf59463b6f48",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d59b5f35bf59463b6f49"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d59b5f35bf59463b6f47"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c1936fa12bce8d5a7a4c7"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c099ffa12bce8d5a568a5",
+        "propertyValue": {
+          "en": ">=6 μm (c )",
+          "mk": ">=6 μm (c )",
+          "gr": ">=6 μm (c )"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "IP 565",
+            "_id": "670c099ffa12bce8d5a568a9"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "translations",
+            "value": {
+              "en": "Report",
+              "mk": "Извештај",
+              "gr": "gr"
+            },
+            "_id": "670c099ffa12bce8d5a568aa"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Cumulative chanel particle counts",
+              "mk": "Кумулативен број на честички",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d59b5f35bf59463b6f48",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d59b5f35bf59463b6f49"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d59b5f35bf59463b6f47"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c1941fa12bce8d5a7aa14"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c09c9fa12bce8d5a5769f",
+        "propertyValue": {
+          "en": ">=14 μm (c )",
+          "mk": ">=14 μm (c )",
+          "gr": ">=14 μm (c )"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "IP 565",
+            "_id": "670c09c9fa12bce8d5a576a3"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "translations",
+            "value": {
+              "en": "Report",
+              "mk": "Извештај",
+              "gr": "gr"
+            },
+            "_id": "670c09c9fa12bce8d5a576a4"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Cumulative chanel particle counts",
+              "mk": "Кумулативен број на честички",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d59b5f35bf59463b6f48",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d59b5f35bf59463b6f49"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d59b5f35bf59463b6f47"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c194afa12bce8d5a7af64"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c09eafa12bce8d5a584ab",
+        "propertyValue": {
+          "en": ">=21 μm (c )",
+          "mk": ">=21 μm (c )",
+          "gr": ">=21 μm (c )"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "IP 565",
+            "_id": "670c09eafa12bce8d5a584af"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "translations",
+            "value": {
+              "en": "Report",
+              "mk": "Извештај",
+              "gr": "gr"
+            },
+            "_id": "670c09eafa12bce8d5a584b0"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Cumulative chanel particle counts",
+              "mk": "Кумулативен број на честички",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d59b5f35bf59463b6f48",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d59b5f35bf59463b6f49"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d59b5f35bf59463b6f47"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c1950fa12bce8d5a7b4b7"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c0a0efa12bce8d5a592c9",
+        "propertyValue": {
+          "en": ">=25 μm (c )",
+          "mk": ">=25 μm (c )",
+          "gr": ">=25 μm (c )"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "IP 565",
+            "_id": "670c0a0efa12bce8d5a592cd"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "translations",
+            "value": {
+              "en": "Report",
+              "mk": "Извештај",
+              "gr": "gr"
+            },
+            "_id": "670c0a0efa12bce8d5a592ce"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Cumulative chanel particle counts",
+              "mk": "Кумулативен број на честички",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d59b5f35bf59463b6f48",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d59b5f35bf59463b6f49"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d59b5f35bf59463b6f47"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c1956fa12bce8d5a7ba0d"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c0a2bfa12bce8d5a5a0f9",
+        "propertyValue": {
+          "en": ">=30 μm (c )",
+          "mk": ">=30 μm (c )",
+          "gr": ">=30 μm (c )"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "IP 565",
+            "_id": "670c0a2bfa12bce8d5a5a0fd"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "translations",
+            "value": {
+              "en": "Report",
+              "mk": "Извештај",
+              "gr": "gr"
+            },
+            "_id": "670c0a2bfa12bce8d5a5a0fe"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Cumulative chanel particle counts",
+              "mk": "Кумулативен број на честички",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d59b5f35bf59463b6f48",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d59b5f35bf59463b6f49"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d59b5f35bf59463b6f47"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670c195bfa12bce8d5a7bf66"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "670d6df8fa4babb27b3e30c1"
+  },
+  "documentStatus": "published",
+  "isDeleted": false,
+  "__v": 0,
+  "documentType": "66ec81db1a29a06aa46391f2",
+  "origin": "670aa5ad35050ae18f0e5f5d",
+  "product": "670aaa8435050ae18f0e8ada",
+  "sampleType": "66ec83341a29a06aa4639547",
+  "template": [
+    {
+      "parameter": {
+        "_id": "670bf2c9fa12bce8d5a141c4",
+        "propertyValue": {
+          "en": "Density at 15°C",
+          "mk": "Густина на 15°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 12185",
+            "_id": "670bf2c9fa12bce8d5a141cc"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "g/ml",
+            "_id": "670bf2c9fa12bce8d5a141cf"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "0,8600"
+            },
+            "_id": "670bf2c9fa12bce8d5a141d4"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d6e73fa4babb27b3e3fcb"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c017bfa12bce8d5a31b68",
+        "propertyValue": {
+          "en": "Recovered 370°C",
+          "mk": "Дестилира на 370°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670c017bfa12bce8d5a31b6c"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670c017bfa12bce8d5a31b6e"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d6e88fa4babb27b3e44c6"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf5e3fa12bce8d5a17720",
+        "propertyValue": {
+          "en": "Flash point",
+          "mk": "Точка на палење",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ISO 2719",
+            "_id": "670bf5e3fa12bce8d5a17729"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670bf5e3fa12bce8d5a1772b"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "",
+              "key": "55"
+            },
+            "_id": "670d6f5dfa4babb27b3e6979"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d6f6ffa4babb27b3e76bb"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c07f1fa12bce8d5a4e19c",
+        "propertyValue": {
+          "en": "Viscosity at 40 °C",
+          "mk": "Вискозност на 40°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3104",
+            "_id": "670c07f1fa12bce8d5a4e19f"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "mm²/s",
+            "_id": "670c07f1fa12bce8d5a4e1a1"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "2,500",
+              "value": "6,000"
+            },
+            "_id": "670c07f1fa12bce8d5a4e1a3"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d6f90fa4babb27b3e7bbe"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c00a7fa12bce8d5a2e3b1",
+        "propertyValue": {
+          "en": "Pour point",
+          "mk": "Точка на течење",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D97",
+            "_id": "670c00a7fa12bce8d5a2e3b2"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670c00a7fa12bce8d5a2e3b8"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "simple",
+            "value": "max  -7(w), -1(s)",
+            "_id": "670c00b4fa12bce8d5a2efdc"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d6f9efa4babb27b3e80c4"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf25efa12bce8d5a13eb3",
+        "propertyValue": {
+          "en": "Cloud point",
+          "mk": "Точка на заматување",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D5771",
+            "_id": "670d7003fa4babb27b3e8bad"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670bf25efa12bce8d5a13eb8"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d703bfa4babb27b3e9971"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c03d4fa12bce8d5a39e72",
+        "propertyValue": {
+          "en": "Sulfur content",
+          "mk": "Содржина на сулфур",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 8754",
+            "_id": "670c03d4fa12bce8d5a39e76"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%m/m",
+            "_id": "670c03d4fa12bce8d5a39e7c"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "0,1"
+            },
+            "_id": "670c03d4fa12bce8d5a39e7e"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7064fa4babb27b3e9e7e"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c0919fa12bce8d5a53f24",
+        "propertyValue": {
+          "en": "Water and sediments",
+          "mk": "Вода и седименти",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D 2709",
+            "_id": "670c0919fa12bce8d5a53f28"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "% v/v",
+            "_id": "670c0919fa12bce8d5a53f2a"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "0,15"
+            },
+            "_id": "670c0919fa12bce8d5a53f2b"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7087fa4babb27b3ea38e"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf11efa12bce8d5a12daa",
+        "propertyValue": {
+          "en": "Color",
+          "mk": "Боја",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "translations",
+            "value": {
+              "en": "Visual Assessment",
+              "mk": "Визуелна проценка",
+              "gr": "гр"
+            },
+            "_id": "670bf11efa12bce8d5a12dab"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "translations",
+            "value": {
+              "en": "Red",
+              "mk": "Црвена",
+              "gr": "gr"
+            },
+            "_id": "670bf11efa12bce8d5a12db2"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d70a1fa4babb27b3ea8a1"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "670d7514fa4babb27b3ec893"
+  },
+  "documentStatus": "published",
+  "isDeleted": false,
+  "__v": 0,
+  "template": [
+    {
+      "parameter": {
+        "_id": "670bf2c9fa12bce8d5a141c4",
+        "propertyValue": {
+          "en": "Density at 15°C",
+          "mk": "Густина на 15°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 12185",
+            "_id": "670bf2c9fa12bce8d5a141cc"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "g/ml",
+            "_id": "670bf2c9fa12bce8d5a141cf"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d757cfa4babb27b3ecdbb"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c03d4fa12bce8d5a39e72",
+        "propertyValue": {
+          "en": "Sulfur content",
+          "mk": "Содржина на сулфур",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ISO 8754",
+            "_id": "670c03d4fa12bce8d5a39e79"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%m/m",
+            "_id": "670c03d4fa12bce8d5a39e7c"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "1"
+            },
+            "_id": "670c03d4fa12bce8d5a39e80"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d75a0fa4babb27b3ed2b8"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c0811fa12bce8d5a4eeba",
+        "propertyValue": {
+          "en": "Viscosity at 50°C",
+          "mk": "Вискозност на 50°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ISO 3104",
+            "_id": "670c0811fa12bce8d5a4eebe"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "mm²/s",
+            "_id": "670c0811fa12bce8d5a4eebf"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d75b8fa4babb27b3ed7b9"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c0837fa12bce8d5a4fbe8",
+        "propertyValue": {
+          "en": "Viscosity at 100°C",
+          "mk": "Вискозитет на 100°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ISO 3104",
+            "_id": "670c0837fa12bce8d5a4fbec"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "mm²/s",
+            "_id": "670c0837fa12bce8d5a4fbed"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "28"
+            },
+            "_id": "670c0837fa12bce8d5a4fbee"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d75c2fa4babb27b3edcbd"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf5e3fa12bce8d5a17720",
+        "propertyValue": {
+          "en": "Flash point",
+          "mk": "Точка на палење",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ISO 2719",
+            "_id": "670bf5e3fa12bce8d5a17729"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670bf5e3fa12bce8d5a1772b"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "60"
+            },
+            "_id": "670d75fcfa4babb27b3ee821"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7617fa4babb27b3ef56b"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c00a7fa12bce8d5a2e3b1",
+        "propertyValue": {
+          "en": "Pour point",
+          "mk": "Точка на течење",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ISO 3016",
+            "_id": "670c00a7fa12bce8d5a2e3b7"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670c00a7fa12bce8d5a2e3b8"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d762bfa4babb27b3efa76"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c0919fa12bce8d5a53f24",
+        "propertyValue": {
+          "en": "Water and sediments",
+          "mk": "Вода и седименти",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D1796",
+            "_id": "670c0919fa12bce8d5a53f27"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "% v/v",
+            "_id": "670c0919fa12bce8d5a53f2a"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "1"
+            },
+            "_id": "670c0919fa12bce8d5a53f2c"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d765bfa4babb27b3eff84"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c08eefa12bce8d5a5317e",
+        "propertyValue": {
+          "en": "Water by destilation-W",
+          "mk": "Вода при дестилација",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D95",
+            "_id": "670c08eefa12bce8d5a5317f"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "% v/v",
+            "_id": "670c08eefa12bce8d5a53185"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7670fa4babb27b3f0495"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670d7721fa4babb27b3f136a",
+        "propertyValue": {
+          "en": "Carbon residue (micro method)",
+          "mk": "Содржина на кокс (микро метода)",
+          "gr": "гр"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 10370",
+            "_id": "670d7721fa4babb27b3f136d"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%m/m",
+            "_id": "670d7721fa4babb27b3f1370"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "12,0"
+            },
+            "_id": "670d7721fa4babb27b3f1371"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7744fa4babb27b3f225b"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bed92fa12bce8d5a1089a",
+        "propertyValue": {
+          "en": "Ash content",
+          "mk": "Содржина на пепел",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 6245",
+            "_id": "670bed92fa12bce8d5a1089e"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%m/m",
+            "_id": "670bed92fa12bce8d5a108a0"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "0,2"
+            },
+            "_id": "670bed92fa12bce8d5a108a5"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d775afa4babb27b3f277a"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bfc68fa12bce8d5a24ded",
+        "propertyValue": {
+          "en": "Net heat of combustion",
+          "mk": "Нето топлина на согорување",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D4868",
+            "_id": "670bfc68fa12bce8d5a24df1"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "MJ/kg",
+            "_id": "670bfc68fa12bce8d5a24df6"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d776ffa4babb27b3f2c9c"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf647fa12bce8d5a18035",
+        "propertyValue": {
+          "en": "Gross heat of combustion",
+          "mk": "Бруто топлина на согорување",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D4868",
+            "_id": "670bf647fa12bce8d5a18038"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "MJ/kg",
+            "_id": "670bf647fa12bce8d5a1803d"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "39,7"
+            },
+            "_id": "670bf647fa12bce8d5a1803e"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7779fa4babb27b3f31c1"
+      }
+    }
+  ],
+  "documentType": "66ec81db1a29a06aa46391f2",
+  "origin": "670aa5ad35050ae18f0e5f5d",
+  "product": "670aaacb35050ae18f0e8b31",
+  "sampleType": "66ec83341a29a06aa4639547"
+},
+{
+  "_id": {
+    "$oid": "670d77b1fa4babb27b3f5040"
+  },
+  "documentStatus": "published",
+  "isDeleted": false,
+  "__v": 0,
+  "documentType": "66ec81db1a29a06aa46391f2",
+  "origin": "670aa5ad35050ae18f0e5f5d",
+  "product": "670aa94c35050ae18f0e89f6",
+  "sampleType": "66ec83341a29a06aa4639547",
+  "template": [
+    {
+      "parameter": {
+        "_id": "670bf2c9fa12bce8d5a141c4",
+        "propertyValue": {
+          "en": "Density at 15°C",
+          "mk": "Густина на 15°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 12185",
+            "_id": "670bf2c9fa12bce8d5a141cc"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "g/ml",
+            "_id": "670bf2c9fa12bce8d5a141cf"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "0,7200",
+              "value": "0,7750"
+            },
+            "_id": "670bf2c9fa12bce8d5a141d1"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7847fa4babb27b3f6e5d"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf7f9fa12bce8d5a1ada4",
+        "propertyValue": {
+          "en": "Initial Boiling Pont",
+          "mk": "Почетна точка на вриење",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670bf7f9fa12bce8d5a1ada8"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "⁰C",
+            "_id": "670bf7f9fa12bce8d5a1adab"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d4f25f35bf59463b6ecd",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7858fa4babb27b3f7363"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf34efa12bce8d5a14871",
+        "propertyValue": {
+          "en": "Evaporated at 70°C",
+          "mk": "Испарено на 70°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670bf34efa12bce8d5a14875"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670bf34efa12bce8d5a14878"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "24",
+              "value": "52"
+            },
+            "_id": "670bf34efa12bce8d5a14879"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d4f25f35bf59463b6ecd",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7880fa4babb27b3f786d"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf37cfa12bce8d5a14beb",
+        "propertyValue": {
+          "en": "Evaporated at 100°C",
+          "mk": "Испарено на 100°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670bf37cfa12bce8d5a14bef"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670bf37cfa12bce8d5a14bf2"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "46",
+              "value": "72"
+            },
+            "_id": "670bf37cfa12bce8d5a14bf3"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d4f25f35bf59463b6ecd",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7894fa4babb27b3f7d7a"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf3aefa12bce8d5a14f80",
+        "propertyValue": {
+          "en": "Evaporated at 150°C",
+          "mk": "Испарено 150°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670bf3aefa12bce8d5a14f84"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670bf3aefa12bce8d5a14f87"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "75"
+            },
+            "_id": "670bf3aefa12bce8d5a14f88"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d4f25f35bf59463b6ecd",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d78a0fa4babb27b3f828a"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf31afa12bce8d5a14513",
+        "propertyValue": {
+          "en": "End Point",
+          "mk": "Крај",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670bf31afa12bce8d5a14517"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670bf31afa12bce8d5a1451a"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "210"
+            },
+            "_id": "670d78ddfa4babb27b3f8da3"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d4f25f35bf59463b6ecd",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7903fa4babb27b3fa593"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c01a6fa12bce8d5a324fb",
+        "propertyValue": {
+          "en": "Research Octane Number,RON",
+          "mk": "Истражен октански број, ИОБ",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 5164",
+            "_id": "670c01a6fa12bce8d5a324fe"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "98,0"
+            },
+            "_id": "670d7955fa4babb27b3fb2cd"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7988fa4babb27b3fbe7b"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bfc0bfa12bce8d5a23f14",
+        "propertyValue": {
+          "en": "Motor Octane Number,MON",
+          "mk": "Моторен октански број, МОБ",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 5163",
+            "_id": "670bfc0bfa12bce8d5a23f17"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "87,0"
+            },
+            "_id": "670bfc0bfa12bce8d5a23f1b"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d79a5fa4babb27b3fc396"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c0645fa12bce8d5a45733",
+        "propertyValue": {
+          "en": "Vapour pressure",
+          "mk": "Напон на пареи",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN 13016-1",
+            "_id": "670c0645fa12bce8d5a45739"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "kPa",
+            "_id": "670c0645fa12bce8d5a4573b"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "50,0",
+              "value": "80,0"
+            },
+            "_id": "670c0645fa12bce8d5a4573c"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d79e5fa4babb27b3fc8b4"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c03d4fa12bce8d5a39e72",
+        "propertyValue": {
+          "en": "Sulfur content",
+          "mk": "Содржина на сулфур",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 20846",
+            "_id": "670c03d4fa12bce8d5a39e77"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "mg/kg",
+            "_id": "670c03d4fa12bce8d5a39e7a"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "0,1"
+            },
+            "_id": "670c03d4fa12bce8d5a39e7e"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7a0ffa4babb27b3fcdd5"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bede0fa12bce8d5a10b4e",
+        "propertyValue": {
+          "en": "Benzene content",
+          "mk": "Содржина на бензен",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN 238",
+            "_id": "670bede0fa12bce8d5a10b51"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670bede0fa12bce8d5a10b52"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "1,0"
+            },
+            "_id": "670d7a56fa4babb27b3fe29f"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7a64fa4babb27b3ffb1b"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670d7baefa4babb27b400526",
+        "propertyValue": {
+          "en": "Ethanol",
+          "mk": "Етанол",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN 13132",
+            "_id": "670d7baefa4babb27b40052b"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670d7baefa4babb27b40052f"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Oxygenates content",
+              "mk": "Содржина на оксигенати",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6e8f25f35bf59463c95c7",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6e8f25f35bf59463c95c8"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6e8f25f35bf59463c95c6"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7bcafa4babb27b401446"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf3dbfa12bce8d5a15330",
+        "propertyValue": {
+          "en": "Ethers(5 or more C atoms)",
+          "mk": "Етри (5 или повеќе С атоми)",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN 13132",
+            "_id": "670bf3dbfa12bce8d5a15332"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670bf3dbfa12bce8d5a15334"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "15"
+            },
+            "_id": "670bf3dbfa12bce8d5a15335"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Oxygenates content",
+              "mk": "Содржина на оксигенати",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6e8f25f35bf59463c95c7",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6e8f25f35bf59463c95c8"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6e8f25f35bf59463c95c6"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7bebfa4babb27b40197b"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bfe86fa12bce8d5a29db5",
+        "propertyValue": {
+          "en": "Oxygen content",
+          "mk": "Содржина на кисолород",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN 13132",
+            "_id": "670bfe86fa12bce8d5a29dbb"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%m/m",
+            "_id": "670bfe86fa12bce8d5a29dbe"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "2,7"
+            },
+            "_id": "670bfe86fa12bce8d5a29dc0"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7c12fa4babb27b401eb3"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bec36fa12bce8d5a10649",
+        "propertyValue": {
+          "en": "Aromatics content",
+          "mk": "Содржина на аромати",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN 15553",
+            "_id": "670bec36fa12bce8d5a1064d"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670bec36fa12bce8d5a10651"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "35"
+            },
+            "_id": "670bec36fa12bce8d5a10653"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7c2dfa4babb27b4023ee"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bfe19fa12bce8d5a284d7",
+        "propertyValue": {
+          "en": "Olefins content",
+          "mk": "Содржина на олефини",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN 15553",
+            "_id": "670bfe19fa12bce8d5a284dc"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670bfe19fa12bce8d5a284e0"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "18,0"
+            },
+            "_id": "670bfe19fa12bce8d5a284e2"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7c3ffa4babb27b40292c"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "670d7c5ffa4babb27b403904"
+  },
+  "documentStatus": "published",
+  "isDeleted": false,
+  "__v": 0,
+  "documentType": "66ec81db1a29a06aa46391f2",
+  "origin": "670aa5ad35050ae18f0e5f5d",
+  "product": "670aa8d635050ae18f0e89df",
+  "sampleType": "66ec83341a29a06aa4639547",
+  "template": [
+    {
+      "parameter": {
+        "_id": "670bf2c9fa12bce8d5a141c4",
+        "propertyValue": {
+          "en": "Density at 15°C",
+          "mk": "Густина на 15°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 12185",
+            "_id": "670bf2c9fa12bce8d5a141cc"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "g/ml",
+            "_id": "670bf2c9fa12bce8d5a141cf"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "0,7200",
+              "value": "0,7750"
+            },
+            "_id": "670bf2c9fa12bce8d5a141d1"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7c9efa4babb27b40487b"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf7f9fa12bce8d5a1ada4",
+        "propertyValue": {
+          "en": "Initial Boiling Pont",
+          "mk": "Почетна точка на вриење",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670bf7f9fa12bce8d5a1ada8"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "⁰C",
+            "_id": "670bf7f9fa12bce8d5a1adab"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d4f25f35bf59463b6ecd",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7cb6fa4babb27b404d8e"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf34efa12bce8d5a14871",
+        "propertyValue": {
+          "en": "Evaporated at 70°C",
+          "mk": "Испарено на 70°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670bf34efa12bce8d5a14875"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670bf34efa12bce8d5a14878"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "24",
+              "value": "52"
+            },
+            "_id": "670bf34efa12bce8d5a14879"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d4f25f35bf59463b6ecd",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7cc7fa4babb27b4052a5"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf37cfa12bce8d5a14beb",
+        "propertyValue": {
+          "en": "Evaporated at 100°C",
+          "mk": "Испарено на 100°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670bf37cfa12bce8d5a14bef"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670bf37cfa12bce8d5a14bf2"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "46",
+              "value": "72"
+            },
+            "_id": "670bf37cfa12bce8d5a14bf3"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d4f25f35bf59463b6ecd",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7cd2fa4babb27b4057bf"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf3aefa12bce8d5a14f80",
+        "propertyValue": {
+          "en": "Evaporated at 150°C",
+          "mk": "Испарено 150°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670bf3aefa12bce8d5a14f84"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670bf3aefa12bce8d5a14f87"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "75"
+            },
+            "_id": "670bf3aefa12bce8d5a14f88"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d4f25f35bf59463b6ecd",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7cd9fa4babb27b405cdc"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf31afa12bce8d5a14513",
+        "propertyValue": {
+          "en": "End Point",
+          "mk": "Крај",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670bf31afa12bce8d5a14517"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670bf31afa12bce8d5a1451a"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "210"
+            },
+            "_id": "670d78ddfa4babb27b3f8da3"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d4f25f35bf59463b6ecd",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7ceefa4babb27b4061fc"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c01d1fa12bce8d5a32e9f",
+        "propertyValue": {
+          "en": "Residue",
+          "mk": "Остаток",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670c01d1fa12bce8d5a32ea3"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670c01d1fa12bce8d5a32ea6"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d4f25f35bf59463b6ecd",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7d19fa4babb27b40671f"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c01a6fa12bce8d5a324fb",
+        "propertyValue": {
+          "en": "Research Octane Number,RON",
+          "mk": "Истражен октански број, ИОБ",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 5164",
+            "_id": "670c01a6fa12bce8d5a324fe"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "95,0"
+            },
+            "_id": "670c01a6fa12bce8d5a32500"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7d29fa4babb27b406c45"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bfc0bfa12bce8d5a23f14",
+        "propertyValue": {
+          "en": "Motor Octane Number,MON",
+          "mk": "Моторен октански број, МОБ",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 5163",
+            "_id": "670bfc0bfa12bce8d5a23f17"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "85,0"
+            },
+            "_id": "670bfc0bfa12bce8d5a23f1a"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7d41fa4babb27b40716e"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c0645fa12bce8d5a45733",
+        "propertyValue": {
+          "en": "Vapour pressure",
+          "mk": "Напон на пареи",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN 13016-1",
+            "_id": "670c0645fa12bce8d5a45739"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "kPa",
+            "_id": "670c0645fa12bce8d5a4573b"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "50,0",
+              "value": "80,0"
+            },
+            "_id": "670c0645fa12bce8d5a4573c"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7d52fa4babb27b40769a"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c03d4fa12bce8d5a39e72",
+        "propertyValue": {
+          "en": "Sulfur content",
+          "mk": "Содржина на сулфур",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 20846",
+            "_id": "670c03d4fa12bce8d5a39e77"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "mg/kg",
+            "_id": "670c03d4fa12bce8d5a39e7a"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "10,9"
+            },
+            "_id": "670c03d4fa12bce8d5a39e82"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7d6ffa4babb27b407bc9"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bede0fa12bce8d5a10b4e",
+        "propertyValue": {
+          "en": "Benzene content",
+          "mk": "Содржина на бензен",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN 238",
+            "_id": "670bede0fa12bce8d5a10b51"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670bede0fa12bce8d5a10b52"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "1,0"
+            },
+            "_id": "670d7a56fa4babb27b3fe29f"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7d8afa4babb27b4080fb"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf3dbfa12bce8d5a15330",
+        "propertyValue": {
+          "en": "Ethers(5 or more C atoms)",
+          "mk": "Етри (5 или повеќе С атоми)",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN 13132",
+            "_id": "670bf3dbfa12bce8d5a15332"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670bf3dbfa12bce8d5a15334"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "15"
+            },
+            "_id": "670bf3dbfa12bce8d5a15335"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Oxygenates content",
+              "mk": "Содржина на оксигенати",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6e8f25f35bf59463c95c7",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6e8f25f35bf59463c95c8"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6e8f25f35bf59463c95c6"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7da6fa4babb27b408630"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bfe86fa12bce8d5a29db5",
+        "propertyValue": {
+          "en": "Oxygen content",
+          "mk": "Содржина на кисолород",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN 13132",
+            "_id": "670bfe86fa12bce8d5a29dbb"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%m/m",
+            "_id": "670bfe86fa12bce8d5a29dbe"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "2,7"
+            },
+            "_id": "670bfe86fa12bce8d5a29dc0"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7dcafa4babb27b408b68"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bec36fa12bce8d5a10649",
+        "propertyValue": {
+          "en": "Aromatics content",
+          "mk": "Содржина на аромати",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN 15553",
+            "_id": "670bec36fa12bce8d5a1064d"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670bec36fa12bce8d5a10651"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "35"
+            },
+            "_id": "670bec36fa12bce8d5a10653"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7de7fa4babb27b4090a3"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bfe19fa12bce8d5a284d7",
+        "propertyValue": {
+          "en": "Olefins content",
+          "mk": "Содржина на олефини",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN 15553",
+            "_id": "670bfe19fa12bce8d5a284dc"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670bfe19fa12bce8d5a284e0"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "18,0"
+            },
+            "_id": "670bfe19fa12bce8d5a284e2"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d7df6fa4babb27b4095e1"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "670d804afa4babb27b40ab6f"
+  },
+  "documentStatus": "published",
+  "isDeleted": false,
+  "__v": 0,
+  "documentType": "66ec81db1a29a06aa46391f2",
+  "origin": "670aa5ad35050ae18f0e5f5d",
+  "product": "670aab0535050ae18f0e8b94",
+  "sampleType": "66ec83341a29a06aa4639547",
+  "template": [
+    {
+      "parameter": {
+        "_id": "670bf2c9fa12bce8d5a141c4",
+        "propertyValue": {
+          "en": "Density at 15°C",
+          "mk": "Густина на 15°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 8973",
+            "_id": "670d80bcfa4babb27b40cb09"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "g/ml",
+            "_id": "670bf2c9fa12bce8d5a141cf"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d8129fa4babb27b40d8fa"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf6fdfa12bce8d5a18e8e",
+        "propertyValue": {
+          "en": "Hydrocarbons C1 и C2",
+          "mk": "Јаглеводороди C1 и C2",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN 27941",
+            "_id": "670bf6fdfa12bce8d5a18e93"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "mol%",
+            "_id": "670bf6fdfa12bce8d5a18e95"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Hydrocarbon content",
+              "mk": "Состав на јаглеводороди",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d5c05f35bf59463b6f7e",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d5c05f35bf59463b6f7f"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d5c05f35bf59463b6f7d"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d816cfa4babb27b40de0e"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf726fa12bce8d5a19384",
+        "propertyValue": {
+          "en": "Hydrocarbons C3",
+          "mk": "Јаглеводороди C3",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN 27941",
+            "_id": "670bf726fa12bce8d5a19389"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "mol%",
+            "_id": "670bf726fa12bce8d5a1938b"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Hydrocarbon content",
+              "mk": "Состав на јаглеводороди",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d5c05f35bf59463b6f7e",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d5c05f35bf59463b6f7f"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d5c05f35bf59463b6f7d"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d817bfa4babb27b40e326"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf763fa12bce8d5a19892",
+        "propertyValue": {
+          "en": "Hydrocarbons C4",
+          "mk": "Јаглеводороди C4",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN 27941",
+            "_id": "670bf763fa12bce8d5a19897"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "mol%",
+            "_id": "670bf763fa12bce8d5a19899"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Hydrocarbon content",
+              "mk": "Состав на јаглеводороди",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d5c05f35bf59463b6f7e",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d5c05f35bf59463b6f7f"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d5c05f35bf59463b6f7d"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d8188fa4babb27b40e841"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf78afa12bce8d5a19db8",
+        "propertyValue": {
+          "en": "Hydrocarbons ≥ C5",
+          "mk": "Јаглеводороди ≥ C5",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN 27941",
+            "_id": "670bf78afa12bce8d5a19dbd"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "mol%",
+            "_id": "670bf78afa12bce8d5a19dbf"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Hydrocarbon content",
+              "mk": "Состав на јаглеводороди",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d5c05f35bf59463b6f7e",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d5c05f35bf59463b6f7f"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d5c05f35bf59463b6f7d"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d81bcfa4babb27b40ed5f"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c05fdfa12bce8d5a43f2d",
+        "propertyValue": {
+          "en": "Unsaturated Hydrocarbons content",
+          "mk": "Незаситени јаглеводороди",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN 27941",
+            "_id": "670c05fdfa12bce8d5a43f32"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "mol%",
+            "_id": "670c05fdfa12bce8d5a43f34"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Hydrocarbon content",
+              "mk": "Состав на јаглеводороди",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d5c05f35bf59463b6f7e",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d5c05f35bf59463b6f7f"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d5c05f35bf59463b6f7d"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d81c5fa4babb27b40f280"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c0795fa12bce8d5a4c7ad",
+        "propertyValue": {
+          "en": "Vapour pressure at least 150 kPa",
+          "mk": "Парен притисок најмалку 150 kPa",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 8973",
+            "_id": "670c0795fa12bce8d5a4c7b1"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670c0795fa12bce8d5a4c7b3"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d81e0fa4babb27b40f7a4"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c06f3fa12bce8d5a48864",
+        "propertyValue": {
+          "en": "Vapour pressure, gauge at 40°C",
+          "mk": "Напон на пареи при 40°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 8973",
+            "_id": "670c06f3fa12bce8d5a48868"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "kPa",
+            "_id": "670c06f3fa12bce8d5a4886a"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "1550"
+            },
+            "_id": "670c06f3fa12bce8d5a4886b"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d81f7fa4babb27b40fccb"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf207fa12bce8d5a13bb4",
+        "propertyValue": {
+          "en": "Copper corrosion (1h at 40°C)",
+          "mk": "Корозија на бакар (1h at 40°C)",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 6251",
+            "_id": "670bf207fa12bce8d5a13bb5"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "simple",
+            "value": "class 1",
+            "_id": "670bf207fa12bce8d5a13bb9"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d820ffa4babb27b4101f5"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bfc0bfa12bce8d5a23f14",
+        "propertyValue": {
+          "en": "Motor Octane Number,MON",
+          "mk": "Моторен октански број, МОБ",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN 589/Annex B",
+            "_id": "670bfc0bfa12bce8d5a23f18"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "89,0"
+            },
+            "_id": "670bfc0bfa12bce8d5a23f1c"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d822afa4babb27b410722"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "670d8264fa4babb27b4116f3"
+  },
+  "documentStatus": "published",
+  "isDeleted": false,
+  "__v": 0,
+  "documentType": "66ec81db1a29a06aa46391f2",
+  "origin": "670aa5ad35050ae18f0e5f5d",
+  "product": "670aaa4a35050ae18f0e8a8f",
+  "sampleType": "66ec83341a29a06aa4639547",
+  "template": [
+    {
+      "parameter": {
+        "_id": "670bf2c9fa12bce8d5a141c4",
+        "propertyValue": {
+          "en": "Density at 15°C",
+          "mk": "Густина на 15°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 12185",
+            "_id": "670bf2c9fa12bce8d5a141cc"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "g/ml",
+            "_id": "670bf2c9fa12bce8d5a141cf"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "0,8200",
+              "value": "0,8450"
+            },
+            "_id": "670bf2c9fa12bce8d5a141d3"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d82ebfa4babb27b412687"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf7f9fa12bce8d5a1ada4",
+        "propertyValue": {
+          "en": "Initial Boiling Pont",
+          "mk": "Почетна точка на вриење",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670bf7f9fa12bce8d5a1ada8"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "⁰C",
+            "_id": "670bf7f9fa12bce8d5a1adab"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d4f25f35bf59463b6ecd",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d82fafa4babb27b412b9b"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bea16fa12bce8d5a10016",
+        "propertyValue": {
+          "en": "10% vol. recovered",
+          "mk": "10% дестилација",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670bea16fa12bce8d5a1001a"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670bea16fa12bce8d5a1001d"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d4f25f35bf59463b6ecd",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d8312fa4babb27b4130b3"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bea70fa12bce8d5a100a8",
+        "propertyValue": {
+          "gr": "gr",
+          "en": "50% vol. recovered",
+          "mk": "50% дестилација"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670bea70fa12bce8d5a100ac"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670bea70fa12bce8d5a100af"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d4f25f35bf59463b6ecd",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d831bfa4babb27b4135ce"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670beaa5fa12bce8d5a10115",
+        "propertyValue": {
+          "en": "90% vol. recovered",
+          "mk": "90% дестилација",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670beaa5fa12bce8d5a10119"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670beaa5fa12bce8d5a1011c"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d4f25f35bf59463b6ecd",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d8329fa4babb27b413aec"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670beae1fa12bce8d5a1019a",
+        "propertyValue": {
+          "en": "95% vol. recovered",
+          "mk": "95% дестилација",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670beae1fa12bce8d5a1019e"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670beae1fa12bce8d5a101a1"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "85",
+              "value": "360"
+            },
+            "_id": "670beae1fa12bce8d5a101a2"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d4f25f35bf59463b6ecd",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d833efa4babb27b41400d"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c010efa12bce8d5a2ff2e",
+        "propertyValue": {
+          "en": "Recovered 250°C",
+          "mk": "Дестилира на 250°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670c010efa12bce8d5a2ff32"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670c010efa12bce8d5a2ff34"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "65"
+            },
+            "_id": "670c010efa12bce8d5a2ff35"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Recovered",
+              "mk": "Поврат",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d5425f35bf59463b6edc",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d5425f35bf59463b6edd"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d5425f35bf59463b6edb"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d8396fa4babb27b414531"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c0132fa12bce8d5a30880",
+        "propertyValue": {
+          "en": "Recovered 350°C",
+          "mk": "Дестилира на 350°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670c0132fa12bce8d5a30884"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670c0132fa12bce8d5a30886"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "85"
+            },
+            "_id": "670c0132fa12bce8d5a30887"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Recovered",
+              "mk": "Поврат",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d5425f35bf59463b6edc",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d5425f35bf59463b6edd"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d5425f35bf59463b6edb"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d83a5fa4babb27b414a58"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c015efa12bce8d5a311ea",
+        "propertyValue": {
+          "en": "Recovered 360°C",
+          "mk": "Дестилира на 360°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670c015efa12bce8d5a311ee"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670c015efa12bce8d5a311f0"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Recovered",
+              "mk": "Поврат",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d5425f35bf59463b6edc",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d5425f35bf59463b6edd"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d5425f35bf59463b6edb"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d83b1fa4babb27b414f82"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c07f1fa12bce8d5a4e19c",
+        "propertyValue": {
+          "en": "Viscosity at 40 °C",
+          "mk": "Вискозност на 40°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3104",
+            "_id": "670c07f1fa12bce8d5a4e19f"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "mm²/s",
+            "_id": "670c07f1fa12bce8d5a4e1a1"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "2,000",
+              "value": "4,500"
+            },
+            "_id": "670c07f1fa12bce8d5a4e1a2"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d83c9fa4babb27b4154af"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf5e3fa12bce8d5a17720",
+        "propertyValue": {
+          "en": "Flash point",
+          "mk": "Точка на палење",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 2719",
+            "_id": "670bf5e3fa12bce8d5a17726"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670bf5e3fa12bce8d5a1772b"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "",
+              "key": "55"
+            },
+            "_id": "670d6f5dfa4babb27b3e6979"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d83eefa4babb27b4159df"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf0a1fa12bce8d5a1288e",
+        "propertyValue": {
+          "en": "C.F.P.P.",
+          "mk": "Филтрабилност",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN 116",
+            "_id": "670bf0a1fa12bce8d5a12891"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670bf0a1fa12bce8d5a12893"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d8401fa4babb27b415f12"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c03d4fa12bce8d5a39e72",
+        "propertyValue": {
+          "en": "Sulfur content",
+          "mk": "Содржина на сулфур",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 20846",
+            "_id": "670c03d4fa12bce8d5a39e77"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "mg/kg",
+            "_id": "670c03d4fa12bce8d5a39e7a"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "10,0"
+            },
+            "_id": "670c03d4fa12bce8d5a39e81"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d842efa4babb27b416448"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c08c2fa12bce8d5a523f3",
+        "propertyValue": {
+          "en": "Water content",
+          "mk": "Содржина на вода",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 12937",
+            "_id": "670c08c2fa12bce8d5a523f7"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "mg/kg",
+            "_id": "670d8487fa4babb27b4172f8"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "200"
+            },
+            "_id": "670c08c2fa12bce8d5a523fb"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d8499fa4babb27b417d8d"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf52afa12bce8d5a16a8c",
+        "propertyValue": {
+          "en": "FAME Content",
+          "mk": "Содржина на FAME",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN 14078",
+            "_id": "670bf52afa12bce8d5a16a8f"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670bf52afa12bce8d5a16a92"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "7,0"
+            },
+            "_id": "670bf52afa12bce8d5a16a93"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d84affa4babb27b4182ca"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf04bfa12bce8d5a123b0",
+        "propertyValue": {
+          "en": "Cetane number",
+          "mk": "Цетански број",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 5165",
+            "_id": "670bf04bfa12bce8d5a123b5"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "51,0"
+            },
+            "_id": "670bf04bfa12bce8d5a123b7"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d84c7fa4babb27b41880a"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf01cfa12bce8d5a1215d",
+        "propertyValue": {
+          "en": "Cetane index",
+          "mk": "Цетански индекс",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 4264",
+            "_id": "670bf01cfa12bce8d5a12162"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "46,0"
+            },
+            "_id": "670bf01cfa12bce8d5a12164"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d84ddfa4babb27b418d4d"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf25efa12bce8d5a13eb3",
+        "propertyValue": {
+          "en": "Cloud point",
+          "mk": "Точка на заматување",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D5771",
+            "_id": "670d7003fa4babb27b3e8bad"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670bf25efa12bce8d5a13eb8"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d84f3fa4babb27b419293"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c054dfa12bce8d5a3f825",
+        "propertyValue": {
+          "en": "Total contamination",
+          "mk": "Вкупно контаминенти",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN 12662",
+            "_id": "670c054dfa12bce8d5a3f829"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "mg/kg",
+            "_id": "670c054dfa12bce8d5a3f82b"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "24"
+            },
+            "_id": "670c054dfa12bce8d5a3f82c"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d851ffa4babb27b4197dc"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "670d86a8fa4babb27b41ad6c"
+  },
+  "documentStatus": "published",
+  "isDeleted": false,
+  "__v": 0,
+  "documentType": "66ec81db1a29a06aa46391f2",
+  "origin": "670aa59735050ae18f0e5f42",
+  "product": "670aaacb35050ae18f0e8b31",
+  "sampleType": "66ec82811a29a06aa4639392",
+  "template": [
+    {
+      "parameter": {
+        "_id": "670c0837fa12bce8d5a4fbe8",
+        "propertyValue": {
+          "en": "Viscosity at 100°C",
+          "mk": "Вискозитет на 100°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D93",
+            "_id": "670d8741fa4babb27b41e494"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670d86fefa4babb27b41d091"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "28"
+            },
+            "_id": "670c0837fa12bce8d5a4fbee"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d877cfa4babb27b41ef2d"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c03d4fa12bce8d5a39e72",
+        "propertyValue": {
+          "en": "Sulfur content",
+          "mk": "Содржина на сулфур",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D4294",
+            "_id": "670c03d4fa12bce8d5a39e73"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%m/m",
+            "_id": "670c03d4fa12bce8d5a39e7c"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "0,1"
+            },
+            "_id": "670c03d4fa12bce8d5a39e7e"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d87bcfa4babb27b41f444"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670d7721fa4babb27b3f136a",
+        "propertyValue": {
+          "en": "Carbon residue (micro method)",
+          "mk": "Содржина на кокс (микро метода)",
+          "gr": "гр"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 10370",
+            "_id": "670d7721fa4babb27b3f136d"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%m/m",
+            "_id": "670d7721fa4babb27b3f1370"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "12,0"
+            },
+            "_id": "670d7721fa4babb27b3f1371"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d87ccfa4babb27b41f95f"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "670d8897fa4babb27b42133d"
+  },
+  "documentStatus": "published",
+  "isDeleted": false,
+  "__v": 0,
+  "documentType": "66ec81db1a29a06aa46391f2",
+  "origin": "670aa59735050ae18f0e5f42",
+  "product": "670aa8d635050ae18f0e89df",
+  "sampleType": "66ec82811a29a06aa4639392",
+  "template": [
+    {
+      "parameter": {
+        "_id": "670c0645fa12bce8d5a45733",
+        "propertyValue": {
+          "en": "Vapour pressure",
+          "mk": "Напон на пареи",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN 13016-1",
+            "_id": "670c0645fa12bce8d5a45739"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "kPa",
+            "_id": "670c0645fa12bce8d5a4573b"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "50,0",
+              "value": "80,0"
+            },
+            "_id": "670c0645fa12bce8d5a4573c"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d88b9fa4babb27b4222f0"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "670d88c8fa4babb27b4232aa"
+  },
+  "documentStatus": "published",
+  "isDeleted": false,
+  "__v": 0,
+  "template": [
+    {
+      "parameter": {
+        "_id": "670bf2c9fa12bce8d5a141c4",
+        "propertyValue": {
+          "en": "Density at 15°C",
+          "mk": "Густина на 15°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 12185",
+            "_id": "670bf2c9fa12bce8d5a141cc"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "g/ml",
+            "_id": "670bf2c9fa12bce8d5a141cf"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "0,7200",
+              "value": "0,7750"
+            },
+            "_id": "670bf2c9fa12bce8d5a141d1"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d8964fa4babb27b43333e"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c0645fa12bce8d5a45733",
+        "propertyValue": {
+          "en": "Vapour pressure",
+          "mk": "Напон на пареи",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN 13016-1",
+            "_id": "670c0645fa12bce8d5a45739"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "kPa",
+            "_id": "670c0645fa12bce8d5a4573b"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "50,0",
+              "value": "80,0"
+            },
+            "_id": "670c0645fa12bce8d5a4573c"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d8971fa4babb27b433855"
+      }
+    }
+  ],
+  "documentType": "66ec81db1a29a06aa46391f2",
+  "origin": "670aa5ad35050ae18f0e5f5d",
+  "product": "670aa94c35050ae18f0e89f6",
+  "sampleType": "66ec82811a29a06aa4639392"
+},
+{
+  "_id": {
+    "$oid": "670d8984fa4babb27b434818"
+  },
+  "documentStatus": "published",
+  "isDeleted": false,
+  "__v": 0,
+  "documentType": "66ec81db1a29a06aa46391f2",
+  "origin": "670aa59735050ae18f0e5f42",
+  "product": "670aaa4a35050ae18f0e8a8f",
+  "sampleType": "66ec82811a29a06aa4639392",
+  "template": [
+    {
+      "parameter": {
+        "_id": "670bf2c9fa12bce8d5a141c4",
+        "propertyValue": {
+          "en": "Density at 15°C",
+          "mk": "Густина на 15°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 12185",
+            "_id": "670bf2c9fa12bce8d5a141cc"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "g/ml",
+            "_id": "670bf2c9fa12bce8d5a141cf"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "0,8200",
+              "value": "0,8450"
+            },
+            "_id": "670bf2c9fa12bce8d5a141d3"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d89d9fa4babb27b4357ce"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf5e3fa12bce8d5a17720",
+        "propertyValue": {
+          "en": "Flash point",
+          "mk": "Точка на палење",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 2719",
+            "_id": "670bf5e3fa12bce8d5a17726"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670bf5e3fa12bce8d5a1772b"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "",
+              "key": "55"
+            },
+            "_id": "670d6f5dfa4babb27b3e6979"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d8a01fa4babb27b435ce5"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf7f9fa12bce8d5a1ada4",
+        "propertyValue": {
+          "en": "Initial Boiling Pont",
+          "mk": "Почетна точка на вриење",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670bf7f9fa12bce8d5a1ada8"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "⁰C",
+            "_id": "670bf7f9fa12bce8d5a1adab"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d4f25f35bf59463b6ecd",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d8a15fa4babb27b436200"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bea16fa12bce8d5a10016",
+        "propertyValue": {
+          "en": "10% vol. recovered",
+          "mk": "10% дестилација",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670bea16fa12bce8d5a1001a"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670bea16fa12bce8d5a1001d"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d4f25f35bf59463b6ecd",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d8a2ffa4babb27b43671e"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bea70fa12bce8d5a100a8",
+        "propertyValue": {
+          "gr": "gr",
+          "en": "50% vol. recovered",
+          "mk": "50% дестилација"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670bea70fa12bce8d5a100ac"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670bea70fa12bce8d5a100af"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d4f25f35bf59463b6ecd",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d8a39fa4babb27b436c3f"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670beaa5fa12bce8d5a10115",
+        "propertyValue": {
+          "en": "90% vol. recovered",
+          "mk": "90% дестилација",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670beaa5fa12bce8d5a10119"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670beaa5fa12bce8d5a1011c"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d4f25f35bf59463b6ecd",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d8a43fa4babb27b437163"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670beae1fa12bce8d5a1019a",
+        "propertyValue": {
+          "en": "95% vol. recovered",
+          "mk": "95% дестилација",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670beae1fa12bce8d5a1019e"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670beae1fa12bce8d5a101a1"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "85",
+              "value": "360"
+            },
+            "_id": "670beae1fa12bce8d5a101a2"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d4f25f35bf59463b6ecd",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d8a4afa4babb27b43768a"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670bf31afa12bce8d5a14513",
+        "propertyValue": {
+          "en": "End Point",
+          "mk": "Крај",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670bf31afa12bce8d5a14517"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": "670bf31afa12bce8d5a1451a"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Distilation",
+              "mk": "Дестилација",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d4f25f35bf59463b6ecd",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d4f25f35bf59463b6ece"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d4f25f35bf59463b6ecc"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d8a5bfa4babb27b437bb4"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c010efa12bce8d5a2ff2e",
+        "propertyValue": {
+          "en": "Recovered 250°C",
+          "mk": "Дестилира на 250°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670c010efa12bce8d5a2ff32"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670c010efa12bce8d5a2ff34"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "65"
+            },
+            "_id": "670c010efa12bce8d5a2ff35"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Recovered",
+              "mk": "Поврат",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d5425f35bf59463b6edc",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d5425f35bf59463b6edd"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d5425f35bf59463b6edb"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d8a80fa4babb27b4380e1"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c0132fa12bce8d5a30880",
+        "propertyValue": {
+          "en": "Recovered 350°C",
+          "mk": "Дестилира на 350°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670c0132fa12bce8d5a30884"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670c0132fa12bce8d5a30886"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "85"
+            },
+            "_id": "670c0132fa12bce8d5a30887"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Recovered",
+              "mk": "Поврат",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d5425f35bf59463b6edc",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d5425f35bf59463b6edd"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d5425f35bf59463b6edb"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d8a8efa4babb27b438611"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c015efa12bce8d5a311ea",
+        "propertyValue": {
+          "en": "Recovered 360°C",
+          "mk": "Дестилира на 360°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670c015efa12bce8d5a311ee"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670c015efa12bce8d5a311f0"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Recovered",
+              "mk": "Поврат",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d5425f35bf59463b6edc",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d5425f35bf59463b6edd"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d5425f35bf59463b6edb"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d8a96fa4babb27b438b44"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c017bfa12bce8d5a31b68",
+        "propertyValue": {
+          "en": "Recovered 370°C",
+          "mk": "Дестилира на 370°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": "670c017bfa12bce8d5a31b6c"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%v/v",
+            "_id": "670c017bfa12bce8d5a31b6e"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": []
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": true,
+        "group": {
+          "parameter": {
+            "name": {
+              "singular": {
+                "en": "Name",
+                "mk": "Име",
+                "gr": "грчко"
+              },
+              "plural": {
+                "en": "Names",
+                "mk": "Имиња",
+                "gr": "грчко"
+              }
+            },
+            "inputValue": {
+              "en": "Recovered",
+              "mk": "Поврат",
+              "gr": "грчко"
+            }
+          },
+          "collections": [
+            {
+              "_id": "66d6d5425f35bf59463b6edc",
+              "name": {
+                "en": "Tags",
+                "mk": "Ознаки",
+                "gr": "грчко"
+              },
+              "items": [
+                {
+                  "inputType": "simple",
+                  "value": "--",
+                  "_id": "66d6d5425f35bf59463b6edd"
+                }
+              ]
+            }
+          ],
+          "_id": "66d6d5425f35bf59463b6edb"
+        }
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d8a9bfa4babb27b43907a"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "670d8ac7fa4babb27b44367b"
+  },
+  "documentStatus": "published",
+  "isDeleted": false,
+  "__v": 0,
+  "documentType": "66ec81db1a29a06aa46391f2",
+  "origin": "670aa59735050ae18f0e5f42",
+  "product": "670aaa8435050ae18f0e8ada",
+  "sampleType": "66ec82811a29a06aa4639392",
+  "template": [
+    {
+      "parameter": {
+        "_id": "670bf2c9fa12bce8d5a141c4",
+        "propertyValue": {
+          "en": "Density at 15°C",
+          "mk": "Густина на 15°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 12185",
+            "_id": "670bf2c9fa12bce8d5a141cc"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "g/ml",
+            "_id": "670bf2c9fa12bce8d5a141cf"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "0,8600"
+            },
+            "_id": "670bf2c9fa12bce8d5a141d4"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d8b15fa4babb27b44463d"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c07f1fa12bce8d5a4e19c",
+        "propertyValue": {
+          "en": "Viscosity at 40 °C",
+          "mk": "Вискозност на 40°C",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3104",
+            "_id": "670c07f1fa12bce8d5a4e19f"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "mm²/s",
+            "_id": "670c07f1fa12bce8d5a4e1a1"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "2,500",
+              "value": "6,000"
+            },
+            "_id": "670c07f1fa12bce8d5a4e1a3"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d8b2afa4babb27b444b54"
+      }
+    },
+    {
+      "parameter": {
+        "_id": "670c03d4fa12bce8d5a39e72",
+        "propertyValue": {
+          "en": "Sulfur content",
+          "mk": "Содржина на сулфур",
+          "gr": "gr"
+        }
+      },
+      "items": {
+        "670be999fa12bce8d5a0ffeb": [
+          {
+            "inputType": "simple",
+            "value": "EN ISO 8754",
+            "_id": "670c03d4fa12bce8d5a39e76"
+          }
+        ],
+        "670be999fa12bce8d5a0ffec": [
+          {
+            "inputType": "simple",
+            "value": "%m/m",
+            "_id": "670c03d4fa12bce8d5a39e7c"
+          }
+        ],
+        "670be999fa12bce8d5a0ffed": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "0,1"
+            },
+            "_id": "670c03d4fa12bce8d5a39e7e"
+          }
+        ]
+      },
+      "result": "",
+      "marginError": "",
+      "grouped": {
+        "isGrouped": false
+      },
+      "isDeleted": false,
+      "_id": {
+        "$oid": "670d8b44fa4babb27b44506f"
+      }
+    }
+  ]
+}]

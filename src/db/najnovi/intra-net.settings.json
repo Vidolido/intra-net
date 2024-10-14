@@ -26194,7 +26194,17 @@
             "mk": "Ограничувања",
             "gr": "гр"
           },
-          "items": []
+          "items": [
+            {
+              "inputType": "key/value",
+              "value": {
+                "value": "1,0"
+              },
+              "_id": {
+                "$oid": "670d7a56fa4babb27b3fe29f"
+              }
+            }
+          ]
         }
       ],
       "_id": {
@@ -28391,7 +28401,7 @@
           "items": [
             {
               "inputType": "simple",
-              "value": "ASTM D 2500",
+              "value": "ASTM D2500",
               "_id": {
                 "$oid": "670bf25efa12bce8d5a13eb4"
               }
@@ -28415,6 +28425,13 @@
               "value": "ISO 3015",
               "_id": {
                 "$oid": "670bf25efa12bce8d5a13eb7"
+              }
+            },
+            {
+              "inputType": "simple",
+              "value": "ASTM D5771",
+              "_id": {
+                "$oid": "670d7003fa4babb27b3e8bad"
               }
             }
           ]
@@ -28553,6 +28570,13 @@
               "value": "ISO 3993",
               "_id": {
                 "$oid": "670bf2c9fa12bce8d5a141ce"
+              }
+            },
+            {
+              "inputType": "simple",
+              "value": "EN ISO 8973",
+              "_id": {
+                "$oid": "670d80bcfa4babb27b40cb09"
               }
             }
           ]
@@ -28750,6 +28774,15 @@
               },
               "_id": {
                 "$oid": "670c14e6fa12bce8d5a68dda"
+              }
+            },
+            {
+              "inputType": "key/value",
+              "value": {
+                "value": "210"
+              },
+              "_id": {
+                "$oid": "670d78ddfa4babb27b3f8da3"
               }
             }
           ]
@@ -30041,6 +30074,25 @@
               },
               "_id": {
                 "$oid": "670bf5e3fa12bce8d5a17730"
+              }
+            },
+            {
+              "inputType": "key/value",
+              "value": {
+                "value": "",
+                "key": "55"
+              },
+              "_id": {
+                "$oid": "670d6f5dfa4babb27b3e6979"
+              }
+            },
+            {
+              "inputType": "key/value",
+              "value": {
+                "key": "60"
+              },
+              "_id": {
+                "$oid": "670d75fcfa4babb27b3ee821"
               }
             }
           ]
@@ -36346,6 +36398,15 @@
               "_id": {
                 "$oid": "670c01a6fa12bce8d5a32500"
               }
+            },
+            {
+              "inputType": "key/value",
+              "value": {
+                "key": "98,0"
+              },
+              "_id": {
+                "$oid": "670d7955fa4babb27b3fb2cd"
+              }
             }
           ]
         }
@@ -40700,6 +40761,13 @@
               "_id": {
                 "$oid": "670c0837fa12bce8d5a4fbec"
               }
+            },
+            {
+              "inputType": "simple",
+              "value": "ASTM D93",
+              "_id": {
+                "$oid": "670d8741fa4babb27b41e494"
+              }
             }
           ]
         },
@@ -40718,6 +40786,13 @@
               "value": "mm²/s",
               "_id": {
                 "$oid": "670c0837fa12bce8d5a4fbed"
+              }
+            },
+            {
+              "inputType": "simple",
+              "value": "°C",
+              "_id": {
+                "$oid": "670d86fefa4babb27b41d091"
               }
             }
           ]
@@ -41052,6 +41127,13 @@
               "value": "ppm-w",
               "_id": {
                 "$oid": "670c08c2fa12bce8d5a523fa"
+              }
+            },
+            {
+              "inputType": "simple",
+              "value": "mg/kg",
+              "_id": {
+                "$oid": "670d8487fa4babb27b4172f8"
               }
             }
           ]
@@ -42338,6 +42420,243 @@
       ],
       "_id": {
         "$oid": "670c1809fa12bce8d5a73db5"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Property",
+            "mk": "Својство",
+            "gr": "gr"
+          },
+          "plural": {
+            "en": "Properties",
+            "mk": "Својства",
+            "gr": "gr"
+          }
+        },
+        "inputValue": {
+          "en": "Carbon residue (micro method)",
+          "mk": "Содржина на кокс (микро метода)",
+          "gr": "гр"
+        }
+      },
+      "collections": [
+        {
+          "_id": {
+            "$oid": "670be999fa12bce8d5a0ffeb"
+          },
+          "name": {
+            "en": "Methods",
+            "mk": "Методи",
+            "gr": "гр"
+          },
+          "items": [
+            {
+              "inputType": "simple",
+              "value": "ASTM D524",
+              "_id": {
+                "$oid": "670d7721fa4babb27b3f136b"
+              }
+            },
+            {
+              "inputType": "simple",
+              "value": "ASTM D4530",
+              "_id": {
+                "$oid": "670d7721fa4babb27b3f136c"
+              }
+            },
+            {
+              "inputType": "simple",
+              "value": "EN ISO 10370",
+              "_id": {
+                "$oid": "670d7721fa4babb27b3f136d"
+              }
+            },
+            {
+              "inputType": "simple",
+              "value": "IP 14",
+              "_id": {
+                "$oid": "670d7721fa4babb27b3f136e"
+              }
+            },
+            {
+              "inputType": "simple",
+              "value": "ISO 10470",
+              "_id": {
+                "$oid": "670d7721fa4babb27b3f136f"
+              }
+            }
+          ]
+        },
+        {
+          "_id": {
+            "$oid": "670be999fa12bce8d5a0ffec"
+          },
+          "name": {
+            "en": "Units",
+            "mk": "Единици",
+            "gr": "gr"
+          },
+          "items": [
+            {
+              "inputType": "simple",
+              "value": "%m/m",
+              "_id": {
+                "$oid": "670d7721fa4babb27b3f1370"
+              }
+            }
+          ]
+        },
+        {
+          "_id": {
+            "$oid": "670be999fa12bce8d5a0ffed"
+          },
+          "name": {
+            "en": "Limits",
+            "mk": "Ограничувања",
+            "gr": "гр"
+          },
+          "items": [
+            {
+              "inputType": "key/value",
+              "value": {
+                "value": "12,0"
+              },
+              "_id": {
+                "$oid": "670d7721fa4babb27b3f1371"
+              }
+            }
+          ]
+        }
+      ],
+      "_id": {
+        "$oid": "670d7721fa4babb27b3f136a"
+      }
+    },
+    {
+      "parameter": {
+        "name": {
+          "singular": {
+            "en": "Property",
+            "mk": "Својство",
+            "gr": "gr"
+          },
+          "plural": {
+            "en": "Properties",
+            "mk": "Својства",
+            "gr": "gr"
+          }
+        },
+        "inputValue": {
+          "en": "Ethanol",
+          "mk": "Етанол",
+          "gr": "gr"
+        }
+      },
+      "collections": [
+        {
+          "_id": {
+            "$oid": "670be999fa12bce8d5a0ffeb"
+          },
+          "name": {
+            "en": "Methods",
+            "mk": "Методи",
+            "gr": "гр"
+          },
+          "items": [
+            {
+              "inputType": "simple",
+              "value": "ASTM D4806",
+              "_id": {
+                "$oid": "670d7baefa4babb27b400527"
+              }
+            },
+            {
+              "inputType": "simple",
+              "value": "ASTM D5501",
+              "_id": {
+                "$oid": "670d7baefa4babb27b400528"
+              }
+            },
+            {
+              "inputType": "simple",
+              "value": "ASTM D5798",
+              "_id": {
+                "$oid": "670d7baefa4babb27b400529"
+              }
+            },
+            {
+              "inputType": "simple",
+              "value": "EN 228",
+              "_id": {
+                "$oid": "670d7baefa4babb27b40052a"
+              }
+            },
+            {
+              "inputType": "simple",
+              "value": "EN 13132",
+              "_id": {
+                "$oid": "670d7baefa4babb27b40052b"
+              }
+            },
+            {
+              "inputType": "simple",
+              "value": "EN 15376",
+              "_id": {
+                "$oid": "670d7baefa4babb27b40052c"
+              }
+            },
+            {
+              "inputType": "simple",
+              "value": "EN ISO 22854",
+              "_id": {
+                "$oid": "670d7baefa4babb27b40052d"
+              }
+            },
+            {
+              "inputType": "simple",
+              "value": "ISO 15266",
+              "_id": {
+                "$oid": "670d7baefa4babb27b40052e"
+              }
+            }
+          ]
+        },
+        {
+          "_id": {
+            "$oid": "670be999fa12bce8d5a0ffec"
+          },
+          "name": {
+            "en": "Units",
+            "mk": "Единици",
+            "gr": "gr"
+          },
+          "items": [
+            {
+              "inputType": "simple",
+              "value": "%v/v",
+              "_id": {
+                "$oid": "670d7baefa4babb27b40052f"
+              }
+            }
+          ]
+        },
+        {
+          "_id": {
+            "$oid": "670be999fa12bce8d5a0ffed"
+          },
+          "name": {
+            "en": "Limits",
+            "mk": "Ограничувања",
+            "gr": "гр"
+          },
+          "items": []
+        }
+      ],
+      "_id": {
+        "$oid": "670d7baefa4babb27b400526"
       }
     }
   ]
