@@ -1,8 +1,8 @@
 // state/actions
 import {
-  getLanguages,
-  getSectors,
-  getSettingById,
+	getLanguages,
+	getSectors,
+	getSettingById,
 } from '@/app/dashboard/apiCalls';
 
 // components
@@ -12,21 +12,20 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 const page = async ({ params }) => {
-  const { languages } = await getLanguages();
-  const { sectors } = await getSectors();
+	const { languages } = await getLanguages();
+	const { sectors } = await getSectors();
 
-  const { _id } = params;
-  const { setting } = await getSettingById(_id);
+	const { _id } = params;
+	const { setting } = await getSettingById(_id);
 
-  // console.log(sectors, 'THE SECTORS');
-  return (
-    <Setting
-      title='Edit Setting'
-      languages={languages}
-      sectors={sectors}
-      setting={setting}
-    />
-  );
+	return (
+		<Setting
+			title='Edit Setting'
+			languages={languages}
+			sectors={sectors}
+			setting={setting}
+		/>
+	);
 };
 
 export default page;

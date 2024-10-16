@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+
 // state/actions
 import {
 	getCustomers,
@@ -80,16 +82,18 @@ const page = async ({ searchParams }) => {
 	return (
 		<div className='w-full'>
 			<h2>Create New Document</h2>
-			<Document
-				customers={customers}
-				document={draft}
-				laboratoryNumber={laboratoryNumber}
-				settings={settings}
-				productAliases={productAliases}
-				languages={languages}
-				laboratorySettings={laboratorySettings}
-				templates={published}
-			/>
+			<Suspense fallback={<h2>Loading...</h2>}>
+				<Document
+					customers={customers}
+					document={draft}
+					laboratoryNumber={laboratoryNumber}
+					settings={settings}
+					productAliases={productAliases}
+					languages={languages}
+					laboratorySettings={laboratorySettings}
+					templates={published}
+				/>
+			</Suspense>
 		</div>
 	);
 };

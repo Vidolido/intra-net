@@ -9,7 +9,6 @@ export async function makeDraftSetting() {
 	try {
 		await dbConnect();
 		const draft = await Setting.create({ documentStatus: 'draft' });
-		// revalidatePath('/dashboard/settings', 'page');
 
 		const pathsToRevalidate = [
 			'/dashboard/settings/draft/[_id]',
@@ -20,10 +19,7 @@ export async function makeDraftSetting() {
 
 		pathsToRevalidate.forEach((path) => revalidatePath(path, 'page'));
 
-		// return JSON.stringify(draft);
-		return {
-			draft: draft,
-		};
+		return { _id: draft._id.toString() };
 	} catch (error) {
 		console.log('Failed to create draft setting error:', error);
 		throw Error('Could not add draft setting to database: ' + error);
