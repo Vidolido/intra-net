@@ -112,4 +112,5 @@ const DisplaySettings = ({
   );
 };
 
-export default memo(DisplaySettings);
+// export default memo(DisplaySettings);
+export default DisplaySettings;

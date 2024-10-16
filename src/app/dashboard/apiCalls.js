@@ -2,9 +2,13 @@
 
 import { queryParser } from '@/utils/analyses/queryParser';
 
+// `${process.env.NEXT_PUBLIC_BASE_URL}/api/settings`,
+
 // sectors
 export async function getSectors() {
-  const res = await fetch('http://localhost:3000/api/settings/get-sectors');
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/settings/get-sectors`
+  );
 
   if (!res.ok) {
     console.log(res);
@@ -16,7 +20,7 @@ export async function getSectors() {
 
 // languages
 export async function getLanguages() {
-  const res = await fetch('http://localhost:3000/api/languages');
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/languages`);
 
   if (!res.ok) {
     console.log(res);
@@ -28,7 +32,7 @@ export async function getLanguages() {
 
 // draft settings
 export async function getSettings(searchQuery) {
-  const baseUrl = 'http://localhost:3000/api/settings/get-settings';
+  const baseUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/api/settings/get-settings`;
 
   let query = queryParser(baseUrl, searchQuery);
 
@@ -43,7 +47,9 @@ export async function getSettings(searchQuery) {
 }
 
 export async function getSettingById(_id) {
-  const res = await fetch(`http://localhost:3000/api/settings/by-id/${_id}`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/settings/by-id/${_id}`
+  );
 
   if (!res.ok) {
     console.log(res);
@@ -68,10 +74,13 @@ export async function getSettingById(_id) {
 // }
 
 export async function getDraftSetting() {
-  const res = await fetch('http://localhost:3000/api/settings/draft-setting', {
-    next: { tags: ['draft'] },
-    cache: 'no-store',
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/settings/draft-setting`,
+    {
+      next: { tags: ['draft'] },
+      cache: 'no-store',
+    }
+  );
 
   if (!res.ok) {
     console.log(res);
@@ -83,7 +92,7 @@ export async function getDraftSetting() {
 
 export async function getDraftById(_id) {
   const res = await fetch(
-    `http://localhost:3000/api/settings/edit-draft/${_id}`
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/settings/edit-draft/${_id}`
   );
 
   if (!res.ok) {
@@ -109,7 +118,7 @@ export async function getDraftById(_id) {
 
 export async function getPublishedById(_id) {
   const res = await fetch(
-    `http://localhost:3000/api/settings/edit-setting/${_id}`
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/settings/edit-setting/${_id}`
   );
 
   if (!res.ok) {
@@ -125,7 +134,7 @@ export async function getPublishedById(_id) {
 // labodatory templates
 export async function getLaboratorySettings() {
   const res = await fetch(
-    'http://localhost:3000/api/laboratory/template-setting'
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/laboratory/template-setting`
   );
 
   if (!res.ok) {
@@ -138,7 +147,7 @@ export async function getLaboratorySettings() {
 
 export async function getGroups() {
   const res = await fetch(
-    'http://localhost:3000/api/laboratory/template-groups'
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/laboratory/template-groups`
   );
 
   if (!res.ok) {
@@ -164,7 +173,7 @@ export async function getGroups() {
 
 export async function getLaboratoryDraftById(_id) {
   const res = await fetch(
-    `http://localhost:3000/api/laboratory/edit-draft/${_id}`
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/laboratory/edit-draft/${_id}`
   );
 
   if (!res.ok) {
