@@ -14,11 +14,18 @@ export async function GET(request) {
 
 	try {
 		await dbConnect();
+
+		let currentYear = new Date().getFullYear();
+		const startOfYear = new Date(currentYear, 0, 1);
+		const endOfYear = new Date(currentYear + 1, 0, 1);
+
 		const documents = await Document.find({
 			'header.documentType': documentType,
-		})
-			.limit(10)
-			.sort({ createdAt: -1 });
+			createdAt: {
+				$gte: startOfYear,
+				$lt: endOfYear,
+			},
+		}).sort({ createdAt: -1 });
 
 		const types = await Setting.findOne({ settingName: 'Types' });
 		const fields = await Setting.findOne({ settingName: 'Fields' });
@@ -31,10 +38,10 @@ export async function GET(request) {
 					.parameter.inputValue.en
 			: undefined;
 
-		const currentYear = new Date().getFullYear() % 100;
+		currentYear = currentYear % 100;
 
 		let newLaboratoryNumber;
-		let foundValidLaboratoryNumber = false;
+		let highestLaboratoryNumberForTheYear = 0;
 
 		for (const doc of documents) {
 			const laboratoryNumber =
@@ -57,28 +64,22 @@ export async function GET(request) {
 				const [, documentNumber, documentYear] = match;
 				const documentYearInt = parseInt(documentYear, 10);
 
-				// If the document belongs to the current year, continue from the last valid number
 				if (documentYearInt === currentYear) {
-					const newDocumentNumber = parseInt(documentNumber, 10) + 1;
-					newLaboratoryNumber =
-						type === 'Test Report'
-							? `${newDocumentNumber
-									.toString()
-									.padStart(4, '0')}/${currentYear}`
-							: `${newDocumentNumber
-									.toString()
-									.padStart(3, '0')}/${currentYear}`;
-					foundValidLaboratoryNumber = true;
-					break;
+					const currentDocumentNumber = parseInt(documentNumber, 10);
+					if (currentDocumentNumber > highestLaboratoryNumberForTheYear) {
+						highestLaboratoryNumberForTheYear = currentDocumentNumber;
+					}
 				}
-
-				// If it's from a previous year, ignore it and continue searching
 			}
 		}
-		if (!foundValidLaboratoryNumber) {
-			newLaboratoryNumber =
-				type === 'Test Report' ? `0001/${currentYear}` : `001/${currentYear}`;
-		}
+
+		const nextDocumentNumber = highestLaboratoryNumberForTheYear + 1;
+		newLaboratoryNumber =
+			type === 'Test Report'
+				? `${nextDocumentNumber.toString().padStart(4, '0')}/${currentYear}`
+				: type === 'Certificate'
+				? `${nextDocumentNumber.toString().padStart(3, '0')}/${currentYear}`
+				: '';
 
 		const pathsToRevalidate = [
 			'/dashboard/laboratory/document/draft/[_id]',

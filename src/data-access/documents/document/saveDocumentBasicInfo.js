@@ -7,8 +7,8 @@ import Document from '@/db/models/Document';
 
 // I NEED TO HANDLE ERRORS HERE
 export async function saveDocumentBasicInfo(basicInfo, documentId) {
-	console.log(basicInfo, 'the basic info fields');
-	console.log(documentId, 'document id');
+	// console.log(basicInfo, 'the basic info fields');
+	// console.log(documentId, 'document id');
 	try {
 		await dbConnect();
 

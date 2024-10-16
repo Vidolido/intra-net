@@ -15,7 +15,6 @@ export async function GET(request, { params }) {
 		cookies();
 		await dbConnect();
 		const document = await Document.findOne({ _id });
-		// revalidatePath('/dashboard/laboratory/analysis/edit/[_id]', 'page');
 
 		const pathsToRevalidate = [
 			'/dashboard/laboratory/document/draft/[_id]',
