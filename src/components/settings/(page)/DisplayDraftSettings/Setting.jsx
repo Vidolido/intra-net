@@ -2,7 +2,7 @@
 import Link from 'next/link';
 
 // state/actions
-import { deleteSettingDocument } from '@/serverActions/settings/deleteSettingDocument';
+import { deleteSettingDocument } from '@/data-access/settings/deleteSettingDocument';
 
 // components
 import ContextButton from '@/components/buttons/ContextButton';

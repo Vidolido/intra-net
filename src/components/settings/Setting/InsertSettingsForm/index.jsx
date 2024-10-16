@@ -33,17 +33,10 @@ const InsertSettingsForm = ({ setting, languages }) => {
 	const [state, setState] = useState(initialState);
 	const [error, setError] = useState({});
 
-	// const [selectedCollection, setSelectedCollection] = useState('');
 	const [selectedCollection, setSelectedCollection] = useState(
 		!collections[0] ? '' : collections[0]._id
 	);
 	const [inputType, setInputType] = useState('simple');
-
-	// useEffect(() => {
-	//   if (!selectedCollection) {
-	//     setSelectedCollection(!collections[0] ? '' : collections[0]._id);
-	//   }
-	// }, [selectedCollection, collections]);
 
 	const hanldeMainParameterChange = (e) => {
 		let lang = e.target.name.split('-');
@@ -69,13 +62,10 @@ const InsertSettingsForm = ({ setting, languages }) => {
 	};
 
 	const handleSubmit = async (e) => {
-		console.log(state, 'state after submit');
 		let areCollectionsEmpty = state.collections.every(
 			(coll) => coll.items.length === 0
 		);
 
-		console.log(areCollectionsEmpty, 'areCollectionsEmpty');
-		console.log(state, 'state');
 		if (!state?.parameter?.inputValue) {
 			setError((prev) => ({
 				...prev,
@@ -100,16 +90,10 @@ const InsertSettingsForm = ({ setting, languages }) => {
 
 			Array.from(mainParam).forEach((item) => (item.value = ''));
 			Array.from(inputItems).forEach((item) => (item.value = ''));
-			const test = await insertSetting(state, setting._id);
+			await insertSetting(state, setting._id);
 		}
-		// e.target.form.requestSubmit();
-		// console.log(state, 'state pred save');
-		// const test = await insertSetting(state, setting._id);
-		// console.log(test, '<< this happend');
 	};
 
-	// console.log(state, 'THE  STATE');
-	// console.log(parameter, 'THE FUCKING PARAMETER');
 	return (
 		<form className='border border-slate-200 rounded p-1'>
 			<LanguageInputContainer
