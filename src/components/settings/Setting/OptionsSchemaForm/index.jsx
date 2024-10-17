@@ -50,7 +50,6 @@ const OptionsSchema = ({ setting, languages }) => {
             languages={languages}
             error={state.error}
           />
-          {/* <p>{state?.error?.singular || state?.error?.plural}</p> */}
 
           <AddCollections
             collectionsLength={collections.length}

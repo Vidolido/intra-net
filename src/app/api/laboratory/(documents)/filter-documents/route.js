@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 
 // connection/models/db functions
 import dbConnect from '@/db/conn';
-import Setting from '@/db/models/Setting';
+import Setting from '@/db/models/SettingOld';
 import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
 
 export async function filterDocuments() {

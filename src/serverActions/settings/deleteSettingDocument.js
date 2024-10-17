@@ -3,7 +3,7 @@ import { revalidatePath } from 'next/cache';
 
 // connection/moddels/database functions
 import dbConnect from '@/db/conn';
-import Setting from '@/db/models/Setting';
+import Setting from '@/db/models/SettingOld';
 
 // Да исхендлаам ерори
 export async function deleteSettingDocument(_id, type) {

@@ -8,7 +8,7 @@ import Setting from '@/db/models/Setting';
 import { buildPayload } from './buildOptionsSchemaPayload';
 
 export async function saveOptionSchema(state, formData) {
-  // console.log(formData, 'the form data');
+  console.log(formData, 'the form data');
   try {
     cookies();
 

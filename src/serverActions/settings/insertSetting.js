@@ -3,7 +3,7 @@ import { revalidatePath } from 'next/cache';
 
 // models/db functions
 import dbConnect from '@/db/conn';
-import Setting from '@/db/models/Setting';
+import Setting from '@/db/models/SettingOld';
 
 export async function insertSetting(state, documentId) {
   console.log(state.parameter.inputValue, documentId);
