@@ -14,6 +14,7 @@ import LanguageInput from '@/components/reusable/LanguageInput';
 const EditRow = ({
 	languages,
 	documentId,
+	optionsSchema,
 	setting,
 	numberOfCollections,
 	classes,
@@ -31,7 +32,7 @@ const EditRow = ({
 	const [error, setError] = useState({});
 
 	const [selectedCollection, setSelectedCollection] = useState(
-		state.collections[0]._id
+		Object.keys(state.collections)[0]
 	);
 	const [inputType, setInputType] = useState('simple');
 
@@ -46,6 +47,10 @@ const EditRow = ({
 	const handleSubmit = async () => {
 		await editSetting(documentId, setting._id, state);
 	};
+
+	const handleTest = async (data) => {
+		console.log(data, 'the data in handleTest');
+	};
 	// const handleExtract = (data) => {
 	// 	setState((prev) => ({
 	// 		...prev,
@@ -56,15 +61,15 @@ const EditRow = ({
 	return (
 		<form
 			className='border border-slate-200 bg-slate-100 rounded p-1 min-h-[200px]'
-			style={{ gridColumn: `span ${setting.collections.length + 1}` }}>
+			style={{ gridColumn: `span ${optionsSchema.collections.length + 1}` }}>
 			<div className='flex gap-2'>
 				<div className='w-[50%]'>
-					{/* <LanguageInput
+					<LanguageInput
 						languages={languages}
-						data={{ state: state?.parameter?.inputValue }}
-						extractData={setTest}
-					/> */}
-					<LanguageInputContainer
+						data={{ state: state?.parameter }}
+						extractData={handleTest}
+					/>
+					{/* <LanguageInputContainer
 						fieldSetName='main-parameter-inputs'
 						fieldSetClass='flex flex-col w-full'
 						label={
@@ -77,17 +82,25 @@ const EditRow = ({
 						languages={languages}
 						defaultLanguage={languages[0]}
 						inputs={state?.parameter?.inputValue}
-						// onChange={hanldeMainParameterChange}
-					/>
+					/> */}
 				</div>
 				{/* <p>{error.mainParameter}</p> */}
 				<div className='gap-2 w-[50%]'>
 					<fieldset className='flex flex-col min-w-[200px]'>
 						<label>Collection</label>
 
+						{/* <select
+							className={`box-content border-2 border-grey-50 border-opacity-60 rounded hover:border-red-200 focus:outline-none cursor-pointer`}>
+							{optionsSchema.collections.map((collection, index) => (
+								<option key={collection._id} value={collection._id}>
+									{collection.name}
+								</option>
+							))}
+						</select> */}
+
 						<SelectInput
 							name='collection-select'
-							options={state?.collections}
+							options={optionsSchema.collections}
 							defaultLanguage='en'
 							defaultValue={selectedCollection}
 							onChange={handleSelection}

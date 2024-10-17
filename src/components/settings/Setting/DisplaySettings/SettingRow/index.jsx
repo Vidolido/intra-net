@@ -11,6 +11,7 @@ const SettingRow = ({
 	defaultLanguage,
 	languages,
 	documentId,
+	optionsSchema,
 	setting,
 	option,
 	handleOptions,
@@ -21,10 +22,9 @@ const SettingRow = ({
 	editClass,
 	gridTemplateColumns,
 }) => {
-	const property = setting?.parameter?.inputValue;
+	const property = setting?.parameter;
 	const collections = setting?.collections;
-
-	console.log(option, 'the option');
+	console.log(setting, 'THE SETTING');
 
 	return (
 		<div className={classes} style={{ gridTemplateColumns }}>
@@ -37,6 +37,7 @@ const SettingRow = ({
 				<EditRow
 					languages={languages}
 					documentId={documentId}
+					optionsSchema={optionsSchema}
 					property={property}
 					collections={collections}
 					setting={setting}

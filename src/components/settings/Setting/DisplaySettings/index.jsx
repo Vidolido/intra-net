@@ -8,18 +8,24 @@ import { generateGridTemplate } from '@/utils/functions';
 // components
 import Headings from './Headings';
 import SettingRow from './SettingRow';
+import { getRowHeaders } from '@/utils/helpers/rowHeaders';
 
 const DisplaySettings = ({
 	defaultLanguage,
 	languages,
 	documentId,
+	optionsSchema,
 	settings,
 	optionsForSettings,
 }) => {
 	const [options, setOptions] = useState(optionsForSettings || []);
-	let headings =
-		(settings && getDisplayHeadings(settings[0], 'singular')) || null;
+	// let headings =
+	// 	(settings && getDisplayHeadings(settings[0], 'singular')) || null;
 
+	let headings = getRowHeaders(optionsSchema, 'singular') || null;
+
+	// console.log(headings, 'headings');
+	console.log(options, 'the options');
 	let colNo = headings?.collections.length;
 	let gridTemplateColumns = generateGridTemplate(colNo + 1);
 	let classes = 'grid border';
@@ -64,8 +70,6 @@ const DisplaySettings = ({
 		});
 	};
 
-	console.log(options, 'the options');
-
 	return (
 		<div classes='w-[65%]'>
 			<Headings
@@ -84,6 +88,7 @@ const DisplaySettings = ({
 							defaultLanguage={defaultLanguage}
 							languages={languages}
 							documentId={documentId}
+							optionsSchema={optionsSchema}
 							setting={setting}
 							option={options.find((option) => option._id === setting._id)}
 							handleOptions={handleOptions}

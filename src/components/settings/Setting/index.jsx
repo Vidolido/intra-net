@@ -34,15 +34,16 @@ const Setting = ({ title, languages, sectors, setting }) => {
 						<InsertSettingsForm setting={setting} languages={languages} />
 					)}
 				</div>
-				{/* {setting?.settings?.length > 0 && (
+				{setting?.settings?.length > 0 && (
 					<DisplaySettings
 						defaultLanguage={languages[0].language}
 						languages={languages}
 						documentId={setting._id}
+						optionsSchema={setting?.optionsSchema}
 						settings={setting?.settings}
 						optionsForSettings={optionsForSettings}
 					/>
-				)} */}
+				)}
 			</div>
 		</div>
 	);

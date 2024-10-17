@@ -11,9 +11,9 @@ const DisplaySetting = ({
 			<div className='border-r px-3'>
 				<p>{property[defaultLanguage] || 'Parameter name'}</p>
 			</div>
-			{collections.map((collection) => (
-				<div key={collection._id} className='border-r px-3'>
-					{collection?.items.map((item, i) => {
+			{Object.entries(collections).map(([_id, collection]) => (
+				<div key={_id} className='border-r px-3'>
+					{collection.map((item, i) => {
 						if (option && !option.options.expand && i > 0) return;
 
 						return (

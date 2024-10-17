@@ -1,8 +1,8 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 // state/actions
-// import { insertSettings } from '@/data-access/settings/insertSettings';
+import { insertSettings } from '@/data-access/settings/insertSettings';
 import { isObjectEmpty } from '@/utils/helpers/isObjectEmpty';
 
 // components
@@ -10,15 +10,10 @@ import RadioButtons from './RadioButtons';
 import CollectionInput from './CollectionInput';
 import DisplayCollections from './DisplayCollections';
 import SelectInput from '@/components/inputs/SelectInput';
-// import LanguageInput from '@/components/reusable/LanguageInput';
-// import LanguageInputContainer from '@/components/inputs/LanguageInputContainer';
 import ContextButton from '@/components/buttons/ContextButton';
 import LanguageInput from '@/components/reusable/LanguageInput';
-import { insertSettings } from '@/data-access/settings/insertSettings';
-// import LanguageInput from '@/components/reusable/LanguageInput';
 
 const InsertSettingsForm = ({ setting, languages }) => {
-	console.log(setting, 'first setting');
 	let parameter =
 		setting?.optionsSchema?.parameter?.name?.singular[languages[0].language];
 
@@ -46,50 +41,44 @@ const InsertSettingsForm = ({ setting, languages }) => {
 	const [inputType, setInputType] = useState('simple');
 
 	const handleMainParam = (data) => {
-		// console.log(data, 'the data');
 		setState((prev) => ({ ...prev, parameter: data }));
 	};
 
-	const hanldeMainParameterChange = (e) => {
-		let lang = e.target.name.split('-');
-		lang = lang[lang.length - 1];
+	// const hanldeMainParameterChange = (e) => {
+	// 	let lang = e.target.name.split('-');
+	// 	lang = lang[lang.length - 1];
 
-		setState((prev) => ({
-			...prev,
-			parameter: {
-				[lang]: e.target.value,
-			},
-		}));
-		// setState((prev) => ({
-		//   ...prev,
-		//   parameter: {
-		//     ...prev.parameter,
-		//     inputValue: {
-		//       ...prev?.parameter?.inputValue,
-		//       [lang]: e.target.value,
-		//     },
-		//   },
-		// }));
-	};
+	// 	setState((prev) => ({
+	// 		...prev,
+	// 		parameter: {
+	// 			[lang]: e.target.value,
+	// 		},
+	// 	}));
+	// setState((prev) => ({
+	//   ...prev,
+	//   parameter: {
+	//     ...prev.parameter,
+	//     inputValue: {
+	//       ...prev?.parameter?.inputValue,
+	//       [lang]: e.target.value,
+	//     },
+	//   },
+	// }));
+	// };
 	const handleChangeInputType = (e) => {
 		setInputType(e.target.value);
 	};
 
 	const handleSelection = (e) => {
-		console.log(e.target.value);
 		setSelectedCollection(e.target.value);
 	};
 
 	const handleSubmit = async (e) => {
-		// console.log(Object.values(state.collections));
 		let areCollectionsEmpty = Object.values(state.collections).every(
 			(coll) => coll.length === 0
 		);
 		let isEmpty = isObjectEmpty(state.parameter);
-		// console.log(parameter, 'parameter');
-		// console.log(isEmpty, 'isEmpty');
-		// console.log(isObjectEmpty(parameter), 'parameter');
-		// console.log(areCollectionsEmpty, 'areCollectionsEmpty');
+
 		if (isEmpty) {
 			setError((prev) => ({
 				...prev,
@@ -110,7 +99,6 @@ const InsertSettingsForm = ({ setting, languages }) => {
 			let inputItems = e.target.form.elements
 				.namedItem('collection-input')
 				.querySelectorAll('input');
-			// console.log(mainParam, 'mainPARAM');
 			// mainParam.value = '';
 			// Array.from(mainParam).forEach((item) => (item.value = ''));
 			Array.from(inputItems).forEach((item) => (item.value = ''));
@@ -119,8 +107,6 @@ const InsertSettingsForm = ({ setting, languages }) => {
 			setState(initialState);
 		}
 	};
-
-	console.log(state, 'the state');
 
 	return (
 		<form className='border border-slate-200 rounded p-1'>
