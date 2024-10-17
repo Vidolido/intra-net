@@ -5,7 +5,18 @@ import { revalidatePath } from 'next/cache';
 import dbConnect from '@/db/conn';
 import Setting from '@/db/models/Setting';
 
-export async function insertSetting(state, documentId) {
+// Helper function to convert object to Map
+// function convertObjectToMap(obj) {
+// 	const map = new Map();
+// 	for (const key in obj) {
+// 		if (obj.hasOwnProperty(key)) {
+// 			map.set(key, obj[key]);
+// 		}
+// 	}
+// 	return map;
+// }
+
+export async function insertSettings(state, documentId) {
 	console.log(state, documentId);
 	// console.log(state, documentId, 'the state in insertSetting.js');
 	// console.log(formData, 'formData in insertSetting.js');
@@ -17,8 +28,14 @@ export async function insertSetting(state, documentId) {
 				message: 'There is no document with that id.',
 			};
 		}
+
+		// if (state.parameter) {
+		// 	state.parameter = convertObjectToMap(state.parameter);
+		// }
 		let settings = foundDocument.settings || [];
 		settings.push(state);
+
+		console.log(settings, 'the settings');
 
 		let updated = await Setting.updateOne(
 			{ _id: documentId },
@@ -26,7 +43,7 @@ export async function insertSetting(state, documentId) {
 				$set: { settings },
 			}
 		);
-		// console.log(updated, 'OVOA');
+		console.log(updated, 'OVOA');
 		const pathsToRevalidate = [
 			`/dashboard/settings/edit/[_id]`,
 			`/dashboard/settings/draft/[_id]`,

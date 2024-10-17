@@ -2,9 +2,21 @@
 
 import { useEffect, useState } from 'react';
 
+// helper
+const languageInit = (languages, data) => {
+	return languages.reduce((acc, lang) => {
+		acc[lang.language] =
+			data && data.state && data.state[lang.language]
+				? data.state[lang.language]
+				: '';
+		return acc;
+	}, {});
+};
+
 const LanguageInput = ({ languages, data = null, extractData }) => {
 	let initState = languages.reduce((acc, lang) => {
-		if (lang.language in data.state) {
+		// if (lang.language in data.state) {
+		if (data && data.state[lang.language]) {
 			acc[lang.language] = data?.state[lang.language];
 		} else acc[lang.language] = '';
 		return acc;
@@ -15,7 +27,7 @@ const LanguageInput = ({ languages, data = null, extractData }) => {
 		languages[0].language
 	);
 
-	const onBlurInput = (e) => {
+	const onBlurInput = () => {
 		extractData(state);
 	};
 
@@ -33,13 +45,15 @@ const LanguageInput = ({ languages, data = null, extractData }) => {
 	return (
 		<fieldset>
 			<input
+				name={data.inputName}
+				className='box-content border-2 border-grey-50 border-opacity-60 rounded px-2 py-[1px] hover:border-red-200 focus:outline-none'
 				type='text'
 				value={state[selectedLanguage]}
 				onChange={onInputChange}
 				onBlur={onBlurInput}
 			/>
 			<select
-				name={data?.name || null}
+				name={data.selectName || null}
 				className='box-content border-[3px] border-grey-50 border-opacity-60 rounded px-2 py-[1px] hover:border-red-200 focus:outline-none cursor-pointer'
 				onChange={onSelectChange}
 				defaultValue={selectedLanguage}>
