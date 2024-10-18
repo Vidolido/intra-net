@@ -4,14 +4,33 @@ import { useFormState } from 'react-dom';
 
 // state/actions
 import { saveSettingHeader } from '@/serverActions/settings/saveSettingHeader';
+import { generateUUID } from '@/utils/generateUUID';
 
 // components
 import ArrowSvg from '@/../public/arrow.svg';
-import SelectInput from '@/components/inputs/SelectInput';
-import InputType from '@/components/inputs/InputType';
+import SelectInput from '@/components/reusable/SelectInput';
+import NormalInput from '@/components/reusable/NormalInput';
 import ContextButton from '@/components/buttons/ContextButton';
 
-const status = [{ status: 'draft' }, { status: 'published' }];
+const status = [
+  {
+    id: generateUUID(),
+    name: {
+      en: 'draft',
+      mk: 'драфт',
+      gr: 'гр',
+    },
+  },
+  {
+    id: generateUUID(),
+    status: 'published',
+    name: {
+      en: 'published',
+      mk: 'објавен',
+      gr: 'гр',
+    },
+  },
+];
 
 const HeaderForm = ({ languages, sectors, setting }) => {
   const [state, formAction] = useFormState(saveSettingHeader, {
@@ -41,50 +60,53 @@ const HeaderForm = ({ languages, sectors, setting }) => {
           }`}
         />
       </button>
-      <fieldset
-        className={`flex gap-[1px] bg-slate-100 border-[1px] border-slate-100 p-[1px] rounded mb-1 ${
+      <div
+        className={`flex w-full gap-[1px] bg-slate-100 border-[1px] border-slate-100 p-[1px] rounded ${
           !visible ? 'hidden' : 'visible'
         }`}>
-        <label className='flex flex-col items-start bg-white p-1'>
-          <span>Sector</span>
-          <SelectInput
-            name='sector'
-            options={sectors}
-            value='name'
-            defaultLanguage={languages[0].language}
-            defaultValue={setting.sector}
-          />
-        </label>
-        <label className='flex flex-col bg-white w-full p-1'>
-          <span>Setting Name</span>
-          <InputType
-            type='text'
-            name='settingName'
-            defaultValue={setting.settingName}
-            required={true}
-          />
-        </label>
+        <SelectInput
+          defaultLanguage={languages[0].language}
+          data={{
+            state: sectors,
+            // defaultValue: setting.sector,
+            label: 'Sector',
+            selectName: 'sector',
+            showEmptyOption: false,
+            classes: 'flex flex-col items-start bg-white px-[2px]',
+          }}
+        />
+        <NormalInput
+          data={{
+            state: setting.settingName,
+            name: 'settingName',
+            label: 'Setting Name',
+            fieldsetClass: 'flex flex-col grow bg-white px-[2px]',
+            inputClass: 'h-21px',
+            required: true,
+          }}
+        />
 
         {setting.settingName != null && (
-          <label className='flex flex-col items-start bg-white p-1'>
-            <span>Status</span>
-            <SelectInput
-              name='documentStatus'
-              options={status}
-              label='status'
-              value='status'
-              defaultValue={setting.documentStatus}
-            />
-          </label>
+          <SelectInput
+            defaultLanguage={languages[0].language}
+            data={{
+              state: status,
+              defaultValue: setting.status,
+              label: 'Status',
+              selectName: 'status',
+              showEmptyOption: false,
+              classes: 'flex flex-col items-start bg-white px-[2px]',
+            }}
+          />
         )}
-      </fieldset>
-      <p>{state?.error}</p>
+      </div>
+      {state?.error && <p>{state?.error}</p>}
       {visible && (
         <ContextButton
           label='Save Document Settings'
           type='edit'
           onClick={(e) => e.target.form.requestSubmit()}
-          classes='w-full'
+          classes='w-full mt-[2px]'
         />
       )}
     </form>
