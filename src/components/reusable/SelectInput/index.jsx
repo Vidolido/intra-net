@@ -9,15 +9,15 @@ const initializeSelectState = (defaultLanguage, data) =>
 
 const SelectInput = ({
 	defaultLanguage,
-	data = null,
+	data,
 	extractData = null,
 	showEmptyOption,
 }) => {
-	console.log(data, 'the data');
 	const [state, setState] = useState(() =>
 		initializeSelectState(defaultLanguage, data)
 	);
-	const [selected, setSelected] = useState(data.defaultValue || state[0]._id);
+
+	const [selected, setSelected] = useState(data?.defaultValue || state[0]._id);
 
 	useEffect(() => {
 		const newState = initializeSelectState(defaultLanguage, data);
@@ -27,9 +27,9 @@ const SelectInput = ({
 	const onSelectChange = (e) => {
 		const { value } = e.target;
 		setSelected(value);
-		extractData !== null && extractData(state);
+		// extractData !== null && extractData(state);
+		extractData !== null && extractData(value);
 	};
-	console.log(state, 'ovoa');
 	return (
 		<fieldset className={data?.classes}>
 			<label>{data?.label}</label>

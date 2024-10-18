@@ -26,8 +26,8 @@ const EditRow = ({
 	const [test, setTest] = useState(null);
 
 	const [state, setState] = useState({
-		parameter: setting.parameter,
-		collections: setting.collections,
+		parameter: setting?.parameter,
+		collections: setting?.collections,
 	});
 	const [error, setError] = useState({});
 
@@ -57,7 +57,7 @@ const EditRow = ({
 	// 		parameter,
 	// 	}));
 	// };
-	// console.log(state, 'THE TESTINGAT THE MOMENT');
+	console.log(state, 'THE TESTINGAT THE MOMENT');
 	return (
 		<form
 			className='border border-slate-200 bg-slate-100 rounded p-1 min-h-[200px]'

@@ -36,7 +36,6 @@ const HeaderForm = ({ languages, sectors, setting }) => {
 
 	let hasName = !setting.settingName;
 	const [visible, setVisible] = useState(hasName);
-
 	return (
 		<form action={formAction} className='p-1 border border-slate-200 rounded'>
 			<input
@@ -96,7 +95,15 @@ const HeaderForm = ({ languages, sectors, setting }) => {
 					/>
 				)}
 			</div>
+
 			{state?.error && <p>{state?.error}</p>}
+			<span
+				className={`bg-red-100 text-red-700 ${
+					state?.error ? 'visible' : 'hidden'
+				}`}
+				role='alert'>
+				{state?.error}
+			</span>
 			{visible && (
 				<ContextButton
 					label='Save Document Settings'

@@ -4,37 +4,30 @@
 import SingleCollectionItem from './SingleCollectionItem';
 
 const DisplayCollections = ({
-  languages,
-  state,
-  setState,
-  selectedCollection,
+	languages,
+	state,
+	setState,
+	selectedCollection,
 }) => {
-  // let collectionItems = state?.collections?.find(
-  //   (coll) => coll._id === selectedCollection
-  // );
+	let collectionItems = state?.collections[selectedCollection] || null;
 
-  let collectionItems = state?.collections[selectedCollection] || null;
-
-  // console.log(collItems);
-
-  // console.log(collectionItems, 'collectionItems');
-  return (
-    <fieldset name='collection-items'>
-      <ul className='pl-5 flex flex-col gap-1'>
-        {collectionItems &&
-          collectionItems.map((item) => (
-            <SingleCollectionItem
-              key={item?.id || item?._id}
-              languages={languages}
-              state={state}
-              setState={setState}
-              selectedCollection={selectedCollection}
-              item={item}
-            />
-          ))}
-      </ul>
-    </fieldset>
-  );
+	return (
+		<fieldset name='collection-items'>
+			<ul className='pl-5 flex flex-col gap-1'>
+				{collectionItems &&
+					collectionItems.map((item) => (
+						<SingleCollectionItem
+							key={item?.id || item?._id}
+							languages={languages}
+							state={state}
+							setState={setState}
+							selectedCollection={selectedCollection}
+							item={item}
+						/>
+					))}
+			</ul>
+		</fieldset>
+	);
 };
 
 export default DisplayCollections;

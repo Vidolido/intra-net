@@ -19,13 +19,9 @@ const DisplaySettings = ({
 	optionsForSettings,
 }) => {
 	const [options, setOptions] = useState(optionsForSettings || []);
-	// let headings =
-	// 	(settings && getDisplayHeadings(settings[0], 'singular')) || null;
 
 	let headings = getRowHeaders(optionsSchema, 'singular') || null;
 
-	// console.log(headings, 'headings');
-	console.log(options, 'the options');
 	let colNo = headings?.collections.length;
 	let gridTemplateColumns = generateGridTemplate(colNo + 1);
 	let classes = 'grid border';

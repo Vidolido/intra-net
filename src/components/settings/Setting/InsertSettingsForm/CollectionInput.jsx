@@ -32,23 +32,25 @@ const CollectionInput = ({
 	selectedCollection,
 	state,
 	setState,
-	setError,
-	buttonLabel,
+	setActionStatus,
 }) => {
 	const [input, setInput] = useState(null);
 
 	const handleAdd = (e) => {
 		if (!input) {
-			setError((prev) => ({
-				...prev,
-				collectionInput: 'Please enter a value',
-			}));
+			setActionStatus({
+				error: { collectionInput: 'Add a value.' },
+				success: null,
+			});
 		} else {
-			setError({});
+			setActionStatus({
+				error: null,
+				success: {
+					collectionInput: 'Successfuly added.',
+				},
+			});
 			let collections = state?.collections || [];
-			// let collectionToInsert = collections.find(
-			// 	(coll) => coll._id === selectedCollection
-			// );
+
 			let collectionToInsert = collections[selectedCollection];
 
 			let payload = {
@@ -56,7 +58,6 @@ const CollectionInput = ({
 				inputType,
 				value: input,
 			};
-			//   collectionToInsert.items.push(payload);
 			collectionToInsert.push(payload);
 
 			setState((prev) => ({ ...prev, collections }));
@@ -69,7 +70,7 @@ const CollectionInput = ({
 			Array.from(inputItems).map((item) => (item.value = ''));
 		}
 	};
-	// console.log(state?.collections, 'voa e stejto');
+	// console.log(state, 'voa e stejto');
 
 	const handleChange = (e) => {
 		let name = e.target.name;
@@ -93,7 +94,11 @@ const CollectionInput = ({
 	return (
 		<fieldset className='flex items-start gap-2' name='collection-input'>
 			{types(languages, null, handleChange)[inputType]}
-			<ContextButton label={buttonLabel} type='edit' onClick={handleAdd} />
+			<ContextButton
+				label='Add to collection'
+				type='edit'
+				onClick={handleAdd}
+			/>
 		</fieldset>
 	);
 };

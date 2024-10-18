@@ -1,10 +1,8 @@
 'use client';
 import { useState } from 'react';
-import { useFormState } from 'react-dom';
 
 // state/actions
 import { saveOptionSchema } from '@/data-access/settings/saveOptionsSchema';
-// import { saveOptionSchema } from '@/serverActions/settings/saveOptionSchema';
 
 // components
 import ArrowSvg from '@/../public/arrow.svg';
@@ -14,100 +12,90 @@ import Collections from './Collections';
 import ContextButton from '@/components/buttons/ContextButton';
 
 const initState = {
-  parameter: {
-    name: {
-      singular: {},
-      plural: {},
-    },
-  },
-  collections: {},
+	parameter: {
+		name: {
+			singular: {},
+			plural: {},
+		},
+	},
+	collections: [],
 };
 
 const OptionsSchema = ({ setting, languages }) => {
-  // const [state, formAction] = useFormState(saveOptionSchema, {...() =>
-  //   !setting.optionsSchema
-  //     ? initState
-  //     : { ...initState, ...setting.optionsSchema }
-  // });
-  const [state, setState] = useState(() =>
-    !setting.optionsSchema
-      ? initState
-      : { ...initState, ...setting.optionsSchema }
-  );
+	const [state, setState] = useState(() =>
+		!setting.optionsSchema ? initState : setting.optionsSchema
+	);
+	const [actionStatus, setActionStatus] = useState({
+		error: null,
+		success: null,
+	});
 
-  const [visible, setVisible] = useState(setting?.optionsSchema ? false : true);
-  const [collections, setCollections] = useState(
-    setting?.optionsSchema?.collections || []
-  );
+	const [visible, setVisible] = useState(setting?.optionsSchema ? false : true);
 
-  const submit = async () => {
-    const { error, message } = await saveOptionSchema(
-      state,
-      setting._id.toString()
-    );
-    console.log(error, message, 'ovijaaaa');
-  };
+	const submit = async () => {
+		const { error, success } = await saveOptionSchema(
+			state,
+			setting._id.toString()
+		);
+		setActionStatus({
+			error: error || null,
+			success: success || null,
+		});
+	};
+	return (
+		<form className='flex flex-col gap-1 bg-slate-100 border-[1px] border-slate-100 p-1 rounded'>
+			<input
+				type='text'
+				className='hidden'
+				defaultValue={setting._id}
+				name='document_id'
+			/>
+			<button
+				type='button'
+				onClick={() => setVisible(!visible)}
+				className='relative w-full'>
+				<h4 className='text-left'>Option schema</h4>
+				<ArrowSvg
+					className={`w-[22px] h-[22px] absolute right-1 top-[3px] fill-red-500 hover:fill-red-300 ${
+						visible ? '' : 'rotate-180'
+					}`}
+				/>
+			</button>
+			{visible && (
+				<>
+					<MainInput
+						setting={setting}
+						languages={languages}
+						error={actionStatus.error}
+						state={state}
+						setState={setState}
+					/>
 
-  return (
-    <form className='flex flex-col gap-1 bg-slate-100 border-[1px] border-slate-100 p-1 rounded'>
-      <input
-        type='text'
-        className='hidden'
-        defaultValue={setting._id}
-        name='document_id'
-      />
-      <button
-        type='button'
-        onClick={() => setVisible(!visible)}
-        className='relative w-full'>
-        <h4 className='text-left'>Option schema</h4>
-        <ArrowSvg
-          className={`w-[22px] h-[22px] absolute right-1 top-[3px] fill-red-500 hover:fill-red-300 ${
-            visible ? '' : 'rotate-180'
-          }`}
-        />
-      </button>
-      {visible && (
-        <>
-          <MainInput
-            setting={setting}
-            languages={languages}
-            error={state.error}
-            state={state}
-            setState={setState}
-          />
+					<AddCollections
+						languages={languages}
+						setState={setState}
+						setActionStatus={setActionStatus}
+					/>
+					<span
+						className={`bg-red-100 text-red-700 ml-1 ${
+							actionStatus?.error?.collections ? 'visible' : 'hidden'
+						}`}
+						role='alert'>
+						{actionStatus?.error?.collections}
+					</span>
 
-          <AddCollections
-            collectionsLength={collections.length}
-            languages={languages}
-            setCollections={setCollections}
-          />
-
-          {/* {!!collections.length && (
-            <Collections
-              collections={collections}
-              setCollections={setCollections}
-              languages={languages}
-            />
-          )} */}
-        </>
-      )}
-      {/* <p>{state?.error.message}</p> */}
-      {/* {!!collections.length && visible && (
-        <ContextButton
-          label='Save Options Schema'
-          type='edit'
-          onClick={(e) => e.target.form.requestSubmit()}
-        />
-      )} */}
-      <ContextButton
-        label='Save Options Schema'
-        type='edit'
-        // onClick={(e) => e.target.form.requestSubmit()}
-        onClick={submit}
-      />
-    </form>
-  );
+					{!!state?.collections.length && (
+						<Collections
+							languages={languages}
+							setState={setState}
+							collections={state.collections}
+						/>
+					)}
+				</>
+			)}
+			<ContextButton label='Save Options Schema' type='edit' onClick={submit} />
+		</form>
+	);
 };
 
 export default OptionsSchema;

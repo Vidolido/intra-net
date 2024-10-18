@@ -11,7 +11,9 @@ export async function insertSettings(state, documentId) {
 		const foundDocument = await Setting.findOne({ _id: documentId });
 		if (!foundDocument) {
 			return {
-				message: 'There is no document with that id.',
+				error: {
+					document: 'There is no document with that id.',
+				},
 			};
 		}
 
@@ -33,10 +35,16 @@ export async function insertSettings(state, documentId) {
 		pathsToRevalidate.forEach((path) => revalidatePath(path, 'page'));
 
 		return {
-			message: 'Setting successfully added.',
+			success: 'Setting successfully added.',
+			error: null,
 		};
 	} catch (error) {
-		console.log('Failed to add setting error:', error);
-		throw Error('Could not add setting to document: ' + error);
+		console.log('Failed to add setting to collection:', error);
+		return {
+			success: null,
+			error: {
+				catch: error.message,
+			},
+		};
 	}
 }

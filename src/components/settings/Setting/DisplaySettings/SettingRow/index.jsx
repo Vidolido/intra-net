@@ -25,7 +25,6 @@ const SettingRow = ({
 	const property = setting?.parameter;
 	const collections = setting?.collections;
 	console.log(setting, 'THE SETTING');
-
 	return (
 		<div className={classes} style={{ gridTemplateColumns }}>
 			<div className='border-r'>

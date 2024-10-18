@@ -9,9 +9,10 @@ import { isObjectEmpty } from '@/utils/helpers/isObjectEmpty';
 import RadioButtons from './RadioButtons';
 import CollectionInput from './CollectionInput';
 import DisplayCollections from './DisplayCollections';
-import SelectInput from '@/components/inputs/SelectInput';
+// import SelectInput from '@/components/inputs/SelectInput';
 import ContextButton from '@/components/buttons/ContextButton';
 import LanguageInput from '@/components/reusable/LanguageInput';
+import SelectInput from '@/components/reusable/SelectInput';
 
 const InsertSettingsForm = ({ setting, languages }) => {
 	let parameter =
@@ -30,6 +31,10 @@ const InsertSettingsForm = ({ setting, languages }) => {
 	};
 
 	const [state, setState] = useState(initialState);
+	const [actionStatus, setActionStatus] = useState({
+		error: null,
+		success: null,
+	});
 	const [error, setError] = useState({});
 
 	// const [selectedCollection, setSelectedCollection] = useState(
@@ -69,76 +74,69 @@ const InsertSettingsForm = ({ setting, languages }) => {
 		setInputType(e.target.value);
 	};
 
-	const handleSelection = (e) => {
-		setSelectedCollection(e.target.value);
+	const handleSelection = (data) => {
+		setSelectedCollection(data);
 	};
 
 	const handleSubmit = async (e) => {
 		let areCollectionsEmpty = Object.values(state.collections).every(
 			(coll) => coll.length === 0
 		);
+
 		let isEmpty = isObjectEmpty(state.parameter);
 
 		if (isEmpty) {
-			setError((prev) => ({
-				...prev,
-				mainParameter: 'Fill all fields',
-			}));
+			setActionStatus({
+				error: { mainParameter: "This field can't be empty." },
+				success: null,
+			});
 		} else if (areCollectionsEmpty) {
-			setError((prev) => ({
-				...prev,
-				collectionInput: 'Please enter a value',
-			}));
+			setActionStatus({
+				error: { collectionInput: 'Enter a value' },
+				success: null,
+			});
 		} else {
-			await insertSettings(state, setting._id);
-
-			// let mainParam = e.target.form.elements
-			// 	.namedItem('main-parameter-inputs')
-			// 	.querySelectorAll('input');
-			// let mainParam = e.target.form.elements.namedItem('main-parameter');
-			let inputItems = e.target.form.elements
-				.namedItem('collection-input')
-				.querySelectorAll('input');
-			// mainParam.value = '';
-			// Array.from(mainParam).forEach((item) => (item.value = ''));
-			Array.from(inputItems).forEach((item) => (item.value = ''));
+			const { error, success } = await insertSettings(state, setting._id);
+			setActionStatus({
+				error: error || null,
+				success: success || null,
+			});
 			setInputType('simple');
-			setError({});
 			setState(initialState);
 		}
 	};
-
 	return (
 		<form className='border border-slate-200 rounded p-1'>
 			<LanguageInput
 				languages={languages}
 				data={{
 					state: state.parameter,
+					label: parameter,
+					labelClass: 'block',
 					inputName: 'main-parameter',
 					name: 'main-parameter',
 				}}
 				extractData={handleMainParam}
 			/>
-			{/* <LanguageInputContainer
-				label={!parameter ? 'Parameter name' : parameter}
-				fieldSetName='main-parameter-inputs'
-				fieldSetClass='flex flex-col items-start'
-				name='parameter-'
-				languages={languages}
-				defaultLanguage={languages[0]}
-				onChange={hanldeMainParameterChange}
-			/> */}
-			<p>{error.mainParameter}</p>
+
+			<span
+				className={`bg-red-100 text-red-700 ${
+					actionStatus?.error?.mainParameter ? 'visible' : 'hidden'
+				}`}
+				role='alert'>
+				{actionStatus?.error?.mainParameter}
+			</span>
 			<div className='flex gap-2'>
 				<fieldset className='flex flex-col min-w-[200px]'>
 					<label>Collection</label>
-
 					<SelectInput
-						name='collection-select'
-						options={collections}
-						defaultLanguage='en'
-						value={parameter && parameter}
-						onChange={handleSelection}
+						defaultLanguage={languages[0].language}
+						data={{
+							state: collections,
+							defaultValue: selectedCollection,
+							classes: 'flex flex-col items-start bg-white px-[2px] w-full',
+						}}
+						extractData={handleSelection}
 					/>
 				</fieldset>
 				<fieldset className='flex flex-col'>
@@ -160,10 +158,16 @@ const InsertSettingsForm = ({ setting, languages }) => {
 				selectedCollection={selectedCollection}
 				state={state}
 				setState={setState}
-				setError={setError}
-				buttonLabel='Add to collection'
+				actionStatus={actionStatus}
+				setActionStatus={setActionStatus}
 			/>
-			<p>{error.collectionInput}</p>
+			<span
+				className={`bg-red-100 text-red-700 ${
+					actionStatus?.error?.collectionInput ? 'visible' : 'hidden'
+				}`}
+				role='alert'>
+				{actionStatus?.error?.collectionInput}
+			</span>
 			<div className='border border-slate-300 rounded p-1'>
 				<h5>Items</h5>
 				<DisplayCollections

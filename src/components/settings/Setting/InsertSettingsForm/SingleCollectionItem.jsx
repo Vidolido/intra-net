@@ -37,54 +37,17 @@ const SingleCollectionItem = ({
 	};
 
 	const handleDelete = (id) => {
-		setState((prev) => {
-			let updatedCollections = prev.collections.map((coll) => {
-				if (coll._id === selectedCollection) {
-					return {
-						...coll,
-						items: coll.items.filter(
-							(item) => item?.id !== id && item?._id !== id
-						),
-					};
-				}
-				return coll;
-			});
-
-			return {
-				...prev,
-				collections: updatedCollections,
-			};
-		});
+		setState((prev) => ({
+			...prev,
+			collections: {
+				...prev.collections,
+				[selectedCollection]: prev.collections[selectedCollection].filter(
+					(item) => item.id !== id
+				),
+			},
+		}));
 	};
-	// console.log(state, 'the state');
 
-	// const handleDelete = (id) => {
-	//   console.log(id, 'the id');
-	//   console.log(state.collections, 'the state.collections');
-	//   let collections = [...state?.collections] || [];
-	//   collections.reduce((acc, currentValue) => {
-	//     console.log(currentValue, 'the current value');
-	//     if (
-	//       currentValue.collectionId !== selectedCollection ||
-	//       currentValue._id !== selectedCollection
-	//     ) {
-	//       acc.push(currentValue);
-	//     } else {
-	//       currentValue.items = currentValue.items.filter(
-	//         (item) => item._id !== id || item.id !== id
-	//       );
-	//       acc.push(currentValue);
-	//     }
-	//     return acc;
-	//   }, []);
-
-	//   setState((prev) => ({
-	//     ...prev,
-	//     collections,
-	//   }));
-	// };
-
-	console.log(item, 'the ITEM');
 	return (
 		<li className='list-disc border border-slate-50 hover:border-red-200 focus:outline-none'>
 			<div className='flex justify-between gap-2'>
