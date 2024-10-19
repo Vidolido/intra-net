@@ -1,21 +1,18 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 // state/actions
 import { editSetting } from '@/data-access/settings/editSetting';
+import { isObjectEmpty } from '@/utils/helpers/isObjectEmpty';
 
 // components
-// import InputType from '@/components/inputs/InputType';
-// import LanguageInputContainer from '@/components/inputs/LanguageInputContainer';
-// import SelectInput from '@/components/inputs/SelectInput';
+import LanguageInput from '@/components/reusable/LanguageInput';
+import SelectInput from '@/components/reusable/SelectInput';
+import ErrorMsg from '@/components/reusable/ErrorMsg';
 import RadioButtons from '../../../InsertSettingsForm/RadioButtons';
 import CollectionInput from '../../../InsertSettingsForm/CollectionInput';
 import DisplayCollections from '../../../InsertSettingsForm/DisplayCollections';
 import ContextButton from '@/components/buttons/ContextButton';
-import LanguageInput from '@/components/reusable/LanguageInput';
-import SelectInput from '@/components/reusable/SelectInput';
-import { isObjectEmpty } from '@/utils/helpers/isObjectEmpty';
-import ErrorMsg from '@/components/reusable/ErrorMsg';
 
 const EditRow = ({
 	languages,
@@ -25,12 +22,9 @@ const EditRow = ({
 	numberOfCollections,
 	classes,
 }) => {
-	// const parameter = setting.parameter;
-	// const collections = setting.collections;
 	const parameter =
 		optionsSchema?.parameter?.name?.singular[languages[0].language];
 	const collections = optionsSchema?.collections;
-	const defaultLanguage = languages[0];
 
 	const [state, setState] = useState({
 		parameter: setting?.parameter,
@@ -54,9 +48,6 @@ const EditRow = ({
 		setState((prev) => ({ ...prev, parameter: data }));
 	};
 
-	// const handleChangeInputType = (e) => {
-	// 	setInputType(e.target.value);
-	// };
 	const handleChangeInputType = (e) => {
 		setInputType(e.target.value);
 		setResetComponentData(true);
@@ -67,7 +58,6 @@ const EditRow = ({
 	};
 
 	const handleSubmit = async () => {
-		// await editSetting(documentId, setting._id, state);
 		let areCollectionsEmpty = Object.values(state.collections).every(
 			(coll) => coll.length === 0
 		);
@@ -99,15 +89,11 @@ const EditRow = ({
 				parameter: setting?.parameter,
 				collections: setting?.collections,
 			});
-			// setResetLanguage((prev) => !prev);
-			setResetLanguage(true);
-			// setResetComponentData((prev) => !prev);
+			// setResetLanguage(true);
 			setResetComponentData(true);
 		}
 	};
 
-	console.log(state, 'state');
-	console.log(setting, 'setting');
 	return (
 		<form
 			className='border border-slate-200 bg-slate-100 rounded p-1 min-h-[200px]'
@@ -129,7 +115,6 @@ const EditRow = ({
 						// setResetLanguage={setResetLanguage}
 					/>
 				</div>
-				{/* <p>{error.mainParameter}</p> */}
 				{actionStatus?.error?.mainParameter && (
 					<ErrorMsg msg={actionStatus?.error?.mainParameter} />
 				)}
@@ -173,7 +158,7 @@ const EditRow = ({
 						setResetComponentData={setResetComponentData}
 						buttonLabel='Add'
 					/>
-					{/* <p>{error.collectionInput}</p> */}
+					{error.collectionInput && <ErrorMsg msg={error.collectionInput} />}
 					<div className='border border-slate-300 rounded p-1'>
 						<h5>Items</h5>
 						<DisplayCollections
@@ -198,19 +183,3 @@ const EditRow = ({
 };
 
 export default EditRow;
-// <form
-//   className={`grid col-span-4 h-[200px]`}
-//   style={{ gridTemplateColumns }}>
-//   <div className='flex'>
-//     <LanguageInputContainer fieldSetClass='w-fit' languages={languages} />
-//   </div>
-//   <div className='w-fif'>
-//     <InputType classes='w-fit' />
-//   </div>
-//   <div className='w-fif'>
-//     <InputType />
-//   </div>
-//   <div className='w-fif'>
-//     <InputType />
-//   </div>
-// </form>

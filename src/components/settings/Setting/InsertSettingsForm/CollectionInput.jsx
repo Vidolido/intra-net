@@ -25,8 +25,8 @@ let types = (
 				inputClass: 'h-21px',
 			}}
 			extractData={onChange}
-			// resetComponentData={resetComponentData}
-			// setResetComponentData={setResetComponentData}
+			resetComponentData={resetComponentData}
+			setResetComponentData={setResetComponentData}
 		/>
 	),
 	translations: (
@@ -87,7 +87,7 @@ const CollectionInput = ({
 }) => {
 	const [input, setInput] = useState(null);
 
-	const handleAdd = (e) => {
+	const handleAdd = () => {
 		if (!input) {
 			setActionStatus({
 				error: { collectionInput: 'Add a value.' },

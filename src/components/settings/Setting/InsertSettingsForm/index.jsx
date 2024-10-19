@@ -6,13 +6,13 @@ import { insertSettings } from '@/data-access/settings/insertSettings';
 import { isObjectEmpty } from '@/utils/helpers/isObjectEmpty';
 
 // components
+import LanguageInput from '@/components/reusable/LanguageInput';
+import SelectInput from '@/components/reusable/SelectInput';
+import ErrorMsg from '@/components/reusable/ErrorMsg';
 import RadioButtons from './RadioButtons';
 import CollectionInput from './CollectionInput';
 import DisplayCollections from './DisplayCollections';
 import ContextButton from '@/components/buttons/ContextButton';
-import LanguageInput from '@/components/reusable/LanguageInput';
-import SelectInput from '@/components/reusable/SelectInput';
-import ErrorMsg from '@/components/reusable/ErrorMsg';
 
 const InsertSettingsForm = ({ setting, languages }) => {
 	let parameter =

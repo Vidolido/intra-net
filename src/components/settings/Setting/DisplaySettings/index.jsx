@@ -2,13 +2,12 @@
 import { useState } from 'react';
 
 // state/actions
-import { getDisplayHeadings } from '@/utils/getDisplayHeadings';
+import { getRowHeaders } from '@/utils/helpers/rowHeaders';
 import { generateGridTemplate } from '@/utils/functions';
 
 // components
 import Headings from './Headings';
 import SettingRow from './SettingRow';
-import { getRowHeaders } from '@/utils/helpers/rowHeaders';
 
 const DisplaySettings = ({
 	defaultLanguage,
@@ -19,8 +18,13 @@ const DisplaySettings = ({
 	optionsForSettings,
 }) => {
 	const [options, setOptions] = useState(optionsForSettings || []);
-
 	let headings = getRowHeaders(optionsSchema, 'singular') || null;
+
+	// useState(() => {
+	// 	if (options.length !== optionsForSettings.length) {
+	// 		setOptions(optionsForSettings);
+	// 	}
+	// });
 
 	let colNo = headings?.collections.length;
 	let gridTemplateColumns = generateGridTemplate(colNo + 1);
@@ -28,7 +32,7 @@ const DisplaySettings = ({
 	let editClass = `col-span-${colNo + 1}`;
 
 	const handleOptions = (settingId) => {
-		const newOptions = options.map((option) => {
+		const newOptions = optionsForSettings.map((option) => {
 			if (option._id === settingId) {
 				return {
 					...option,
@@ -86,7 +90,9 @@ const DisplaySettings = ({
 							documentId={documentId}
 							optionsSchema={optionsSchema}
 							setting={setting}
-							option={options.find((option) => option._id === setting._id)}
+							option={options.find(
+								(option) => option._id.toString() === setting._id.toString()
+							)}
 							handleOptions={handleOptions}
 							handleExpand={handleExpand}
 							handleEdit={handleEdit}
@@ -101,5 +107,4 @@ const DisplaySettings = ({
 	);
 };
 
-// export default memo(DisplaySettings);
 export default DisplaySettings;
