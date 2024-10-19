@@ -5,7 +5,7 @@ import { cookies } from 'next/headers';
 
 // connection/models/db functions
 import dbConnect from '@/db/conn';
-import Setting from '../../../../../oldFiles/SettingOld';
+import Setting from '@/db/models/Setting';
 
 export async function GET() {
 	try {

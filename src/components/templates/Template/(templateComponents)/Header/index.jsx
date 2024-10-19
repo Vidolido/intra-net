@@ -1,5 +1,6 @@
 // state/actions
 import { saveBasicData } from '@/serverActions/laboratoryTemplates/saveBasicData';
+import { mutateTemplateSettings } from '@/utils/settings/mutateTempalteSettings';
 
 // components
 import Product from './(headerOptions)/Product';
@@ -9,50 +10,44 @@ import DocumentType from './(headerOptions)/DocumentType';
 import DocumentStatus from './(headerOptions)/DocumentStatus';
 
 const Header = ({ languages, templateSettings, template }) => {
-	let products = templateSettings.find(
-		(setting) => setting.settingName === 'Products'
-	);
-	let types = templateSettings.find(
-		(setting) => setting.settingName === 'Types'
-	);
-	let countries = templateSettings.find(
-		(setting) => setting.settingName === 'Countries'
-	);
+	const { products, countries, types } =
+		mutateTemplateSettings(templateSettings);
+
+	const { header } = template;
 	const submit = saveBasicData.bind(null, template._id);
-	console.log(types, 'types');
-	// console.log(templateSettings, 'templateSettings');
+
 	return (
 		<form action={submit}>
 			<fieldset
 				name='basic-input'
 				className='flex gap-2 border border-slate-300 rounded w-fit p-2'>
 				<Product
-					name='product'
 					products={products}
-					value={template.product}
+					defaultValue={header?.product}
 					languages={languages}
 				/>
 				<SampleType
-					name='sampleType'
 					types={types}
-					value={template.sampleType}
-					none={true}
+					defaultValue={header?.sampleType}
+					showEmptyOption={true}
 					languages={languages}
 				/>
 				<Origin
-					name='origin'
 					countries={countries}
-					value={template.origin}
-					none={true}
+					defaultValue={header?.origin}
+					showEmptyOption={true}
 					languages={languages}
 				/>
 				<DocumentType
-					name='documentType'
 					types={types}
-					value={template.documentType}
+					defaultValue={header?.documentType}
 					languages={languages}
 				/>
-				<DocumentStatus template={template} />
+				<DocumentStatus
+					template={template}
+					languages={languages}
+					defaultValue={header?.documentStatus}
+				/>
 				<button
 					type='submit'
 					className='bg-red-500 disabled:bg-red-200 hover:bg-red-700 text-white font-semibold py-[2.5px] px-4 rounded self-end'>

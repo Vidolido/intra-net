@@ -15,10 +15,14 @@ export async function saveBasicData(_id, formData) {
 		documentType: formData.get('documentType'),
 		documentStatus: formData.get('documentStatus'),
 	};
-	// let shouldRedirect = false;
+	console.log(payload);
+	let shouldRedirect = false;
 	try {
 		await dbConnect();
-		let updated = await LaboratoryTemplate.updateOne({ _id }, { ...payload });
+		let updated = await LaboratoryTemplate.updateOne(
+			{ _id },
+			{ $set: { header: payload } }
+		);
 		// shouldRedirect = updated.modifiedCount === 1 ? true : false;
 	} catch (error) {
 		console.log('Failed to create draft Template error:', error);
@@ -33,7 +37,6 @@ export async function saveBasicData(_id, formData) {
 
 	pathsToRevalidate.forEach((path) => revalidatePath(path, 'page'));
 
-	// if (shouldRedirect && payload.documentStatus === 'published') {
 	if (payload.documentStatus === 'published') {
 		redirect(`/dashboard/laboratory/templates/edit/${_id}`);
 	} else {

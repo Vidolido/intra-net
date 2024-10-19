@@ -11,6 +11,7 @@ export async function insertSettings(state, documentId) {
 		const foundDocument = await Setting.findOne({ _id: documentId });
 		if (!foundDocument) {
 			return {
+				success: null,
 				error: {
 					document: 'There is no document with that id.',
 				},

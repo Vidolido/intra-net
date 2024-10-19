@@ -23,7 +23,7 @@ const Template = ({
 				templateSettings={templateSettings}
 				template={template}
 			/>
-			<InputForm
+			{/* <InputForm
 				document={template._id}
 				settings={settings}
 				groups={groups}
@@ -36,7 +36,7 @@ const Template = ({
 				template={template}
 				settings={settings}
 				defaultLanguage={defaultLanguage}
-			/>
+			/> */}
 		</div>
 	);
 };

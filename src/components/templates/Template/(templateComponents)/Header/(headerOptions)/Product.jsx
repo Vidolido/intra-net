@@ -3,43 +3,45 @@ import { useEffect } from 'react';
 
 // state/actions
 import { nameArray } from '@/utils/nameArray';
+import SelectInput from '@/components/reusable/SelectInput';
+import { mutateForSelect } from '@/utils/templates/mutateForSelect';
 
 // components
-import SelectInput from '@/components/inputs/SelectInput';
+// import SelectInput from '@/components/inputs/SelectInput';
 
-const Product = ({ name, products, value, languages, classes, setHeader }) => {
-	let names = products?.settings.map((setting) => ({
-		_id: setting._id,
-		...nameArray(setting.parameter.inputValue),
-	}));
+const Product = ({
+	products,
+	defaultValue = null,
+	languages,
+	classes,
+	setHeader,
+}) => {
+	let { settings } = products;
+	let mutSettings = mutateForSelect(settings);
 
 	useEffect(() => {
 		if (setHeader) {
 			setHeader((prev) => ({
 				...prev,
-				product: names[0]._id,
+				product: mutSettings[0]._id,
 			}));
 		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-
+	// console.log(settings, 'setting');
 	return (
 		<fieldset name='product-list'>
 			<h6>Product</h6>
 			<SelectInput
-				name={name}
-				options={names}
-				defaultValue={value}
-				onChange={(e) =>
-					setHeader
-						? setHeader((prev) => ({
-								...prev,
-								product: e.target.value,
-						  }))
-						: null
-				}
 				defaultLanguage={languages[0].language}
-				classes={classes}
+				data={{
+					state: mutSettings,
+					selectName: 'product',
+					defaultValue: !defaultValue ? mutSettings[0]._id : defaultValue,
+					classes: 'flex flex-col items-start bg-white px-[2px] w-full',
+				}}
+				// extractData={handleSelection}
+				// resetComponentData={resetComponentData}
+				// setResetComponentData={setResetComponentData}
 			/>
 		</fieldset>
 	);

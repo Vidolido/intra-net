@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache';
 // connection/moddels/database functions
 import dbConnect from '@/db/conn';
 import Setting from '@/db/models/Setting';
+import { serializeMongoDocuments } from '@/utils/helpers/serializeMongoDocuments';
 
 // I NEED TO HANDLE ERRORS HERE
 export async function getTemplateSettings() {
@@ -12,10 +13,13 @@ export async function getTemplateSettings() {
 		let templateSettings = await Setting.find({
 			documentStatus: 'published',
 			isDeleted: false,
-		}).lean();
+		})
+			.lean()
+			.exec();
+
+		templateSettings = templateSettings.map(serializeMongoDocuments);
 
 		return {
-			// templateSettings: JSON.parse(JSON.stringify(templateSettings)),
 			templateSettings,
 		};
 	} catch (error) {

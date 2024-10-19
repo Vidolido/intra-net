@@ -89,7 +89,7 @@ const EditRow = ({
 				parameter: setting?.parameter,
 				collections: setting?.collections,
 			});
-			// setResetLanguage(true);
+			setResetLanguage(true);
 			setResetComponentData(true);
 		}
 	};

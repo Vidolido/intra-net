@@ -13,7 +13,7 @@ import {
 	getLanguages,
 	getSettings,
 } from '@/app/dashboard/apiCalls';
-import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
+import { mutateTemplateSettings } from '@/utils/settings/mutateTempalteSettings';
 import { findSettingType } from '@/utils/findSettingType';
 import { mutateFields } from '@/utils/documents/mutateFields';
 import { nameArray } from '@/utils/nameArray';

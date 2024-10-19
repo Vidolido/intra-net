@@ -1,30 +1,50 @@
 import { useEffect, useState } from 'react';
 
 // helper
-const initializeSelectState = (defaultLanguage, data) =>
-	data.state.map(({ _id, name }) => ({
-		...(_id && { _id }),
+// const initializeSelectState = (defaultLanguage, data) =>
+// 	data.state.map(({ _id, name }) => ({
+// 		...(_id && { _id }),
+// 		value: name[defaultLanguage],
+// 	}));
+
+const initializeSelectState = (
+	defaultLanguage,
+	data,
+	showEmptyOption = null
+) => {
+	const stateArray = data.state.map(({ _id, name }) => ({
+		_id,
 		value: name[defaultLanguage],
 	}));
+
+	if (showEmptyOption) {
+		stateArray.unshift({
+			_id: '',
+			value: '--',
+		});
+	}
+
+	return stateArray;
+};
 
 const SelectInput = ({
 	defaultLanguage,
 	data,
 	extractData = null,
-	showEmptyOption,
 	resetComponentData,
 	setResetComponentData,
 }) => {
 	const [state, setState] = useState(() =>
-		initializeSelectState(defaultLanguage, data)
+		initializeSelectState(defaultLanguage, data, data?.showEmptyOption)
 	);
 
 	const [selected, setSelected] = useState(data?.defaultValue || state[0]._id);
 
-	useEffect(() => {
-		const newState = initializeSelectState(defaultLanguage, data);
-		setState(newState);
-	}, [data, defaultLanguage]);
+	// НЕ ГО БРИШИ ОВА ДА ВИДИМЕ КАДЕ ЌЕ ФАЛИ
+	// useEffect(() => {
+	// 	const newState = initializeSelectState(defaultLanguage, data);
+	// 	setState(newState);
+	// }, [data, defaultLanguage]);
 
 	useEffect(() => {
 		if (resetComponentData) {
@@ -47,7 +67,6 @@ const SelectInput = ({
 				className={`box-content border border-grey-50 border-opacity-60 rounded hover:border-red-200 focus:outline-none cursor-pointer ${data?.classes}`}
 				onChange={onSelectChange}
 				value={selected}>
-				{showEmptyOption && <option value=''>--</option>}
 				{state?.map((option, index) => (
 					<option
 						key={option.id || option._id || index}

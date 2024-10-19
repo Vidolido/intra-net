@@ -1,20 +1,13 @@
 // state/actions
 import { getLaboratoryTemplates } from '../apiCalls';
 import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemplateSettings';
-import { nameArray } from '@/utils/nameArray';
+import { mutateTemplateSettings } from '@/utils/settings/mutateTempalteSettings';
 
 // components
 import Templates from '@/components/Templates';
-import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
-
-// const mutSettings = (setting) =>
-// 	setting.settings?.map((s) => ({
-// 		id: s._id,
-// 		...nameArray(s.parameter.inputValue),
-// 	}));
 
 const page = async () => {
 	const { templates: published } = await getLaboratoryTemplates({
@@ -31,26 +24,13 @@ const page = async () => {
 		templateSettings
 	);
 
-	// console.log(products, 'templateSettings');
-
-	// let settings = {
-	// 	products: mutSettings(products),
-	// 	types: mutSettings(types),
-	// 	countries: mutSettings(countries),
-	// };
-	let settings = {
+	let data = {
 		products,
 		types,
 		countries,
 	};
 	return (
-		<>
-			<Templates
-				published={published}
-				drafts={draftTemplates}
-				settings={settings}
-			/>
-		</>
+		<Templates published={published} drafts={draftTemplates} data={data} />
 	);
 };
 

@@ -1,6 +1,6 @@
 // state/actions
 import { nameArray } from '@/utils/nameArray';
-import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
+import { mutateTemplateSettings } from '@/utils/settings/mutateTempalteSettings';
 
 // components
 import DisplayDocument from '../DisplayDocument2';

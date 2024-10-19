@@ -1,5 +1,5 @@
 // state/actions
-import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
+import { mutateTemplateSettings } from '@/utils/settings/mutateTempalteSettings';
 import { nameArray } from '@/utils/nameArray';
 
 // components

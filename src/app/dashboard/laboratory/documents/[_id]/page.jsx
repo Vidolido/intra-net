@@ -3,7 +3,7 @@ import { SingleDocumentContextProvider } from '@/state/laboratory/documents/sing
 import { getLaboratorySettings, getLanguages } from '@/app/dashboard/apiCalls';
 import { getCustomers, getDocumentById } from '../../apiCalls';
 import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemplateSettings';
-import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
+import { mutateTemplateSettings } from '@/utils/settings/mutateTempalteSettings';
 import { findSettingType } from '@/utils/findSettingType';
 
 // components
@@ -15,48 +15,48 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 const page = async ({ params }) => {
-  let { _id } = params;
-  const { languages } = await getLanguages();
-  const { templateSettings } = await getTemplateSettings();
+	let { _id } = params;
+	const { languages } = await getLanguages();
+	const { templateSettings } = await getTemplateSettings();
 
-  const { customers } = await getCustomers();
+	const { customers } = await getCustomers();
 
-  const { document } = await getDocumentById(_id);
+	const { document } = await getDocumentById(_id);
 
-  const { setting } = await getLaboratorySettings();
-  const { settings: laboratorySettings } = setting || [];
+	const { setting } = await getLaboratorySettings();
+	const { settings: laboratorySettings } = setting || [];
 
-  const { products, types, fields, countries } =
-    mutateTemplateSettings(templateSettings);
+	const { products, types, fields, countries } =
+		mutateTemplateSettings(templateSettings);
 
-  let productAliases = products.settings.map((setting) => ({
-    _id: setting._id,
-    aliases: setting.collections.find(
-      (collection) => collection.name.en === 'Aliases'
-    ).items,
-  }));
+	let productAliases = products.settings.map((setting) => ({
+		_id: setting._id,
+		aliases: setting.collections.find(
+			(collection) => collection.name.en === 'Aliases'
+		).items,
+	}));
 
-  let documentTypes = findSettingType(types.settings, ['document']);
+	let documentTypes = findSettingType(types.settings, ['document']);
 
-  return (
-    <SingleDocumentContextProvider>
-      <SingleDocument
-        customers={customers}
-        document={document}
-        documentTypes={documentTypes}
-        products={products}
-        productAliases={productAliases}
-        fields={fields}
-        laboratorySettings={laboratorySettings}
-        languages={languages}
-      />
-      <SideBar
-        document={document}
-        laboratorySettings={laboratorySettings}
-        languages={languages}
-      />
-    </SingleDocumentContextProvider>
-  );
+	return (
+		<SingleDocumentContextProvider>
+			<SingleDocument
+				customers={customers}
+				document={document}
+				documentTypes={documentTypes}
+				products={products}
+				productAliases={productAliases}
+				fields={fields}
+				laboratorySettings={laboratorySettings}
+				languages={languages}
+			/>
+			<SideBar
+				document={document}
+				laboratorySettings={laboratorySettings}
+				languages={languages}
+			/>
+		</SingleDocumentContextProvider>
+	);
 };
 
 export default page;

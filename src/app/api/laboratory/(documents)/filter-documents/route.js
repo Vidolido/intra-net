@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 // connection/models/db functions
 import dbConnect from '@/db/conn';
 import Setting from '../../../../../../oldFiles/SettingOld';
-import { mutateTemplateSettings } from '@/utils/mutateTempalteSettings';
+import { mutateTemplateSettings } from '@/utils/settings/mutateTempalteSettings';
 
 export async function filterDocuments() {
 	try {

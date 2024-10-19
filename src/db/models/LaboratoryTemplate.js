@@ -40,24 +40,29 @@ const templateSchema = new Schema(
 	{ strict: true, _id: true }
 );
 
-const laboratoryTemplatesSchema = new Schema({
-	product: String,
-	sampleType: String,
-	origin: String,
-	documentType: String,
-	template: {
-		type: [templateSchema],
-		default: undefined,
+const laboratoryTemplatesSchema = new Schema(
+	{
+		header: {
+			product: String,
+			sampleType: String,
+			origin: String,
+			documentType: String,
+		},
+		template: {
+			type: [templateSchema],
+			default: undefined,
+		},
+		documentStatus: {
+			type: String,
+			default: 'draft',
+		},
+		isDeleted: {
+			type: Boolean,
+			default: false,
+		},
 	},
-	documentStatus: {
-		type: String,
-		default: 'draft',
-	},
-	isDeleted: {
-		type: Boolean,
-		default: false,
-	},
-});
+	{ _id: true, strict: true }
+);
 
 const LaboratoryTemplate =
 	mongoose.models.LaboratoryTemplate ||

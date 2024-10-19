@@ -2,32 +2,31 @@
 import { useEffect } from 'react';
 
 // state/actions
-import { nameArray } from '@/utils/nameArray';
+import { mutateForSelect } from '@/utils/templates/mutateForSelect';
+import SelectInput from '@/components/reusable/SelectInput';
+// import { nameArray } from '@/utils/nameArray';
 
 // components
-import SelectInput from '@/components/inputs/SelectInput';
+// import SelectInput from '@/components/inputs/SelectInput';
 
 const Origin = ({
 	name,
 	countries,
+	defaultValue = null,
 	languages,
-	none,
+	showEmptyOption,
 	value,
 	setHeader,
 	classes,
 }) => {
-	let names = countries?.settings.map((setting) => ({
-		_id: setting._id,
-		...nameArray(setting.parameter.inputValue),
-	}));
-
-	// console.log(countries, 'countries');
+	let { settings } = countries;
+	let mutSettings = mutateForSelect(settings);
 
 	useEffect(() => {
 		if (setHeader) {
 			setHeader((prev) => ({
 				...prev,
-				origin: names[0]._id,
+				origin: mutSettings[0]._id,
 			}));
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -37,21 +36,17 @@ const Origin = ({
 		<fieldset name='countries-of-origin'>
 			<h6>Origin</h6>
 			<SelectInput
-				name={name}
-				options={names}
-				value='_id'
-				none={none}
-				defaultValue={value}
-				onChange={(e) =>
-					setHeader
-						? setHeader((prev) => ({
-								...prev,
-								origin: e.target.value,
-						  }))
-						: null
-				}
-				defaultLanguage={languages[0]?.language}
-				classes={classes}
+				defaultLanguage={languages[0].language}
+				data={{
+					state: mutSettings,
+					showEmptyOption,
+					selectName: 'origin',
+					defaultValue: defaultValue && defaultValue,
+					classes: 'flex flex-col items-start bg-white px-[2px] w-full',
+				}}
+				// extractData={handleSelection}
+				// resetComponentData={resetComponentData}
+				// setResetComponentData={setResetComponentData}
 			/>
 		</fieldset>
 	);
