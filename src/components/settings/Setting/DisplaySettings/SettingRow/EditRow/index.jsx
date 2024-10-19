@@ -158,7 +158,9 @@ const EditRow = ({
 						setResetComponentData={setResetComponentData}
 						buttonLabel='Add'
 					/>
-					{error.collectionInput && <ErrorMsg msg={error.collectionInput} />}
+					{actionStatus?.error?.collectionInput && (
+						<ErrorMsg msg={actionStatus?.error?.collectionInput} />
+					)}
 					<div className='border border-slate-300 rounded p-1'>
 						<h5>Items</h5>
 						<DisplayCollections

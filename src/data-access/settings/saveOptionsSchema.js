@@ -7,7 +7,7 @@ import dbConnect from '@/db/conn';
 import Setting from '@/db/models/Setting';
 
 export async function saveOptionSchema(state, documentId) {
-	console.log(state, 'the state');
+	// console.log(state, 'the state');
 	try {
 		cookies();
 
