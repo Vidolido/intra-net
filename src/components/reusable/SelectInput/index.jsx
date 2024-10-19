@@ -12,6 +12,8 @@ const SelectInput = ({
 	data,
 	extractData = null,
 	showEmptyOption,
+	resetComponentData,
+	setResetComponentData,
 }) => {
 	const [state, setState] = useState(() =>
 		initializeSelectState(defaultLanguage, data)
@@ -23,6 +25,13 @@ const SelectInput = ({
 		const newState = initializeSelectState(defaultLanguage, data);
 		setState(newState);
 	}, [data, defaultLanguage]);
+
+	useEffect(() => {
+		if (resetComponentData) {
+			setSelected(state[0]._id);
+			setResetComponentData(false);
+		}
+	}, [resetComponentData, setResetComponentData, state]);
 
 	const onSelectChange = (e) => {
 		const { value } = e.target;

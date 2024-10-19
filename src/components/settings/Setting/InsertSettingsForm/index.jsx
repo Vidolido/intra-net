@@ -9,10 +9,10 @@ import { isObjectEmpty } from '@/utils/helpers/isObjectEmpty';
 import RadioButtons from './RadioButtons';
 import CollectionInput from './CollectionInput';
 import DisplayCollections from './DisplayCollections';
-// import SelectInput from '@/components/inputs/SelectInput';
 import ContextButton from '@/components/buttons/ContextButton';
 import LanguageInput from '@/components/reusable/LanguageInput';
 import SelectInput from '@/components/reusable/SelectInput';
+import ErrorMsg from '@/components/reusable/ErrorMsg';
 
 const InsertSettingsForm = ({ setting, languages }) => {
 	let parameter =
@@ -31,47 +31,24 @@ const InsertSettingsForm = ({ setting, languages }) => {
 	};
 
 	const [state, setState] = useState(initialState);
+	const [selectedCollection, setSelectedCollection] = useState(
+		!collections[0] ? '' : collections[0]._id
+	);
 	const [actionStatus, setActionStatus] = useState({
 		error: null,
 		success: null,
 	});
-	const [error, setError] = useState({});
-
-	// const [selectedCollection, setSelectedCollection] = useState(
-	// 	!collections[0] ? '' : collections[0]._id
-	// );
-	const [selectedCollection, setSelectedCollection] = useState(
-		!collections[0] ? '' : collections[0]._id
-	);
 	const [inputType, setInputType] = useState('simple');
+	const [resetLanguage, setResetLanguage] = useState(false);
+	const [resetComponentData, setResetComponentData] = useState(false);
 
 	const handleMainParam = (data) => {
 		setState((prev) => ({ ...prev, parameter: data }));
 	};
 
-	// const hanldeMainParameterChange = (e) => {
-	// 	let lang = e.target.name.split('-');
-	// 	lang = lang[lang.length - 1];
-
-	// 	setState((prev) => ({
-	// 		...prev,
-	// 		parameter: {
-	// 			[lang]: e.target.value,
-	// 		},
-	// 	}));
-	// setState((prev) => ({
-	//   ...prev,
-	//   parameter: {
-	//     ...prev.parameter,
-	//     inputValue: {
-	//       ...prev?.parameter?.inputValue,
-	//       [lang]: e.target.value,
-	//     },
-	//   },
-	// }));
-	// };
 	const handleChangeInputType = (e) => {
 		setInputType(e.target.value);
+		setResetComponentData(true);
 	};
 
 	const handleSelection = (data) => {
@@ -103,6 +80,10 @@ const InsertSettingsForm = ({ setting, languages }) => {
 			});
 			setInputType('simple');
 			setState(initialState);
+			// setResetLanguage((prev) => !prev);
+			setResetLanguage(true);
+			// setResetComponentData((prev) => !prev);
+			setResetComponentData(true);
 		}
 	};
 	return (
@@ -110,22 +91,22 @@ const InsertSettingsForm = ({ setting, languages }) => {
 			<LanguageInput
 				languages={languages}
 				data={{
-					state: state.parameter,
+					defaultLanguage: languages[0].language,
+					state: state?.parameter,
 					label: parameter,
 					labelClass: 'block',
 					inputName: 'main-parameter',
 					name: 'main-parameter',
 				}}
 				extractData={handleMainParam}
+				resetLanguage={resetLanguage}
+				setResetLanguage={setResetLanguage}
 			/>
 
-			<span
-				className={`bg-red-100 text-red-700 ${
-					actionStatus?.error?.mainParameter ? 'visible' : 'hidden'
-				}`}
-				role='alert'>
-				{actionStatus?.error?.mainParameter}
-			</span>
+			{actionStatus?.error?.mainParameter && (
+				<ErrorMsg msg={actionStatus?.error?.mainParameter} />
+			)}
+
 			<div className='flex gap-2'>
 				<fieldset className='flex flex-col min-w-[200px]'>
 					<label>Collection</label>
@@ -137,6 +118,8 @@ const InsertSettingsForm = ({ setting, languages }) => {
 							classes: 'flex flex-col items-start bg-white px-[2px] w-full',
 						}}
 						extractData={handleSelection}
+						resetComponentData={resetComponentData}
+						setResetComponentData={setResetComponentData}
 					/>
 				</fieldset>
 				<fieldset className='flex flex-col'>
@@ -160,14 +143,15 @@ const InsertSettingsForm = ({ setting, languages }) => {
 				setState={setState}
 				actionStatus={actionStatus}
 				setActionStatus={setActionStatus}
+				resetComponentData={resetComponentData}
+				setResetComponentData={setResetComponentData}
+				buttonLabel='Add to collection'
 			/>
-			<span
-				className={`bg-red-100 text-red-700 ${
-					actionStatus?.error?.collectionInput ? 'visible' : 'hidden'
-				}`}
-				role='alert'>
-				{actionStatus?.error?.collectionInput}
-			</span>
+
+			{actionStatus?.error?.collectionInput && (
+				<ErrorMsg msg={actionStatus?.error?.collectionInput} />
+			)}
+
 			<div className='border border-slate-300 rounded p-1'>
 				<h5>Items</h5>
 				<DisplayCollections

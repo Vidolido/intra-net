@@ -6,7 +6,13 @@ import { generateUUID } from '@/utils/generateUUID';
 import ContextButton from '@/components/buttons/ContextButton';
 import LanguageInput from '@/components/reusable/LanguageInput';
 
-const Collections = ({ languages, setState, collections }) => {
+const Collections = ({
+	languages,
+	setState,
+	collections,
+	resetLanguage,
+	setResetLanguage,
+}) => {
 	const handleCollectionData = (data, dataObj) => {
 		let newCollections = [...collections];
 		newCollections.find((coll) => coll.id === dataObj?.id).name = data;
@@ -33,10 +39,13 @@ const Collections = ({ languages, setState, collections }) => {
 						<LanguageInput
 							languages={languages}
 							data={{
+								defaultLanguage: languages[0].language,
 								id: collection?._id || collection.id,
 								state: collection?.name,
 							}}
 							extractData={handleCollectionData}
+							resetLanguage={resetLanguage}
+							setResetLanguage={setResetLanguage}
 						/>
 						<ContextButton
 							label='Remove'

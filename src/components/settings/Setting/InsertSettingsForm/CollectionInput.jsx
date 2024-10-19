@@ -6,22 +6,69 @@ import { generateUUID } from '@/utils/generateUUID';
 
 // components
 import ContextButton from '@/components/buttons/ContextButton';
-import InputType from '@/components/inputs/InputType';
-import LanguageInputContainer from '@/components/inputs/LanguageInputContainer';
+import NormalInput from '@/components/reusable/NormalInput';
+import LanguageInput from '@/components/reusable/LanguageInput';
 
-let types = (languages, value, onChange) => ({
-	simple: <InputType type='text' name='simple' onChange={onChange} />,
-	translations: (
-		<LanguageInputContainer
-			languages={languages}
-			defaultLanguage={languages[0]}
-			onChange={onChange}
+let types = (
+	languages,
+	value,
+	onChange,
+	resetComponentData,
+	setResetComponentData
+) => ({
+	simple: (
+		<NormalInput
+			data={{
+				state: value,
+				name: 'simple',
+				fieldsetClass: 'flex flex-col grow bg-white px-[2px]',
+				inputClass: 'h-21px',
+			}}
+			extractData={onChange}
+			// resetComponentData={resetComponentData}
+			// setResetComponentData={setResetComponentData}
 		/>
+	),
+	translations: (
+		<>
+			<LanguageInput
+				languages={languages}
+				data={{
+					defaultLanguage: languages[0].language,
+					state: value,
+					labelClass: 'block',
+					inputName: 'translations',
+				}}
+				extractData={onChange}
+				resetLanguage={resetComponentData}
+				setResetLanguage={setResetComponentData}
+			/>
+		</>
 	),
 	'key/value': (
 		<>
-			<InputType type='text' name='key' onChange={onChange} />
-			<InputType type='text' name='value' onChange={onChange} />
+			<NormalInput
+				data={{
+					state: value,
+					name: 'key',
+					fieldsetClass: 'flex flex-col grow bg-white px-[2px]',
+					inputClass: 'h-21px',
+				}}
+				extractData={onChange}
+				resetComponentData={resetComponentData}
+				setResetComponentData={setResetComponentData}
+			/>
+			<NormalInput
+				data={{
+					state: value,
+					name: 'value',
+					fieldsetClass: 'flex flex-col grow bg-white px-[2px]',
+					inputClass: 'h-21px',
+				}}
+				extractData={onChange}
+				resetComponentData={resetComponentData}
+				setResetComponentData={setResetComponentData}
+			/>
 		</>
 	),
 });
@@ -33,6 +80,10 @@ const CollectionInput = ({
 	state,
 	setState,
 	setActionStatus,
+	resetComponentData,
+	setResetComponentData,
+
+	buttonLabel,
 }) => {
 	const [input, setInput] = useState(null);
 
@@ -61,28 +112,19 @@ const CollectionInput = ({
 			collectionToInsert.push(payload);
 
 			setState((prev) => ({ ...prev, collections }));
-
-			let inputItems = e.target.form.elements
-				.namedItem('collection-input')
-				.querySelectorAll('input');
-
+			setResetComponentData(true);
 			setInput(null);
-			Array.from(inputItems).map((item) => (item.value = ''));
 		}
 	};
-	// console.log(state, 'voa e stejto');
 
-	const handleChange = (e) => {
-		let name = e.target.name;
-		let value = e.target.value;
-		if (inputType === 'simple') {
+	const handleChange = (data, dataObj) => {
+		let name = dataObj?.name;
+		let value = data;
+		if (inputType === dataObj?.name) {
 			setInput(value);
 		}
-		if (inputType === 'translations') {
-			setInput((prev) => ({
-				...prev,
-				[name]: value,
-			}));
+		if (inputType === dataObj?.name) {
+			setInput(value);
 		}
 		if (inputType === 'key/value') {
 			setInput((prevState) => ({
@@ -91,14 +133,19 @@ const CollectionInput = ({
 			}));
 		}
 	};
+
 	return (
 		<fieldset className='flex items-start gap-2' name='collection-input'>
-			{types(languages, null, handleChange)[inputType]}
-			<ContextButton
-				label='Add to collection'
-				type='edit'
-				onClick={handleAdd}
-			/>
+			{
+				types(
+					languages,
+					input,
+					handleChange,
+					resetComponentData,
+					setResetComponentData
+				)[inputType]
+			}
+			<ContextButton label={buttonLabel} type='edit' onClick={handleAdd} />
 		</fieldset>
 	);
 };

@@ -6,7 +6,13 @@ import ContextButton from '@/components/buttons/ContextButton';
 import LanguageInput from '@/components/reusable/LanguageInput';
 import { generateUUID } from '@/utils/generateUUID';
 
-const AddCollections = ({ languages, setState, setActionStatus }) => {
+const AddCollections = ({
+	languages,
+	setState,
+	setActionStatus,
+	resetLanguage,
+	setResetLanguage,
+}) => {
 	const [collectionData, setCollectionData] = useState({});
 
 	const handleAdd = () => {
@@ -33,10 +39,11 @@ const AddCollections = ({ languages, setState, setActionStatus }) => {
 				error: null,
 			});
 			setCollectionData({});
+			setResetLanguage((prev) => !prev);
 		}
 	};
 	const handleCollectionData = (data) => {
-		console.log(data, 'the data');
+		// console.log(data, 'the data');
 		setCollectionData(data);
 	};
 	return (
@@ -46,8 +53,13 @@ const AddCollections = ({ languages, setState, setActionStatus }) => {
 				className='flex items-end gap-2 ml-1 mb-1'>
 				<LanguageInput
 					languages={languages}
-					data={{ state: collectionData }}
+					data={{
+						defaultLanguage: languages[0].language,
+						state: collectionData,
+					}}
 					extractData={handleCollectionData}
+					resetLanguage={resetLanguage}
+					setResetLanguage={setResetLanguage}
 				/>
 
 				<ContextButton label='Add' type='edit' onClick={handleAdd} />

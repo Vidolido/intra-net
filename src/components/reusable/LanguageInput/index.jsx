@@ -16,7 +16,13 @@ const initializeState = (languages, data) => {
 	}, {});
 };
 
-const LanguageInput = ({ languages, data = null, extractData }) => {
+const LanguageInput = ({
+	languages,
+	data = null,
+	extractData,
+	resetLanguage,
+	setResetLanguage,
+}) => {
 	const [state, setState] = useState(() =>
 		initializeState(languages, data.state)
 	);
@@ -24,6 +30,10 @@ const LanguageInput = ({ languages, data = null, extractData }) => {
 		languages[0].language
 	);
 
+	let areCollectionsEmpty =
+		data?.state &&
+		Object.values(data?.state).every((coll) => coll.length === 0);
+	// console.log(data.defaultLanguage, 'oOVOJ LANG');
 	useEffect(() => {
 		const newState = initializeState(languages, data.state);
 		if (!deepEqual(state, newState)) {
@@ -32,9 +42,32 @@ const LanguageInput = ({ languages, data = null, extractData }) => {
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [data.state]);
+	useEffect(() => {
+		if (resetLanguage) {
+			setSelectedLanguage(data.defaultLanguage);
+			let newState = areCollectionsEmpty
+				? languages.reduce((acc, currentValue) => {
+						acc[currentValue.language] = '';
+						return acc;
+				  }, {})
+				: initializeState(languages, data?.state);
+			setState(newState);
+			setResetLanguage(false);
+		}
+	}, [
+		resetLanguage,
+		data.defaultLanguage,
+		languages,
+		data.state,
+		setResetLanguage,
+		areCollectionsEmpty,
+	]);
 
-	const onBlurInput = (e) =>
+	const onBlurInput = (e) => {
+		e.preventDefault();
+
 		extractData(state, { id: e?.target?.id, name: e?.target?.name });
+	};
 
 	const onInputChange = (e) => {
 		setState((prev) => ({

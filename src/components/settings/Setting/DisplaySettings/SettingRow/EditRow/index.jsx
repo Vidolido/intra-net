@@ -1,15 +1,21 @@
 'use client';
 import { useEffect, useState } from 'react';
 
+// state/actions
+import { editSetting } from '@/data-access/settings/editSetting';
+
+// components
 // import InputType from '@/components/inputs/InputType';
-import LanguageInputContainer from '@/components/inputs/LanguageInputContainer';
-import SelectInput from '@/components/inputs/SelectInput';
+// import LanguageInputContainer from '@/components/inputs/LanguageInputContainer';
+// import SelectInput from '@/components/inputs/SelectInput';
 import RadioButtons from '../../../InsertSettingsForm/RadioButtons';
 import CollectionInput from '../../../InsertSettingsForm/CollectionInput';
 import DisplayCollections from '../../../InsertSettingsForm/DisplayCollections';
 import ContextButton from '@/components/buttons/ContextButton';
-import { editSetting } from '@/data-access/settings/editSetting';
 import LanguageInput from '@/components/reusable/LanguageInput';
+import SelectInput from '@/components/reusable/SelectInput';
+import { isObjectEmpty } from '@/utils/helpers/isObjectEmpty';
+import ErrorMsg from '@/components/reusable/ErrorMsg';
 
 const EditRow = ({
 	languages,
@@ -21,89 +27,126 @@ const EditRow = ({
 }) => {
 	// const parameter = setting.parameter;
 	// const collections = setting.collections;
+	const parameter =
+		optionsSchema?.parameter?.name?.singular[languages[0].language];
+	const collections = optionsSchema?.collections;
 	const defaultLanguage = languages[0];
-
-	const [test, setTest] = useState(null);
 
 	const [state, setState] = useState({
 		parameter: setting?.parameter,
 		collections: setting?.collections,
 	});
-	const [error, setError] = useState({});
 
 	const [selectedCollection, setSelectedCollection] = useState(
 		Object.keys(state.collections)[0]
 	);
-	const [inputType, setInputType] = useState('simple');
 
-	const handleChangeInputType = (e) => {
-		setInputType(e.target.value);
+	const [actionStatus, setActionStatus] = useState({
+		error: null,
+		success: null,
+	});
+
+	const [inputType, setInputType] = useState('simple');
+	const [resetLanguage, setResetLanguage] = useState(false);
+	const [resetComponentData, setResetComponentData] = useState(false);
+
+	const handleMainParam = (data) => {
+		setState((prev) => ({ ...prev, parameter: data }));
 	};
 
-	const handleSelection = (e) => {
-		setSelectedCollection(e.target.value);
+	// const handleChangeInputType = (e) => {
+	// 	setInputType(e.target.value);
+	// };
+	const handleChangeInputType = (e) => {
+		setInputType(e.target.value);
+		setResetComponentData(true);
+	};
+
+	const handleSelection = (data) => {
+		setSelectedCollection(data);
 	};
 
 	const handleSubmit = async () => {
-		await editSetting(documentId, setting._id, state);
+		// await editSetting(documentId, setting._id, state);
+		let areCollectionsEmpty = Object.values(state.collections).every(
+			(coll) => coll.length === 0
+		);
+
+		let isEmpty = isObjectEmpty(state.parameter);
+
+		if (isEmpty) {
+			setActionStatus({
+				error: { mainParameter: "This field can't be empty." },
+				success: null,
+			});
+		} else if (areCollectionsEmpty) {
+			setActionStatus({
+				error: { collectionInput: 'Enter a value' },
+				success: null,
+			});
+		} else {
+			const { error, success } = await editSetting(
+				documentId,
+				setting._id,
+				state
+			);
+			setActionStatus({
+				error: error || null,
+				success: success || null,
+			});
+			setInputType('simple');
+			setState({
+				parameter: setting?.parameter,
+				collections: setting?.collections,
+			});
+			// setResetLanguage((prev) => !prev);
+			setResetLanguage(true);
+			// setResetComponentData((prev) => !prev);
+			setResetComponentData(true);
+		}
 	};
 
-	const handleTest = async (data) => {
-		console.log(data, 'the data in handleTest');
-	};
-	// const handleExtract = (data) => {
-	// 	setState((prev) => ({
-	// 		...prev,
-	// 		parameter,
-	// 	}));
-	// };
-	console.log(state, 'THE TESTINGAT THE MOMENT');
+	console.log(state, 'state');
+	console.log(setting, 'setting');
 	return (
 		<form
 			className='border border-slate-200 bg-slate-100 rounded p-1 min-h-[200px]'
 			style={{ gridColumn: `span ${optionsSchema.collections.length + 1}` }}>
 			<div className='flex gap-2'>
-				<div className='w-[50%]'>
+				<div>
 					<LanguageInput
 						languages={languages}
-						data={{ state: state?.parameter }}
-						extractData={handleTest}
+						data={{
+							defaultLanguage: languages[0].language,
+							state: setting?.parameter,
+							label: parameter,
+							labelClass: 'block',
+							inputName: 'main-parameter',
+							name: 'main-parameter',
+						}}
+						extractData={handleMainParam}
+						// resetLanguage={resetLanguage}
+						// setResetLanguage={setResetLanguage}
 					/>
-					{/* <LanguageInputContainer
-						fieldSetName='main-parameter-inputs'
-						fieldSetClass='flex flex-col w-full'
-						label={
-							!state?.parameter?.name?.singular[defaultLanguage.language]
-								? 'Parameter name'
-								: state?.parameter?.name?.singular[defaultLanguage.language]
-						}
-						inputClases='w-full'
-						name='parameter-'
-						languages={languages}
-						defaultLanguage={languages[0]}
-						inputs={state?.parameter?.inputValue}
-					/> */}
 				</div>
 				{/* <p>{error.mainParameter}</p> */}
-				<div className='gap-2 w-[50%]'>
+				{actionStatus?.error?.mainParameter && (
+					<ErrorMsg msg={actionStatus?.error?.mainParameter} />
+				)}
+				<div>
 					<fieldset className='flex flex-col min-w-[200px]'>
 						<label>Collection</label>
 
-						{/* <select
-							className={`box-content border-2 border-grey-50 border-opacity-60 rounded hover:border-red-200 focus:outline-none cursor-pointer`}>
-							{optionsSchema.collections.map((collection, index) => (
-								<option key={collection._id} value={collection._id}>
-									{collection.name}
-								</option>
-							))}
-						</select> */}
-
 						<SelectInput
-							name='collection-select'
-							options={optionsSchema.collections}
-							defaultLanguage='en'
-							defaultValue={selectedCollection}
-							onChange={handleSelection}
+							defaultLanguage={languages[0].language}
+							data={{
+								state: collections,
+								defaultValue: selectedCollection,
+								classes: 'flex flex-col items-start bg-white px-[2px] w-full',
+							}}
+							extractData={handleSelection}
+							resetComponentData={resetComponentData}
+							setResetComponentData={setResetComponentData}
 						/>
 					</fieldset>
 					<fieldset className='flex flex-col'>
@@ -124,7 +167,10 @@ const EditRow = ({
 						selectedCollection={selectedCollection}
 						state={state}
 						setState={setState}
-						setError={setError}
+						actionStatus={actionStatus}
+						setActionStatus={setActionStatus}
+						resetComponentData={resetComponentData}
+						setResetComponentData={setResetComponentData}
 						buttonLabel='Add'
 					/>
 					{/* <p>{error.collectionInput}</p> */}
@@ -132,6 +178,7 @@ const EditRow = ({
 						<h5>Items</h5>
 						<DisplayCollections
 							languages={languages}
+							setting={setting}
 							state={state}
 							setState={setState}
 							selectedCollection={selectedCollection}

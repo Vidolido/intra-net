@@ -1,9 +1,17 @@
 'use client';
 
+import ErrorMsg from '@/components/reusable/ErrorMsg';
 // components
 import LanguageInput from '@/components/reusable/LanguageInput';
 
-const MainInput = ({ languages, error, state, setState }) => {
+const MainInput = ({
+	languages,
+	error,
+	state,
+	setState,
+	resetLanguage,
+	setResetLanguage,
+}) => {
 	const handleParameter = (data, dataObj) => {
 		setState((prev) => ({
 			...prev,
@@ -20,44 +28,38 @@ const MainInput = ({ languages, error, state, setState }) => {
 		<fieldset
 			name='option-schema-main'
 			className='border border-slate-300 rounded p-1'>
-			{/* <h5>Main parameter</h5> */}
 			<div className='flex gap-2'>
 				<div>
 					<LanguageInput
 						languages={languages}
 						data={{
+							defaultLanguage: languages[0].language,
 							state: state?.parameter?.name?.singular,
 							inputName: 'singular',
 							label: 'Singular Name',
 						}}
 						extractData={handleParameter}
+						resetLanguage={resetLanguage}
+						setResetLanguage={setResetLanguage}
 					/>
-					<span
-						className={`bg-red-100 text-red-700 ${
-							error?.singular ? 'visible' : 'hidden'
-						}`}
-						role='alert'>
-						{error?.singular}
-					</span>
+					{error?.singular && <ErrorMsg msg={error?.singular} />}
 				</div>
 				<div>
 					<LanguageInput
 						languages={languages}
 						data={{
+							defaultLanguage: languages[0].language,
+
 							state: state?.parameter?.name?.plural,
 							inputName: 'plural',
 							label: 'Plural Name',
 							fieldsetClass: 'flex',
 						}}
 						extractData={handleParameter}
+						resetLanguage={resetLanguage}
+						setResetLanguage={setResetLanguage}
 					/>
-					<span
-						className={`bg-red-100 text-red-700 ${
-							error?.plural ? 'visible' : 'hidden'
-						}`}
-						role='alert'>
-						{error?.plural}
-					</span>
+					{error?.plural && <ErrorMsg msg={error?.plural} />}
 				</div>
 			</div>
 		</fieldset>

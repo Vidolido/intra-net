@@ -5,11 +5,14 @@ import SingleCollectionItem from './SingleCollectionItem';
 
 const DisplayCollections = ({
 	languages,
+	setting = null,
 	state,
 	setState,
 	selectedCollection,
 }) => {
-	let collectionItems = state?.collections[selectedCollection] || null;
+	let collectionItems = setting
+		? setting?.collections[selectedCollection]
+		: state?.collections[selectedCollection];
 
 	return (
 		<fieldset name='collection-items'>

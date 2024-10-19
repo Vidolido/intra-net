@@ -10,6 +10,7 @@ import MainInput from './MainInput';
 import AddCollections from './AddCollections';
 import Collections from './Collections';
 import ContextButton from '@/components/buttons/ContextButton';
+import ErrorMsg from '@/components/reusable/ErrorMsg';
 
 const initState = {
 	parameter: {
@@ -31,6 +32,7 @@ const OptionsSchema = ({ setting, languages }) => {
 	});
 
 	const [visible, setVisible] = useState(setting?.optionsSchema ? false : true);
+	const [resetLanguage, setResetLanguage] = useState(false);
 
 	const submit = async () => {
 		const { error, success } = await saveOptionSchema(
@@ -41,6 +43,7 @@ const OptionsSchema = ({ setting, languages }) => {
 			error: error || null,
 			success: success || null,
 		});
+		setResetLanguage((prev) => !prev);
 	};
 	return (
 		<form className='flex flex-col gap-1 bg-slate-100 border-[1px] border-slate-100 p-1 rounded'>
@@ -69,26 +72,29 @@ const OptionsSchema = ({ setting, languages }) => {
 						error={actionStatus.error}
 						state={state}
 						setState={setState}
+						resetLanguage={resetLanguage}
+						setResetLanguage={setResetLanguage}
 					/>
 
 					<AddCollections
 						languages={languages}
 						setState={setState}
 						setActionStatus={setActionStatus}
+						resetLanguage={resetLanguage}
+						setResetLanguage={setResetLanguage}
 					/>
-					<span
-						className={`bg-red-100 text-red-700 ml-1 ${
-							actionStatus?.error?.collections ? 'visible' : 'hidden'
-						}`}
-						role='alert'>
-						{actionStatus?.error?.collections}
-					</span>
+
+					{actionStatus?.error?.collections && (
+						<ErrorMsg msg={actionStatus?.error?.collections} />
+					)}
 
 					{!!state?.collections.length && (
 						<Collections
 							languages={languages}
 							setState={setState}
 							collections={state.collections}
+							resetLanguage={resetLanguage}
+							setResetLanguage={setResetLanguage}
 						/>
 					)}
 				</>
