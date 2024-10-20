@@ -20,15 +20,17 @@ const page = async () => {
 	});
 	const { templateSettings } = await getTemplateSettings();
 
-	const { products, countries, types } = await mutateTemplateSettings(
-		templateSettings
-	);
+	const { products, countries, types, laboratoryTemplates } =
+		await mutateTemplateSettings(templateSettings);
 
 	let data = {
 		products,
 		types,
 		countries,
+		schemaNames: laboratoryTemplates?.optionsSchema,
 	};
+
+	// console.log(laboratoryTemplates?.optionsSchema, 'laboratoryTemplates');
 	return (
 		<Templates published={published} drafts={draftTemplates} data={data} />
 	);

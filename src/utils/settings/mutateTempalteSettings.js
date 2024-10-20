@@ -29,6 +29,13 @@ export const mutateTemplateSettings = (templateSettings) => {
 				};
 				break;
 			}
+			case 'Laboratory Templates': {
+				acc = {
+					...acc,
+					laboratoryTemplates: currentValue,
+				};
+				break;
+			}
 
 			default: {
 				return acc;

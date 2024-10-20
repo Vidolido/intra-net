@@ -54,15 +54,16 @@ const SelectInput = ({
 	}, [resetComponentData, setResetComponentData, state]);
 
 	const onSelectChange = (e) => {
-		const { value } = e.target;
+		const { value, id, name } = e.target;
 		setSelected(value);
 		// extractData !== null && extractData(state);
-		extractData !== null && extractData(value);
+		extractData !== null && extractData(value, { id, name });
 	};
 	return (
 		<fieldset className={data?.classes}>
 			<label>{data?.label}</label>
 			<select
+				id={data?.id}
 				name={data?.selectName}
 				className={`box-content border border-grey-50 border-opacity-60 rounded hover:border-red-200 focus:outline-none cursor-pointer ${data?.classes}`}
 				onChange={onSelectChange}

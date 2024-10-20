@@ -1,12 +1,12 @@
-import { getDisplayHeadings } from '@/utils/getDisplayHeadings';
+import { getRowHeaders } from '@/utils/helpers/rowHeaders';
 
-const Headers = ({ settings, defaultLanguage }) => {
-	let headings =
-		(settings && getDisplayHeadings(settings[0], 'plural')) || null;
+const Headers = ({ setting, defaultLanguage }) => {
+	let headings = getRowHeaders(setting.optionsSchema, 'plural') || null;
+
 	return (
 		<div id='headings' className='grid grid-cols-7 gap-4 p-2'>
-			{headings && headings.main && (
-				<h6>{headings?.main[defaultLanguage.language]}</h6>
+			{headings && headings.parameter && (
+				<h6>{headings?.parameter[defaultLanguage.language]}</h6>
 			)}
 			{headings &&
 				headings?.collections &&

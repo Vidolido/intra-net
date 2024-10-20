@@ -2,25 +2,28 @@ import { Fragment } from 'react';
 
 // state/actions
 import { generateUUID } from '@/utils/generateUUID';
-import { getDisplayHeadings } from '@/utils/getDisplayHeadings';
+// import { getDisplayHeadings } from '@/utils/getDisplayHeadings';
+import { getRowHeaders } from '@/utils/helpers/rowHeaders';
 import { groupParameters } from '@/utils/templates/groupParameters';
 
 // components
 import TemplateRow from './TemplateRow';
 
-const TemplateItems = ({ template, settings, defaultLanguage }) => {
-	let headings =
-		(settings && getDisplayHeadings(settings[0], 'plural')) || null;
+const TemplateItems = ({ template, setting, defaultLanguage }) => {
+	const { optionsSchema, settings } = setting;
+
+	let headings = getRowHeaders(optionsSchema, 'plural') || null;
 
 	let mutTemplate = groupParameters(template.template) || [];
-	// console.log(mutTemplate, 'MUT TEMPLATE');
+	console.log(mutTemplate, 'mutTemplate');
+	// console.log(defaultLanguage, 'MUT defaultLanguage');
 	return (
 		<div className='border w-3/4'>
 			<div className='grid grid-cols-[25px_25%_1fr_1fr_1fr_1fr_1fr_25px] border border-slate-400 bg-slate-100'>
 				<div className='border-r border-slate-400'></div>
-				{headings && headings.main && (
+				{headings && headings?.parameter && (
 					<h6 className='text-left border-r border-slate-400 pl-2'>
-						{headings?.main[defaultLanguage.language]}
+						{headings?.parameter[defaultLanguage.language]}
 					</h6>
 				)}
 				{headings &&

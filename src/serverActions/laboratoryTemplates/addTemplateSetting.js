@@ -15,7 +15,7 @@ export async function addTemplateSetting({
 }) {
 	let payload = {
 		parameter: property,
-		items: mutCollections,
+		collections: mutCollections,
 		result: additional.result,
 		grouped: !group ? {} : { isGrouped: true, group },
 

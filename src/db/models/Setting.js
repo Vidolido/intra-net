@@ -56,9 +56,6 @@ const settingsCollectionSchema = new Schema(
 			type: Map,
 			of: String,
 		},
-		// parameter: {
-		// 	type: Schema.Types.Mixed,
-		// },
 		collections: {
 			type: Map,
 			of: [settingCollectionItemSchema],

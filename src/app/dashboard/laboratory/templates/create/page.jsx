@@ -15,28 +15,22 @@ export const revalidate = 0;
 
 const page = async ({ searchParams }) => {
 	const { _id } = searchParams;
+	const { template } = await getSingleTemplate(_id);
 
 	const { templateSettings } = await getTemplateSettings();
-	// const { draft } = await getDraftTemplate(); // јавува грешка доколку е на create/page.js
-	const { template } = await getSingleTemplate(_id); // ova go smeniv so draft
 
 	const { languages } = await getLanguages();
 
 	const { setting } = await getLaboratorySettings();
-	const { settings } = (await setting) || []; // Да прверам дали враќа undefind|null
 
 	const { groups } = await getGroups();
-	// console.log(setting, 'setting');
-	// console.log(template, 'ovoa');
-	// console.log(groups, 'groups');
-	// console.log(draft, 'the draft');
-	// console.log(templateSettings, 'template settings');
+	// console.log(templateSettings, 'templateSettings');
 	return (
 		<>
 			<Template
 				title='Edit Draft Template'
 				languages={languages}
-				settings={settings}
+				setting={setting}
 				template={template}
 				groups={groups}
 				templateSettings={templateSettings}

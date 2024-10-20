@@ -4,31 +4,30 @@ import { nameArray } from '@/utils/nameArray';
 
 // components
 import ContextButton from '@/components/buttons/ContextButton';
-import SelectInput from '@/components/inputs/SelectInput';
+import SelectInput from '@/components/reusable/SelectInput';
+// import SelectInput from '@/components/inputs/SelectInput';
 
-const SelectGroup = ({ showOptions, setShowOptions, groups, setGroup }) => {
-	const handleSelect = (e) => {
-		let selectedGroup = groups.settings.find(
-			(group) => group._id === e.target.value
-		);
+const SelectGroup = ({ languages, setShowOptions, groups, setGroup }) => {
+	const handleSelect = (data) => {
+		let selectedGroup = groups.find((group) => group._id === data);
 		setGroup(selectedGroup);
 	};
 	const handleEnd = () => {
 		setGroup({});
 		setShowOptions(false);
 	};
-
-	let names = groups?.settings.map((setting) => ({
-		id: setting._id,
-		...nameArray(setting.parameter.inputValue),
-	}));
 	return (
 		<label className='flex flex-col gap-2'>
 			<SelectInput
-				options={names}
-				defaultLanguage='en'
-				onChange={handleSelect}
-				classes='w-10/12'
+				defaultLanguage={languages[0].language}
+				data={{
+					state: groups,
+					defaultValue: groups[0]._id,
+					classes: 'flex flex-col items-start bg-white px-[2px] w-[93%]',
+				}}
+				extractData={handleSelect}
+				// resetComponentData={resetComponentData}
+				// setResetComponentData={setResetComponentData}
 			/>
 			<ContextButton label='End group' type='edit' onClick={handleEnd} />
 		</label>

@@ -6,10 +6,16 @@ import dbConnect from '@/db/conn';
 import LaboratoryTemplate from '@/db/models/LaboratoryTemplate';
 
 // I NEED TO HANDLE ERRORS HERE
-export async function makeDraftTemplate() {
+export async function makeDraftTemplate(schemaNames) {
+	console.log(schemaNames, 'schemaNames');
 	try {
 		await dbConnect();
 		const draft = await LaboratoryTemplate.create({ documentStatus: 'draft' });
+
+		await LaboratoryTemplate.updateOne(
+			{ _id: draft._id },
+			{ $set: { schemaNames } }
+		);
 
 		if (!draft) {
 			return {

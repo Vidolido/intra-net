@@ -15,13 +15,13 @@ export const revalidate = 0;
 
 const page = async ({ params }) => {
 	const { _id } = params;
+
+	const { templateSettings } = await getTemplateSettings();
 	const { template } = await getSingleTemplate(_id);
 
 	const { languages } = await getLanguages();
-	const { templateSettings } = await getTemplateSettings();
 
 	const { setting } = await getLaboratorySettings();
-	const { settings } = setting || [];
 
 	const { groups } = await getGroups();
 
@@ -29,7 +29,7 @@ const page = async ({ params }) => {
 		<Template
 			title='Edit Draft Template'
 			languages={languages}
-			settings={settings}
+			setting={setting}
 			template={template}
 			groups={groups}
 			templateSettings={templateSettings}

@@ -8,7 +8,7 @@ import { makeDraftTemplate } from '@/serverActions/laboratoryTemplates/makeDraft
 // components
 import ErrorMsg from '@/components/reusable/ErrorMsg';
 
-const CreateDraftTemplateButton = () => {
+const CreateDraftTemplateButton = ({ schemaNames }) => {
 	const [actionStatus, setActionStatus] = useState({
 		error: null,
 		success: null,
@@ -16,7 +16,7 @@ const CreateDraftTemplateButton = () => {
 	const router = useRouter();
 
 	const handdleClick = async () => {
-		const { error, success } = await makeDraftTemplate();
+		const { error, success } = await makeDraftTemplate(schemaNames);
 		setActionStatus({ error: error || null, success: success || null });
 		router.push(`/dashboard/laboratory/templates/create?_id=${success._id}`);
 	};

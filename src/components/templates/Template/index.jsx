@@ -6,7 +6,7 @@ import TemplateItems from './(templateComponents)/TemplateItems';
 const Template = ({
 	title,
 	languages,
-	settings,
+	setting,
 	template,
 	groups,
 	templateSettings,
@@ -23,9 +23,10 @@ const Template = ({
 				templateSettings={templateSettings}
 				template={template}
 			/>
-			{/* <InputForm
+			<InputForm
+				languages={languages}
 				document={template._id}
-				settings={settings}
+				setting={setting}
 				groups={groups}
 				defaultLanguage={defaultLanguage}
 			/>
@@ -34,9 +35,9 @@ const Template = ({
 
 			<TemplateItems
 				template={template}
-				settings={settings}
+				setting={setting}
 				defaultLanguage={defaultLanguage}
-			/> */}
+			/>
 		</div>
 	);
 };

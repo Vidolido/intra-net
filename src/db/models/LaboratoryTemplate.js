@@ -7,22 +7,52 @@ const groupedSchema = new Schema(
 			default: false,
 		},
 		group: {
-			type: Schema.Types.Mixed,
+			_id: Schema.Types.ObjectId,
+			name: {
+				type: Map,
+				of: String,
+			},
 		},
 	},
 	{ _id: false }
 );
 
+const parameterSchema = new Schema(
+	{
+		name: {
+			type: Map,
+			of: String,
+		},
+		_id: {
+			type: Schema.Types.ObjectId,
+		},
+	},
+	{ _id: false, strict: true }
+);
+
+const collectionItemSchema = new Schema(
+	{
+		value: {
+			type: String,
+		},
+		_id: {
+			type: Schema.Types.ObjectId,
+		},
+	},
+	{ _id: false, strict: true }
+);
+
 const templateSchema = new Schema(
 	{
 		parameter: {
-			type: Schema.Types.Mixed,
-		},
-		items: {
-			type: Schema.Types.Mixed,
-			default: undefined,
+			type: parameterSchema,
 		},
 
+		collections: {
+			type: Map,
+			of: [collectionItemSchema],
+			default: undefined,
+		},
 		result: {
 			type: String,
 			default: '0',
@@ -47,6 +77,14 @@ const laboratoryTemplatesSchema = new Schema(
 			sampleType: String,
 			origin: String,
 			documentType: String,
+		},
+		schemaNames: {
+			parameter: {
+				type: Schema.Types.Mixed,
+			},
+			collections: {
+				type: Schema.Types.Mixed,
+			},
 		},
 		template: {
 			type: [templateSchema],

@@ -22,7 +22,6 @@ const page = async ({ params }) => {
 	const { templateSettings } = await getTemplateSettings();
 
 	const { setting } = await getLaboratorySettings();
-	const { settings } = setting || [];
 
 	const { groups } = await getGroups();
 
@@ -31,7 +30,7 @@ const page = async ({ params }) => {
 		<Template
 			title='Edit Draft Template'
 			languages={languages}
-			settings={settings}
+			setting={setting}
 			template={template}
 			groups={groups}
 			templateSettings={templateSettings}

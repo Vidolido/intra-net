@@ -11,21 +11,21 @@ const TemplateRow = ({ item, templateId, classes }) => {
 				<DragSvg className='text-slate-400 hover:text-red-600 text-center w-[25px] h-[25px] cursor-pointer' />
 			</div>
 			<p className='border-r border-slate-300 pl-2'>
-				{item.parameter.propertyValue['en']}
+				{item.parameter.name['en']}
 			</p>
-			{Object.entries(item.items).map((collection) => {
+			{Object.entries(item.collections).map(([_id, collection]) => {
 				return (
-					<div key={collection[0]}>
-						{collection[1] &&
-							collection[1].map((collectionItem, i) => {
+					<div key={_id}>
+						{collection &&
+							collection.map((collectionItem) => {
 								return (
 									<p
-										key={collectionItem.id}
+										key={collectionItem?._id}
 										className='border-r border-slate-300 pl-2'>
 										{' '}
-										{(typeof collectionItem.value === 'string' &&
-											collectionItem.value) ||
-											collectionItem.value['en'] ||
+										{(typeof collectionItem?.value === 'string' &&
+											collectionItem?.value) ||
+											collectionItem?.value['en'] ||
 											formatKeyValue(
 												collectionItem?.value?.key,
 												collectionItem?.value?.value,
@@ -39,10 +39,10 @@ const TemplateRow = ({ item, templateId, classes }) => {
 				);
 			})}
 			<p className='border-r border-slate-300 pl-2 bg-slate-100'>
-				{item.result}
+				{item?.result}
 			</p>
 			<p className='border-r border-slate-300 pl-2 bg-slate-100'>
-				{item.marginError}
+				{item?.marginError}
 			</p>
 			<div>
 				<RowOptions templateId={templateId} rowId={item._id} />

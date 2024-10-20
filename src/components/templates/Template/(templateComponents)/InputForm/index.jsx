@@ -1,14 +1,21 @@
-import FormInput from './FormInput';
+import Form from './Form';
 import Headers from './Headers';
 
-const InputForm = ({ document, settings, groups, defaultLanguage }) => {
+const InputForm = ({
+	languages,
+	document,
+	setting,
+	groups,
+	defaultLanguage,
+}) => {
 	return (
 		<div id='addTemplateSchema' className='bg-slate-200 rounded w-[95%]'>
-			<Headers settings={settings} defaultLanguage={defaultLanguage} />
+			<Headers setting={setting} defaultLanguage={defaultLanguage} />
 
-			<FormInput
+			<Form
+				languages={languages}
 				document={document}
-				settings={settings}
+				setting={setting}
 				groups={groups}
 				defaultLanguage={defaultLanguage}
 			/>
