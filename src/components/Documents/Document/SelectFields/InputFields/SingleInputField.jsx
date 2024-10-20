@@ -1,8 +1,11 @@
 // components
 import InputType from '@/components/inputs/InputType';
-import SelectInput from '@/components/inputs/SelectInput';
+import SelectInput from '@/components/reusable/SelectInput';
+// import SelectInput from '@/components/inputs/SelectInput';
 
 const SingleInputField = ({
+	languages,
+
 	order,
 	fields,
 	field,
@@ -12,6 +15,7 @@ const SingleInputField = ({
 	basicInfo,
 	onChange,
 }) => {
+	let defaultValue = null;
 	// console.log(field, 'the field');
 	let fieldData = !basicInfo
 		? null
@@ -28,26 +32,37 @@ const SingleInputField = ({
 
 	if (field.inputType === 'select' && field.name.en === 'Sample') {
 		let alias = productAliases.find(
-			(alias) => alias._id === documentHeader.product
+			(alias) => alias.product._id.toString() === documentHeader.product
 		);
+		// console.log(productAliases);
+		// console.log(alias);
 
 		return (
 			<label>
-				<span className='block'>{field.name['en']}</span>
+				<span className='block'>{field?.name['en']}</span>
 				<SelectInput
+					defaultLanguage={languages[0].language}
+					data={{
+						state: alias.aliases,
+						selectName: 'product',
+						defaultValue: !defaultValue ? alias.aliases[0]._id : defaultValue,
+						classes: 'flex flex-col items-start bg-white px-[2px] w-full',
+					}}
+				/>
+				{/* <SelectInput
 					id={field._id}
 					name={field._id}
 					property='value'
 					options={alias.aliases}
 					defaultValue={!fieldData ? alias.aliases[0]._id : fieldData}
 					defaultLanguage='en'
-				/>
+				/> */}
 				{/* <SelectInput
 					id={field._id}
 					options={order}
 					defaultValue={field?.order}
 				/> */}
-				<select
+				{/* <select
 					className={`box-content border-2 border-grey-50 border-opacity-60 rounded hover:border-red-200 focus:outline-none cursor-pointer`}
 					defaultValue={field.order}>
 					{order?.map((order, index) => {
@@ -57,7 +72,7 @@ const SingleInputField = ({
 							</option>
 						);
 					})}
-				</select>
+				</select> */}
 			</label>
 		);
 	} else {
@@ -73,7 +88,7 @@ const SingleInputField = ({
 					onChange={onChange}
 				/>
 
-				<select
+				{/* <select
 					id={null}
 					className={`box-content border-2 border-grey-50 border-opacity-60 rounded hover:border-red-200 focus:outline-none cursor-pointer`}
 					defaultValue={field.order}>
@@ -84,7 +99,7 @@ const SingleInputField = ({
 							</option>
 						);
 					})}
-				</select>
+				</select> */}
 				{/* <SelectInput
 					id={field._id}
 					options={order}

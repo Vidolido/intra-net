@@ -3,13 +3,10 @@ import { useEffect } from 'react';
 
 // state/actions
 import { filterTypes } from '@/utils/settings/filterTypes';
-import { mutateForSelect } from '@/utils/templates/mutateForSelect';
-import { findSettingType } from '@/utils/findSettingType';
-import { nameArray } from '@/utils/nameArray';
-import SelectInput from '@/components/reusable/SelectInput';
+import { mutateForSelect } from '@/utils/helpers/mutateForSelect';
 
 // components
-// import SelectInput from '@/components/inputs/SelectInput';
+import SelectInput from '@/components/reusable/SelectInput';
 
 const DocumentType = ({
 	name,
@@ -44,9 +41,6 @@ const DocumentType = ({
 					defaultValue: !defaultValue ? mutSettings[0]._id : defaultValue,
 					classes: 'flex flex-col items-start bg-white px-[2px] w-full',
 				}}
-				// extractData={handleSelection}
-				// resetComponentData={resetComponentData}
-				// setResetComponentData={setResetComponentData}
 			/>
 		</fieldset>
 	);

@@ -1,34 +1,28 @@
 export const mutateFields = (fields) => {
-	return fields.reduce((acc, currenValue) => {
-		let type = currenValue.collections.find(
-			(collection) => collection.name['en'] === 'type'
-		);
-		let documentType = currenValue.collections.find(
-			(collection) => collection.name['en'] === 'link'
-		);
-		let checkedValue =
-			currenValue.collections.find(
-				(collection) => collection.name['en'] === 'checked'
-			).items[0].value === 'true';
+	let { optionsSchema, settings } = fields;
+	let collections = optionsSchema.collections.map((collection) => ({
+		[collection?.name?.en]: collection?._id,
+	}));
 
-		let orderValue = currenValue.collections.find(
-			(collection) => collection.name['en'] === 'order'
-		).items[0].value;
-
-		orderValue = !isNaN(Number(orderValue)) ? Number(orderValue) : 0;
-
+	return settings?.reduce((acc, currenValue) => {
+		const merged = collections.reduce((acc, current) => {
+			const key = Object.keys(current)[0];
+			const id = current[key];
+			acc[key] = currenValue?.collections[id] || [];
+			return acc;
+		}, {});
 		return (acc = [
 			...acc,
 			{
-				_id: currenValue._id,
-				name: { ...currenValue.parameter.inputValue },
-				checked: checkedValue,
-				order: orderValue,
-				inputType: !type.items[0] ? '' : type.items[0].value,
-				value: currenValue.value != undefined ? currenValue.value : '',
-				links: [
-					...documentType.items.map((type) => type?.value?.value || type.value),
-				],
+				_id: currenValue?._id,
+				name: currenValue?.parameter,
+				checked: merged?.checked[0]?.value === 'true' ? true : false,
+				order: !isNaN(Number(merged?.order[0]?.value))
+					? Number(merged?.order[0]?.value)
+					: 0,
+				inputType: merged?.type[0]?.value,
+				links: merged.link.map((lnk) => lnk?.value?.value || lnk?.value),
+				value: currenValue?.value != undefined ? currenValue.value : '',
 			},
 		]);
 	}, []);
@@ -40,6 +34,6 @@ export const sortFieldsByOrder = (fields) => {
 
 export const filterByLinkedSetting = (fields, linkedSettings) => {
 	return fields.filter((field) =>
-		linkedSettings.some((link) => field.links.includes(link))
+		linkedSettings.some((link) => field?.links.includes(link))
 	);
 };

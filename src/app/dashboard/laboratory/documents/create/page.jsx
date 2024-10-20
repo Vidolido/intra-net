@@ -4,32 +4,20 @@ import { Suspense } from 'react';
 import {
 	getCustomers,
 	getDocumentById,
-	getDraftDocument,
 	getLaboratoryDocumentNumber,
 	getLaboratoryTemplates,
 } from '../../apiCalls';
-import {
-	getLaboratorySettings,
-	getLanguages,
-	getSettings,
-} from '@/app/dashboard/apiCalls';
+import { getLanguages, getSettings } from '@/app/dashboard/apiCalls';
+import { filterTypes } from '@/utils/settings/filterTypes';
 import { mutateTemplateSettings } from '@/utils/settings/mutateTempalteSettings';
-import { findSettingType } from '@/utils/findSettingType';
 import { mutateFields } from '@/utils/documents/mutateFields';
-import { nameArray } from '@/utils/nameArray';
+import { mutateForSelect } from '@/utils/helpers/mutateForSelect';
 
 // components
 import Document from '@/components/Documents/Document';
-// import { useSearchParams } from 'next/navigation';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
-
-const mutSettings = (settings) =>
-	settings?.map((s) => ({
-		_id: s._id,
-		...nameArray(s.parameter.inputValue),
-	}));
 
 const page = async ({ searchParams }) => {
 	const { _id } = searchParams;
@@ -45,10 +33,6 @@ const page = async ({ searchParams }) => {
 		documentStatus: 'published',
 	});
 
-	const { setting } = await getLaboratorySettings();
-	const { settings: laboratorySettings } = setting || [];
-
-	// const { draft } = await getDraftDocument();
 	const { document: draft } = await getDocumentById(_id);
 
 	const { laboratoryNumber } = draft?.header
@@ -57,27 +41,40 @@ const page = async ({ searchParams }) => {
 		  })
 		: '';
 
-	let { products, types, countries, fields } = await mutateTemplateSettings(
-		templateSettings
-	);
+	let { products, types, countries, fields, laboratorySettings } =
+		await mutateTemplateSettings(templateSettings);
 
-	let sampleTypes = findSettingType(types.settings, ['sample']);
-	let documentTypes = findSettingType(types.settings, ['document']);
+	const sampleTypes = filterTypes(types.settings, 'sample');
+	const documentTypes = filterTypes(types.settings, 'document');
 
-	let settings = {
-		products: mutSettings(products.settings),
-		sampleTypes: mutSettings(sampleTypes),
-		documentTypes: mutSettings(documentTypes),
-		countries: mutSettings(countries.settings),
-		fields: mutateFields(fields.settings),
+	const settings = {
+		products: mutateForSelect(products.settings),
+		sampleTypes: mutateForSelect(sampleTypes),
+		documentTypes: mutateForSelect(documentTypes),
+		countries: mutateForSelect(countries.settings),
+		fields: mutateFields(fields),
 	};
 
-	let productAliases = products.settings.map((setting) => ({
-		_id: setting._id,
-		aliases: setting.collections.find(
-			(collection) => collection.name.en === 'Aliases'
-		).items,
-	}));
+	const aliasesId = products.optionsSchema.collections.find(
+		(coll) => coll.name.en === 'Aliases'
+	)._id;
+
+	let productAliases = products.settings.reduce((acc, currentValue) => {
+		let aliases = Object.entries(currentValue.collections).find(
+			(coll) => coll[0] === aliasesId
+		);
+		acc.push({
+			product: {
+				_id: currentValue._id,
+				name: currentValue.parameter,
+			},
+			aliases: aliases[1].map((alias) => ({
+				_id: alias._id,
+				name: alias.value,
+			})),
+		});
+		return acc;
+	}, []);
 
 	return (
 		<div className='w-full'>

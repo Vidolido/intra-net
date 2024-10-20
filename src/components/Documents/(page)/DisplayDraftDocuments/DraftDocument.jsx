@@ -19,7 +19,7 @@ const DraftDocument = ({ document }) => {
 					document.documentStatus === 'draft' ? document.documentStatus : 'edit'
 				}/${document._id}`}>
 				<h5>{document?._id}</h5>
-				<p>{document?.settingName}</p>
+				{/* <p>{document?.settingName}</p> */}
 			</Link>
 			<ContextButton
 				label='Delete'

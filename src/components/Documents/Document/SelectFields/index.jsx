@@ -10,6 +10,7 @@ import InputFields from './InputFIelds';
 import CheckBoxFields from './CheckBoxFields';
 
 const SelectFields = ({
+	languages,
 	customers,
 	fields: dbFields,
 	document,
@@ -20,36 +21,33 @@ const SelectFields = ({
 	const [fields, setFields] = useState(dbFields);
 
 	const handleClick = async (e) => {
-		let selectFields = e.target.form.elements
-			.namedItem('document-fields')
-			.querySelectorAll('select');
-		let inputFields = e.target.form.elements
-			.namedItem('document-fields')
-			.querySelectorAll('input');
-
-		let merged = Array.from(selectFields).concat(Array.from(inputFields));
-
-		const basicInfo = Array.from(merged).reduce(
-			(acc, currentValue) => {
-				if (!currentValue.id.length && currentValue.name !== 'customer')
-					return acc;
-				if (currentValue.name === 'customer') {
-					acc.customer = {
-						customerId: currentValue.value,
-					};
-				} else {
-					acc.fields.push({
-						_id: currentValue.id,
-						data: currentValue.value,
-					});
-				}
-				return acc;
-			},
-			{ customer: {}, fields: [] }
-		);
-
-		// HANDLE ERRORS HERE
-		await saveDocumentBasicInfo(basicInfo, document._id);
+		// let selectFields = e.target.form.elements
+		// 	.namedItem('document-fields')
+		// 	.querySelectorAll('select');
+		// let inputFields = e.target.form.elements
+		// 	.namedItem('document-fields')
+		// 	.querySelectorAll('input');
+		// let merged = Array.from(selectFields).concat(Array.from(inputFields));
+		// const basicInfo = Array.from(merged).reduce(
+		// 	(acc, currentValue) => {
+		// 		if (!currentValue.id.length && currentValue.name !== 'customer')
+		// 			return acc;
+		// 		if (currentValue.name === 'customer') {
+		// 			acc.customer = {
+		// 				customerId: currentValue.value,
+		// 			};
+		// 		} else {
+		// 			acc.fields.push({
+		// 				_id: currentValue.id,
+		// 				data: currentValue.value,
+		// 			});
+		// 		}
+		// 		return acc;
+		// 	},
+		// 	{ customer: {}, fields: [] }
+		// );
+		// // HANDLE ERRORS HERE
+		// await saveDocumentBasicInfo(basicInfo, document._id);
 	};
 	const isTestReport =
 		documentTypes.find((type) => type._id === document.header.documentType).name
@@ -66,6 +64,7 @@ const SelectFields = ({
 				setFields={setFields}
 			/>
 			<InputFields
+				languages={languages}
 				customers={customers}
 				fields={fields}
 				isTestReport={isTestReport}
@@ -74,6 +73,7 @@ const SelectFields = ({
 				laboratoryNumber={laboratoryNumber}
 				productAliases={productAliases}
 				basicInfo={document?.basicInfo}
+				documentMeta={document?.documentMeta}
 			/>
 			<div className='p-1'>
 				<ContextButton

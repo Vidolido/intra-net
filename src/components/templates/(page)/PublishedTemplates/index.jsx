@@ -1,13 +1,11 @@
 // state/actions
-import { orderByProduct } from '@/utils/orderByProduct';
+import { orderByProduct } from '@/utils/templates/orderByProduct';
 
 // components
 import Ordered from './Ordered';
 
 const PublishedTemplates = ({ published, data }) => {
-	// console.log(data.products);
 	const mutPublished = orderByProduct(published, data?.products.settings) || [];
-	// console.log(mutPublished);
 	return (
 		<div className='flex flex-col min-w-[40%] gap-1'>
 			<h4>Templates</h4>

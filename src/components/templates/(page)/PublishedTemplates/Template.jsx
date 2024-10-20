@@ -6,32 +6,34 @@ import { deleteTemplate } from '@/serverActions/laboratoryTemplates/deleteTempla
 // components
 import Options from '@/components/options/Options'; // might delete or refactor
 
-const Template = ({ template, settings }) => {
+const Template = ({ template, data }) => {
 	const handleDelete = async (_id) => {
 		// console.log(_id, 'DELETE ITEM');
 		// await deleteDraftSetting(_id);
 		await deleteTemplate(_id, 'published');
 	};
-
-	const documentType = settings.types.find(
-		(type) => type.id === template.documentType
+	const documentType = data?.types?.settings.find(
+		(type) => type._id === template?.header?.documentType
 	);
 	const sampleType =
-		settings.types.find((type) => type.id === template.sampleType) || 'none';
+		data.types?.settings.find(
+			(type) => type._id === template?.header?.sampleType
+		) || 'none';
 
-	const country = settings.countries.find(
-		(country) => country.id === template.origin
+	const country = data.countries?.settings.find(
+		(country) => country._id === template?.header?.origin
 	);
+
 	return (
 		<>
 			<p className='pl-1 border-l border-transparent'>
-				{documentType?.name['en'] || '--'}
+				{documentType?.parameter['en'] || '--'}
 			</p>
 			<p className='pl-1 border-l border-slate-300'>
-				{country?.name['en'] || '--'}
+				{country?.parameter['en'] || '--'}
 			</p>
 			<p className='pl-1 border-l border-slate-300'>
-				{sampleType !== 'none' ? sampleType?.name['en'] : '--'}
+				{sampleType !== 'none' ? sampleType?.parameter['en'] : '--'}
 			</p>
 			<div className='border-l border-slate-300 relative'>
 				<Options

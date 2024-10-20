@@ -33,7 +33,7 @@ const DocumentStatus = ({ template, languages, defaultValue }) => {
 					data={{
 						state: status,
 						selectName: 'documentStatus',
-						defaultValue: defaultValue?.documentStatus,
+						defaultValue: defaultValue && defaultValue,
 						classes: 'flex flex-col items-start bg-white px-[2px] w-full',
 					}}
 					// extractData={handleSelection}

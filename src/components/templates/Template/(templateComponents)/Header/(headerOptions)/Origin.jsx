@@ -2,12 +2,10 @@
 import { useEffect } from 'react';
 
 // state/actions
-import { mutateForSelect } from '@/utils/templates/mutateForSelect';
-import SelectInput from '@/components/reusable/SelectInput';
-// import { nameArray } from '@/utils/nameArray';
+import { mutateForSelect } from '@/utils/helpers/mutateForSelect';
 
 // components
-// import SelectInput from '@/components/inputs/SelectInput';
+import SelectInput from '@/components/reusable/SelectInput';
 
 const Origin = ({
 	name,

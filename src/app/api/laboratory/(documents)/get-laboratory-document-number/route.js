@@ -5,7 +5,7 @@ import { revalidatePath } from 'next/cache';
 // connection/models/db functions
 import dbConnect from '@/db/conn';
 import Document from '@/db/models/Document';
-import Setting from '../../../../../../oldFiles/SettingOld';
+import Setting from '@/db/models/Setting';
 
 //create
 
@@ -26,16 +26,18 @@ export async function GET(request) {
 				$lt: endOfYear,
 			},
 		}).sort({ createdAt: -1 });
+		const types = await Setting.findOne({ settingName: 'Types' }).lean().exec();
+		const fields = await Setting.findOne({ settingName: 'Fields' })
+			.lean()
+			.exec();
 
-		const types = await Setting.findOne({ settingName: 'Types' });
-		const fields = await Setting.findOne({ settingName: 'Fields' });
-		const labNumberFieldId = fields?.settings.find(
-			(setting) => setting.parameter.inputValue.en === 'Laboratory Number'
-		)._id;
+		const labNumberFieldId = fields?.settings
+			.find((setting) => setting?.parameter?.en === 'Laboratory Number')
+			._id.toString();
 
 		let type = documentType
 			? types?.settings.find((set) => set._id.toString() === documentType)
-					.parameter.inputValue.en
+					?.parameter?.en
 			: undefined;
 
 		currentYear = currentYear % 100;
@@ -45,9 +47,8 @@ export async function GET(request) {
 
 		for (const doc of documents) {
 			const laboratoryNumber =
-				doc?.basicInfo?.fields.find(
-					(field) => field._id.toString() === labNumberFieldId.toString()
-				)?.data || '';
+				doc?.documentMeta.find((field) => field._id === labNumberFieldId)
+					?.value || '';
 
 			// Define regex patterns for Test Report and Certificate
 			const testReportPattern = /^(\d{4})\/(\d{2})$/;

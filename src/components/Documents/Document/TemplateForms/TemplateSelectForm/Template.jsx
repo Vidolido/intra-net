@@ -12,18 +12,20 @@ const Template = ({ template, settings }) => {
 		// await deleteDraftSetting(_id);
 		await deleteTemplate(_id, 'published');
 	};
-
+	console.log(settings, 'the settings');
 	const documentType = settings.documentTypes.find(
-		(type) => type._id === template.documentType
+		(type) => type._id === template?.header?.documentType
 	);
 	const sampleType =
-		settings.sampleTypes.find((type) => type._id === template.sampleType) ||
-		'none';
+		settings.sampleTypes?.find(
+			(type) => type._id === template?.header?.sampleType
+		) || 'none';
 
-	const country = settings.countries.find(
-		(country) => country._id === template.origin
+	const country = settings.countries?.find(
+		(country) => country._id === template?.header?.origin
 	);
-	// console.log(documentType, sampleType, country, 'OVOJ settings');
+	console.log(documentType, sampleType, country, 'OVOJ settings');
+	// console.log(documentType, 'documentType');
 	return (
 		<>
 			<p className='pl-1 border-l border-transparent'>

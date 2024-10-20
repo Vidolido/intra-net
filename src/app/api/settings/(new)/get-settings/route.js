@@ -6,9 +6,10 @@ import { cookies } from 'next/headers';
 // connection/models/db functions
 import dbConnect from '@/db/conn';
 import Setting from '@/db/models/Setting';
-// import Sector from '@/db/models/Sector';
+import Sector from '@/db/models/Sector';
 
 export async function GET(request) {
+	// console.log('THIS SHIT HAPPEND');
 	let documentStatus =
 		request?.nextUrl?.searchParams?.get('documentStatus') || 'draft';
 
@@ -16,11 +17,15 @@ export async function GET(request) {
 	try {
 		await dbConnect();
 		// await Sector
-		const settings = await Setting.find({ documentStatus, isDeleted })
+		let settings = await Setting.find({ documentStatus, isDeleted })
 			.populate('sector')
 			.sort({
 				$natural: -1,
 			});
+
+		// settings = settings.map(serializeMongoDocuments);
+
+		// console.log(settings)
 
 		const pathsToRevalidate = [
 			'/dashboard/settings',

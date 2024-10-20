@@ -23,39 +23,80 @@ import mongoose, { Schema } from 'mongoose';
 // 	},
 // });
 
-const fieldsSchema = new Schema(
+// const fieldsSchema = new Schema(
+// 	{
+// 		_id: Schema.Types.ObjectId,
+// 		name: {
+// 			type: Map,
+// 			of: String,
+// 		},
+// 		order: {
+// 			type: Number,
+// 			default: 0,
+// 		},
+// 		data: {
+// 			type: Schema.Types.Mixed,
+// 			default: undefined,
+// 		},
+// 	},
+// 	{ strict: true, _id: false }
+// );
+
+// const basicInfoSchema = new Schema(
+// 	{
+// 		customer: {
+// 			customerId: {
+// 				type: Schema.Types.Mixed,
+// 				default: undefined,
+// 			},
+// 			order: {
+// 				type: Number,
+// 				default: 0,
+// 			},
+// 		},
+// 		fields: {
+// 			type: [fieldsSchema],
+// 		},
+// 	},
+// 	{ strict: true, _id: false }
+// );
+const additionalDocumentInfoSchema = new Schema(
+	{
+		customer: {
+			_id: Schema.Types.ObjectId,
+			name: {
+				type: Map,
+				of: String,
+			},
+			customerData: Schema.Types.Mixed,
+		},
+		productAlias: {
+			_id: Schema.Types.ObjectId,
+			name: {
+				type: Map,
+				of: String,
+			},
+		},
+	},
+	{ strict: true, _id: false }
+);
+
+const documentMetaSchema = new Schema(
 	{
 		_id: Schema.Types.ObjectId,
 		name: {
-			type: Schema.Types.Mixed,
+			type: Map,
+			of: String,
 		},
 		order: {
 			type: Number,
 			default: 0,
 		},
-		data: {
-			type: Schema.Types.Mixed,
-			default: undefined,
+		checked: Boolean,
+		links: {
+			type: [String],
 		},
-	},
-	{ strict: true }
-);
-
-const basicInfoSchema = new Schema(
-	{
-		customer: {
-			customerId: {
-				type: Schema.Types.Mixed,
-				default: undefined,
-			},
-			order: {
-				type: Number,
-				default: 0,
-			},
-		},
-		fields: {
-			type: [fieldsSchema],
-		},
+		value: Schema.Types.Mixed,
 	},
 	{ strict: true, _id: false }
 );
@@ -69,7 +110,13 @@ const documentSchema = new Schema(
 			documentType: String,
 		},
 		// fields: [fieldsSchema], // delete this after setting basic info
-		basicInfo: basicInfoSchema,
+		// basicInfo: basicInfoSchema,
+		documentMeta: {
+			type: [documentMetaSchema],
+		},
+		additionalDocumentInfo: {
+			type: additionalDocumentInfoSchema,
+		},
 		templateId: String,
 		template: {
 			type: Schema.Types.Mixed,

@@ -10,13 +10,11 @@ import { groupParameters } from '@/utils/templates/groupParameters';
 import TemplateRow from './TemplateRow';
 
 const TemplateItems = ({ template, setting, defaultLanguage }) => {
-	const { optionsSchema, settings } = setting;
+	const { optionsSchema } = setting;
 
 	let headings = getRowHeaders(optionsSchema, 'plural') || null;
 
 	let mutTemplate = groupParameters(template.template) || [];
-	console.log(mutTemplate, 'mutTemplate');
-	// console.log(defaultLanguage, 'MUT defaultLanguage');
 	return (
 		<div className='border w-3/4'>
 			<div className='grid grid-cols-[25px_25%_1fr_1fr_1fr_1fr_1fr_25px] border border-slate-400 bg-slate-100'>
@@ -50,12 +48,11 @@ const TemplateItems = ({ template, setting, defaultLanguage }) => {
 				if (item.isGroup) {
 					return item.items.map((collectionItem, i) => {
 						let length = i === item.items.length - 1;
-						console.log(length, 'THE LENGTH');
 						return (
 							<Fragment key={generateUUID()}>
 								{i === 0 ? (
 									<div className='w-full border-b border-b-slate-300 border border-slate-400 pl-[32px] pb-[1px]'>
-										{item.name['en']}
+										{item?.name['en']}
 									</div>
 								) : null}
 								<TemplateRow

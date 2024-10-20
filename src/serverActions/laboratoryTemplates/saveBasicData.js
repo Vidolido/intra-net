@@ -8,20 +8,19 @@ import LaboratoryTemplate from '@/db/models/LaboratoryTemplate';
 
 // I NEED TO HANDLE ERRORS HERE
 export async function saveBasicData(_id, formData) {
+	const documentStatus = formData.get('documentStatus');
 	const payload = {
 		product: formData.get('product'),
 		sampleType: formData.get('sampleType'),
 		origin: formData.get('origin'),
 		documentType: formData.get('documentType'),
-		documentStatus: formData.get('documentStatus'),
 	};
-	console.log(payload);
 	let shouldRedirect = false;
 	try {
 		await dbConnect();
 		let updated = await LaboratoryTemplate.updateOne(
 			{ _id },
-			{ $set: { header: payload } }
+			{ $set: { documentStatus, header: payload } }
 		);
 		// shouldRedirect = updated.modifiedCount === 1 ? true : false;
 	} catch (error) {

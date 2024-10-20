@@ -26,8 +26,6 @@ const SelectGroup = ({ languages, setShowOptions, groups, setGroup }) => {
 					classes: 'flex flex-col items-start bg-white px-[2px] w-[93%]',
 				}}
 				extractData={handleSelect}
-				// resetComponentData={resetComponentData}
-				// setResetComponentData={setResetComponentData}
 			/>
 			<ContextButton label='End group' type='edit' onClick={handleEnd} />
 		</label>

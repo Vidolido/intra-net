@@ -9,7 +9,7 @@ import Origin from './(headerOptions)/Origin';
 import DocumentType from './(headerOptions)/DocumentType';
 import DocumentStatus from './(headerOptions)/DocumentStatus';
 
-const Header = ({ languages, templateSettings, template }) => {
+const Header = async ({ languages, templateSettings, template }) => {
 	const { products, countries, types } =
 		mutateTemplateSettings(templateSettings);
 
@@ -44,9 +44,9 @@ const Header = ({ languages, templateSettings, template }) => {
 					languages={languages}
 				/>
 				<DocumentStatus
-					template={template}
+					// template={template}
+					defaultValue={template.documentStatus}
 					languages={languages}
-					defaultValue={header?.documentStatus}
 				/>
 				<button
 					type='submit'

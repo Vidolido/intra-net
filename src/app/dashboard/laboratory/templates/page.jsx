@@ -1,10 +1,11 @@
 // state/actions
 import { getLaboratoryTemplates } from '../apiCalls';
-import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemplateSettings';
+// import { getTemplateSettings } from '@/data-access/templates/getTemplateSettings';
 import { mutateTemplateSettings } from '@/utils/settings/mutateTempalteSettings';
 
 // components
 import Templates from '@/components/Templates';
+import { getSettings } from '../../apiCalls';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -18,7 +19,11 @@ const page = async () => {
 		documentStatus: 'draft',
 		sorted: true,
 	});
-	const { templateSettings } = await getTemplateSettings();
+	// const { templateSettings } = await getTemplateSettings();
+	const { settings: templateSettings } = await getSettings({
+		documentStatus: 'published',
+		isDeleted: false,
+	});
 
 	const { products, countries, types, laboratoryTemplates } =
 		await mutateTemplateSettings(templateSettings);
@@ -30,7 +35,6 @@ const page = async () => {
 		schemaNames: laboratoryTemplates?.optionsSchema,
 	};
 
-	// console.log(laboratoryTemplates?.optionsSchema, 'laboratoryTemplates');
 	return (
 		<Templates published={published} drafts={draftTemplates} data={data} />
 	);

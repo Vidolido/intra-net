@@ -2,12 +2,10 @@
 import { useEffect } from 'react';
 
 // state/actions
-import { nameArray } from '@/utils/nameArray';
-import SelectInput from '@/components/reusable/SelectInput';
-import { mutateForSelect } from '@/utils/templates/mutateForSelect';
+import { mutateForSelect } from '@/utils/helpers/mutateForSelect';
 
 // components
-// import SelectInput from '@/components/inputs/SelectInput';
+import SelectInput from '@/components/reusable/SelectInput';
 
 const Product = ({
 	products,
@@ -26,8 +24,8 @@ const Product = ({
 				product: mutSettings[0]._id,
 			}));
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-	// console.log(settings, 'setting');
 	return (
 		<fieldset name='product-list'>
 			<h6>Product</h6>
@@ -39,9 +37,6 @@ const Product = ({
 					defaultValue: !defaultValue ? mutSettings[0]._id : defaultValue,
 					classes: 'flex flex-col items-start bg-white px-[2px] w-full',
 				}}
-				// extractData={handleSelection}
-				// resetComponentData={resetComponentData}
-				// setResetComponentData={setResetComponentData}
 			/>
 		</fieldset>
 	);

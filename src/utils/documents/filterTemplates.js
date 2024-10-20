@@ -1,19 +1,16 @@
 export function filterTemplates(templates = [], searchParams = {}) {
 	const { documentType, origin, product, sampleType } = searchParams;
 
-	// Validate mandatory `product` field
-	// if (!product) {
-	// 	throw new Error('Product is a mandatory search parameter.');
-	// }
-
-	return templates.filter((doc) => {
-		if (doc.product !== product) return false;
+	return templates.filter((template) => {
+		if (template?.header?.product !== product) return false;
 
 		const isDocumentTypeMatch = documentType
-			? doc.documentType === documentType
+			? template?.header?.documentType === documentType
 			: true;
-		const isOriginMatch = origin ? doc.origin === origin : true;
-		const isSampleTypeMatch = sampleType ? doc.sampleType === sampleType : true;
+		const isOriginMatch = origin ? template?.header?.origin === origin : true;
+		const isSampleTypeMatch = sampleType
+			? template?.header?.sampleType === sampleType
+			: true;
 
 		return isDocumentTypeMatch && isOriginMatch && isSampleTypeMatch;
 	});

@@ -5,6 +5,7 @@ import SingleInputField from './SingleInputField';
 import SelectInput from '@/components/inputs/SelectInput';
 
 const InputFields = ({
+	languages,
 	customers,
 	fields,
 	isTestReport,
@@ -13,6 +14,7 @@ const InputFields = ({
 	laboratoryNumber,
 	productAliases,
 	basicInfo,
+	documentMeta,
 	onChange,
 }) => {
 	// console.log(fields, 'OVIE FIELDS');
@@ -20,7 +22,7 @@ const InputFields = ({
 		.filter((field) => field.checked)
 		.map((field) => field.order);
 	// console.log(order, 'THE ORDER');
-	console.log(customers, 'thecustomers');
+	// console.log(customers, 'thecustomers');
 	return (
 		<fieldset name='document-fields'>
 			<ul className='px-1'>
@@ -32,7 +34,7 @@ const InputFields = ({
 							name='customer'
 							defaultLanguage={'en'}
 							none={true}
-							defaultValue={basicInfo?.customer?.customerId || customers[0]._id}
+							defaultValue={documentMeta?.customer?._id || customers[0]._id}
 						/>
 					</label>
 				)}
@@ -43,6 +45,7 @@ const InputFields = ({
 							field.checked && (
 								<SingleInputField
 									key={field._id}
+									languages={languages}
 									id={field._id}
 									order={order}
 									fields={fields}

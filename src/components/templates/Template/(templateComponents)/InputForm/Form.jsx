@@ -4,16 +4,14 @@ import { useState } from 'react';
 // state/asctions
 import { addTemplateSetting } from '@/serverActions/laboratoryTemplates/addTemplateSetting';
 import { generateUUID } from '@/utils/generateUUID';
+import { mutateForSelect } from '@/utils/helpers/mutateForSelect';
 import { isObjectEmpty } from '@/utils/functions';
+import { formatKeyValue } from '@/utils/settings/formatKeyValue';
 
 // components
 import GroupParam from './GroupParam';
-// import SelectInput from '@/components/inputs/SelectInput';
-import InputType from '@/components/inputs/InputType';
 import ContextButton from '@/components/buttons/ContextButton';
-import { formatKeyValue } from '@/utils/settings/formatKeyValue';
 import SelectInput from '@/components/reusable/SelectInput';
-import { mutateForSelect } from '@/utils/templates/mutateForSelect';
 import NormalInput from '@/components/reusable/NormalInput';
 
 const Form = ({ languages, document, setting, groups, defaultLanguage }) => {
@@ -104,8 +102,7 @@ const Form = ({ languages, document, setting, groups, defaultLanguage }) => {
 			document,
 		});
 	};
-	// console.log(group, 'THE GROUP');
-	// console.log(selectedProperty, 'selectedProperty');
+
 	return (
 		<form className='grid grid-cols-7 gap-4 border rounded bg-white h-[130px]'>
 			<div className='flex flex-col justify-between gap-2 w-full p-1'>

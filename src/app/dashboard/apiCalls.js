@@ -1,6 +1,6 @@
 'use server';
 
-import { queryParser } from '@/utils/analyses/queryParser';
+import { queryParser } from '../../utils/helpers/queryParser';
 
 // `${process.env.NEXT_PUBLIC_BASE_URL}/api/settings`,
 

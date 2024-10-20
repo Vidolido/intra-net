@@ -2,14 +2,12 @@
 import { useState } from 'react';
 
 // state/actions
-import { nameArray } from '@/utils/nameArray';
+import { mutateForSelect } from '@/utils/helpers/mutateForSelect';
 
 // components
 import CloseSvg from '@/../public/close.svg';
-
 import ContextButton from '@/components/buttons/ContextButton';
 import SelectGroup from './SelectGroup';
-import { mutateForSelect } from '@/utils/templates/mutateForSelect';
 
 const GroupParam = ({ languages, setGroup, groups }) => {
 	let mutGroups = mutateForSelect(groups.settings);
@@ -24,8 +22,6 @@ const GroupParam = ({ languages, setGroup, groups }) => {
 		setShowOptions(false);
 		setGroup({});
 	};
-
-	// console.log(groups, 'groups');
 
 	return (
 		<fieldset

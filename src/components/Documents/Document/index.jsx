@@ -1,3 +1,4 @@
+'use client';
 import { Suspense } from 'react';
 
 // state/actions
@@ -21,24 +22,30 @@ const Document = ({
 	templates,
 }) => {
 	const hasSelectedTemplate = !document?.templateId ? true : false;
-
+	// console.log(settings.fields);
 	let mutFields = filterByLinkedSetting(settings.fields, [
 		document?.header?.documentType,
 		'other',
 	]);
 
-	const newFieldsCheckedStatus =
-		document.basicInfo &&
-		mutFields.map((field) => {
-			const isChecked = document.basicInfo.fields.some(
-				(f) => f._id === field._id
-			);
-			return { ...field, checked: isChecked };
-		});
+	// console.log(mutFields, 'mutFields');
 
-	const sortedByOrder = sortFieldsByOrder(
-		document.basicInfo != undefined ? newFieldsCheckedStatus : mutFields
-	);
+	// const newFieldsCheckedStatus =
+	// 	document.basicInfo &&
+	// 	mutFields.map((field) => {
+	// 		const isChecked = document.basicInfo.fields.some(
+	// 			(f) => f._id === field._id
+	// 		);
+	// 		return { ...field, checked: isChecked };
+	// 	});
+
+	// const sortedByOrder = sortFieldsByOrder(
+	// 	document.basicInfo != undefined ? newFieldsCheckedStatus : mutFields
+	// );
+	const sortedByOrder = sortFieldsByOrder(mutFields);
+	// console.log(sortedByOrder, 'sortedByOrder');
+	// console.log(settings, 'settings');
+	// console.log(productAliases, 'productAliases');
 
 	return (
 		<Suspense fallback={<h4>Loading...</h4>}>
@@ -46,6 +53,7 @@ const Document = ({
 				{!hasSelectedTemplate && (
 					<div className='flex flex-col gap-1 shrink'>
 						<SelectFields
+							languages={languages}
 							customers={customers}
 							fields={sortedByOrder}
 							document={document}

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 // state/actions
-import { makeDraftTemplate } from '@/serverActions/laboratoryTemplates/makeDraftTemplate';
+import { makeDraftTemplate } from '@/data-access/templates/makeDraftTemplate';
 
 // components
 import ErrorMsg from '@/components/reusable/ErrorMsg';

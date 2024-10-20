@@ -1,11 +1,10 @@
 // state/actions
 import {
 	getGroups,
-	getLaboratoryDraftById,
 	getLaboratorySettings,
 	getLanguages,
 } from '@/app/dashboard/apiCalls';
-import { getTemplateSettings } from '@/serverActions/laboratoryTemplates/getTemplateSettings';
+import { getTemplateSettings } from '@/data-access/templates/getTemplateSettings';
 import { getSingleTemplate } from '../../../apiCalls';
 
 // components
@@ -16,16 +15,13 @@ export const revalidate = 0;
 
 const page = async ({ params }) => {
 	const { _id } = params;
-	// const { draft } = await getLaboratoryDraftById(_id);
-	const { template } = await getSingleTemplate(_id); // ova go smeniv so draft
-	const { languages } = await getLanguages();
+	const { template } = await getSingleTemplate(_id);
 	const { templateSettings } = await getTemplateSettings();
+	const { languages } = await getLanguages();
 
 	const { setting } = await getLaboratorySettings();
-
 	const { groups } = await getGroups();
 
-	// console.log(template, 'the template');
 	return (
 		<Template
 			title='Edit Draft Template'

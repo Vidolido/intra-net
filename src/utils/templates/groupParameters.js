@@ -12,9 +12,7 @@ export const groupParameters = (template) => {
 					// Create a new group if there's no current group or the _id is different
 					currentGroup = {
 						isGroup: true,
-						name:
-							currentValue.grouped.group.parameter?.inputValue ||
-							currentValue.parameter.propertyValue,
+						name: currentValue?.grouped?.group?.name,
 						_id: currentValue?.grouped?.group?._id,
 						items: [],
 					};

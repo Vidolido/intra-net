@@ -5,7 +5,7 @@ import { useState } from 'react';
 import ArrowSvg from '@/../public/arrow.svg';
 import Template from './Template';
 
-const Ordered = ({ product, settings }) => {
+const Ordered = ({ product, data }) => {
 	const [visible, setVisible] = useState(false);
 
 	return (
@@ -15,7 +15,7 @@ const Ordered = ({ product, settings }) => {
 					!visible ? '' : 'text-red-600'
 				}`}
 				onClick={() => setVisible(!visible)}>
-				{product.name['en']}
+				{product.parameter['en']}
 			</h4>
 			<ArrowSvg
 				className={`w-[22px] h-[22px] absolute right-1 top-[3px] fill-red-500 hover:fill-red-300 ${
@@ -37,7 +37,7 @@ const Ordered = ({ product, settings }) => {
 							<li
 								key={template._id}
 								className='grid grid-cols-[1fr_1fr_1fr_25px] border-b last-of-type:border-transparent hover:border-red-300'>
-								<Template template={template} settings={settings} />
+								<Template template={template} data={data} />
 							</li>
 						);
 					})}
