@@ -1,0 +1,2145 @@
+[{
+  "_id": {
+    "$oid": "671397119c2800040d783859"
+  },
+  "documentStatus": "published",
+  "isDeleted": false,
+  "__v": 0,
+  "sector": {
+    "$oid": "66ddfe0285beab162d47257c"
+  },
+  "settingName": "Products",
+  "optionsSchema": {
+    "parameter": {
+      "name": {
+        "singular": {
+          "en": "Product",
+          "mk": "Продукт",
+          "gr": "грчко"
+        },
+        "plural": {
+          "en": "Products",
+          "mk": "Продукти",
+          "gr": "грчко"
+        }
+      }
+    },
+    "collections": [
+      {
+        "name": {
+          "en": "Aliases",
+          "mk": "Псевдоними",
+          "gr": "грчко"
+        },
+        "_id": {
+          "$oid": "671397769c2800040d78386c"
+        }
+      },
+      {
+        "name": {
+          "en": "Colors",
+          "mk": "Бои",
+          "gr": "грчко"
+        },
+        "_id": {
+          "$oid": "671397769c2800040d78386d"
+        }
+      },
+      {
+        "name": {
+          "en": "Notes",
+          "mk": "Забелешки",
+          "gr": "грчко"
+        },
+        "_id": {
+          "$oid": "671397769c2800040d78386e"
+        }
+      }
+    ]
+  },
+  "settings": [
+    {
+      "parameter": {
+        "en": "UNL-95",
+        "mk": "БМБ-95",
+        "gr": "gr"
+      },
+      "collections": {
+        "671397769c2800040d78386c": [
+          {
+            "inputType": "translations",
+            "value": {
+              "en": "EuroSuper BS - 95",
+              "mk": "ЕУРОСУПЕР БС -95",
+              "gr": "gr"
+            },
+            "_id": {
+              "$oid": "671397ff9c2800040d78387b"
+            }
+          }
+        ],
+        "671397769c2800040d78386d": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "primary",
+              "value": "#daeef3"
+            },
+            "_id": {
+              "$oid": "671397ff9c2800040d78387c"
+            }
+          },
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "secondary",
+              "value": "#95b3d7"
+            },
+            "_id": {
+              "$oid": "671397ff9c2800040d78387d"
+            }
+          }
+        ],
+        "671397769c2800040d78386e": []
+      },
+      "_id": {
+        "$oid": "671397ff9c2800040d78387a"
+      }
+    },
+    {
+      "parameter": {
+        "en": "UNL-98",
+        "mk": "БМБ-98",
+        "gr": "грчко"
+      },
+      "collections": {
+        "671397769c2800040d78386c": [
+          {
+            "inputType": "translations",
+            "value": {
+              "en": "EuroSuper BS -  98",
+              "mk": "ЕУРОСУПЕР БС - 98",
+              "gr": "гр"
+            },
+            "_id": {
+              "$oid": "671398e69c2800040d783892"
+            }
+          }
+        ],
+        "671397769c2800040d78386d": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "en": "",
+              "mk": "",
+              "gr": "",
+              "key": "primary ",
+              "value": "#ebf1de"
+            },
+            "_id": {
+              "$oid": "671398e69c2800040d783893"
+            }
+          },
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "secondary",
+              "value": "#c4d79b"
+            },
+            "_id": {
+              "$oid": "671398e69c2800040d783894"
+            }
+          }
+        ],
+        "671397769c2800040d78386e": []
+      },
+      "_id": {
+        "$oid": "671398e69c2800040d783891"
+      }
+    },
+    {
+      "parameter": {
+        "en": "UNL-100",
+        "mk": "БМБ-100",
+        "gr": "гр"
+      },
+      "collections": {
+        "671397769c2800040d78386c": [
+          {
+            "inputType": "translations",
+            "value": {
+              "en": "EuroSuper BS - 100",
+              "mk": "ЕУРОСУПЕР БС - 100",
+              "gr": "гр"
+            },
+            "_id": {
+              "$oid": "67139a2a9c2800040d7838f8"
+            }
+          }
+        ],
+        "671397769c2800040d78386d": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "primary"
+            },
+            "_id": {
+              "$oid": "67139a2a9c2800040d7838f9"
+            }
+          }
+        ],
+        "671397769c2800040d78386e": []
+      },
+      "_id": {
+        "$oid": "67139a2a9c2800040d7838f7"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Jet A-1",
+        "mk": "ГМ-1",
+        "gr": "gr"
+      },
+      "collections": {
+        "671397769c2800040d78386c": [
+          {
+            "inputType": "translations",
+            "value": {
+              "en": "JET FUEL",
+              "mk": "Гориво за Млазни Мотори",
+              "gr": "gr"
+            },
+            "_id": {
+              "$oid": "67139b4e9c2800040d7839e4"
+            }
+          }
+        ],
+        "671397769c2800040d78386d": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "primary",
+              "value": "#efefef"
+            },
+            "_id": {
+              "$oid": "67139b4e9c2800040d7839e5"
+            }
+          },
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "secondary",
+              "value": "#efefef"
+            },
+            "_id": {
+              "$oid": "67139b4e9c2800040d7839e6"
+            }
+          }
+        ],
+        "671397769c2800040d78386e": []
+      },
+      "_id": {
+        "$oid": "67139b4e9c2800040d7839e3"
+      }
+    },
+    {
+      "parameter": {
+        "en": "ULSD",
+        "mk": "Дизел",
+        "gr": "грчко"
+      },
+      "collections": {
+        "671397769c2800040d78386c": [
+          {
+            "inputType": "translations",
+            "value": {
+              "en": "EURODIESEL BS",
+              "mk": "ЕУРОДИЗЕЛ БС",
+              "gr": "гр"
+            },
+            "_id": {
+              "$oid": "67139bbc9c2800040d783a20"
+            }
+          }
+        ],
+        "671397769c2800040d78386d": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "primary",
+              "value": "#ffffcc"
+            },
+            "_id": {
+              "$oid": "67139bbc9c2800040d783a21"
+            }
+          },
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "secondary",
+              "value": "#ffff00"
+            },
+            "_id": {
+              "$oid": "67139bbc9c2800040d783a22"
+            }
+          }
+        ],
+        "671397769c2800040d78386e": []
+      },
+      "_id": {
+        "$oid": "67139bbc9c2800040d783a1f"
+      }
+    },
+    {
+      "parameter": {
+        "en": "H.G.O.",
+        "mk": "Екстра Лесно",
+        "gr": ""
+      },
+      "collections": {
+        "671397769c2800040d78386c": [
+          {
+            "inputType": "translations",
+            "value": {
+              "en": "Heating Oil",
+              "mk": "Масло за горење",
+              "gr": "gr"
+            },
+            "_id": {
+              "$oid": "67139c7e9c2800040d783a81"
+            }
+          }
+        ],
+        "671397769c2800040d78386d": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "primary",
+              "value": "#f2dcdb"
+            },
+            "_id": {
+              "$oid": "67139c7e9c2800040d783a82"
+            }
+          },
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "secondary",
+              "value": "#da9694"
+            },
+            "_id": {
+              "$oid": "67139c7e9c2800040d783a83"
+            }
+          }
+        ],
+        "671397769c2800040d78386e": []
+      },
+      "_id": {
+        "$oid": "67139c7e9c2800040d783a80"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Fuel Oil",
+        "mk": "Мазут",
+        "gr": ""
+      },
+      "collections": {
+        "671397769c2800040d78386c": [
+          {
+            "inputType": "translations",
+            "value": {
+              "en": "Fuel Oil",
+              "mk": "Масло за горење",
+              "gr": ""
+            },
+            "_id": {
+              "$oid": "67139d3a9c2800040d783b2c"
+            }
+          }
+        ],
+        "671397769c2800040d78386d": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "en": "",
+              "mk": "",
+              "gr": "",
+              "key": "primary",
+              "value": "#d9d9d9"
+            },
+            "_id": {
+              "$oid": "67139d3a9c2800040d783b2d"
+            }
+          },
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "secondary",
+              "value": "#a6a6a6"
+            },
+            "_id": {
+              "$oid": "67139d3a9c2800040d783b2e"
+            }
+          }
+        ],
+        "671397769c2800040d78386e": []
+      },
+      "_id": {
+        "$oid": "67139d3a9c2800040d783b2b"
+      }
+    },
+    {
+      "parameter": {
+        "en": "L.P.G.",
+        "mk": "Т.Н.Г.",
+        "gr": ""
+      },
+      "collections": {
+        "671397769c2800040d78386c": [
+          {
+            "inputType": "translations",
+            "value": {
+              "en": "Liquefied petroleum gas",
+              "mk": "Втечнет нафтен гас",
+              "gr": ""
+            },
+            "_id": {
+              "$oid": "67139e309c2800040d783bb1"
+            }
+          }
+        ],
+        "671397769c2800040d78386d": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "primary",
+              "value": "#e4dfec"
+            },
+            "_id": {
+              "$oid": "67139e309c2800040d783bb2"
+            }
+          },
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "secondary",
+              "value": "#ccc0da"
+            },
+            "_id": {
+              "$oid": "67139e309c2800040d783bb3"
+            }
+          }
+        ],
+        "671397769c2800040d78386e": []
+      },
+      "_id": {
+        "$oid": "67139e309c2800040d783bb0"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Water",
+        "mk": "Вода",
+        "gr": ""
+      },
+      "collections": {
+        "671397769c2800040d78386c": [],
+        "671397769c2800040d78386d": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "en": "",
+              "mk": "",
+              "gr": "",
+              "key": "primary",
+              "value": "transparent"
+            },
+            "_id": {
+              "$oid": "67139e5d9c2800040d783c1d"
+            }
+          }
+        ],
+        "671397769c2800040d78386e": []
+      },
+      "_id": {
+        "$oid": "67139e5d9c2800040d783c1c"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6713ed329c2800040d78539f"
+  },
+  "documentStatus": "published",
+  "isDeleted": false,
+  "__v": 0,
+  "sector": {
+    "$oid": "66dad89fcde9a728bc1b939d"
+  },
+  "settingName": "Laboratory Templates",
+  "optionsSchema": {
+    "parameter": {
+      "name": {
+        "singular": {
+          "en": "Property",
+          "mk": "Својство",
+          "gr": ""
+        },
+        "plural": {
+          "en": "Properties",
+          "mk": "Својства",
+          "gr": ""
+        }
+      }
+    },
+    "collections": [
+      {
+        "name": {
+          "en": "Methods",
+          "mk": "Методи",
+          "gr": ""
+        },
+        "_id": {
+          "$oid": "6713ed7f9c2800040d7853ed"
+        }
+      },
+      {
+        "name": {
+          "en": "Units",
+          "mk": "Единици",
+          "gr": ""
+        },
+        "_id": {
+          "$oid": "6713ed7f9c2800040d7853ee"
+        }
+      },
+      {
+        "name": {
+          "en": "Limits",
+          "mk": "Ограничувања",
+          "gr": ""
+        },
+        "_id": {
+          "$oid": "6713ed7f9c2800040d7853ef"
+        }
+      }
+    ]
+  },
+  "settings": [
+    {
+      "parameter": {
+        "en": "1,3-Butadiene",
+        "mk": "1,3-Бутадиен",
+        "gr": ""
+      },
+      "collections": {
+        "6713ed7f9c2800040d7853ed": [
+          {
+            "inputType": "simple",
+            "value": "ASTM D3606",
+            "_id": {
+              "$oid": "6713ee099c2800040d7853fc"
+            }
+          },
+          {
+            "inputType": "simple",
+            "value": "ASTM D5833",
+            "_id": {
+              "$oid": "6713ee099c2800040d7853fd"
+            }
+          },
+          {
+            "inputType": "simple",
+            "value": "ЕN 27941",
+            "_id": {
+              "$oid": "6713ee099c2800040d7853fe"
+            }
+          },
+          {
+            "inputType": "simple",
+            "value": "IP 406",
+            "_id": {
+              "$oid": "6713ee099c2800040d7853ff"
+            }
+          }
+        ],
+        "6713ed7f9c2800040d7853ee": [
+          {
+            "inputType": "simple",
+            "value": "mol%",
+            "_id": {
+              "$oid": "6713ee099c2800040d785400"
+            }
+          }
+        ],
+        "6713ed7f9c2800040d7853ef": []
+      },
+      "_id": {
+        "$oid": "6713ee099c2800040d7853fb"
+      }
+    },
+    {
+      "parameter": {
+        "en": "10% vol. Recovered",
+        "mk": "10% дестилација",
+        "gr": ""
+      },
+      "collections": {
+        "6713ed7f9c2800040d7853ed": [
+          {
+            "inputType": "simple",
+            "value": "ASTM  D86",
+            "_id": {
+              "$oid": "6713ee659c2800040d785419"
+            }
+          },
+          {
+            "inputType": "simple",
+            "value": "ASTM D1160",
+            "_id": {
+              "$oid": "6713ee659c2800040d78541a"
+            }
+          },
+          {
+            "inputType": "simple",
+            "value": "ASTM D5236",
+            "_id": {
+              "$oid": "6713ee659c2800040d78541b"
+            }
+          },
+          {
+            "inputType": "simple",
+            "value": "EN ISO 3405",
+            "_id": {
+              "$oid": "6713ee659c2800040d78541c"
+            }
+          },
+          {
+            "inputType": "simple",
+            "value": "ISO 3405",
+            "_id": {
+              "$oid": "6713ee659c2800040d78541d"
+            }
+          },
+          {
+            "inputType": "simple",
+            "value": "IP 123",
+            "_id": {
+              "$oid": "6713ee659c2800040d78541e"
+            }
+          }
+        ],
+        "6713ed7f9c2800040d7853ee": [
+          {
+            "inputType": "simple",
+            "value": "°C",
+            "_id": {
+              "$oid": "6713ee659c2800040d78541f"
+            }
+          }
+        ],
+        "6713ed7f9c2800040d7853ef": []
+      },
+      "_id": {
+        "$oid": "6713ee659c2800040d785418"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6713f3189c2800040d785e8e"
+  },
+  "documentStatus": "published",
+  "isDeleted": false,
+  "__v": 0,
+  "sector": {
+    "$oid": "66ddfe0285beab162d47257c"
+  },
+  "settingName": "Countries",
+  "optionsSchema": {
+    "parameter": {
+      "name": {
+        "singular": {
+          "en": "Country",
+          "mk": "Држава",
+          "gr": ""
+        },
+        "plural": {
+          "en": "Countries",
+          "mk": "Држави",
+          "gr": ""
+        }
+      }
+    },
+    "collections": [
+      {
+        "name": {
+          "en": "Locale",
+          "mk": "Ознака",
+          "gr": ""
+        },
+        "_id": {
+          "$oid": "6713f3619c2800040d785ed4"
+        }
+      }
+    ]
+  },
+  "settings": [
+    {
+      "parameter": {
+        "en": "Albania",
+        "mk": "Албанија",
+        "gr": ""
+      },
+      "collections": {
+        "6713f3619c2800040d785ed4": [
+          {
+            "inputType": "simple",
+            "value": "al-AL",
+            "_id": {
+              "$oid": "6713f38b9c2800040d785edd"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f38b9c2800040d785edc"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Bulgaria",
+        "mk": "Бугарија",
+        "gr": ""
+      },
+      "collections": {
+        "6713f3619c2800040d785ed4": [
+          {
+            "inputType": "simple",
+            "value": "bg-BG",
+            "_id": {
+              "$oid": "6713f3a59c2800040d785eea"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f3a59c2800040d785ee9"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Greece",
+        "mk": "Грција",
+        "gr": ""
+      },
+      "collections": {
+        "6713f3619c2800040d785ed4": [
+          {
+            "inputType": "simple",
+            "value": "el-GR",
+            "_id": {
+              "$oid": "6713f3bd9c2800040d785eff"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f3bd9c2800040d785efe"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Macedonia",
+        "mk": "Македонија",
+        "gr": ""
+      },
+      "collections": {
+        "6713f3619c2800040d785ed4": [
+          {
+            "inputType": "simple",
+            "value": "mk-MK",
+            "_id": {
+              "$oid": "6713f3d99c2800040d785f1a"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f3d99c2800040d785f19"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Montenegro",
+        "mk": "Црна Гора",
+        "gr": ""
+      },
+      "collections": {
+        "6713f3619c2800040d785ed4": [
+          {
+            "inputType": "simple",
+            "value": "me-ME",
+            "_id": {
+              "$oid": "6713f3f39c2800040d785f3b"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f3f39c2800040d785f3a"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Romania",
+        "mk": "Романија",
+        "gr": ""
+      },
+      "collections": {
+        "6713f3619c2800040d785ed4": [
+          {
+            "inputType": "simple",
+            "value": "ro-RO",
+            "_id": {
+              "$oid": "6713f4049c2800040d785f62"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f4049c2800040d785f61"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Serbia",
+        "mk": "Србија",
+        "gr": ""
+      },
+      "collections": {
+        "6713f3619c2800040d785ed4": [
+          {
+            "inputType": "simple",
+            "value": "sr-RS",
+            "_id": {
+              "$oid": "6713f4189c2800040d785f8f"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f4189c2800040d785f8e"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6713f4389c2800040d78606a"
+  },
+  "documentStatus": "published",
+  "isDeleted": false,
+  "__v": 0,
+  "sector": {
+    "$oid": "66dad89fcde9a728bc1b939d"
+  },
+  "settingName": "Grouped Parameters",
+  "optionsSchema": {
+    "parameter": {
+      "name": {
+        "singular": {
+          "en": "Name",
+          "mk": "Име",
+          "gr": ""
+        },
+        "plural": {
+          "en": "Names",
+          "mk": "Имиња",
+          "gr": ""
+        }
+      }
+    },
+    "collections": [
+      {
+        "name": {
+          "en": "Tags",
+          "mk": "Ознаки",
+          "gr": ""
+        },
+        "_id": {
+          "$oid": "6713f4609c2800040d7860bf"
+        }
+      }
+    ]
+  },
+  "settings": [
+    {
+      "parameter": {
+        "en": "Distilation",
+        "mk": "Дестилација",
+        "gr": ""
+      },
+      "collections": {
+        "6713f4609c2800040d7860bf": [
+          {
+            "inputType": "simple",
+            "value": "--",
+            "_id": {
+              "$oid": "6713f47b9c2800040d7860c8"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f47b9c2800040d7860c7"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Recovered",
+        "mk": "Поврат",
+        "gr": ""
+      },
+      "collections": {
+        "6713f4609c2800040d7860bf": [
+          {
+            "inputType": "simple",
+            "value": "--",
+            "_id": {
+              "$oid": "6713f48e9c2800040d7860d5"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f48e9c2800040d7860d4"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Thermal Stability (JFTOT) Control Temp. 260ºC",
+        "mk": "Термичка стабилност (JFT…ролна температура 260ºC",
+        "gr": ""
+      },
+      "collections": {
+        "6713f4609c2800040d7860bf": [
+          {
+            "inputType": "simple",
+            "value": "--",
+            "_id": {
+              "$oid": "6713f4a29c2800040d7860ea"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f4a29c2800040d7860e9"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Additives",
+        "mk": "Адитиви",
+        "gr": ""
+      },
+      "collections": {
+        "6713f4609c2800040d7860bf": [
+          {
+            "inputType": "simple",
+            "value": "--",
+            "_id": {
+              "$oid": "6713f4af9c2800040d786105"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f4af9c2800040d786104"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Cumulative chanel particle counts",
+        "mk": "Кумулативен број на честички",
+        "gr": ""
+      },
+      "collections": {
+        "6713f4609c2800040d7860bf": [
+          {
+            "inputType": "simple",
+            "value": "--",
+            "_id": {
+              "$oid": "6713f4c39c2800040d786126"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f4c39c2800040d786125"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Hydrocarbon content",
+        "mk": "Состав на јаглеводороди",
+        "gr": ""
+      },
+      "collections": {
+        "6713f4609c2800040d7860bf": [
+          {
+            "inputType": "simple",
+            "value": "--",
+            "_id": {
+              "$oid": "6713f4d99c2800040d78614d"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f4d99c2800040d78614c"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Oxygenates content",
+        "mk": "Содржина на оксигенати",
+        "gr": ""
+      },
+      "collections": {
+        "6713f4609c2800040d7860bf": [
+          {
+            "inputType": "simple",
+            "value": "--",
+            "_id": {
+              "$oid": "6713f4f49c2800040d78617a"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f4f49c2800040d786179"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Water Reaction",
+        "mk": "Реакција со вода",
+        "gr": ""
+      },
+      "collections": {
+        "6713f4609c2800040d7860bf": [
+          {
+            "inputType": "simple",
+            "value": "--",
+            "_id": {
+              "$oid": "6713f50c9c2800040d7861ad"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f50c9c2800040d7861ac"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6713f5319c2800040d786255"
+  },
+  "documentStatus": "published",
+  "isDeleted": false,
+  "__v": 0,
+  "sector": {
+    "$oid": "66ddfe0285beab162d47257c"
+  },
+  "settingName": "Types",
+  "optionsSchema": {
+    "parameter": {
+      "name": {
+        "singular": {
+          "en": "Name",
+          "mk": "Име",
+          "gr": ""
+        },
+        "plural": {
+          "en": "Names",
+          "mk": "Имиња",
+          "gr": ""
+        }
+      }
+    },
+    "collections": [
+      {
+        "name": {
+          "en": "Type",
+          "mk": "Вид",
+          "gr": ""
+        },
+        "_id": {
+          "$oid": "6713f5589c2800040d7862bb"
+        }
+      }
+    ]
+  },
+  "settings": [
+    {
+      "parameter": {
+        "en": "Export Certificate",
+        "mk": "Увозен сертификат",
+        "gr": ""
+      },
+      "collections": {
+        "6713f5589c2800040d7862bb": [
+          {
+            "inputType": "simple",
+            "value": "document",
+            "_id": {
+              "$oid": "6713f57a9c2800040d7862c4"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f57a9c2800040d7862c3"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Import Certificate",
+        "mk": "Сертификат за извоз",
+        "gr": ""
+      },
+      "collections": {
+        "6713f5589c2800040d7862bb": [
+          {
+            "inputType": "simple",
+            "value": "document",
+            "_id": {
+              "$oid": "6713f5969c2800040d7862d1"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f5969c2800040d7862d0"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Offer",
+        "mk": "Понуда",
+        "gr": ""
+      },
+      "collections": {
+        "6713f5589c2800040d7862bb": [
+          {
+            "inputType": "simple",
+            "value": "document",
+            "_id": {
+              "$oid": "6713f5ac9c2800040d7862e6"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f5ac9c2800040d7862e5"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Research Analysis",
+        "mk": "Истражна Анализа",
+        "gr": ""
+      },
+      "collections": {
+        "6713f5589c2800040d7862bb": [
+          {
+            "inputType": "simple",
+            "value": "document",
+            "_id": {
+              "$oid": "6713f5c59c2800040d786301"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f5c59c2800040d786300"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Certificate",
+        "mk": "Сертификат",
+        "gr": ""
+      },
+      "collections": {
+        "6713f5589c2800040d7862bb": [
+          {
+            "inputType": "simple",
+            "value": "document",
+            "_id": {
+              "$oid": "6713f5f79c2800040d786322"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f5f79c2800040d786321"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Test Report",
+        "mk": "Извештај за тестирање",
+        "gr": ""
+      },
+      "collections": {
+        "6713f5589c2800040d7862bb": [
+          {
+            "inputType": "simple",
+            "value": "document",
+            "_id": {
+              "$oid": "6713f6129c2800040d786349"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f6129c2800040d786348"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Barrel",
+        "mk": "Буре",
+        "gr": ""
+      },
+      "collections": {
+        "6713f5589c2800040d7862bb": [
+          {
+            "inputType": "simple",
+            "value": "sample",
+            "_id": {
+              "$oid": "6713f6239c2800040d786376"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f6239c2800040d786375"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Bottle",
+        "mk": "Шише",
+        "gr": ""
+      },
+      "collections": {
+        "6713f5589c2800040d7862bb": [
+          {
+            "inputType": "simple",
+            "value": "sample",
+            "_id": {
+              "$oid": "6713f63f9c2800040d7863a9"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f63f9c2800040d7863a8"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Canister",
+        "mk": "Канистер",
+        "gr": ""
+      },
+      "collections": {
+        "6713f5589c2800040d7862bb": [
+          {
+            "inputType": "simple",
+            "value": "sample",
+            "_id": {
+              "$oid": "6713f6469c2800040d7863e2"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f6469c2800040d7863e1"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Cistern Truck",
+        "mk": "Авто Цистерна",
+        "gr": ""
+      },
+      "collections": {
+        "6713f5589c2800040d7862bb": [
+          {
+            "inputType": "simple",
+            "value": "sample",
+            "_id": {
+              "$oid": "6713f65b9c2800040d786421"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f65b9c2800040d786420"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Drainage Tank",
+        "mk": "Дренажен резервоар",
+        "gr": ""
+      },
+      "collections": {
+        "6713f5589c2800040d7862bb": [
+          {
+            "inputType": "simple",
+            "value": "sample",
+            "_id": {
+              "$oid": "6713f66d9c2800040d786466"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f66d9c2800040d786465"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Pipes",
+        "mk": "Цевовод",
+        "gr": ""
+      },
+      "collections": {
+        "6713f5589c2800040d7862bb": [
+          {
+            "inputType": "simple",
+            "value": "sample",
+            "_id": {
+              "$oid": "6713f67f9c2800040d7864b1"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f67f9c2800040d7864b0"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Gas Station",
+        "mk": "Бензинска пумпа",
+        "gr": ""
+      },
+      "collections": {
+        "6713f5589c2800040d7862bb": [
+          {
+            "inputType": "simple",
+            "value": "sample",
+            "_id": {
+              "$oid": "6713f6979c2800040d786502"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f6979c2800040d786501"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Vagon",
+        "mk": "Вагон",
+        "gr": ""
+      },
+      "collections": {
+        "6713f5589c2800040d7862bb": [
+          {
+            "inputType": "simple",
+            "value": "sample",
+            "_id": {
+              "$oid": "6713f6ad9c2800040d786559"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f6ad9c2800040d786558"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Tank",
+        "mk": "Резервоар",
+        "gr": ""
+      },
+      "collections": {
+        "6713f5589c2800040d7862bb": [
+          {
+            "inputType": "simple",
+            "value": "sample",
+            "_id": {
+              "$oid": "6713f6bf9c2800040d7865b6"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f6bf9c2800040d7865b5"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Tanker",
+        "mk": "Танкер",
+        "gr": ""
+      },
+      "collections": {
+        "6713f5589c2800040d7862bb": [
+          {
+            "inputType": "simple",
+            "value": "sample",
+            "_id": {
+              "$oid": "6713f6cc9c2800040d786619"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f6cc9c2800040d786618"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6713f6fa9c2800040d78679d"
+  },
+  "documentStatus": "published",
+  "isDeleted": false,
+  "__v": 0,
+  "sector": {
+    "$oid": "66ddfe0285beab162d47257c"
+  },
+  "settingName": "Fields",
+  "optionsSchema": {
+    "parameter": {
+      "name": {
+        "singular": {
+          "en": "Name",
+          "mk": "Име",
+          "gr": ""
+        },
+        "plural": {
+          "en": "Names",
+          "mk": "Имиња",
+          "gr": ""
+        }
+      }
+    },
+    "collections": [
+      {
+        "name": {
+          "en": "type",
+          "mk": "вид",
+          "gr": ""
+        },
+        "_id": {
+          "$oid": "6713f7419c2800040d786824"
+        }
+      },
+      {
+        "name": {
+          "en": "checked",
+          "mk": "активно",
+          "gr": ""
+        },
+        "_id": {
+          "$oid": "6713f7419c2800040d786825"
+        }
+      },
+      {
+        "name": {
+          "en": "order",
+          "mk": "реден број",
+          "gr": ""
+        },
+        "_id": {
+          "$oid": "6713f7419c2800040d786826"
+        }
+      },
+      {
+        "name": {
+          "en": "link",
+          "mk": "линк",
+          "gr": ""
+        },
+        "_id": {
+          "$oid": "6713f7419c2800040d786827"
+        }
+      }
+    ]
+  },
+  "settings": [
+    {
+      "parameter": {
+        "en": "Sample",
+        "mk": "Предмет на тестирање",
+        "gr": ""
+      },
+      "collections": {
+        "6713f7419c2800040d786824": [
+          {
+            "inputType": "simple",
+            "value": "select",
+            "_id": {
+              "$oid": "6713f7ea9c2800040d7868fd"
+            }
+          }
+        ],
+        "6713f7419c2800040d786825": [
+          {
+            "inputType": "simple",
+            "value": "true",
+            "_id": {
+              "$oid": "6713f7ea9c2800040d7868fe"
+            }
+          }
+        ],
+        "6713f7419c2800040d786826": [
+          {
+            "inputType": "simple",
+            "value": "1",
+            "_id": {
+              "$oid": "6713f7ea9c2800040d7868ff"
+            }
+          }
+        ],
+        "6713f7419c2800040d786827": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "id",
+              "value": "6713f6129c2800040d786348"
+            },
+            "_id": {
+              "$oid": "6713f7ea9c2800040d786900"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f7ea9c2800040d7868fc"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Sample Tag",
+        "mk": "Ознака на примерокот",
+        "gr": ""
+      },
+      "collections": {
+        "6713f7419c2800040d786824": [
+          {
+            "inputType": "simple",
+            "value": "text",
+            "_id": {
+              "$oid": "6713f8479c2800040d786919"
+            }
+          }
+        ],
+        "6713f7419c2800040d786825": [
+          {
+            "inputType": "simple",
+            "value": "true",
+            "_id": {
+              "$oid": "6713f8479c2800040d78691a"
+            }
+          }
+        ],
+        "6713f7419c2800040d786826": [
+          {
+            "inputType": "simple",
+            "value": "2",
+            "_id": {
+              "$oid": "6713f8479c2800040d78691b"
+            }
+          }
+        ],
+        "6713f7419c2800040d786827": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "id",
+              "value": "6713f6129c2800040d786348"
+            },
+            "_id": {
+              "$oid": "6713f8479c2800040d78691c"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f8479c2800040d786918"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Date of reception of sample",
+        "mk": "Дата на прием на примерокот",
+        "gr": ""
+      },
+      "collections": {
+        "6713f7419c2800040d786824": [
+          {
+            "inputType": "simple",
+            "value": "date",
+            "_id": {
+              "$oid": "6713f89c9c2800040d786949"
+            }
+          }
+        ],
+        "6713f7419c2800040d786825": [
+          {
+            "inputType": "simple",
+            "value": "true",
+            "_id": {
+              "$oid": "6713f89c9c2800040d78694a"
+            }
+          }
+        ],
+        "6713f7419c2800040d786826": [
+          {
+            "inputType": "simple",
+            "value": "3",
+            "_id": {
+              "$oid": "6713f89c9c2800040d78694b"
+            }
+          }
+        ],
+        "6713f7419c2800040d786827": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "id",
+              "value": "6713f6129c2800040d786348"
+            },
+            "_id": {
+              "$oid": "6713f89c9c2800040d78694c"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f89c9c2800040d786948"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Laboratory Number",
+        "mk": "Лабораториски Број",
+        "gr": ""
+      },
+      "collections": {
+        "6713f7419c2800040d786824": [
+          {
+            "inputType": "simple",
+            "value": "text",
+            "_id": {
+              "$oid": "6713f9159c2800040d786988"
+            }
+          }
+        ],
+        "6713f7419c2800040d786825": [
+          {
+            "inputType": "simple",
+            "value": "true",
+            "_id": {
+              "$oid": "6713f9159c2800040d786989"
+            }
+          }
+        ],
+        "6713f7419c2800040d786826": [
+          {
+            "inputType": "simple",
+            "value": "4",
+            "_id": {
+              "$oid": "6713f9159c2800040d78698a"
+            }
+          }
+        ],
+        "6713f7419c2800040d786827": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "id",
+              "value": "6713f6129c2800040d786348"
+            },
+            "_id": {
+              "$oid": "6713f9159c2800040d78698b"
+            }
+          },
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "6713f5f79c2800040d786321",
+              "key": "id"
+            },
+            "_id": {
+              "$oid": "6713f9159c2800040d78698c"
+            }
+          },
+          {
+            "inputType": "simple",
+            "value": "other",
+            "_id": {
+              "$oid": "6713f9159c2800040d78698d"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f9159c2800040d786987"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Date of performance of anlysis",
+        "mk": "Дата на изработка",
+        "gr": ""
+      },
+      "collections": {
+        "6713f7419c2800040d786824": [
+          {
+            "inputType": "simple",
+            "value": "date",
+            "_id": {
+              "$oid": "6713f9719c2800040d7869de"
+            }
+          }
+        ],
+        "6713f7419c2800040d786825": [
+          {
+            "inputType": "simple",
+            "value": "true",
+            "_id": {
+              "$oid": "6713f9719c2800040d7869df"
+            }
+          }
+        ],
+        "6713f7419c2800040d786826": [
+          {
+            "inputType": "simple",
+            "value": "5",
+            "_id": {
+              "$oid": "6713f9719c2800040d7869e0"
+            }
+          }
+        ],
+        "6713f7419c2800040d786827": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "6713f6129c2800040d786348",
+              "key": "id"
+            },
+            "_id": {
+              "$oid": "6713f9719c2800040d7869e1"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f9719c2800040d7869dd"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Tank",
+        "mk": "Резервоар",
+        "gr": ""
+      },
+      "collections": {
+        "6713f7419c2800040d786824": [
+          {
+            "inputType": "simple",
+            "value": "text",
+            "_id": {
+              "$oid": "6713f9fa9c2800040d786a41"
+            }
+          }
+        ],
+        "6713f7419c2800040d786825": [
+          {
+            "inputType": "simple",
+            "value": "true",
+            "_id": {
+              "$oid": "6713f9fa9c2800040d786a42"
+            }
+          }
+        ],
+        "6713f7419c2800040d786826": [
+          {
+            "inputType": "simple",
+            "value": "4",
+            "_id": {
+              "$oid": "6713f9fa9c2800040d786a43"
+            }
+          }
+        ],
+        "6713f7419c2800040d786827": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "6713f6129c2800040d786348",
+              "key": "id"
+            },
+            "_id": {
+              "$oid": "6713f9fa9c2800040d786a44"
+            }
+          },
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "6713f5f79c2800040d786321",
+              "key": "id"
+            },
+            "_id": {
+              "$oid": "6713f9fa9c2800040d786a45"
+            }
+          },
+          {
+            "inputType": "simple",
+            "value": "other",
+            "_id": {
+              "$oid": "6713f9fa9c2800040d786a46"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713f9fa9c2800040d786a40"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Batch",
+        "mk": "Шаржа",
+        "gr": ""
+      },
+      "collections": {
+        "6713f7419c2800040d786824": [
+          {
+            "inputType": "simple",
+            "value": "text",
+            "_id": {
+              "$oid": "6713fa549c2800040d786ae4"
+            }
+          }
+        ],
+        "6713f7419c2800040d786825": [
+          {
+            "inputType": "simple",
+            "value": "false",
+            "_id": {
+              "$oid": "6713fa549c2800040d786ae5"
+            }
+          }
+        ],
+        "6713f7419c2800040d786826": [
+          {
+            "inputType": "simple",
+            "value": "2",
+            "_id": {
+              "$oid": "6713fa549c2800040d786ae6"
+            }
+          }
+        ],
+        "6713f7419c2800040d786827": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "6713f5f79c2800040d786321",
+              "key": "id"
+            },
+            "_id": {
+              "$oid": "6713fa549c2800040d786ae7"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713fa549c2800040d786ae3"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Quantity of batch",
+        "mk": "Количина",
+        "gr": ""
+      },
+      "collections": {
+        "6713f7419c2800040d786824": [
+          {
+            "inputType": "simple",
+            "value": "text",
+            "_id": {
+              "$oid": "6713fa939c2800040d786b6b"
+            }
+          }
+        ],
+        "6713f7419c2800040d786825": [
+          {
+            "inputType": "simple",
+            "value": "false",
+            "_id": {
+              "$oid": "6713fa939c2800040d786b6c"
+            }
+          }
+        ],
+        "6713f7419c2800040d786826": [
+          {
+            "inputType": "simple",
+            "value": "3",
+            "_id": {
+              "$oid": "6713fa939c2800040d786b6d"
+            }
+          }
+        ],
+        "6713f7419c2800040d786827": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "key": "id",
+              "value": "6713f5f79c2800040d786321"
+            },
+            "_id": {
+              "$oid": "6713fa939c2800040d786b6e"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713fa939c2800040d786b6a"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Destination",
+        "mk": "Место",
+        "gr": ""
+      },
+      "collections": {
+        "6713f7419c2800040d786824": [
+          {
+            "inputType": "simple",
+            "value": "text",
+            "_id": {
+              "$oid": "6713fad69c2800040d786c01"
+            }
+          }
+        ],
+        "6713f7419c2800040d786825": [
+          {
+            "inputType": "simple",
+            "value": "true",
+            "_id": {
+              "$oid": "6713fad69c2800040d786c02"
+            }
+          }
+        ],
+        "6713f7419c2800040d786826": [
+          {
+            "inputType": "simple",
+            "value": "1",
+            "_id": {
+              "$oid": "6713fad69c2800040d786c03"
+            }
+          }
+        ],
+        "6713f7419c2800040d786827": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "6713f5f79c2800040d786321",
+              "key": "id"
+            },
+            "_id": {
+              "$oid": "6713fad69c2800040d786c04"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713fad69c2800040d786c00"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Tank Wagon",
+        "mk": "Превозно средство",
+        "gr": ""
+      },
+      "collections": {
+        "6713f7419c2800040d786824": [
+          {
+            "inputType": "simple",
+            "value": "text",
+            "_id": {
+              "$oid": "6713fb1b9c2800040d786ca6"
+            }
+          }
+        ],
+        "6713f7419c2800040d786825": [
+          {
+            "inputType": "simple",
+            "value": "true",
+            "_id": {
+              "$oid": "6713fb1b9c2800040d786ca7"
+            }
+          }
+        ],
+        "6713f7419c2800040d786826": [
+          {
+            "inputType": "simple",
+            "value": "2",
+            "_id": {
+              "$oid": "6713fb1b9c2800040d786ca8"
+            }
+          }
+        ],
+        "6713f7419c2800040d786827": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "6713f5f79c2800040d786321",
+              "key": "id"
+            },
+            "_id": {
+              "$oid": "6713fb1b9c2800040d786ca9"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713fb1b9c2800040d786ca5"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Loading Date",
+        "mk": "Дата на испорака",
+        "gr": ""
+      },
+      "collections": {
+        "6713f7419c2800040d786824": [
+          {
+            "inputType": "simple",
+            "value": "date",
+            "_id": {
+              "$oid": "6713fb699c2800040d786d5a"
+            }
+          }
+        ],
+        "6713f7419c2800040d786825": [
+          {
+            "inputType": "simple",
+            "value": "true",
+            "_id": {
+              "$oid": "6713fb699c2800040d786d5b"
+            }
+          }
+        ],
+        "6713f7419c2800040d786826": [
+          {
+            "inputType": "simple",
+            "value": "3",
+            "_id": {
+              "$oid": "6713fb699c2800040d786d5c"
+            }
+          }
+        ],
+        "6713f7419c2800040d786827": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "6713f5f79c2800040d786321",
+              "key": "id"
+            },
+            "_id": {
+              "$oid": "6713fb699c2800040d786d5d"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713fb699c2800040d786d59"
+      }
+    },
+    {
+      "parameter": {
+        "en": "Quality Certificate Date from",
+        "mk": "Дата на изработка на уверението",
+        "gr": ""
+      },
+      "collections": {
+        "6713f7419c2800040d786824": [
+          {
+            "inputType": "simple",
+            "value": "date",
+            "_id": {
+              "$oid": "6713fbac9c2800040d786e1d"
+            }
+          }
+        ],
+        "6713f7419c2800040d786825": [
+          {
+            "inputType": "simple",
+            "value": "true",
+            "_id": {
+              "$oid": "6713fbac9c2800040d786e1e"
+            }
+          }
+        ],
+        "6713f7419c2800040d786826": [
+          {
+            "inputType": "simple",
+            "value": "5",
+            "_id": {
+              "$oid": "6713fbac9c2800040d786e1f"
+            }
+          }
+        ],
+        "6713f7419c2800040d786827": [
+          {
+            "inputType": "key/value",
+            "value": {
+              "value": "6713f5f79c2800040d786321",
+              "key": "id"
+            },
+            "_id": {
+              "$oid": "6713fbac9c2800040d786e20"
+            }
+          }
+        ]
+      },
+      "_id": {
+        "$oid": "6713fbac9c2800040d786e1c"
+      }
+    }
+  ]
+}]
