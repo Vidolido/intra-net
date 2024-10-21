@@ -1,3 +1,4 @@
+import { deepEqual } from '@/utils/helpers/deepEqual';
 import { useEffect, useState } from 'react';
 
 // helper
@@ -30,9 +31,11 @@ const initializeSelectState = (
 const SelectInput = ({
 	defaultLanguage,
 	data,
+	functions,
 	extractData = null,
 	resetComponentData,
 	setResetComponentData,
+	resetType,
 }) => {
 	const [state, setState] = useState(() =>
 		initializeSelectState(defaultLanguage, data, data?.showEmptyOption)
@@ -47,18 +50,34 @@ const SelectInput = ({
 	// }, [data, defaultLanguage]);
 
 	useEffect(() => {
-		if (resetComponentData) {
-			setSelected(state[0]._id);
-			setResetComponentData(false);
+		const newState = initializeSelectState(
+			defaultLanguage,
+			data,
+			data?.showEmptyOption
+		);
+		if (!deepEqual(state, newState)) {
+			setState(newState);
 		}
-	}, [resetComponentData, setResetComponentData, state]);
+	}, [defaultLanguage, state, data, data?.showEmptyOption]);
+
+	useEffect(() => {
+		if (resetComponentData && resetComponentData[resetType]) {
+			setSelected(state[0]._id);
+			setResetComponentData((prev) => ({
+				...prev,
+				[resetType]: false,
+			}));
+		}
+	}, [resetComponentData, setResetComponentData, resetType, state]);
 
 	const onSelectChange = (e) => {
 		const { value, id, name } = e.target;
 		setSelected(value);
-		// extractData !== null && extractData(state);
 		extractData !== null && extractData(value, { id, name });
 	};
+
+	// console.log(data, 'the data in SelectInput');
+
 	return (
 		<fieldset className={data?.classes}>
 			<label>{data?.label}</label>

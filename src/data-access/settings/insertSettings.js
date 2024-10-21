@@ -27,9 +27,14 @@ export async function insertSettings(state, documentId) {
 				$set: { settings },
 			}
 		);
+		// const pathsToRevalidate = [
+		// 	`/dashboard/settings/edit/[_id]`,
+		// 	`/dashboard/settings/draft/[_id]`,
+		// 	'/dashboard/settings/create',
+		// ];
 		const pathsToRevalidate = [
-			`/dashboard/settings/edit/[_id]`,
-			`/dashboard/settings/draft/[_id]`,
+			`/dashboard/settings/edit/${documentId}`,
+			`/dashboard/settings/draft/${documentId}`,
 			'/dashboard/settings/create',
 		];
 

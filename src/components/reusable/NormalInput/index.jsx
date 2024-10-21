@@ -6,6 +6,7 @@ const NormalInput = ({
 	extractData = null,
 	resetComponentData = null,
 	setResetComponentData = null,
+	resetType = null,
 }) => {
 	const [value, setValue] = useState(data?.state || '');
 
@@ -15,11 +16,21 @@ const NormalInput = ({
 	};
 
 	useEffect(() => {
-		if (resetComponentData) {
+		let resetData = resetComponentData
+			? Object.values(resetComponentData).some((value) => value === true)
+			: true;
+		if (resetData) {
 			setValue('');
-			setResetComponentData && setResetComponentData(false);
+			let newResetData =
+				setResetComponentData &&
+				Object.entries(resetComponentData).reduce((acc, currentValue) => {
+					acc[currentValue[0]] = false;
+					return acc;
+				}, {});
+
+			setResetComponentData && setResetComponentData(newResetData);
 		}
-	}, [resetComponentData, setResetComponentData]);
+	}, [resetComponentData, setResetComponentData, resetType]);
 
 	const handleInputChange = (e) => {
 		setValue(e.target.value);

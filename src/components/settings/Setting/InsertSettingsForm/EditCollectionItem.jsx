@@ -16,18 +16,16 @@ let types = (languages, value, onChange) => ({
 		/>
 	),
 	translations: (
-		<>
-			<LanguageInput
-				languages={languages}
-				data={{
-					defaultLanguage: languages[0].language,
-					state: value,
-					labelClass: 'block',
-					inputName: 'translations',
-				}}
-				extractData={onChange}
-			/>
-		</>
+		<LanguageInput
+			languages={languages}
+			data={{
+				defaultLanguage: languages[0].language,
+				state: value,
+				labelClass: 'block',
+				inputName: 'translations',
+			}}
+			extractData={onChange}
+		/>
 	),
 	'key/value': (
 		<div className='flex gap-1'>

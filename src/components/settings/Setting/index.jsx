@@ -16,6 +16,40 @@ const Setting = ({ title, languages, sectors, setting }) => {
 					},
 			  }))
 			: [];
+	let initState =
+		setting?.optionsSchema != null
+			? {
+					...setting?.optionsSchema,
+			  }
+			: null;
+	// let optionsSchema = !setting.optionsSchema
+	// 	? { parameter: '', collections: [] }
+	// 	: { parameter: setting?.optionsSchema.parameter.name.singular?.en };
+
+	let insertSettingsProps = {
+		selected:
+			setting?.optionsSchema?.collections != null
+				? setting?.optionsSchema?.collections[0]._id
+				: '',
+		parameterName: setting?.optionsSchema?.parameter.name?.singular?.en,
+		collections:
+			setting?.optionsSchema?.collections != null
+				? [...setting?.optionsSchema?.collections]
+				: [],
+		state: {
+			parameter: {},
+			collections:
+				setting?.optionsSchema?.collections != null
+					? setting?.optionsSchema?.collections.reduce((acc, currentValue) => {
+							return (acc = {
+								...acc,
+								[currentValue._id]: [],
+							});
+					  }, {})
+					: null,
+		},
+	};
+
 	return (
 		<div className='min-w-[300px] max-w-[85%]'>
 			<h2>{title}</h2>
@@ -27,10 +61,19 @@ const Setting = ({ title, languages, sectors, setting }) => {
 						setting={setting}
 					/>
 					{setting.settingName && (
-						<OptionsSchema setting={setting} languages={languages} />
+						<OptionsSchema
+							setting={setting}
+							initState={initState}
+							languages={languages}
+						/>
 					)}
 					{setting.optionsSchema != null && (
-						<InsertSettingsForm setting={setting} languages={languages} />
+						<InsertSettingsForm
+							setting={setting}
+							insertSettingsProps={insertSettingsProps}
+							initState={initState}
+							languages={languages}
+						/>
 					)}
 				</div>
 				{setting?.settings?.length > 0 && (

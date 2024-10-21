@@ -19,7 +19,6 @@ const SingleCollectionItem = ({
 	});
 
 	const handleSave = (id) => {
-		console.log(id);
 		setCanEdit({
 			edit: false,
 			id: null,
@@ -28,7 +27,6 @@ const SingleCollectionItem = ({
 	};
 
 	const handleEdit = (id) => {
-		console.log(id);
 		setCanEdit({
 			...canEdit,
 			edit: true,
@@ -48,14 +46,22 @@ const SingleCollectionItem = ({
 		}));
 	};
 
+	console.log(item, 'the item');
+	let typeOfValue = (item, language) => ({
+		simple: item?.value,
+		translations: item?.value[language],
+		'key/value': {
+			key: item?.key,
+			value: item?.value,
+		},
+	});
+
 	return (
 		<li className='list-disc border border-slate-50 hover:border-red-200 focus:outline-none'>
 			<div className='flex justify-between gap-2'>
 				{canEdit.id !== item.id ? (
 					<span className='block border-l border-slate-300 px-2'>
-						{(typeof item.value === 'string' && item.value) ||
-							item.value[languages[0].language] ||
-							formatKeyValue(item?.value?.key, item?.value?.value)}
+						{typeOfValue(item, languages[0].language)[item.inputType]}
 					</span>
 				) : (
 					<EditCollectionItem

@@ -13,8 +13,9 @@ let types = (
 	languages,
 	value,
 	onChange,
-	resetComponentData,
-	setResetComponentData
+	reset
+	// resetComponentData,
+	// setResetComponentData
 ) => ({
 	simple: (
 		<NormalInput
@@ -25,25 +26,25 @@ let types = (
 				inputClass: 'h-21px',
 			}}
 			extractData={onChange}
-			resetComponentData={resetComponentData}
-			setResetComponentData={setResetComponentData}
+			resetComponentData={reset?.resetData}
+			setResetComponentData={reset?.setReset}
+			resetType={reset?.type}
 		/>
 	),
 	translations: (
-		<>
-			<LanguageInput
-				languages={languages}
-				data={{
-					defaultLanguage: languages[0].language,
-					state: value,
-					labelClass: 'block',
-					inputName: 'translations',
-				}}
-				extractData={onChange}
-				resetLanguage={resetComponentData}
-				setResetLanguage={setResetComponentData}
-			/>
-		</>
+		<LanguageInput
+			languages={languages}
+			data={{
+				defaultLanguage: languages[0].language,
+				state: value,
+				labelClass: 'block',
+				inputName: 'translations',
+			}}
+			extractData={onChange}
+			resetLanguage={reset?.resetData}
+			setResetLanguage={reset?.setReset}
+			resetType={reset?.type}
+		/>
 	),
 	'key/value': (
 		<>
@@ -55,8 +56,9 @@ let types = (
 					inputClass: 'h-21px',
 				}}
 				extractData={onChange}
-				resetComponentData={resetComponentData}
-				setResetComponentData={setResetComponentData}
+				resetComponentData={reset.resetData}
+				setResetComponentData={reset.setReset}
+				resetType={reset.type}
 			/>
 			<NormalInput
 				data={{
@@ -66,8 +68,9 @@ let types = (
 					inputClass: 'h-21px',
 				}}
 				extractData={onChange}
-				resetComponentData={resetComponentData}
-				setResetComponentData={setResetComponentData}
+				resetComponentData={reset.resetData}
+				setResetComponentData={reset.setReset}
+				resetType={reset.type}
 			/>
 		</>
 	),
@@ -80,9 +83,9 @@ const CollectionInput = ({
 	state,
 	setState,
 	setActionStatus,
-	resetComponentData,
-	setResetComponentData,
-
+	reset,
+	// resetComponentData,
+	// setResetComponentData,
 	buttonLabel,
 }) => {
 	const [input, setInput] = useState(null);
@@ -100,9 +103,10 @@ const CollectionInput = ({
 					collectionInput: 'Successfuly added.',
 				},
 			});
-			let collections = state?.collections || [];
-
-			let collectionToInsert = collections[selectedCollection];
+			let collections = state?.collections ? { ...state.collections } : {};
+			let collectionToInsert = collections[selectedCollection]
+				? [...collections[selectedCollection]]
+				: [];
 
 			let payload = {
 				id: generateUUID(),
@@ -110,9 +114,17 @@ const CollectionInput = ({
 				value: input,
 			};
 			collectionToInsert.push(payload);
-
+			collections[selectedCollection] = collectionToInsert;
 			setState((prev) => ({ ...prev, collections }));
-			setResetComponentData(true);
+			// setResetComponentData((prev) => ({
+			// 	...prev,
+			// 	add: true,
+			// }));
+			reset.setReset({
+				submit: false,
+				add: true,
+				collections: false,
+			});
 			setInput(null);
 		}
 	};
@@ -133,18 +145,10 @@ const CollectionInput = ({
 			}));
 		}
 	};
-
+	// console.log(state.collections, 'the state.collections');
 	return (
 		<fieldset className='flex items-start gap-2' name='collection-input'>
-			{
-				types(
-					languages,
-					input,
-					handleChange,
-					resetComponentData,
-					setResetComponentData
-				)[inputType]
-			}
+			{types(languages, input, handleChange, reset)[inputType]}
 			<ContextButton label={buttonLabel} type='edit' onClick={handleAdd} />
 		</fieldset>
 	);
