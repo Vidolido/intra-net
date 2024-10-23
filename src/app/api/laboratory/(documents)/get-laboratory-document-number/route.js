@@ -25,9 +25,11 @@ export async function GET(request) {
 				$gte: startOfYear,
 				$lt: endOfYear,
 			},
-		}).sort({ createdAt: -1 });
+		})
+			.sort({ createdAt: -1 })
+			.lean()
+			.exec();
 
-		// console.log(documents, 'THE DOCUMENTS');
 		const types = await Setting.findOne({ settingName: 'Types' }).lean().exec();
 		const fields = await Setting.findOne({ settingName: 'Fields' })
 			.lean()
@@ -37,14 +39,10 @@ export async function GET(request) {
 			.find((setting) => setting?.parameter?.en === 'Laboratory Number')
 			._id.toString();
 
-		// console.log(labNumberFieldId, 'labNumberFieldId');
-
 		let type = documentType
 			? types?.settings.find((set) => set._id.toString() === documentType)
 					?.parameter?.en
 			: undefined;
-
-		// console.log(type, 'THE TYPEEE');
 
 		currentYear = currentYear % 100;
 
@@ -52,10 +50,11 @@ export async function GET(request) {
 		let highestLaboratoryNumberForTheYear = 0;
 
 		for (const doc of documents) {
+			let meta = [...doc?.documentInfo?.meta];
 			const laboratoryNumber =
-				doc?.documentInfo?.meta.find((field) => field._id === labNumberFieldId)
+				meta.find((field) => field._id.toString() === labNumberFieldId)
 					?.value || '';
-			// Define regex patterns for Test Report and Certificate
+
 			const testReportPattern = /^(\d{4})\/(\d{2})$/;
 			const certificatePattern = /^(\d{3})\/(\d{2})$/;
 			let match;

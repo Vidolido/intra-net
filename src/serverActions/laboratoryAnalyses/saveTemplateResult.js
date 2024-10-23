@@ -10,6 +10,7 @@ import Document from '@/db/models/Document';
 // I NEED TO HANDLE ERRORS HERE
 export async function saveTemplateResult(documentId, formData) {
 	let resultFields = Array.from(formData);
+	// console.log(resultFields, 'result');
 	try {
 		await dbConnect();
 		let analysis = await Document.findOne({ _id: documentId });

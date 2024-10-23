@@ -5,9 +5,9 @@ import { Suspense, useState } from 'react';
 import { formatDate } from '@/utils/formatDate';
 
 // components
-import ArrowSvg from '@/../public/arrow.svg';
 import Labels from './Labels';
 import SingleDateCollection from './SingleDateCollection';
+import ShowHideButton from '@/components/reusable/ShowHideButton';
 
 const DateCollections = ({ collection, templateSettings }) => {
 	const [visible, setVisible] = useState(true);
@@ -20,17 +20,10 @@ const DateCollections = ({ collection, templateSettings }) => {
 
 	return (
 		<div>
-			<button type='button' onClick={handleHide} className='relative w-full'>
-				<h4 className='text-left hover:text-red-500'>{date}</h4>
-				<ArrowSvg
-					className={`w-[22px] h-[22px] absolute right-1 top-[3px] fill-red-500 hover:fill-red-300 ${
-						visible ? '' : 'rotate-180'
-					}`}
-				/>
-			</button>
+			<ShowHideButton heading={date} visible={visible} onClick={handleHide} />
 			<div className={` ${!visible ? 'hidden' : 'visible'}`}>
 				{collection?.date && (
-					<Labels classes={'grid-cols-4'} dateTime={false} />
+					<Labels classes={'grid-cols-5'} dateTime={false} time={true} />
 				)}
 				{collection && (
 					<SingleDateCollection

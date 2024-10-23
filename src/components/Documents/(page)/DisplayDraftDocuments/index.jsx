@@ -2,24 +2,22 @@
 import { useState } from 'react';
 
 // components
-import ArrowSvg from '@/../public/arrow.svg';
 import DraftDocument from './DraftDocument';
+import ShowHideButton from '@/components/reusable/ShowHideButton';
 
 const DisplayDraftDocuments = ({ documents }) => {
 	const [visible, setVisible] = useState(false);
 
+	// const handleVisible = () => {}
+
 	return (
 		<div className='flex flex-col gap-1 relative w-[30%]'>
-			<h4
-				className='border-b relative z-10 cursor-pointer'
-				onClick={() => setVisible(!visible)}>
-				Draft Documents
-			</h4>
-			<ArrowSvg
-				className={`w-[22px] h-[22px] absolute right-1 top-[3px] fill-red-500 hover:fill-red-300 ${
-					visible ? '' : 'rotate-180'
-				} z-0`}
+			<ShowHideButton
+				heading='Draft Documents'
+				visible={visible}
+				onClick={() => setVisible(!visible)}
 			/>
+
 			{!visible ? (
 				''
 			) : (

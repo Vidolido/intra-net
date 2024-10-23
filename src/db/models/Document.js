@@ -95,6 +95,7 @@ const documentMetaSchema = new Schema(
 			type: Map,
 			of: String,
 		},
+		inputType: String,
 		order: {
 			type: Number,
 			default: 0,

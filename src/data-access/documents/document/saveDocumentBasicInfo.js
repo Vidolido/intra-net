@@ -19,10 +19,15 @@ export async function saveDocumentBasicInfo(documentInfo, documentId) {
 			}
 		);
 
+		// const pathsToRevalidate = [
+		// 	'/dashboard/laboratory/documents/edit/[_id]',
+		// 	'/dashboard/laboratory/documents/draft/[_id]',
+		// 	'/dashboard/laboratory/documents/create',
+		// ];
 		const pathsToRevalidate = [
-			'/dashboard/laboratory/documents/edit/[_id]',
-			'/dashboard/laboratory/documents/draft/[_id]',
-			'/dashboard/laboratory/documents/create',
+			`/dashboard/laboratory/documents/edit/${documentId}`,
+			`/dashboard/laboratory/documents/draft/${documentId}`,
+			`/dashboard/laboratory/documents/create`,
 		];
 
 		pathsToRevalidate.forEach((path) => revalidatePath(path, 'page'));

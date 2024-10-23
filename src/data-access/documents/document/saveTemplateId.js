@@ -21,6 +21,11 @@ export async function saveTemplateId(templateId, header, documentId) {
 			'/dashboard/laboratory/documents/edit/[_id]',
 			'/dashboard/laboratory/documents/create',
 		];
+		// const pathsToRevalidate = [
+		// 	`/dashboard/laboratory/documents/draft/${documentId}`,
+		// 	`/dashboard/laboratory/documents/edit/${documentId}`,
+		// 	`/dashboard/laboratory/documents/create`,
+		// ];
 
 		pathsToRevalidate.forEach((path) => revalidatePath(path, 'page'));
 

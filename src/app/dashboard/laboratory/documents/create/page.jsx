@@ -37,12 +37,11 @@ const page = async ({ searchParams }) => {
 
 	const { document: draft } = await getDocumentById(_id);
 
-	const { laboratoryNumber } = draft?.header?.documentType
-		? await getLaboratoryDocumentNumber({
-				documentType: draft?.header?.documentType,
-		  })
-		: '';
-
+	const { laboratoryNumber } =
+		draft?.header?.documentType?.length > 0 &&
+		(await getLaboratoryDocumentNumber({
+			documentType: draft?.header?.documentType,
+		}));
 	let { products, types, countries, fields, laboratorySettings } =
 		await mutateTemplateSettings(templateSettings);
 
@@ -95,18 +94,16 @@ const page = async ({ searchParams }) => {
 						templates={templates}
 					/>
 				) : (
-					<>
-						<Document
-							customers={customers}
-							document={draft}
-							laboratoryNumber={laboratoryNumber}
-							settings={settings}
-							productAliases={productAliases}
-							languages={languages}
-							laboratorySettings={laboratorySettings}
-							templates={templates}
-						/>
-					</>
+					<Document
+						customers={customers}
+						document={draft}
+						laboratoryNumber={laboratoryNumber}
+						settings={settings}
+						productAliases={productAliases}
+						languages={languages}
+						laboratorySettings={laboratorySettings}
+						templates={templates}
+					/>
 				)}
 			</Suspense>
 		</div>

@@ -1,32 +1,24 @@
 // state/actions
 import { mutateTemplateSettings } from '@/utils/settings/mutateTempalteSettings';
-import { nameArray } from '@/utils/nameArray';
+import { mutateForSelect } from '@/utils/helpers/mutateForSelect';
 
 // components
-import DisplayDocument from '../DisplayDocument2';
+import DisplayDocument from '../DisplayDocument';
 
 const Unsorted = ({ document, templateSettings }) => {
 	let { products, types, countries } = mutateTemplateSettings(templateSettings);
 
-	let mutProducts = products?.settings?.map((setting) => ({
-		id: setting._id,
-		...nameArray(setting.parameter.inputValue),
-	}));
-	let mutTypes = types?.settings?.map((setting) => ({
-		id: setting._id,
-		...nameArray(setting.parameter.inputValue),
-	}));
-	let mutCountries = countries?.settings?.map((setting) => ({
-		id: setting._id,
-		...nameArray(setting.parameter.inputValue),
-	}));
-	// console.log(document, 'docment in unsorted');
+	let settings = {
+		products: mutateForSelect(products.settings),
+		types: mutateForSelect(types.settings),
+		origin: mutateForSelect(countries.settings),
+	};
+
 	return (
 		<DisplayDocument
 			document={document}
-			products={mutProducts}
-			types={mutTypes}
-			countries={mutCountries}
+			settings={settings}
+			time={false}
 			dateTime={true}
 			classes='grid-cols-5'
 		/>

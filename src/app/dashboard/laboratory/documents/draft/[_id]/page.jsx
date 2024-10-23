@@ -15,6 +15,7 @@ import { mutateForSelect } from '@/utils/helpers/mutateForSelect';
 
 // components
 import Document from '@/components/Documents/Document';
+import TemplateSelectForm from '@/components/Documents/Document/TemplateForms/TemplateSelectForm';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -29,7 +30,7 @@ const page = async ({ params }) => {
 		isDeleted: false,
 	});
 	let { languages } = await getLanguages();
-	let { templates: published } = await getLaboratoryTemplates({
+	let { templates } = await getLaboratoryTemplates({
 		documentStatus: 'published',
 	});
 
@@ -74,21 +75,33 @@ const page = async ({ params }) => {
 		});
 		return acc;
 	}, []);
+	let hasSelectedTemplate = !document?.templateId ? false : true;
 
 	return (
 		<div className='w-full'>
-			<h2>Create New Document</h2>
+			<h2>Draft Document</h2>
 			<Suspense fallback={<h2>Loading...</h2>}>
-				<Document
-					customers={customers}
-					document={document}
-					laboratoryNumber={laboratoryNumber}
-					settings={settings}
-					productAliases={productAliases}
-					languages={languages}
-					laboratorySettings={laboratorySettings}
-					templates={published}
-				/>
+				{!hasSelectedTemplate ? (
+					<TemplateSelectForm
+						document={document}
+						languages={languages}
+						settings={settings}
+						templates={templates}
+					/>
+				) : (
+					<>
+						<Document
+							customers={customers}
+							document={document}
+							laboratoryNumber={laboratoryNumber}
+							settings={settings}
+							productAliases={productAliases}
+							languages={languages}
+							laboratorySettings={laboratorySettings}
+							templates={templates}
+						/>
+					</>
+				)}
 			</Suspense>
 		</div>
 	);

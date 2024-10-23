@@ -3,7 +3,8 @@ import { nameArray } from '@/utils/nameArray';
 import { mutateTemplateSettings } from '@/utils/settings/mutateTempalteSettings';
 
 // components
-import DisplayDocument from '../DisplayDocument2';
+import DisplayDocument from '../DisplayDocument';
+import { mutateForSelect } from '@/utils/helpers/mutateForSelect';
 
 const SingleDateCollection = ({
 	collection,
@@ -13,28 +14,21 @@ const SingleDateCollection = ({
 }) => {
 	let { products, types, countries } = mutateTemplateSettings(templateSettings);
 
-	let mutProducts = products?.settings?.map((setting) => ({
-		id: setting._id,
-		...nameArray(setting.parameter.inputValue),
-	}));
-	let mutTypes = types?.settings?.map((setting) => ({
-		id: setting._id,
-		...nameArray(setting.parameter.inputValue),
-	}));
-	let mutCountries = countries?.settings?.map((setting) => ({
-		id: setting._id,
-		...nameArray(setting.parameter.inputValue),
-	}));
+	let settings = {
+		products: mutateForSelect(products.settings),
+		types: mutateForSelect(types.settings),
+		origin: mutateForSelect(countries.settings),
+	};
 
 	return collection?.documents?.map((document) => (
 		<DisplayDocument
 			key={document._id}
 			document={document}
-			products={mutProducts}
-			types={mutTypes}
-			countries={mutCountries}
+			settings={settings}
+			time={true}
+			dateTime={false}
 			// showOptions={showOptions}
-			classes={'grid-cols-4'}
+			classes={'grid-cols-5'}
 		/>
 	));
 };

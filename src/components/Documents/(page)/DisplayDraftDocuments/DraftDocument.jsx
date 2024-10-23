@@ -6,11 +6,14 @@ import { deleteDocument } from '@/data-access/documents/deleteDocument';
 
 // components
 import ContextButton from '@/components/buttons/ContextButton';
+import { formatDate } from '@/utils/formatDate';
 
 const DraftDocument = ({ document }) => {
 	const handleDelete = async (_id, documentStatus) => {
 		await deleteDocument(_id, documentStatus);
 	};
+	let { date, time } = formatDate(document.createdAt);
+
 	return (
 		<div className='flex gap-2 justify-between p-2'>
 			<Link
@@ -18,8 +21,7 @@ const DraftDocument = ({ document }) => {
 				href={`/dashboard/laboratory/documents/${
 					document.documentStatus === 'draft' ? document.documentStatus : 'edit'
 				}/${document._id}`}>
-				<h5>{document?._id}</h5>
-				{/* <p>{document?.settingName}</p> */}
+				<b>Time:</b> <span>{`${time} | ${date}`}</span>
 			</Link>
 			<ContextButton
 				label='Delete'

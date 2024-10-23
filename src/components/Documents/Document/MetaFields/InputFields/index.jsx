@@ -22,14 +22,15 @@ const InputFields = ({
 		add: false,
 		collections: false,
 	});
-	let isSampleCheked = documentInfo?.meta.find(
-		(field) => field.name.en === 'Sample'
-	).checked;
+	let isSampleCheked =
+		documentInfo.meta != null &&
+		documentInfo?.meta.find((field) => field.name.en === 'Sample')?.checked;
+
 	let alias = productAliases.find(
 		(alias) => alias.product._id.toString() === documentHeader.product
 	);
 	const handleFieldData = (data, dataObj) => {
-		console.log(data, dataObj);
+		// console.log(data, dataObj);
 		const { id, name } = dataObj;
 		if (name && name === 'customer') {
 			let customer = customers.find((c) => c._id === data);

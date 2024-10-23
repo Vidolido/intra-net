@@ -1,6 +1,8 @@
 import { findSettingType } from '@/utils/findSettingType';
 import { mutateTemplateSettings } from '@/utils/settings/mutateTempalteSettings';
 import { nameArray } from '@/utils/nameArray';
+import { mutateForSelect } from '@/utils/helpers/mutateForSelect';
+import { filterTypes } from '@/utils/settings/filterTypes';
 
 const Filter = ({
 	templateSettings,
@@ -11,31 +13,41 @@ const Filter = ({
 	const { products, types, countries } =
 		mutateTemplateSettings(templateSettings);
 
-	let productLabels = products?.settings?.map((setting) => ({
-		_id: setting._id,
-		...nameArray(setting.parameter.inputValue),
-	}));
-	let sampleTypes = findSettingType(types.settings, ['sample']);
-	let samples = sampleTypes?.map((setting) => ({
-		_id: setting._id,
-		...nameArray(setting.parameter.inputValue),
-	}));
-	let documentTypes = findSettingType(types.settings, ['document']);
-	let docT = documentTypes?.map((setting) => ({
-		_id: setting._id,
-		...nameArray(setting.parameter.inputValue),
-	}));
-	let origin = countries?.settings?.map((setting) => ({
-		_id: setting._id,
-		...nameArray(setting.parameter.inputValue),
-	}));
+	let productLabels = mutateForSelect(products.settings);
+	// let sampleTypes = findSettingType(types.settings, ['sample']);
+	let samples = filterTypes(types.settings, 'sample');
+	let sampleTypes = mutateForSelect(samples);
+	console.log(sampleTypes, 'symple');
+	let docT = filterTypes(types.settings, 'document');
+	let documentTypes = mutateForSelect(docT);
+	let origin = mutateForSelect(countries.settings);
+	// let samples = sampleTypes?.map((setting) => ({
+	// 	_id: setting._id,
+	// 	...nameArray(setting.parameter.inputValue),
+	// }));
+	// let documentTypes = findSettingType(types.settings, ['document']);
+	// let docT = documentTypes?.map((setting) => ({
+	// 	_id: setting._id,
+	// 	...nameArray(setting.parameter.inputValue),
+	// }));
+	// let origin = countries?.settings?.map((setting) => ({
+	// 	_id: setting._id,
+	// 	...nameArray(setting.parameter.inputValue),
+	// }));
+
+	// let settings = {
+	// 	products: mutateForSelect(products.settings),
+	// 	types: mutateForSelect(types.settings),
+	// 	origin: mutateForSelect(countries.settings),
+	// };
 
 	let ids = {
 		products: productLabels.map((label) => label._id),
-		sampleTypes: samples.map((sample) => sample._id),
-		documentTypes: docT.map((doc) => doc._id),
+		sampleTypes: sampleTypes.map((sample) => sample._id),
+		documentTypes: documentTypes.map((doc) => doc._id),
 		origin: origin.map((origin) => origin._id),
 	};
+	console.log(ids, 'THEIDSSSS');
 
 	const handleCheckboxChange = (e, category, id, allIds = []) => {
 		setFilterOptions((prevState) => {
@@ -145,7 +157,7 @@ const Filter = ({
 			<div>
 				<h6>Sample Type</h6>
 				<div className='grid grid-cols-2'>
-					{samples.map((sample) => {
+					{sampleTypes.map((sample) => {
 						return (
 							<label
 								key={sample._id}
@@ -188,7 +200,7 @@ const Filter = ({
 			<div>
 				<h6>Document Type</h6>
 				<div className='grid grid-cols-2'>
-					{docT.map((docTypes) => {
+					{documentTypes.map((docTypes) => {
 						return (
 							<label
 								key={docTypes._id}

@@ -15,9 +15,8 @@ const TemplateInputFields = ({
 	laboratorySettings,
 	defaultLanguage,
 }) => {
-	console.log(template, 'the temlpate');
-	let mutTemplate = groupParameters(template?.template) || [];
-	console.log(mutTemplate, 'mutTemplate');
+	// let mutTemplate = groupParameters(template?.template || template) || [];
+	let mutTemplate = groupParameters(template) || [];
 
 	return (
 		<table className='border-collapse w-full'>
@@ -27,25 +26,18 @@ const TemplateInputFields = ({
 				defaultLanguage={defaultLanguage}
 			/>
 			<tbody>
-				{mutTemplate.map((item, index) => {
-					console.log(item, 'THE ITEM');
+				{mutTemplate.map((item) => {
 					if (item.isGroup == undefined && item.parameter) {
 						return (
-							<tr key={generateUUID()}>
+							<tr key={item?._id || generateUUID()}>
 								<td className='border px-2'>{item?.parameter?.name?.en}</td>
-								{Object.entries(item.items).map((collection) => {
+								{Object.entries(item.collections).map(([_id, collection]) => {
 									return (
-										<td
-											key={generateUUID()}
-											className='text-left align-top px-2 border'>
-											{collection[1] &&
-												collection[1].map((collectionItem, i) => {
+										<td key={_id} className='text-left align-top px-2 border'>
+											{collection &&
+												collection.map((collectionItem) => {
 													return (
-														<p
-															key={
-																collectionItem.id || collectionItem._id || i
-															}>
-															{' '}
+														<p key={collectionItem.id || collectionItem._id}>
 															{(typeof collectionItem.value === 'string' &&
 																collectionItem.value) ||
 																collectionItem.value[
@@ -72,10 +64,10 @@ const TemplateInputFields = ({
 										/>
 									</div>
 								</td>
-								<td>{item.marginError}</td>
+								{/* <td>{item.marginError}</td>
 								<td>
 									<RowOptions templateId={template._id} rowId={item._id} />
-								</td>
+								</td> */}
 							</tr>
 						);
 					}
@@ -95,35 +87,38 @@ const TemplateInputFields = ({
 											i === item.items.length - 1 ? 'border-b-2' : null
 										}`}>
 										<td className='border'>
-											{collectionItem.parameter.propertyValue['en']}
+											{collectionItem?.parameter?.name['en']}
 										</td>
-										{Object.entries(collectionItem.items).map((collection) => {
-											return (
-												<td
-													key={generateUUID()}
-													className='text-left align-top px-2 border'>
-													{collection[1] &&
-														collection[1].map((collectionItem, i) => {
-															return (
-																<p key={collectionItem._id}>
-																	{' '}
-																	{(typeof collectionItem.value === 'string' &&
-																		collectionItem.value) ||
-																		collectionItem.value[
-																			defaultLanguage.language
-																		] ||
-																		formatKeyValue(
-																			collectionItem?.value?.key,
-																			collectionItem?.value?.value,
-																			'min',
-																			'max'
-																		)}
-																</p>
-															);
-														})}
-												</td>
-											);
-										})}
+										{Object.entries(collectionItem?.collections).map(
+											([_id, collection]) => {
+												return (
+													<td
+														key={_id || generateUUID()}
+														className='text-left align-top px-2 border'>
+														{collection &&
+															collection.map((collectionItem) => {
+																return (
+																	<p key={collectionItem._id}>
+																		{' '}
+																		{(typeof collectionItem.value ===
+																			'string' &&
+																			collectionItem.value) ||
+																			collectionItem.value[
+																				defaultLanguage.language
+																			] ||
+																			formatKeyValue(
+																				collectionItem?.value?.key,
+																				collectionItem?.value?.value,
+																				'min',
+																				'max'
+																			)}
+																	</p>
+																);
+															})}
+													</td>
+												);
+											}
+										)}
 										<td className='outline outline-transparent outline-1 outline-offset-0 w-[150px] border-[0px] hover:outline-red-300 bg-slate-200'>
 											<div className='flex flex-stretch'>
 												<InputType
@@ -133,13 +128,13 @@ const TemplateInputFields = ({
 												/>
 											</div>
 										</td>
-										<td>{item.marginError}</td>
+										{/* <td>{item.marginError}</td>
 										<td>
 											<RowOptions
 												templateId={template._id}
 												rowId={collectionItem._id}
 											/>
-										</td>
+										</td> */}
 									</tr>
 								</Fragment>
 							);

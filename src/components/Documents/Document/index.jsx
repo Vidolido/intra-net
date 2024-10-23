@@ -25,7 +25,7 @@ const metaFieldsState = (document, fields, laboratoryNumber) => {
 		state = { ...document.documentInfo };
 	} else {
 		let sampleField = fields.find((field) => field.name.en === 'Sample');
-		console.log(sampleField, 'SAMPLE FIELD');
+		// console.log(sampleField, 'SAMPLE FIELD');
 		if (sampleField) {
 			state.sample = sampleField;
 		}
@@ -88,9 +88,6 @@ const Document = ({
 		sortedByOrder,
 		laboratoryNumber
 	);
-
-	// console.log(sortedByOrder, 'sortedByOrder');
-	// console.log(createMetaState, 'meta state');
 
 	return (
 		<Suspense fallback={<h4>Loading...</h4>}>
