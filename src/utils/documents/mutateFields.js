@@ -22,7 +22,7 @@ export const mutateFields = (fields) => {
 					: 0,
 				inputType: merged?.type[0]?.value,
 				links: merged.link.map((lnk) => lnk?.value?.value || lnk?.value),
-				value: currenValue?.value != undefined ? currenValue.value : '',
+				value: currenValue?.value != undefined ? currenValue.value : null,
 			},
 		]);
 	}, []);

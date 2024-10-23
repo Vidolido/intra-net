@@ -15,7 +15,7 @@ export async function GET(request, { params }) {
 		cookies();
 		await dbConnect();
 		const document = await Document.findOne({ _id });
-
+		console.log(document, 'the  document');
 		const pathsToRevalidate = [
 			'/dashboard/laboratory/document/draft/[_id]',
 			'/dashboard/laboratory/document/edit/[_id]',

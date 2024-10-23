@@ -1,15 +1,12 @@
 'use client';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 
 // state/actions
-// import { saveTemplateId } from '@/serverActions/laboratoryAnalyses/saveTemplateId';
 import { saveTemplateId } from '@/data-access/documents/document/saveTemplateId';
-// import { filterTemplates } from '@/utils/filterTemplates';
-import Template from './Template';
-// import { filter } from '../../../../../../oldFiles/analyses/filter';
 import { filterTemplates } from '@/utils/documents/filterTemplates';
-// import { filterTemplates } from '@/utils/filterTemplates';
-// import Template from '@/components/Templates/(page)/PublishedTemplates/Template';
+
+// components
+import Template from './Template';
 
 const TemplateVersion = ({
 	templates,
@@ -19,15 +16,6 @@ const TemplateVersion = ({
 	settings,
 }) => {
 	const filteredTempaltes = filterTemplates(templates, header);
-	console.log(filteredTempaltes, 'filtered');
-	// const filteredTempaltes = filterTemplates(templates, header);
-	// let mutTemplates = filteredTempaltes.map((template, index) => ({
-	// 	index,
-	// 	_id: template._id,
-	// 	template: template.template,
-	// }));
-
-	console.log(header, 'the header');
 
 	useEffect(() => {
 		let fn = async () => {
@@ -48,15 +36,17 @@ const TemplateVersion = ({
 		documentId,
 	]);
 
-	// const template = templates.find(
-	// 	(template) => template._id === document.templateId
-	// );
-
 	// Доколку е драфт верзија да се брише темплејтот доколку се зачува
-	const handleClick = async (_id, header) => {
-		await saveTemplateId(_id, header, documentId);
-	};
+	// const handleClick = async (_id, header) => {
+	// 	await saveTemplateId(_id, header, documentId);
+	// };
 
+	const handleClick = useCallback(
+		async (_id, header) => {
+			await saveTemplateId(_id, header, documentId);
+		},
+		[saveTemplateId, documentId]
+	);
 	return (
 		<fieldset
 			name='template-version'

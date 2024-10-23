@@ -10,8 +10,10 @@ import Document from '@/db/models/Document';
 
 export async function GET(request) {
 	let documentStatus =
-		request.nextUrl?.searchParams?.get('documentStatus') || '';
+		request.nextUrl?.searchParams?.get('documentStatus') || 'draft';
 	let sorted = request.nextUrl?.searchParams?.get('sorted') ? true : false;
+
+	// console.log(request, 'THE REEEQQQQEESTTTT');
 	try {
 		cookies();
 		await dbConnect();

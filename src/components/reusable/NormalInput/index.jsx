@@ -38,7 +38,11 @@ const NormalInput = ({
 
 	const handleBlur = (e) => {
 		extractData != null &&
-			extractData(value, { id: e.target.id, name: e.target.name });
+			extractData(value, {
+				id: e.target.id,
+				name: e.target.name,
+				type: e.target.type,
+			});
 	};
 
 	return (

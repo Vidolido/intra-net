@@ -15,21 +15,24 @@ const TemplateInputFields = ({
 	laboratorySettings,
 	defaultLanguage,
 }) => {
-	let mutTemplate = groupParameters(template) || [];
+	console.log(template, 'the temlpate');
+	let mutTemplate = groupParameters(template?.template) || [];
+	console.log(mutTemplate, 'mutTemplate');
+
 	return (
 		<table className='border-collapse w-full'>
 			<TemplateInputHeaders
+				template={template}
 				laboratorySettings={laboratorySettings}
 				defaultLanguage={defaultLanguage}
 			/>
 			<tbody>
 				{mutTemplate.map((item, index) => {
+					console.log(item, 'THE ITEM');
 					if (item.isGroup == undefined && item.parameter) {
 						return (
 							<tr key={generateUUID()}>
-								<td className='border px-2'>
-									{item.parameter.propertyValue['en']}
-								</td>
+								<td className='border px-2'>{item?.parameter?.name?.en}</td>
 								{Object.entries(item.items).map((collection) => {
 									return (
 										<td
@@ -69,10 +72,10 @@ const TemplateInputFields = ({
 										/>
 									</div>
 								</td>
-								{/* <td>{item.marginError}</td>
+								<td>{item.marginError}</td>
 								<td>
 									<RowOptions templateId={template._id} rowId={item._id} />
-								</td> */}
+								</td>
 							</tr>
 						);
 					}
@@ -130,13 +133,13 @@ const TemplateInputFields = ({
 												/>
 											</div>
 										</td>
-										{/* <td>{item.marginError}</td>
+										<td>{item.marginError}</td>
 										<td>
 											<RowOptions
 												templateId={template._id}
 												rowId={collectionItem._id}
-											/> 
-										</td> */}
+											/>
+										</td>
 									</tr>
 								</Fragment>
 							);

@@ -1,20 +1,14 @@
 import { getDisplayHeadings } from '@/utils/getDisplayHeadings';
+import { getRowHeaders } from '@/utils/helpers/rowHeaders';
 
-const TemplateInputHeaders = ({
-	template,
-	laboratorySettings,
-	defaultLanguage,
-}) => {
-	let headings =
-		(laboratorySettings &&
-			getDisplayHeadings(laboratorySettings[0], 'plural')) ||
-		null;
+const TemplateInputHeaders = ({ template, defaultLanguage }) => {
+	let headings = getRowHeaders(template.schemaNames, 'plural');
 	return (
 		<thead>
 			<tr>
-				{headings && headings.main && (
+				{headings && headings?.parameter && (
 					<th className='text-left text-sm'>
-						{headings?.main[defaultLanguage.language]}
+						{headings?.parameter[defaultLanguage.language]}
 					</th>
 				)}
 				{headings &&

@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+
 // state/actions
 import {
 	getCustomers,
@@ -5,15 +7,27 @@ import {
 	getLaboratoryDocumentNumber,
 	getLaboratoryTemplates,
 } from '../../../apiCalls';
-import {
-	getLaboratorySettings,
-	getLanguages,
-	getSettings,
-} from '@/app/dashboard/apiCalls';
+import { getLanguages, getSettings } from '@/app/dashboard/apiCalls';
+import { filterTypes } from '@/utils/settings/filterTypes';
 import { mutateTemplateSettings } from '@/utils/settings/mutateTempalteSettings';
-import { findSettingType } from '@/utils/findSettingType';
 import { mutateFields } from '@/utils/documents/mutateFields';
-import { nameArray } from '@/utils/nameArray';
+import { mutateForSelect } from '@/utils/helpers/mutateForSelect';
+// // state/actions
+// import {
+// 	getCustomers,
+// 	getDocumentById,
+// 	getLaboratoryDocumentNumber,
+// 	getLaboratoryTemplates,
+// } from '../../../apiCalls';
+// import {
+// 	getLaboratorySettings,
+// 	getLanguages,
+// 	getSettings,
+// } from '@/app/dashboard/apiCalls';
+// import { mutateTemplateSettings } from '@/utils/settings/mutateTempalteSettings';
+// import { findSettingType } from '@/utils/findSettingType';
+// import { mutateFields } from '@/utils/documents/mutateFields';
+// import { nameArray } from '@/utils/nameArray';
 
 // components
 import Document from '@/components/Documents/Document';
@@ -21,35 +35,21 @@ import Document from '@/components/Documents/Document';
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
-const mutSettings = (settings) =>
-	settings?.map((s) => ({
-		_id: s._id,
-		...nameArray(s.parameter.inputValue),
-	}));
-const mutFields = (settings) =>
-	settings?.map((s) => ({
-		_id: s._id,
-		...nameArray(s.parameter.inputValue),
-	}));
-
 const page = async ({ params }) => {
 	const { _id } = params;
-
 	const { customers } = await getCustomers();
-
-	let { languages } = await getLanguages();
 
 	const { settings: templateSettings } = await getSettings({
 		documentStatus: 'published',
 		isDeleted: false,
 	});
-
+	let { languages } = await getLanguages();
 	let { templates: published } = await getLaboratoryTemplates({
 		documentStatus: 'published',
 	});
 
-	const { setting } = await getLaboratorySettings();
-	const { settings: laboratorySettings } = setting || [];
+	// const { setting } = await getLaboratorySettings();
+	// const { settings: laboratorySettings } = setting || [];
 
 	const { document } = await getDocumentById(_id);
 
@@ -59,41 +59,55 @@ const page = async ({ params }) => {
 		  })
 		: '';
 
-	let { products, types, countries, fields } = await mutateTemplateSettings(
-		templateSettings
-	);
+	let { products, types, countries, fields, laboratorySettings } =
+		await mutateTemplateSettings(templateSettings);
+	const sampleTypes = filterTypes(types.settings, 'sample');
+	const documentTypes = filterTypes(types.settings, 'document');
 
-	let sampleTypes = findSettingType(types.settings, ['sample']);
-	let documentTypes = findSettingType(types.settings, ['document']);
-
-	let settings = {
-		products: mutSettings(products.settings),
-		sampleTypes: mutFields(sampleTypes),
-		documentTypes: mutFields(documentTypes),
-		countries: mutSettings(countries.settings),
-		fields: mutateFields(fields.settings),
+	const settings = {
+		products: mutateForSelect(products.settings),
+		sampleTypes: mutateForSelect(sampleTypes),
+		documentTypes: mutateForSelect(documentTypes),
+		countries: mutateForSelect(countries.settings),
+		fields: mutateFields(fields),
 	};
 
-	let productAliases = products.settings.map((setting) => ({
-		_id: setting._id,
-		aliases: setting.collections.find(
-			(collection) => collection.name.en === 'Aliases'
-		).items,
-	}));
+	const aliasesId = products.optionsSchema.collections.find(
+		(coll) => coll.name.en === 'Aliases'
+	)._id;
+
+	let productAliases = products.settings.reduce((acc, currentValue) => {
+		let aliases = Object.entries(currentValue.collections).find(
+			(coll) => coll[0] === aliasesId
+		);
+		acc.push({
+			product: {
+				_id: currentValue._id,
+				name: currentValue.parameter,
+			},
+			aliases: aliases[1].map((alias) => ({
+				_id: alias._id,
+				name: alias.value,
+			})),
+		});
+		return acc;
+	}, []);
 
 	return (
 		<div className='w-full'>
 			<h2>Create New Document</h2>
-			<Document
-				customers={customers}
-				document={document}
-				laboratoryNumber={laboratoryNumber}
-				settings={settings}
-				productAliases={productAliases}
-				languages={languages}
-				laboratorySettings={laboratorySettings}
-				templates={published}
-			/>
+			<Suspense fallback={<h2>Loading...</h2>}>
+				<Document
+					customers={customers}
+					document={document}
+					laboratoryNumber={laboratoryNumber}
+					settings={settings}
+					productAliases={productAliases}
+					languages={languages}
+					laboratorySettings={laboratorySettings}
+					templates={published}
+				/>
+			</Suspense>
 		</div>
 	);
 };

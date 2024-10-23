@@ -58,28 +58,35 @@ import mongoose, { Schema } from 'mongoose';
 // 			type: [fieldsSchema],
 // 		},
 // 	},
+// // 	{ strict: true, _id: false }
+// // );
+// const additionalDocumentInfoSchema = new Schema(
+// 	{
+// 		// customer: {
+// 		// 	_id: Schema.Types.ObjectId,
+// 		// 	name: {
+// 		// 		type: Map,
+// 		// 		of: String,
+// 		// 	},
+// 		// 	customerData: Schema.Types.Mixed,
+// 		// },
+// 		customer: {
+// 			type: Schema.Types.Mixed,
+// 		},
+// 		// sample: {
+// 		// 	_id: Schema.Types.ObjectId,
+// 		// 	name: {
+// 		// 		type: Map,
+// 		// 		of: String,
+// 		// 	},
+// 		// },
+// 		sample: {
+// 			type: documentMetaSchema,
+// 			default: {},
+// 		},
+// 	},
 // 	{ strict: true, _id: false }
 // );
-const additionalDocumentInfoSchema = new Schema(
-	{
-		customer: {
-			_id: Schema.Types.ObjectId,
-			name: {
-				type: Map,
-				of: String,
-			},
-			customerData: Schema.Types.Mixed,
-		},
-		productAlias: {
-			_id: Schema.Types.ObjectId,
-			name: {
-				type: Map,
-				of: String,
-			},
-		},
-	},
-	{ strict: true, _id: false }
-);
 
 const documentMetaSchema = new Schema(
 	{
@@ -109,14 +116,38 @@ const documentSchema = new Schema(
 			sampleType: String,
 			documentType: String,
 		},
+
+		documentInfo: {
+			customer: {
+				type: Schema.Types.Mixed,
+			},
+			sample: {
+				name: {
+					type: Map,
+					of: String,
+				},
+				order: {
+					type: Number,
+					default: 0,
+				},
+				checked: Boolean,
+				links: {
+					type: [String],
+				},
+				value: Schema.Types.Mixed,
+			},
+			meta: {
+				type: [documentMetaSchema],
+				default: [],
+			},
+		},
 		// fields: [fieldsSchema], // delete this after setting basic info
 		// basicInfo: basicInfoSchema,
-		documentMeta: {
-			type: [documentMetaSchema],
-		},
-		additionalDocumentInfo: {
-			type: additionalDocumentInfoSchema,
-		},
+
+		// additionalDocumentInfo: {
+		// 	type: additionalDocumentInfoSchema,
+		// 	default: {},
+		// },
 		templateId: String,
 		template: {
 			type: Schema.Types.Mixed,

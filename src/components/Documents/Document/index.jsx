@@ -8,8 +8,63 @@ import {
 } from '@/utils/documents/mutateFields';
 
 // components
-import SelectFields from './SelectFields';
+// import SelectFields from './MetaFields';
 import TemplateForms from './TemplateForms';
+import MetaFields from './MetaFields';
+
+const metaFieldsState = (document, fields, laboratoryNumber) => {
+	console.log('ova ide');
+	let state = {
+		customer: {},
+		sample: {},
+		meta: [],
+	};
+
+	if (document?.documentInfo?.meta?.length > 0) {
+		// console.log('!document.documentInfo.meta');
+		state = { ...document.documentInfo };
+	} else {
+		let sampleField = fields.find((field) => field.name.en === 'Sample');
+		console.log(sampleField, 'SAMPLE FIELD');
+		if (sampleField) {
+			state.sample = sampleField;
+		}
+		let labNumberField = fields.find(
+			(field) => field.name.en === 'Laboratory Number'
+		);
+		if (labNumberField) {
+			labNumberField = { ...labNumberField, value: laboratoryNumber };
+
+			state.meta = fields.map((field) =>
+				field.name.en === 'Laboratory Number' ? labNumberField : field
+			);
+		}
+
+		state.meta = fields.map((field) =>
+			field.name.en === 'Laboratory Number' ? labNumberField : field
+		);
+		// if (document.documentMeta) state.documentMeta = document.documentMeta;
+		// if (document.additionalDocumentInfo)
+		// 	state.additionalDocumentInfo = document.additionalDocumentInfo;
+		// if (!document?.documentMeta?.length && !document.additionalDocumentInfo) {
+		// 	let sampleField = fields.find((field) => field.name.en === 'Sample');
+		// 	if (sampleField) {
+		// 		state.additionalDocumentInfo.sample = sampleField;
+		// 	}
+		// 	let labNumberField = fields.find(
+		// 		(field) => field.name.en === 'Laboratory Number'
+		// 	);
+		// 	if (labNumberField) {
+		// 		labNumberField = { ...labNumberField, value: laboratoryNumber };
+
+		// 		state.documentMeta = fields.map((field) =>
+		// 			field.name.en === 'Laboratory Number' ? labNumberField : field
+		// 		);
+		// 	}
+		// }
+	}
+	return state;
+};
 
 const Document = ({
 	customers,
@@ -21,48 +76,36 @@ const Document = ({
 	laboratorySettings,
 	templates,
 }) => {
-	const hasSelectedTemplate = !document?.templateId ? true : false;
-	// console.log(settings.fields);
 	let mutFields = filterByLinkedSetting(settings.fields, [
 		document?.header?.documentType,
 		'other',
 	]);
 
-	// console.log(mutFields, 'mutFields');
-
-	// const newFieldsCheckedStatus =
-	// 	document.basicInfo &&
-	// 	mutFields.map((field) => {
-	// 		const isChecked = document.basicInfo.fields.some(
-	// 			(f) => f._id === field._id
-	// 		);
-	// 		return { ...field, checked: isChecked };
-	// 	});
-
-	// const sortedByOrder = sortFieldsByOrder(
-	// 	document.basicInfo != undefined ? newFieldsCheckedStatus : mutFields
-	// );
 	const sortedByOrder = sortFieldsByOrder(mutFields);
+
+	const createMetaState = metaFieldsState(
+		document,
+		sortedByOrder,
+		laboratoryNumber
+	);
+
 	// console.log(sortedByOrder, 'sortedByOrder');
-	// console.log(settings, 'settings');
-	// console.log(productAliases, 'productAliases');
+	// console.log(createMetaState, 'meta state');
 
 	return (
 		<Suspense fallback={<h4>Loading...</h4>}>
 			<div className='flex gap-6 pr-3'>
-				{!hasSelectedTemplate && (
-					<div className='flex flex-col gap-1 shrink'>
-						<SelectFields
-							languages={languages}
-							customers={customers}
-							fields={sortedByOrder}
-							document={document}
-							laboratoryNumber={laboratoryNumber}
-							documentTypes={settings.documentTypes}
-							productAliases={productAliases}
-						/>
-					</div>
-				)}
+				<div className='flex flex-col gap-1 shrink'>
+					<MetaFields
+						languages={languages}
+						customers={customers}
+						initState={createMetaState}
+						document={document}
+						laboratoryNumber={laboratoryNumber}
+						documentTypes={settings.documentTypes}
+						productAliases={productAliases}
+					/>
+				</div>
 				<div className='w-[80%]'>
 					<TemplateForms
 						document={document}

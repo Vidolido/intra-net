@@ -6,7 +6,7 @@ import dbConnect from '@/db/conn';
 import Document from '@/db/models/Document';
 
 // I NEED TO HANDLE ERRORS HERE
-export async function saveDocumentBasicInfo(basicInfo, documentId) {
+export async function saveDocumentBasicInfo(documentInfo, documentId) {
 	// console.log(basicInfo, 'the basic info fields');
 	// console.log(documentId, 'document id');
 	try {
@@ -15,7 +15,7 @@ export async function saveDocumentBasicInfo(basicInfo, documentId) {
 		await Document.updateOne(
 			{ _id: documentId },
 			{
-				$set: { basicInfo: basicInfo },
+				$set: { documentInfo },
 			}
 		);
 

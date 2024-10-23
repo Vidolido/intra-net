@@ -10,7 +10,7 @@ import Setting from '@/db/models/Setting';
 //create
 
 export async function GET(request) {
-	const documentType = request?.nextUrl?.searchParams.get('documentType');
+	const documentType = request?.nextUrl?.searchParams.get('documentType') || '';
 
 	try {
 		await dbConnect();
@@ -26,6 +26,8 @@ export async function GET(request) {
 				$lt: endOfYear,
 			},
 		}).sort({ createdAt: -1 });
+
+		// console.log(documents, 'THE DOCUMENTS');
 		const types = await Setting.findOne({ settingName: 'Types' }).lean().exec();
 		const fields = await Setting.findOne({ settingName: 'Fields' })
 			.lean()
@@ -35,10 +37,14 @@ export async function GET(request) {
 			.find((setting) => setting?.parameter?.en === 'Laboratory Number')
 			._id.toString();
 
+		// console.log(labNumberFieldId, 'labNumberFieldId');
+
 		let type = documentType
 			? types?.settings.find((set) => set._id.toString() === documentType)
 					?.parameter?.en
 			: undefined;
+
+		// console.log(type, 'THE TYPEEE');
 
 		currentYear = currentYear % 100;
 
@@ -47,24 +53,20 @@ export async function GET(request) {
 
 		for (const doc of documents) {
 			const laboratoryNumber =
-				doc?.documentMeta.find((field) => field._id === labNumberFieldId)
+				doc?.documentInfo?.meta.find((field) => field._id === labNumberFieldId)
 					?.value || '';
-
 			// Define regex patterns for Test Report and Certificate
 			const testReportPattern = /^(\d{4})\/(\d{2})$/;
 			const certificatePattern = /^(\d{3})\/(\d{2})$/;
-
 			let match;
-			if (type === 'Test Report') {
+			if (type && type === 'Test Report') {
 				match = laboratoryNumber && laboratoryNumber.match(testReportPattern);
-			} else if (type === 'Certificate') {
+			} else if (type && type === 'Certificate') {
 				match = laboratoryNumber && laboratoryNumber.match(certificatePattern);
 			}
-
 			if (match) {
 				const [, documentNumber, documentYear] = match;
 				const documentYearInt = parseInt(documentYear, 10);
-
 				if (documentYearInt === currentYear) {
 					const currentDocumentNumber = parseInt(documentNumber, 10);
 					if (currentDocumentNumber > highestLaboratoryNumberForTheYear) {

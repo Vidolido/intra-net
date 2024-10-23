@@ -5,49 +5,46 @@ import { useState } from 'react';
 import { saveDocumentBasicInfo } from '@/data-access/documents/document/saveDocumentBasicInfo';
 
 // components
-import ContextButton from '@/components/buttons/ContextButton';
 import InputFields from './InputFIelds';
 import CheckBoxFields from './CheckBoxFields';
+import ContextButton from '@/components/buttons/ContextButton';
 
-const SelectFields = ({
+// RENAME THIS TO META FIELDS
+const MetaFields = ({
 	languages,
 	customers,
-	fields: dbFields,
+	initState,
 	document,
 	laboratoryNumber,
 	documentTypes,
 	productAliases,
 }) => {
-	const [fields, setFields] = useState(dbFields);
+	const [documentInfo, setDocumentInfo] = useState(() => initState);
+
+	const handleCheck = (documentMeta) => {
+		setDocumentInfo((prev) => ({
+			...prev,
+			meta: documentMeta,
+		}));
+	};
+
+	const handleAdditionalInfo = (additionalInfo) => {
+		setDocumentInfo((prev) => ({
+			...prev,
+			...additionalInfo,
+		}));
+	};
+	const handleDocumentMeta = (documentMeta) => {
+		setDocumentInfo((prev) => ({
+			...prev,
+			meta: documentMeta,
+		}));
+	};
 
 	const handleClick = async (e) => {
-		// let selectFields = e.target.form.elements
-		// 	.namedItem('document-fields')
-		// 	.querySelectorAll('select');
-		// let inputFields = e.target.form.elements
-		// 	.namedItem('document-fields')
-		// 	.querySelectorAll('input');
-		// let merged = Array.from(selectFields).concat(Array.from(inputFields));
-		// const basicInfo = Array.from(merged).reduce(
-		// 	(acc, currentValue) => {
-		// 		if (!currentValue.id.length && currentValue.name !== 'customer')
-		// 			return acc;
-		// 		if (currentValue.name === 'customer') {
-		// 			acc.customer = {
-		// 				customerId: currentValue.value,
-		// 			};
-		// 		} else {
-		// 			acc.fields.push({
-		// 				_id: currentValue.id,
-		// 				data: currentValue.value,
-		// 			});
-		// 		}
-		// 		return acc;
-		// 	},
-		// 	{ customer: {}, fields: [] }
-		// );
+		// console.log(documentInfo, 'DOCUMENT INFO  IN SUBMIT');
 		// // HANDLE ERRORS HERE
-		// await saveDocumentBasicInfo(basicInfo, document._id);
+		await saveDocumentBasicInfo(documentInfo, document._id);
 	};
 	const isTestReport =
 		documentTypes.find((type) => type._id === document.header.documentType).name
@@ -60,20 +57,20 @@ const SelectFields = ({
 		<form className='bg-slate-100 border border-t-0 border-slate-200 rounded'>
 			<CheckBoxFields
 				document={document}
-				fields={fields}
-				setFields={setFields}
+				documentMeta={documentInfo?.meta}
+				handleCheck={handleCheck}
 			/>
 			<InputFields
 				languages={languages}
 				customers={customers}
-				fields={fields}
+				documentInfo={documentInfo}
+				handleAdditionalInfo={handleAdditionalInfo}
+				handleDocumentMeta={handleDocumentMeta}
 				isTestReport={isTestReport}
 				isCertificate={isCertificate}
 				documentHeader={document.header}
 				laboratoryNumber={laboratoryNumber}
 				productAliases={productAliases}
-				basicInfo={document?.basicInfo}
-				documentMeta={document?.documentMeta}
 			/>
 			<div className='p-1'>
 				<ContextButton
@@ -87,4 +84,4 @@ const SelectFields = ({
 	);
 };
 
-export default SelectFields;
+export default MetaFields;

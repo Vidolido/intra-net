@@ -34,9 +34,6 @@ const SelectInput = ({
 	functions,
 	extractData = null,
 	reset = null,
-	// resetComponentData = null,
-	// setResetComponentData = null,
-	// resetType = null,
 }) => {
 	const [state, setState] = useState(() =>
 		initializeSelectState(defaultLanguage, data, data?.showEmptyOption)

@@ -15,12 +15,14 @@ import { mutateForSelect } from '@/utils/helpers/mutateForSelect';
 
 // components
 import Document from '@/components/Documents/Document';
+import TemplateSelectForm from '@/components/Documents/Document/TemplateForms/TemplateSelectForm';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 const page = async ({ searchParams }) => {
 	const { _id } = searchParams;
+	// console.log(_id, 'THE ID??');
 	const { customers } = await getCustomers();
 
 	const { settings: templateSettings } = await getSettings({
@@ -29,13 +31,13 @@ const page = async ({ searchParams }) => {
 	});
 
 	let { languages } = await getLanguages();
-	let { templates: published } = await getLaboratoryTemplates({
+	let { templates } = await getLaboratoryTemplates({
 		documentStatus: 'published',
 	});
 
 	const { document: draft } = await getDocumentById(_id);
 
-	const { laboratoryNumber } = draft?.header
+	const { laboratoryNumber } = draft?.header?.documentType
 		? await getLaboratoryDocumentNumber({
 				documentType: draft?.header?.documentType,
 		  })
@@ -75,21 +77,37 @@ const page = async ({ searchParams }) => {
 		});
 		return acc;
 	}, []);
+	let hasSelectedTemplate = !draft?.templateId ? false : true;
 
+	// console.log(draft, 'the doc');
+
+	// console.log(hasSelectedTemplate, 'has selected');
+	// console.log(laboratoryNumber);
 	return (
 		<div className='w-full'>
 			<h2>Create New Document</h2>
 			<Suspense fallback={<h2>Loading...</h2>}>
-				<Document
-					customers={customers}
-					document={draft}
-					laboratoryNumber={laboratoryNumber}
-					settings={settings}
-					productAliases={productAliases}
-					languages={languages}
-					laboratorySettings={laboratorySettings}
-					templates={published}
-				/>
+				{!hasSelectedTemplate ? (
+					<TemplateSelectForm
+						document={draft}
+						languages={languages}
+						settings={settings}
+						templates={templates}
+					/>
+				) : (
+					<>
+						<Document
+							customers={customers}
+							document={draft}
+							laboratoryNumber={laboratoryNumber}
+							settings={settings}
+							productAliases={productAliases}
+							languages={languages}
+							laboratorySettings={laboratorySettings}
+							templates={templates}
+						/>
+					</>
+				)}
 			</Suspense>
 		</div>
 	);
