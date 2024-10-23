@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // state/actions
 import { editSetting } from '@/data-access/settings/editSetting';
@@ -41,8 +41,22 @@ const EditRow = ({
 	});
 
 	const [inputType, setInputType] = useState('simple');
-	const [resetLanguage, setResetLanguage] = useState(false);
-	const [resetComponentData, setResetComponentData] = useState(false);
+	const [inputData, setInputData] = useState(null);
+
+	const [resetComponents, setResetComponents] = useState({
+		submit: false,
+		add: false,
+		collections: false,
+	});
+
+	useEffect(() => {
+		if (collections.length !== Object.keys(state.collections).length) {
+			setState((prev) => ({
+				...prev,
+				collections: collections,
+			}));
+		}
+	}, [collections, state?.collections]);
 
 	const handleMainParam = (data) => {
 		setState((prev) => ({ ...prev, parameter: data }));
@@ -50,7 +64,7 @@ const EditRow = ({
 
 	const handleChangeInputType = (e) => {
 		setInputType(e.target.value);
-		setResetComponentData(true);
+		setInputData(null);
 	};
 
 	const handleSelection = (data) => {
@@ -84,13 +98,12 @@ const EditRow = ({
 				error: error || null,
 				success: success || null,
 			});
-			setInputType('simple');
-			setState({
-				parameter: setting?.parameter,
-				collections: setting?.collections,
-			});
-			setResetLanguage(true);
-			setResetComponentData(true);
+
+			success &&
+				(setInputType('simple'),
+				setState({ ...success }),
+				setSelectedCollection(Object.keys(state.collections)[0]),
+				setResetComponents({ submit: true, add: true, collections: true }));
 		}
 	};
 
@@ -111,6 +124,11 @@ const EditRow = ({
 							name: 'main-parameter',
 						}}
 						extractData={handleMainParam}
+						reset={{
+							resetData: resetComponents,
+							setReset: setResetComponents,
+							resetType: 'submit',
+						}}
 						// resetLanguage={resetLanguage}
 						// setResetLanguage={setResetLanguage}
 					/>
@@ -130,8 +148,13 @@ const EditRow = ({
 								classes: 'flex flex-col items-start bg-white px-[2px] w-full',
 							}}
 							extractData={handleSelection}
-							resetComponentData={resetComponentData}
-							setResetComponentData={setResetComponentData}
+							reset={{
+								resetData: resetComponents,
+								setReset: setResetComponents,
+								resetType: 'submit',
+							}}
+							// resetComponentData={resetComponentData}
+							// setResetComponentData={setResetComponentData}
 						/>
 					</fieldset>
 					<fieldset className='flex flex-col'>
@@ -154,8 +177,13 @@ const EditRow = ({
 						setState={setState}
 						actionStatus={actionStatus}
 						setActionStatus={setActionStatus}
-						resetComponentData={resetComponentData}
-						setResetComponentData={setResetComponentData}
+						inputData={inputData}
+						setInputData={setInputData}
+						reset={{
+							resetData: resetComponents,
+							setReset: setResetComponents,
+							resetType: 'add',
+						}}
 						buttonLabel='Add'
 					/>
 					{actionStatus?.error?.collectionInput && (
@@ -165,7 +193,7 @@ const EditRow = ({
 						<h5>Items</h5>
 						<DisplayCollections
 							languages={languages}
-							setting={setting}
+							// setting={setting}
 							state={state}
 							setState={setState}
 							selectedCollection={selectedCollection}

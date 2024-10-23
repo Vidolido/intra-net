@@ -27,6 +27,8 @@ const SingleCollectionItem = ({
 	};
 
 	const handleEdit = (id) => {
+		console.log(canEdit, 'canEdit');
+		console.log(id, 'id');
 		setCanEdit({
 			...canEdit,
 			edit: true,
@@ -46,7 +48,6 @@ const SingleCollectionItem = ({
 		}));
 	};
 
-	console.log(item, 'the item');
 	let typeOfValue = (item, language) => ({
 		simple: item?.value,
 		translations: item?.value[language],

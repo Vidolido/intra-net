@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // state/actions
 import { saveOptionSchema } from '@/data-access/settings/saveOptionsSchema';
@@ -30,11 +30,20 @@ const OptionsSchema = ({ setting, initState: topState, languages }) => {
 	});
 
 	const [visible, setVisible] = useState(setting?.optionsSchema ? false : true);
+	const [resetComponents, setResetComponents] = useState({
+		submit: false,
+		add: false,
+		collections: false,
+	});
 	const [resetLanguage, setResetLanguage] = useState({
 		submit: false,
 		add: false,
 		collections: false,
 	});
+
+	const handleCollectionsUpdate = (collections) => {
+		setState((prev) => ({ ...prev, collections }));
+	};
 
 	const submit = async () => {
 		const { error, success } = await saveOptionSchema(
@@ -51,6 +60,7 @@ const OptionsSchema = ({ setting, initState: topState, languages }) => {
 			collections: true,
 		});
 	};
+
 	return (
 		<form className='flex flex-col gap-1 bg-slate-100 border-[1px] border-slate-100 p-1 rounded'>
 			<input
@@ -62,10 +72,10 @@ const OptionsSchema = ({ setting, initState: topState, languages }) => {
 			<button
 				type='button'
 				onClick={() => setVisible(!visible)}
-				className='relative w-full'>
-				<h4 className='text-left'>Option schema</h4>
+				className='group flex justify-between items-center w-full'>
+				<h4>Option schema</h4>
 				<ArrowSvg
-					className={`w-[22px] h-[22px] absolute right-1 top-[3px] fill-red-500 hover:fill-red-300 ${
+					className={`w-[22px] h-[22px] m-1 fill-red-500 group-hover:fill-red-300 ${
 						visible ? '' : 'rotate-180'
 					}`}
 				/>
@@ -77,18 +87,22 @@ const OptionsSchema = ({ setting, initState: topState, languages }) => {
 						error={actionStatus.error}
 						state={state}
 						setState={setState}
-						resetLanguage={resetLanguage}
-						setResetLanguage={setResetLanguage}
-						resetType='submit'
+						reset={{
+							resetData: resetComponents,
+							setReset: setResetComponents,
+							resetType: 'submit',
+						}}
 					/>
 
 					<AddCollections
 						languages={languages}
 						setState={setState}
 						setActionStatus={setActionStatus}
-						resetLanguage={resetLanguage}
-						setResetLanguage={setResetLanguage}
-						resetType='add'
+						reset={{
+							resetData: resetComponents,
+							setReset: setResetComponents,
+							resetType: 'add',
+						}}
 					/>
 
 					{actionStatus?.error?.collections && (
@@ -98,11 +112,14 @@ const OptionsSchema = ({ setting, initState: topState, languages }) => {
 					{!!state?.collections.length && (
 						<Collections
 							languages={languages}
+							state={state}
 							setState={setState}
-							collections={state.collections}
-							resetLanguage={resetLanguage}
-							setResetLanguage={setResetLanguage}
-							resetType='collections'
+							functions={{ handleCollectionsUpdate }}
+							reset={{
+								resetData: resetComponents,
+								setReset: setResetComponents,
+								resetType: 'add',
+							}}
 						/>
 					)}
 					<ContextButton

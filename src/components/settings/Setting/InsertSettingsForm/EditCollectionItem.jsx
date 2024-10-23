@@ -57,7 +57,7 @@ const EditCollectionItem = ({
 	item,
 }) => {
 	const handleChange = (data, dataObj) => {
-		let collection = state?.collections[selectedCollection];
+		let collection = [...state?.collections[selectedCollection]];
 
 		collection = collection.map((cItem) => {
 			if (cItem.id === item.id && cItem._id === item._id) {
@@ -83,7 +83,7 @@ const EditCollectionItem = ({
 			},
 		}));
 	};
-	console.log(state, 'the state');
+	// console.log(state, 'the state');
 	return (
 		<div> {types(languages, item.value, handleChange)[item.inputType]} </div>
 	);

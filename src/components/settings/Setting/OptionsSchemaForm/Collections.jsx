@@ -1,5 +1,5 @@
 'use client';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 
 // state/actions
 import { generateUUID } from '@/utils/generateUUID';
@@ -8,72 +8,64 @@ import { generateUUID } from '@/utils/generateUUID';
 import ContextButton from '@/components/buttons/ContextButton';
 import LanguageInput from '@/components/reusable/LanguageInput';
 import { deepEqual } from '@/utils/helpers/deepEqual';
+import SingleCollection from './SingleCollection';
 
 const Collections = ({
 	languages,
+	state,
 	setState,
-	collections,
+	// collections,
+	functions,
+	reset,
 	resetLanguage,
 	setResetLanguage,
 	resetType,
 }) => {
-	const handleCollectionData = (data, dataObj) => {
-		// console.log(collections, 'old');
-		let newCollections = [...collections];
-		newCollections = newCollections.find(
-			(coll) => coll.id === dataObj?.id
-		).name = data;
-		// console.log(newCollections, 'NEW COLL');
-		// setState((prev) => ({ ...prev, collections: newCollections }));
-		// console.log(newCollections, 'NEW');
-		// const collectionMap = new Map(
-		//   collections.map((item) => [dataObj.id, data])
-		// );
-		// console.log(collectionMap, 'coll map');
-		// console.log(
-		//   collections.find((item) => item.id === dataObj.id),
-		//   'collections from state'
-		// );
-		// setState((prev) => ({
-		//   ...prev,
-		//   collections: [
-		//     ...prev.collections,
-		//     ...(prev.collections.find((item) => item.id === dataObj.id).name =
-		//       data),
-		//   ],
-		// }));
-		// console.log(data, dataObj, 'THIS RAN');
-		// let newCollections = [...collections];
-		// console.log(newCollections, 'new COLL');
-		// newCollections.find((coll) => coll.id === dataObj?.id).name = data;
-		// setState((prev) => ({
-		//   ...prev,
-		//   collections: newCollections,
-		// }));
-		// setResetLanguage((prev) => ({
-		//   ...prev,
-		//   [resetType]: true,
-		// }));
-	};
+	let collections = state?.collections && [...state?.collections];
+	// let collections = [...state.collections];
+	// const [collectionData, setCollectionData] = useState(
+	// 	[...state.collections] || []
+	// );
+	// const handleCollectionData = useCallback(
+	// 	(data, dataObj) => {
+	// 		console.log(data, dataObj);
+	// 		const updatedCollections = collectionData.map((item) => {
+	// 			if (item.id === dataObj.id) {
+	// 				// Create a new object for the modified item
+	// 				return { ...item, name: data };
+	// 			}
+	// 			return item; // Return unchanged items
+	// 		});
+	// 		// console.log(updatedCollections, 'updated');
+	// 		functions.handleCollectionsUpdate(updatedCollections);
+	// 		// setCollectionData(updatedCollections);
+	// 		// reset.setReset((prev) => ({
+	// 		// 	...prev,
+	// 		// 	[resetType]: false,
+	// 		// }));
+	// 	},
+	// 	[collectionData, functions]
+	// );
 
-	const handleDelete = (e) => {
-		let filtered = collections.filter(
-			(collection) => JSON.stringify(collection) !== JSON.stringify(e)
-		);
-		setState((prev) => ({
-			...prev,
-			collections: filtered,
-		}));
-		setResetLanguage((prev) => ({
-			...prev,
-			[resetType]: true,
-		}));
-	};
+	// const handleDelete = (e) => {
+	// 	let filtered = state?.collections.filter(
+	// 		(collection) => JSON.stringify(collection) !== JSON.stringify(e)
+	// 	);
+	// 	setState((prev) => ({
+	// 		...prev,
+	// 		collections: filtered,
+	// 	}));
+	// 	reset.setReset((prev) => ({
+	// 		...prev,
+	// 		[resetType]: true,
+	// 	}));
+	// };
+	console.log(state, 'STEJTO');
 	return (
 		<fieldset name='option-schema-collections' className='flex flex-col gap-1'>
 			<h5>Collections</h5>
-			{collections &&
-				collections.map((collection) => (
+			{/* {collectionData &&
+				collectionData.map((collection) => (
 					<div key={collection?._id || generateUUID()} className='flex gap-2'>
 						<LanguageInput
 							languages={languages}
@@ -94,6 +86,18 @@ const Collections = ({
 							onClick={() => handleDelete(collection)}
 						/>
 					</div>
+				))} */}
+			{collections &&
+				collections.map((collection) => (
+					<SingleCollection
+						key={collection?.id || collection?._id || generateUUID()}
+						_id={collection?.id || collection?._id.toString() || null}
+						languages={languages}
+						collection={collection}
+						state={state}
+						functions={functions}
+						reset={reset}
+					/>
 				))}
 		</fieldset>
 	);

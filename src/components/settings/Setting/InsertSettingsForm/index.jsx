@@ -24,6 +24,7 @@ const InsertSettingsForm = ({ setting, insertSettingsProps, languages }) => {
 		success: null,
 	});
 	const [inputType, setInputType] = useState('simple');
+	const [inputData, setInputData] = useState(null);
 
 	const [resetComponents, setResetComponents] = useState({
 		submit: false,
@@ -40,14 +41,9 @@ const InsertSettingsForm = ({ setting, insertSettingsProps, languages }) => {
 				...prev,
 				collections: insertSettingsProps?.state?.collections,
 			}));
-			// setResetComponentData(true);
-			// setResetComponents({
-			// 	...resetComponents,
-			// 	collections: true,
-			// });
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [insertSettingsProps?.state.collections, state.collections]);
+	}, [insertSettingsProps?.state?.collections, state?.collections]);
 
 	const handleMainParam = (data) => {
 		setState((prev) => ({ ...prev, parameter: data }));
@@ -55,11 +51,7 @@ const InsertSettingsForm = ({ setting, insertSettingsProps, languages }) => {
 
 	const handleChangeInputType = (e) => {
 		setInputType(e.target.value);
-		setResetComponents({
-			submit: false,
-			add: false,
-			collections: false,
-		});
+		setInputData(null);
 	};
 
 	const handleSelection = (data) => {
@@ -89,16 +81,12 @@ const InsertSettingsForm = ({ setting, insertSettingsProps, languages }) => {
 				error: error || null,
 				success: success || null,
 			});
-			setInputType('simple');
-			setState(insertSettingsProps?.state);
-			// setResetLanguage(true);
-			// setResetComponentData(true);
 
-			setResetComponents({
-				submit: true,
-				add: true,
-				collections: true,
-			});
+			success &&
+				(setInputType('simple'),
+				setState(insertSettingsProps?.state),
+				setSelectedCollection(insertSettingsProps?.selected),
+				setResetComponents({ submit: true, add: true, collections: true }));
 		}
 	};
 
@@ -115,9 +103,11 @@ const InsertSettingsForm = ({ setting, insertSettingsProps, languages }) => {
 					name: 'main-parameter',
 				}}
 				extractData={handleMainParam}
-				resetLanguage={resetComponents}
-				setResetLanguage={setResetComponents}
-				resetType='submit'
+				reset={{
+					resetData: resetComponents,
+					setReset: setResetComponents,
+					resetType: 'submit',
+				}}
 			/>
 
 			{actionStatus?.error?.mainParameter && (
@@ -134,15 +124,15 @@ const InsertSettingsForm = ({ setting, insertSettingsProps, languages }) => {
 							defaultValue: selectedCollection,
 							classes: 'flex flex-col items-start bg-white px-[2px] w-full',
 						}}
-						// functions={{
-						// 	extract: handleSelection,
-						// 	reset: resetComponentData,
-						// 	setReset: setResetComponentData,
-						// }}
 						extractData={handleSelection}
-						resetComponentData={resetComponents}
-						setResetComponentData={setResetComponents}
-						resetType='submit'
+						reset={{
+							resetData: resetComponents,
+							setReset: setResetComponents,
+							resetType: 'submit',
+						}}
+						// resetComponentData={resetComponents}
+						// setResetComponentData={setResetComponents}
+						// resetType='submit'
 					/>
 				</fieldset>
 				<fieldset className='flex flex-col'>
@@ -166,6 +156,8 @@ const InsertSettingsForm = ({ setting, insertSettingsProps, languages }) => {
 				setState={setState}
 				actionStatus={actionStatus}
 				setActionStatus={setActionStatus}
+				inputData={inputData}
+				setInputData={setInputData}
 				reset={{
 					resetData: resetComponents,
 					setReset: setResetComponents,

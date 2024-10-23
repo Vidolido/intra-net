@@ -1,5 +1,5 @@
 'use client';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // state/actions
 import { deepEqual } from '@/utils/helpers/deepEqual';
@@ -7,7 +7,6 @@ import { deepEqual } from '@/utils/helpers/deepEqual';
 //compponents
 import LanguageInputField from './LanguageInputField';
 import LanguageSelector from './LanguageSelector';
-import { debounce } from '@/utils/helpers/debounce';
 
 // helper
 const initializeState = (languages, data) => {
@@ -21,9 +20,7 @@ const LanguageInput = ({
 	languages,
 	data = null,
 	extractData,
-	resetLanguage = null,
-	setResetLanguage = null,
-	resetType = null,
+	reset = null,
 }) => {
 	const [state, setState] = useState(() =>
 		initializeState(languages, data.state)
@@ -32,9 +29,23 @@ const LanguageInput = ({
 		languages[0].language
 	);
 
-	let areCollectionsEmpty =
-		data?.state &&
-		Object.values(data?.state).every((coll) => coll.length === 0);
+	useEffect(() => {
+		let resetData =
+			reset && reset.resetData
+				? Object.values(reset.resetData).some((value) => value === true)
+				: false;
+		if (resetData) {
+			// setState(() => initializeState(languages, data.state));
+			let newResetData =
+				reset.setReset &&
+				Object.entries(reset.resetData).reduce((acc, currentValue) => {
+					acc[currentValue[0]] = false;
+					return acc;
+				}, {});
+
+			reset.setReset && reset.setReset(newResetData);
+		}
+	}, [reset, languages, data]);
 
 	useEffect(() => {
 		const newState = initializeState(languages, data.state);
@@ -43,31 +54,6 @@ const LanguageInput = ({
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [data.state]);
-
-	useEffect(() => {
-		if (resetLanguage && resetLanguage[resetType]) {
-			setSelectedLanguage(data.defaultLanguage);
-			let newState = areCollectionsEmpty
-				? languages.reduce((acc, currentValue) => {
-						acc[currentValue.language] = '';
-						return acc;
-				  }, {})
-				: initializeState(languages, data?.state);
-			setState(newState);
-			setResetLanguage((prev) => ({
-				...prev,
-				[resetType]: false,
-			}));
-		}
-	}, [
-		resetLanguage,
-		data.defaultLanguage,
-		languages,
-		data.state,
-		setResetLanguage,
-		areCollectionsEmpty,
-		resetType,
-	]);
 
 	const onBlurInput = (e) => {
 		extractData &&
@@ -82,6 +68,7 @@ const LanguageInput = ({
 	};
 
 	const onSelectChange = (e) => setSelectedLanguage(e.target.value);
+
 	return (
 		<fieldset name={data?.fieldSetName} className={`${data?.fieldSetClass}`}>
 			<label className={data?.labelClass}>{data?.label}</label>

@@ -51,10 +51,11 @@ const Setting = ({ title, languages, sectors, setting }) => {
 	};
 
 	return (
-		<div className='min-w-[300px] max-w-[85%]'>
+		// <div className='min-w-[400px] max-w-[85%]'>
+		<div className='w-[85%]'>
 			<h2>{title}</h2>
-			<div className='flex gap-2 min-w-80'>
-				<div className='min-w-[35%]'>
+			<div className='flex gap-2'>
+				<div className='w-full max-w-[45%]'>
 					<HeaderForm
 						languages={languages}
 						sectors={sectors}

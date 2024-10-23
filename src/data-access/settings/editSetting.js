@@ -7,8 +7,6 @@ import Setting from '@/db/models/Setting';
 
 // ERROR HANDLING IS MISSING
 export async function editSetting(documentId, settingId, settingState) {
-	console.log(documentId, settingId, 'OVIEEEEEE');
-	console.log(settingState, 'settingState');
 	try {
 		await dbConnect();
 		const foundDocument = await Setting.findOne({ _id: documentId });
@@ -21,7 +19,7 @@ export async function editSetting(documentId, settingId, settingState) {
 			};
 		}
 
-		let updatedSettings = foundDocument.settings.map((setting) => {
+		let updatedDocumentSettings = foundDocument.settings.map((setting) => {
 			if (setting._id.toString() === settingId.toString()) {
 				return {
 					_id: setting._id,
@@ -31,25 +29,33 @@ export async function editSetting(documentId, settingId, settingState) {
 			return setting;
 		});
 
+		let upadtedSetting = updatedDocumentSettings.find(
+			(setting) => setting._id.toString() === settingId.toString()
+		);
+
+		upadtedSetting = JSON.parse(JSON.stringify(upadtedSetting));
+
 		let updated = await Setting.updateOne(
 			{ _id: documentId },
-			// { settings: updatedSettings }
 			{
-				$set: { settings: updatedSettings },
+				$set: { settings: updatedDocumentSettings },
 			}
 		);
-		console.log(updated);
 		const pathsToRevalidate = [
-			`/dashboard/settings/edit/[_id]`,
-			`/dashboard/settings/draft/[_id]`,
+			`/dashboard/settings/edit/${documentId}`,
+			`/dashboard/settings/draft/${documentId}`,
 			'/dashboard/settings/create',
 		];
+		// const pathsToRevalidate = [
+		// 	`/dashboard/settings/edit/[_id]`,
+		// 	`/dashboard/settings/draft/[_id]`,
+		// 	'/dashboard/settings/create',
+		// ];
 
 		pathsToRevalidate.forEach((path) => revalidatePath(path, 'page'));
 
-		// return JSON.stringify({ message: 'Update successfull' });
 		return {
-			success: 'Setting successfully added.',
+			success: { ...upadtedSetting },
 			error: null,
 		};
 	} catch (error) {
@@ -60,7 +66,5 @@ export async function editSetting(documentId, settingId, settingState) {
 				catch: error.message,
 			},
 		};
-		// console.log('Failed to update setting. Error:', error);
-		// throw Error('Could not update setting in database: ' + error);
 	}
 }

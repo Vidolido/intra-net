@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 
 // state/actions
 import { generateUUID } from '@/utils/generateUUID';
@@ -26,9 +26,7 @@ let types = (
 				inputClass: 'h-21px',
 			}}
 			extractData={onChange}
-			resetComponentData={reset?.resetData}
-			setResetComponentData={reset?.setReset}
-			resetType={reset?.type}
+			reset={reset}
 		/>
 	),
 	translations: (
@@ -41,9 +39,7 @@ let types = (
 				inputName: 'translations',
 			}}
 			extractData={onChange}
-			resetLanguage={reset?.resetData}
-			setResetLanguage={reset?.setReset}
-			resetType={reset?.type}
+			reset={reset}
 		/>
 	),
 	'key/value': (
@@ -56,9 +52,7 @@ let types = (
 					inputClass: 'h-21px',
 				}}
 				extractData={onChange}
-				resetComponentData={reset.resetData}
-				setResetComponentData={reset.setReset}
-				resetType={reset.type}
+				reset={reset}
 			/>
 			<NormalInput
 				data={{
@@ -68,9 +62,7 @@ let types = (
 					inputClass: 'h-21px',
 				}}
 				extractData={onChange}
-				resetComponentData={reset.resetData}
-				setResetComponentData={reset.setReset}
-				resetType={reset.type}
+				reset={reset}
 			/>
 		</>
 	),
@@ -82,27 +74,19 @@ const CollectionInput = ({
 	selectedCollection,
 	state,
 	setState,
+	inputData,
+	setInputData,
 	setActionStatus,
 	reset,
-	// resetComponentData,
-	// setResetComponentData,
 	buttonLabel,
 }) => {
-	const [input, setInput] = useState(null);
-
 	const handleAdd = () => {
-		if (!input) {
+		if (!inputData) {
 			setActionStatus({
 				error: { collectionInput: 'Add a value.' },
 				success: null,
 			});
 		} else {
-			setActionStatus({
-				error: null,
-				success: {
-					collectionInput: 'Successfuly added.',
-				},
-			});
 			let collections = state?.collections ? { ...state.collections } : {};
 			let collectionToInsert = collections[selectedCollection]
 				? [...collections[selectedCollection]]
@@ -111,47 +95,50 @@ const CollectionInput = ({
 			let payload = {
 				id: generateUUID(),
 				inputType,
-				value: input,
+				value: inputData,
 			};
 			collectionToInsert.push(payload);
 			collections[selectedCollection] = collectionToInsert;
+
 			setState((prev) => ({ ...prev, collections }));
-			// setResetComponentData((prev) => ({
-			// 	...prev,
-			// 	add: true,
-			// }));
-			reset.setReset({
+
+			setActionStatus({
+				error: null,
+				success: {
+					collectionInput: 'Successfuly added.',
+				},
+			});
+			setInputData(null);
+			reset?.setReset({
 				submit: false,
 				add: true,
 				collections: false,
 			});
-			setInput(null);
 		}
 	};
 
 	const handleChange = (data, dataObj) => {
 		let name = dataObj?.name;
 		let value = data;
-		if (inputType === dataObj?.name) {
-			setInput(value);
+		if ('simple' === dataObj?.name && typeof data === 'string') {
+			setInputData(value);
 		}
-		if (inputType === dataObj?.name) {
-			setInput(value);
+		if ('translations' === dataObj?.name && typeof data === 'object') {
+			setInputData(value);
 		}
-		if (inputType === 'key/value') {
-			setInput((prevState) => ({
+		if ('key/value' === inputType && typeof data === 'string') {
+			setInputData((prevState) => ({
 				...prevState,
 				[name]: value,
 			}));
 		}
 	};
-	// console.log(state.collections, 'the state.collections');
 	return (
 		<fieldset className='flex items-start gap-2' name='collection-input'>
-			{types(languages, input, handleChange, reset)[inputType]}
+			{types(languages, inputData, handleChange, reset)[inputType]}
 			<ContextButton label={buttonLabel} type='edit' onClick={handleAdd} />
 		</fieldset>
 	);
 };
 
-export default CollectionInput;
+export default memo(CollectionInput);

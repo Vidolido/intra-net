@@ -26,13 +26,14 @@ const DisplaySettings = ({
 	// 	}
 	// });
 
-	let colNo = headings?.collections.length;
+	let colNo = headings?.collections?.length;
 	let gridTemplateColumns = generateGridTemplate(colNo + 1);
 	let classes = 'grid border';
 	let editClass = `col-span-${colNo + 1}`;
 
 	const handleOptions = (settingId) => {
-		const newOptions = optionsForSettings.map((option) => {
+		// const newOptions = optionsForSettings.map((option) => {
+		const newOptions = options.map((option) => {
 			if (option._id === settingId) {
 				return {
 					...option,
@@ -71,7 +72,8 @@ const DisplaySettings = ({
 	};
 
 	return (
-		<div classes='w-[65%]'>
+		<div classes='w-fill'>
+			{/* <div classes='w-[65%]'> */}
 			<Headings
 				defaultLanguage={defaultLanguage}
 				headings={headings}

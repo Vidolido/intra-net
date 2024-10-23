@@ -1,4 +1,4 @@
-'use client';
+// 'use client';
 
 // components
 import SingleCollectionItem from './SingleCollectionItem';
@@ -9,9 +9,9 @@ const DisplayCollections = ({
 	setState,
 	selectedCollection,
 }) => {
-	let collectionItems =
-		state?.collections && state?.collections[selectedCollection];
-
+	let collectionItems = state?.collections && [
+		...state?.collections[selectedCollection],
+	];
 	return (
 		<fieldset name='collection-items'>
 			<ul className='pl-5 flex flex-col gap-1'>

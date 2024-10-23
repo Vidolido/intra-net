@@ -1,5 +1,4 @@
-'use client';
-import { useCallback, useState } from 'react';
+// 'use client';
 
 // components
 import DragSvg from '@/../public/drag.svg';
@@ -30,7 +29,6 @@ const SettingRow = ({
 				<DragSvg className='text-slate-400 hover:text-red-600 text-center w-[25px] h-[25px] cursor-pointer' />
 			</div>
 
-			{/* edit component */}
 			{option?.options?.edit && (
 				<EditRow
 					languages={languages}
@@ -45,7 +43,6 @@ const SettingRow = ({
 				/>
 			)}
 
-			{/* view db data component */}
 			{!option?.options?.edit && (
 				<DisplaySetting
 					defaultLanguage={defaultLanguage}
@@ -55,7 +52,6 @@ const SettingRow = ({
 				/>
 			)}
 
-			{/* button component */}
 			<Options
 				documentId={documentId}
 				settingId={setting._id}
