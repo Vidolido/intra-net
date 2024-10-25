@@ -2,7 +2,7 @@
 
 // state/actions
 import { useErrorContext } from '@/state/ErrorContext';
-import { saveBasicData } from '@/serverActions/laboratoryTemplates/saveBasicData';
+import { saveBasicData } from '@/data-access/templates/saveBasicData';
 
 // components
 import ContextButton from '@/components/buttons/ContextButton';
